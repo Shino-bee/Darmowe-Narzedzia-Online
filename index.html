@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- style.css & script.js -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script src="script.js"></script> -->
+
+    <title>Darmowe Narzędzia Online</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#" style="margin-left: 3px;">Darmowe Narzędzia Online</a>
+        <form id="form_search_inside" class="forms form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            aria-label="Search"
+          />
+          <button
+            id="button_search"
+            class="btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+          >
+            Szukaj
+          </button>
+        </form>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Konwerter jednostek</a
+              >
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Narzędzia dot. tekstu</a
+              >
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Kalkulatory online
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Inne
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <form id="form_search_outside" class="forms form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            aria-label="Search"
+          />
+          <button
+            id="button_search"
+            class="btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+          >
+            Szukaj
+          </button>
+        </form>
+      </nav>
+    </header>
+    <main>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias, dolorem
+        eveniet qui at corrupti quisquam enim iusto architecto repellat corporis
+        aliquid odit ullam quos id optio minus nostrum? Dolorem, deserunt. Iusto
+        necessitatibus, reprehenderit ullam pariatur, hic dignissimos aliquid
+        sint molestiae dolorem natus saepe, cum fugiat modi incidunt doloremque
+        eaque assumenda? Itaque officia facilis cum! Nulla omnis praesentium
+        provident reiciendis sunt! Porro blanditiis accusamus excepturi amet
+        quia quasi assumenda esse dolore enim obcaecati modi, tenetur, rerum
+        fugiat harum temporibus deserunt eaque sunt atque, totam provident? Iure
+        exercitationem id provident natus hic! Enim et ipsam quasi est.
+        Inventore voluptas, sint eos reiciendis aliquid minima voluptatum maxime
+        illo maiores ullam et exercitationem quos ea, tempora earum repellat!
+        Excepturi eos harum necessitatibus ut impedit! Sint libero, incidunt
+        molestias animi, sit totam, dolorem soluta obcaecati officiis voluptas
+        amet non illum asperiores suscipit aspernatur adipisci nesciunt? In
+        possimus dolorem quae nam quam, officia eaque assumenda ipsa?
+      </p>
+    </main>
+  </body>
+</html>
