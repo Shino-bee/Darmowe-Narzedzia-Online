@@ -1,0 +1,42 @@
+@import url(_base.css);
+
+:root {
+  /* Two main colors background (dark) and text (light) */
+  --main-color-dark: rgb(28, 35, 48);
+  --main-color-light: rgb(190, 190, 190);
+
+  --main-color-darklighter: rgb(64, 76, 83);
+  --main-color-darklight: rgb(37, 47, 66);
+  --main-color-lighter: rgb(238, 236, 233);
+
+  --main-color-green: rgb(30, 75, 30);
+  --main-color-orange: rgb(128, 58, 12);
+  --main-color-red: rgb(100, 1, 1);
+
+  --bgcolor-tool-icon: rgb(189, 183, 107);
+  --bgcolor-menu-dropdown: rgba(64, 76, 83, 0.97);
+
+  --navbar-border: 3px outset rgb(160, 158, 158);
+  --tools-border: 5px groove rgb(51, 105, 105);
+
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 17px;
+  color: var(--main-color-lighter);
+  background-color: var(--main-color-dark);
+}
+
+a {
+  color: var(--main-color-lighter);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}

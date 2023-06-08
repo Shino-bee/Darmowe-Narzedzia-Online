@@ -1,181 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl-PL">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Bootstrap -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- JS -->
+    <script defer src="js/main.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
     />
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- style.css & script.js -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- <script src="script.js"></script> -->
 
     <title>Darmowe Narzędzia Online</title>
   </head>
+
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#" style="margin-left: 3px;">Darmowe Narzędzia Online</a>
-        <form id="form_search_inside" class="forms form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            aria-label="Search"
-          />
-          <button
-            id="button_search"
-            class="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-          >
-            Szukaj
-          </button>
-        </form>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                >Konwerter jednostek</a
-              >
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                >Narzędzia dot. tekstu</a
-              >
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Kalkulatory online
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Inne
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
+    <div id="menu-dropdown-bg"></div>
+    <header id="header">
+      <nav id="header-nav">
+        <div id="header-nav-menu">
+          <button id="header-nav-menu-btn"></button>
+          <div id="header-nav-menu-dropdown">
+            <a class="menu-dropdown-a" href="#unit-converter"
+              >Konwertery jednostek</a
+            >
+            <a class="menu-dropdown-a" href="#">Kalkulatory online</a>
+            <a class="menu-dropdown-a" href="#">Narzędzia dot. tekstu</a>
+            <a class="menu-dropdown-a" href="#">Inne</a>
+          </div>
         </div>
-        <form id="form_search_outside" class="forms form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            aria-label="Search"
-          />
-          <button
-            id="button_search"
-            class="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-          >
-            Szukaj
+        <h3 id="header-nav-h">
+          <a href="index.html">Darmowe Narzędzia Online</a>
+        </h3>
+        <ul id="header-nav-ul">
+          <li class="header-nav-ul-li">
+            <a href="#unit-converter">Konwerter jednostek</a>
+          </li>
+          <li class="header-nav-ul-li"><a href="#">Kalkulatory online</a></li>
+          <li class="header-nav-ul-li">
+            <a href="#">Narzędzia dot. tekstu</a>
+          </li>
+          <li class="header-nav-ul-li"><a href="#">Inne</a></li>
+        </ul>
+        <form id="header-nav-form" action="#">
+          <input id="header-nav-form-input" type="search" />
+          <button id="header-nav-form-btn">
+            <span class="material-symbols-outlined"> search </span>
           </button>
         </form>
       </nav>
     </header>
-    <main>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias, dolorem
-        eveniet qui at corrupti quisquam enim iusto architecto repellat corporis
-        aliquid odit ullam quos id optio minus nostrum? Dolorem, deserunt. Iusto
-        necessitatibus, reprehenderit ullam pariatur, hic dignissimos aliquid
-        sint molestiae dolorem natus saepe, cum fugiat modi incidunt doloremque
-        eaque assumenda? Itaque officia facilis cum! Nulla omnis praesentium
-        provident reiciendis sunt! Porro blanditiis accusamus excepturi amet
-        quia quasi assumenda esse dolore enim obcaecati modi, tenetur, rerum
-        fugiat harum temporibus deserunt eaque sunt atque, totam provident? Iure
-        exercitationem id provident natus hic! Enim et ipsam quasi est.
-        Inventore voluptas, sint eos reiciendis aliquid minima voluptatum maxime
-        illo maiores ullam et exercitationem quos ea, tempora earum repellat!
-        Excepturi eos harum necessitatibus ut impedit! Sint libero, incidunt
-        molestias animi, sit totam, dolorem soluta obcaecati officiis voluptas
-        amet non illum asperiores suscipit aspernatur adipisci nesciunt? In
-        possimus dolorem quae nam quam, officia eaque assumenda ipsa?
-      </p>
+
+    <main id="main">
+      <figure id="figure-image">
+        <img id="figure-image-img" src="images/tools.jpg" alt="main-img" />
+        <figcaption id="figure-image-text">
+          <h1>Darmowe narzędzia online</h1>
+          <p>
+            Użyteczne bezpłatne narzędzia internetowe, jakich możesz potrzebować
+          </p>
+        </figcaption>
+      </figure>
+
+      <article id="main-article-content">
+        <section id="unit-converter" class="article-content-section">
+          <div class="content-section-text">
+            <h3>Konwertery jednostek (przeliczniki)</h3>
+            <p>
+              Uzyskaj dostęp do naszych najpopularniejszych konwerterów poniżej,
+              aby szybko przeliczać kursy walut, temperaturę, obszar i nie
+              tylko.
+            </p>
+          </div>
+          <div class="content-section-tools">
+            <a href="html/unit_converters/length_converter.html"
+              ><div class="section-tool">
+                <img
+                  class="section-tool-icon"
+                  src="images/unit_converters/length_converter.svg"
+                  alt="Konwerter długości"
+                />
+                <span class="section-tool-span">Konwerter długości</span>
+              </div></a
+            >
+            <div class="section-tool">
+              <img
+                class="section-tool-icon"
+                src="images/unit_converters/weight_converter.svg"
+                alt="Konwerter jednostek masy"
+              />
+              <span class="section-tool-span">Konwerter jednostek masy</span>
+            </div>
+            <div class="section-tool">
+              <img
+                class="section-tool-icon"
+                src="images/unit_converters/temperature_converter.svg"
+                alt="pKonwerter jednostek temperatury"
+              />
+              <span class="section-tool-span"
+                >Konwerter jednostek temperatury</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <section id="unit-converter" class="article-content-section">
+          <div class="content-section-text">
+            <h3>Konwertery jednostek (przeliczniki)</h3>
+            <p>
+              Uzyskaj dostęp do naszych najpopularniejszych konwerterów poniżej,
+              aby szybko przeliczać kursy walut, temperaturę, obszar i nie
+              tylko.
+            </p>
+          </div>
+          <div class="content-section-tools">
+            <a href="html/unit_converters/length_converter.html"
+              ><div class="section-tool">
+                <img
+                  class="section-tool-icon"
+                  src="images/unit_converters/length_converter.svg"
+                  alt="Konwerter długości"
+                />
+                <span class="section-tool-span">Konwerter długości</span>
+              </div></a
+            >
+            <div class="section-tool">
+              <img
+                class="section-tool-icon"
+                src="images/unit_converters/weight_converter.svg"
+                alt="Konwerter jednostek masy"
+              />
+              <span class="section-tool-span">Konwerter jednostek masy</span>
+            </div>
+            <div class="section-tool">
+              <img
+                class="section-tool-icon"
+                src="images/unit_converters/temperature_converter.svg"
+                alt="pKonwerter jednostek temperatury"
+              />
+              <span class="section-tool-span"
+                >Konwerter jednostek temperatury</span
+              >
+            </div>
+          </div>
+        </section>
+      </article>
     </main>
   </body>
 </html>

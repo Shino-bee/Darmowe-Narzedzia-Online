@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/unit_converters/main_unit_converters.css"
+    />
+    <!-- JS -->
+    <script defer type="text/javascript" src="../../js/main.js"></script>
+    <script
+      defer
+      type="module"
+      src="../../js/unit_converters/main_unit_converters.js"
+    ></script>
+    <script
+      defer
+      type="module"
+      src="../../js/unit_converters/length_converter.js"
+    ></script>
+
+    <title>Darmowe Narzędzia Online</title>
+  </head>
+  <body>
+    <div id="menu-dropdown-bg"></div>
+    <header id="header">
+      <nav id="header-nav">
+        <div id="header-nav-menu">
+          <button id="header-nav-menu-btn"></button>
+          <div id="header-nav-menu-dropdown">
+            <a class="menu-dropdown-a" href="../../index.html#unit-converter"
+              >Konwertery jednostek</a
+            >
+            <a class="menu-dropdown-a" href="#">Kalkulatory online</a>
+            <a class="menu-dropdown-a" href="#">Narzędzia dot. tekstu</a>
+            <a class="menu-dropdown-a" href="#">Inne</a>
+          </div>
+        </div>
+        <h3 id="header-nav-h">
+          <a href="../../index.html">Darmowe Narzędzia Online</a>
+        </h3>
+
+        <ul id="header-nav-ul">
+          <li class="header-nav-ul-li">
+            <a href="../../index.html#unit-converter">Konwerter jednostek</a>
+          </li>
+          <li class="header-nav-ul-li"><a href="#">Kalkulatory online</a></li>
+          <li class="header-nav-ul-li">
+            <a href="#">Narzędzia dot. tekstu</a>
+          </li>
+          <li class="header-nav-ul-li"><a href="#">Inne</a></li>
+        </ul>
+        <form id="header-nav-form" action="#">
+          <input id="header-nav-form-input" type="search" />
+          <button id="header-nav-form-btn">
+            <span class="material-symbols-outlined"> search </span>
+          </button>
+        </form>
+      </nav>
+    </header>
+
+    <main id="main">
+      <figure id="figure-image">
+        <img id="figure-image-img" src="../../images/tools.jpg" alt="" />
+        <figcaption id="figure-image-text">
+          <h1>Konwerter długości</h1>
+          <p>Narzędzie do konwersji jednostek długości</p>
+        </figcaption>
+      </figure>
+
+      <article id="main-article-content">
+        <section id="content-section-program" class="article-content-section">
+          <form id="program-form">
+            <label for="value">Wartość</label>
+            <input type="number" id="program-form-value" name="value" />
+            <label for="unit"
+              >Przekonwertuj <span class="unit-to-convert">metr</span> na
+              inne</label
+            >
+            <select id="program-form-unit" name="unit">
+              <option value="meter" selected="selected">Metry</option>
+              <option value="kilometer">Kilometry</option>
+              <option value="centimeter">Centymetry</option>
+              <option value="millimeter">Milimetry</option>
+              <option value="micrometer">Mikrometry</option>
+              <option value="nanometer">Nanometry</option>
+              <option value="mile">Mile</option>
+              <option value="foot">Stopy</option>
+              <option value="inch">Cale</option>
+              <option value="light year">Lata świetlne</option>
+            </select>
+            <div id="program-form-btns">
+              <button type="button" id="program-form-btn-converter">
+                Oblicz
+              </button>
+              <button type="reset" id="program-form-btn-reset">Reset</button>
+            </div>
+          </form>
+          <table id="program-table">
+            <tbody>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na metry</td>
+                <td><span class="converted-value">100</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na kilometry</td>
+                <td><span class="converted-value">100</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="unit-to-convert">Metry</span> na centymetry
+                </td>
+                <td><span class="converted-value">100</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na milimetry</td>
+                <td><span class="converted-value">100</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="unit-to-convert">Metry</span> na mikrometry
+                </td>
+                <td><span class="converted-value">100</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na nanometry</td>
+                <td><span class="converted-value">100</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na mile</td>
+                <td><span class="converted-value">100</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na stopy</td>
+                <td><span class="converted-value">100</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na cale</td>
+                <td><span class="converted-value">100</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="unit-to-convert">Metry</span> na lata świetlne
+                </td>
+                <td><span class="converted-value">100</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section
+          id="content-section-description"
+          class="article-content-section"
+        >
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut maxime
+          quis excepturi perspiciatis rem adipisci saepe labore culpa accusamus
+          quae architecto at dolore fugit non dignissimos harum corrupti
+          possimus quaerat deserunt veritatis rerum necessitatibus amet, enim
+          vero. Deserunt praesentium vitae cum sapiente tenetur dolores id, vel
+          fuga facilis quasi, eos explicabo pariatur accusantium ipsam! Iure
+          provident hic, veniam ipsa incidunt quo ipsum, exercitationem repellat
+          necessitatibus sint nesciunt, nulla praesentium eos?
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
