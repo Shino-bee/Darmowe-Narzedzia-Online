@@ -89,9 +89,27 @@
 
       <article id="main-article-content">
         <section id="content-section-program" class="article-content-section">
-          <form id="program-form">
+          <iframe
+            name="hiddenFrame"
+            style="
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              width: 1px;
+              height: 1px;
+            "
+          ></iframe>
+          <form id="program-form" method="post" target="hiddenFrame">
             <label for="value">Wartość</label>
-            <input type="number" id="program-form-value" name="value" />
+            <input
+              type="number"
+              id="program-form-value"
+              name="value"
+              step="1"
+              min="1"
+              autocomplete="off"
+              required
+            />
             <label for="unit"
               >Przekonwertuj <span class="unit-to-convert">metr</span> na
               inne</label
@@ -109,7 +127,7 @@
               <option value="light year">Lata świetlne</option>
             </select>
             <div id="program-form-btns">
-              <button type="button" id="program-form-btn-converter">
+              <button type="submit" id="program-form-btn-calculate">
                 Oblicz
               </button>
               <button type="reset" id="program-form-btn-reset">Reset</button>
@@ -119,49 +137,49 @@
             <tbody>
               <tr>
                 <td><span class="unit-to-convert">Metry</span> na metry</td>
-                <td><span class="converted-value">100</span></td>
+                <td><span class="unit-value-converted">100</span></td>
               </tr>
               <tr>
                 <td><span class="unit-to-convert">Metry</span> na kilometry</td>
-                <td><span class="converted-value">100</span></td>
+                <td><span class="unit-value-converted">100</span></td>
               </tr>
               <tr>
                 <td>
                   <span class="unit-to-convert">Metry</span> na centymetry
                 </td>
-                <td><span class="converted-value">100</span></td>
+                <td><span class="unit-value-converted">100</span></td>
               </tr>
               <tr>
                 <td><span class="unit-to-convert">Metry</span> na milimetry</td>
-                <td><span class="converted-value">100</span></td>
+                <td><span class="unit-value-converted">100</span></td>
               </tr>
               <tr>
                 <td>
                   <span class="unit-to-convert">Metry</span> na mikrometry
                 </td>
-                <td><span class="converted-value">100</span></td>
+                <td><span class="unit-value-converted">100</span></td>
               </tr>
               <tr>
                 <td><span class="unit-to-convert">Metry</span> na nanometry</td>
-                <td><span class="converted-value">100</span></td>
+                <td><span class="unit-value-converted">100</span></td>
               </tr>
               <tr>
                 <td><span class="unit-to-convert">Metry</span> na mile</td>
-                <td><span class="converted-value">100</span></td>
+                <td><span class="unit-value-converted">100</span></td>
               </tr>
               <tr>
                 <td><span class="unit-to-convert">Metry</span> na stopy</td>
-                <td><span class="converted-value">100</span></td>
+                <td><span class="unit-value-converted">100</span></td>
               </tr>
               <tr>
                 <td><span class="unit-to-convert">Metry</span> na cale</td>
-                <td><span class="converted-value">100</span></td>
+                <td><span class="unit-value-converted">100</span></td>
               </tr>
               <tr>
                 <td>
                   <span class="unit-to-convert">Metry</span> na lata świetlne
                 </td>
-                <td><span class="converted-value">100</span></td>
+                <td><span class="unit-value-converted">100</span></td>
               </tr>
             </tbody>
           </table>
@@ -170,14 +188,17 @@
           id="content-section-description"
           class="article-content-section"
         >
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut maxime
-          quis excepturi perspiciatis rem adipisci saepe labore culpa accusamus
-          quae architecto at dolore fugit non dignissimos harum corrupti
-          possimus quaerat deserunt veritatis rerum necessitatibus amet, enim
-          vero. Deserunt praesentium vitae cum sapiente tenetur dolores id, vel
-          fuga facilis quasi, eos explicabo pariatur accusantium ipsam! Iure
-          provident hic, veniam ipsa incidunt quo ipsum, exercitationem repellat
-          necessitatibus sint nesciunt, nulla praesentium eos?
+          What is Length? The line length is the distance between the two
+          endpoints of a line segment. The length of a line segment is the
+          distance between the two points on the line segment. It is usually
+          expressed in meters, feet, or inches. Our web-based Length Converter
+          gives you 10+ conversions in just one click. e.g. if you want to
+          Convert 1-Meter you will get the below results: Meter to Meter 1 Meter
+          to Kilometer 0.001 Meter to Centimeter 100 Meter to Millimeter 1000
+          Meter to Micrometer 1000000 Meter to Nanometer 1000000000 Meter to
+          Mile 0.00062136887563302 Meter to Yard 1.0936132983377 Meter to Foot
+          3.2808398950131 Meter to Inch 39.370078740157 Meter to Light year
+          1.0570087076377E-16
         </section>
       </article>
     </main>

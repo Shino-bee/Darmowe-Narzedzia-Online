@@ -40,7 +40,7 @@
   justify-content: space-evenly;
 }
 
-#program-form-btn-converter,
+#program-form-btn-calculate,
 #program-form-btn-reset {
   color: var(--main-color-light);
   border-color: rgb(160, 158, 158);
@@ -52,7 +52,7 @@
   height: 35px;
 }
 
-#program-form-btn-converter {
+#program-form-btn-calculate {
   background-color: var(--main-color-green);
 }
 
