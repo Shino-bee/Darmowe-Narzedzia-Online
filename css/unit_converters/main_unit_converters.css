@@ -66,6 +66,7 @@
   display: block;
   height: 0;
   opacity: 0;
+  overflow-wrap: anywhere;
 }
 
 #program-table td {
@@ -75,5 +76,19 @@
 }
 
 #content-section-description {
-  background-color: darkolivegreen;
+  padding: 15px 10px;
+}
+
+#content-section-description p {
+  margin-top: 10px;
+}
+
+#content-section-description ul {
+  margin-top: 5px;
+}
+
+#content-section-description > ul > li {
+  list-style: inside;
+  list-style-type: circle;
+  margin-left: 15px;
 }

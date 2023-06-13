@@ -31,14 +31,17 @@ unitConverBtnCalculate.addEventListener("click", () => {
   const unitToConvertTableValues = document.getElementsByClassName(
     "unit-value-converted"
   );
-  const unitToConvertText =
-    unitToConvertOptions.options[unitToConvertOptions.selectedIndex].text;
   const unitToConvertValue =
     document.getElementById("program-form-value").value;
   const programFormValidity = document
     .getElementById("program-form")
     .checkValidity();
+  const unitToConvertValueName =
+    unitToConvertOptions.options[unitToConvertOptions.selectedIndex].value;
+  const unitToConvertText =
+    unitToConvertOptions.options[unitToConvertOptions.selectedIndex].text;
 
+  // Change content (text and values) in table if form is validity
   if (programFormValidity === true) {
     for (let i = 1; i < unitToConvertTableNames.length; i++) {
       unitToConvertTableNames[i].innerText = unitToConvertText;
@@ -46,7 +49,7 @@ unitConverBtnCalculate.addEventListener("click", () => {
     for (let i = 0; i < unitToConvertTableValues.length; i++) {
       unitToConvertTableValues[i].innerText = unitCoverterFunction(
         i,
-        unitToConvertText,
+        unitToConvertValueName,
         unitToConvertValue
       );
     }
@@ -62,7 +65,6 @@ unitConverBtnCalculate.addEventListener("click", () => {
 // Reset button - hide table
 const defaultUnitToConvertLabel =
   document.getElementsByClassName("unit-to-convert")[0].textContent;
-console.log("xd:", defaultUnitToConvertLabel);
 const unitConverBtnReset = document.getElementById("program-form-btn-reset");
 unitConverBtnReset.addEventListener("click", () => {
   const unitToConvertLabel =

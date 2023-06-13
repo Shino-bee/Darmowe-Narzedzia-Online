@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Darmowe Narzędzia Online" />
+    <meta name="author" content="Michał Podowski (Shino Bee)" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -97,6 +99,7 @@
               left: -1px;
               width: 1px;
               height: 1px;
+              display: none;
             "
           ></iframe>
           <form id="program-form" method="post" target="hiddenFrame">
@@ -117,6 +120,7 @@
             <select id="program-form-unit" name="unit">
               <option value="meter" selected="selected">Metry</option>
               <option value="kilometer">Kilometry</option>
+              <option value="decimeter">Decymetry</option>
               <option value="centimeter">Centymetry</option>
               <option value="millimeter">Milimetry</option>
               <option value="micrometer">Mikrometry</option>
@@ -141,6 +145,10 @@
               </tr>
               <tr>
                 <td><span class="unit-to-convert">Metry</span> na kilometry</td>
+                <td><span class="unit-value-converted">100</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na decymetry</td>
                 <td><span class="unit-value-converted">100</span></td>
               </tr>
               <tr>
@@ -188,17 +196,40 @@
           id="content-section-description"
           class="article-content-section"
         >
-          What is Length? The line length is the distance between the two
-          endpoints of a line segment. The length of a line segment is the
-          distance between the two points on the line segment. It is usually
-          expressed in meters, feet, or inches. Our web-based Length Converter
-          gives you 10+ conversions in just one click. e.g. if you want to
-          Convert 1-Meter you will get the below results: Meter to Meter 1 Meter
-          to Kilometer 0.001 Meter to Centimeter 100 Meter to Millimeter 1000
-          Meter to Micrometer 1000000 Meter to Nanometer 1000000000 Meter to
-          Mile 0.00062136887563302 Meter to Yard 1.0936132983377 Meter to Foot
-          3.2808398950131 Meter to Inch 39.370078740157 Meter to Light year
-          1.0570087076377E-16
+          <h3>Czym jest długość?</h3>
+          <p>
+            Długość to jedna z podstawowych właściwości fizycznych i geometrii,
+            która opisuje rozciągłość lub odległość między dwoma punktami.
+          </p>
+          <p>
+            Długość może odnosić się zarówno do linii prostej między dwoma
+            punktami, jak i do innych kształtów, takich jak krzywa, odcinek
+            czasu, obwód lub inne wymiary geometryczne. Może być także stosowana
+            w odniesieniu do przedmiotów, aby opisać ich rozmiar, rozciągłość
+            lub rozległość.
+          </p>
+          <p>
+            Długość jest nieodłącznym elementem wielu działań pomiarowych,
+            konstrukcji, obliczeń i analizy w naukach przyrodniczych i
+            technicznych.
+          </p>
+          <p>
+            Zakładając, że chcesz przeliczyć 1 metr, otrzymasz następujące
+            wyniki:
+          </p>
+          <ul>
+            <li>Metr na metry (m):&emsp;1</li>
+            <li>Metr na kilometry (km):&emsp;0.001</li>
+            <li>Metr na decymetry (dm):&emsp;10</li>
+            <li>Metr na centymetry (cm):&emsp;100</li>
+            <li>Metr na milimetry (mm):&emsp;1000</li>
+            <li>Metr na mikrometry (µm):&emsp;1000000</li>
+            <li>Metr na nanometry (nm):&emsp;1000000000</li>
+            <li>Metr na mile (mi):&emsp;0.00062136887563302</li>
+            <li>Metr na stopy (ft):&emsp;3.2808398950131</li>
+            <li>Metr na cale (in):&emsp;39.370078740157</li>
+            <li>Metr na lata świetlne (ly):&emsp;1.0570087076377e-16</li>
+          </ul>
         </section>
       </article>
     </main>

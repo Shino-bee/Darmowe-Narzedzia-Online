@@ -1,50 +1,53 @@
 export function length_converter(indexValueInTable, whichValue, value) {
   const lengthUnitValues = {
-    Metry: 1,
-    Kilometry: 0.001,
-    Centymetry: 100,
-    Milimetry: 1000,
-    Mikrometry: 1000000,
-    Nanometry: 1000000000,
-    Mile: 0.00062136887563302,
-    Stopy: 3.2808398950131,
-    Cale: 39.370078740157,
-    "Lata świetlne": 1.0570087076377e-16,
+    meter: 1,
+    kilometer: 0.001,
+    decimeter: 10,
+    centimeter: 100,
+    millimeter: 1000,
+    micrometer: 1000000,
+    nanometer: 1000000000,
+    mile: 0.00062136887563302,
+    foot: 3.2808398950131,
+    inch: 39.370078740157,
+    "light year": 1.0570087076377e-16,
   };
-  const baseLengthValue = lengthUnitValues[whichValue];
+  const baseUnitValue = lengthUnitValues[whichValue];
   value = parseInt(value);
-  // console.log(indexValueInTable, whichValue, value, baseLengthValue);
 
   switch (indexValueInTable) {
     // meter
     case 0:
-      return (value / baseLengthValue) * lengthUnitValues["Metry"];
+      return (value / baseUnitValue) * lengthUnitValues["meter"];
     // kilometer
     case 1:
-      return (value / baseLengthValue) * lengthUnitValues["Kilometry"];
-    // centimeter
+      return (value / baseUnitValue) * lengthUnitValues["kilometer"];
+    // decimeter
     case 2:
-      return ((value / baseLengthValue) * lengthUnitValues["Centymetry"]);
-    // millimeter
+      return (value / baseUnitValue) * lengthUnitValues["decimeter"];
+    // centimeter
     case 3:
-      return (value / baseLengthValue) * lengthUnitValues["Milimetry"];
-    // micrometer
+      return (value / baseUnitValue) * lengthUnitValues["centimeter"];
+    // millimeter
     case 4:
-      return (value / baseLengthValue) * lengthUnitValues["Mikrometry"];
-    // nanometer
+      return (value / baseUnitValue) * lengthUnitValues["millimeter"];
+    // micrometer
     case 5:
-      return (value / baseLengthValue) * lengthUnitValues["Nanometry"];
-    // mile
+      return (value / baseUnitValue) * lengthUnitValues["micrometer"];
+    // nanometer
     case 6:
-      return (value / baseLengthValue) * lengthUnitValues["Mile"];
-    // foot
+      return (value / baseUnitValue) * lengthUnitValues["nanometer"];
+    // mile
     case 7:
-      return (value / baseLengthValue) * lengthUnitValues["Stopy"];
-    // inch
+      return (value / baseUnitValue) * lengthUnitValues["mile"];
+    // foot
     case 8:
-      return (value / baseLengthValue) * lengthUnitValues["Cale"];
-    // light year
+      return (value / baseUnitValue) * lengthUnitValues["foot"];
+    // inch
     case 9:
-      return (value / baseLengthValue) * lengthUnitValues["Lata świetlne"];
+      return (value / baseUnitValue) * lengthUnitValues["inch"];
+    // light year
+    case 10:
+      return (value / baseUnitValue) * lengthUnitValues["light year"];
   }
 }
