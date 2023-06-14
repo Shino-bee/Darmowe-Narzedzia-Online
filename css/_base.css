@@ -186,7 +186,7 @@
 
 /* ------------------------------------- */
 /* ---------------MAIN IMAGE------------ */
-#figure-image {
+#main-image {
   position: relative;
   text-align: center;
   overflow: hidden;
@@ -194,37 +194,37 @@
 }
 
 @media only screen and (min-width: 992px) {
-  #figure-image {
+  #main-image {
     height: 355px;
   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 991.98px) {
-  #figure-image {
+  #main-image {
     height: 275px;
   }
 }
 
-#figure-image-img {
+#main-image-img {
   position: relative;
   width: 100vw;
   height: 275px;
 }
 
 @media only screen and (min-width: 576px) {
-  #figure-image-img {
+  #main-image-img {
     bottom: 15%;
     height: auto;
   }
 }
 
 @media (min-width: 992px) {
-  #figure-image-img {
+  #main-image-img {
     bottom: 45%;
   }
 }
 
-#figure-image-text {
+#main-image-text {
   background: rgba(255, 255, 255, 0.65);
   color: var(--main-color-red);
   font-weight: 900;
@@ -237,12 +237,12 @@
 }
 
 @media only screen and (min-width: 992px) {
-  #figure-image-text {
+  #main-image-text {
     font-size: 21px;
   }
 }
 
-#figure-image-text > * {
+#main-image-text > * {
   padding: 15px;
 }
 
