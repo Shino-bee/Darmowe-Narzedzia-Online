@@ -29,10 +29,10 @@
 }
 
 body {
+  background-color: var(--main-color-dark);
+  color: var(--main-color-lighter);
   font-family: "Nunito Sans", sans-serif;
   font-size: 17px;
-  color: var(--main-color-lighter);
-  background-color: var(--main-color-dark);
 }
 
 a {
