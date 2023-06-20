@@ -21,8 +21,6 @@
   font-size: 14px;
   margin-bottom: 15px;
   height: 30px;
-  transition: 0.15s;
-  transition-timing-function: ease;
 }
 
 #program-form-value {
@@ -67,6 +65,7 @@
   height: 0;
   opacity: 0;
   overflow-wrap: anywhere;
+  z-index: 0;
 }
 
 #program-table td {
@@ -76,19 +75,29 @@
 }
 
 #content-section-description {
-  padding: 15px 10px;
+  z-index: 1;
+}
+
+#content-section-description > h3 {
+  background-color: var(--main-color-green);
+  padding: 15px;
+  margin-bottom: 5px;
 }
 
 #content-section-description p {
-  margin-top: 10px;
+  padding: 5px 10px;
 }
 
-#content-section-description ul {
-  margin-top: 5px;
+#content-section-description p:last-of-type {
+  padding: 5px 10px 0px 10px;
+}
+
+#content-section-description > ul {
+  padding-bottom: 10px;
 }
 
 #content-section-description > ul > li {
   list-style: inside;
   list-style-type: circle;
-  margin-left: 15px;
+  padding-left: 24px;
 }

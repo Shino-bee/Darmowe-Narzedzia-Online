@@ -1,5 +1,5 @@
-/* ------------------------------------- */
-/* -------------HEADER NAVBAR----------- */
+/* ---------------------------------------------------------- */
+/* ------------------------HEADER NAVBAR--------------------- */
 #header {
   height: 100px;
   margin-bottom: 5px;
@@ -40,7 +40,7 @@
 }
 
 #header-nav-menu-btn {
-  background-image: url("../images/nav-collapsed.svg");
+  background-image: url("../images/menu-navbar-collapsed.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-color: var(--main-color-lighter);
@@ -177,8 +177,8 @@
   border-style: inset;
 }
 
-/* ------------------------------------- */
-/* ---------------MAIN IMAGE------------ */
+/* ---------------------------------------------------------- */
+/* ------------------------MAIN IMAGE------------------------ */
 #main-image {
   position: relative;
   text-align: center;
@@ -239,8 +239,8 @@
   padding: 15px;
 }
 
-/* ------------------------------------- */
-/* --------------MAIN CONTENT----------- */
+/* ---------------------------------------------------------- */
+/* ------------------------MAIN CONTENT---------------------- */
 #main-article-content {
   display: flex;
   flex-direction: column;
@@ -250,7 +250,7 @@
 
 @media only screen and (min-width: 992px) {
   #main-article-content {
-    margin: 30px 50px;
+    margin: 30px 50px 0px 50px;
   }
 }
 
@@ -307,12 +307,12 @@
   border-radius: 4px;
   margin-right: 10px;
   height: 35px;
-  min-width: 42.5px;
-  max-width: 42.5px;
+  min-width: 44px;
+  max-width: 44px;
 }
 
-/* ------------------------------------- */
-/* ----------------FOOTER--------------- */
+/* ---------------------------------------------------------- */
+/* --------------------------FOOTER-------------------------- */
 
 #footer,
 #footer-links {
@@ -324,11 +324,11 @@
 #footer {
   background-color: var(--bgcolor-footer);
   border-top: 5px ridge var(--main-color-darklighter);
-  padding-top: 5px;
 }
 
 #footer-links {
   width: 75%;
+  padding: 10px 0px;
 }
 
 #footer-links > a {
@@ -343,15 +343,14 @@
 }
 
 #footer-links > a:hover {
-  color: var(--main-color-light);
   background-color: rgb(51, 105, 105);
+  color: var(--main-color-light);
 }
 
 #footer-socialmedia {
   display: flex;
   justify-content: space-evenly;
   width: 75%;
-  padding: 5px;
 }
 
 #footer-socialmedia > a {
@@ -361,4 +360,8 @@
   display: inline-block;
   height: 55px;
   width: 55px;
+}
+
+#footer-copyrights {
+  padding: 10px;
 }

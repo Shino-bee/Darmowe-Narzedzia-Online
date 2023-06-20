@@ -54,7 +54,7 @@ unitConverBtnCalculate.addEventListener("click", () => {
       );
     }
     if (tableOfUnits.style.opacity == 0) {
-      tableOfUnits.style.transition = "0.8s";
+      tableOfUnits.style.transition = "0.8s ease-out";
       tableOfUnits.style.marginTop = "20px";
       tableOfUnits.style.height = "auto";
       tableOfUnits.style.opacity = 1;
@@ -62,7 +62,7 @@ unitConverBtnCalculate.addEventListener("click", () => {
   }
 });
 
-// Reset button - hide table
+// Reset button - hide table, reset label default value
 const defaultUnitToConvertLabel =
   document.getElementsByClassName("unit-to-convert")[0].textContent;
 const unitConverBtnReset = document.getElementById("program-form-btn-reset");
