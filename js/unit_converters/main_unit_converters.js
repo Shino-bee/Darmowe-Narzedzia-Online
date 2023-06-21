@@ -1,4 +1,6 @@
 import { length_converter } from "./length_converter.js";
+import { weight_converter } from "./weight_converter.js";
+import { temperature_converter } from "./temperature_converter.js";
 
 // Currently loaded page
 const path = window.location.pathname;
@@ -7,6 +9,10 @@ var unitCoverterFunction = () => {};
 
 if (page === "length_converter.html") {
   unitCoverterFunction = length_converter;
+} else if (page === "weight_converter.html") {
+  unitCoverterFunction = weight_converter;
+} else if (page === "temperature_converter.html") {
+  unitCoverterFunction = temperature_converter;
 }
 
 // Changes the text in label of select tag to the selected value
@@ -16,8 +22,7 @@ unitToConvertOptions.addEventListener("change", () => {
     document.getElementsByClassName("unit-to-convert")[0];
   const unitToConvertText =
     unitToConvertOptions.options[unitToConvertOptions.selectedIndex].text;
-  unitToConvertLabel.innerText =
-    unitToConvertText.charAt(0).toLowerCase() + unitToConvertText.slice(1);
+  unitToConvertLabel.innerText = unitToConvertText;
 });
 
 // Calculate button - calculates the results and changes content (text and results) in the table and shows table if is not displayed
@@ -55,7 +60,7 @@ unitConverBtnCalculate.addEventListener("click", () => {
     }
     if (tableOfUnits.style.opacity == 0) {
       tableOfUnits.style.transition = "0.8s ease-out";
-      tableOfUnits.style.marginTop = "20px";
+      tableOfUnits.style.marginTop = "15px";
       tableOfUnits.style.height = "auto";
       tableOfUnits.style.opacity = 1;
     }
