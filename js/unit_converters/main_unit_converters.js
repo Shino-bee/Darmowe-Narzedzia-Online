@@ -2,6 +2,8 @@ import { length_converter } from "./length_converter.js";
 import { weight_converter } from "./weight_converter.js";
 import { temperature_converter } from "./temperature_converter.js";
 import { area_converter } from "./area_converter.js";
+import { volume_converter } from "./volume_converter.js";
+import { time_converter } from "./time_converter.js";
 
 // Currently loaded page
 const path = window.location.pathname;
@@ -16,6 +18,10 @@ if (page === "length_converter.html") {
   unitCoverterFunction = temperature_converter;
 } else if (page === "area_converter.html") {
   unitCoverterFunction = area_converter;
+} else if (page === "volume_converter.html") {
+  unitCoverterFunction = volume_converter;
+} else if (page === "time_converter.html") {
+  unitCoverterFunction = time_converter;
 }
 
 // Changes the text in label of select tag to the selected value
