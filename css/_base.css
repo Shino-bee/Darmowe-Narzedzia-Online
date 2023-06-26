@@ -337,6 +337,12 @@
   padding: 10px 0px;
 }
 
+@media only screen and (min-width: 992px) {
+  #footer-links {
+    width: 50%;
+  }
+}
+
 #footer-links > a {
   background-color: rgb(44, 46, 49);
   border-left: 2px groove rgb(51, 105, 105);
@@ -364,8 +370,12 @@
   background-position: center;
   background-size: cover;
   display: inline-block;
-  height: 55px;
-  width: 55px;
+  height: 45px;
+  width: 45px;
+}
+
+#footer-socialmedia > a:last-child {
+  filter: brightness(0.4);
 }
 
 #footer-copyrights {
