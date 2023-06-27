@@ -1,13 +1,13 @@
 @import url(_base.css);
 
 :root {
-  /* Two main colors background (dark) and text (light) */
+  /* Two main colors background (dark) and text (lighter) */
   --main-color-dark: rgb(28, 35, 48);
-  --main-color-light: rgb(190, 190, 190);
+  --main-color-lighter: rgb(238, 236, 233);
 
   --main-color-darklighter: rgb(64, 76, 83);
   --main-color-darklight: rgb(37, 47, 66);
-  --main-color-lighter: rgb(238, 236, 233);
+  --main-color-light: rgb(190, 190, 190);
 
   --main-color-green: rgb(30, 75, 30);
   --main-color-orange: rgb(128, 58, 12);
@@ -42,4 +42,11 @@ a {
   color: var(--main-color-lighter);
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
 }

@@ -11,6 +11,75 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../css/main.css" />
+    <style>
+      .article-content-section > h3 {
+        background-color: var(--main-color-green);
+        padding: 15px;
+      }
+
+      .article-content-section > div {
+        padding: 10px;
+      }
+
+      #regulations > div > ol > li {
+        padding-top: 10px;
+        margin-left: 20px;
+      }
+
+      #contact > div > form > * {
+        color: var(--main-color-lighter);
+        display: block;
+        margin-top: 2px;
+        outline: none;
+      }
+
+      #contact-input-name,
+      #contact-input-email,
+      #contact-input-message {
+        background-color: var(--main-color-darklight);
+        border: 1px solid var(--main-color-darklighter);
+        font-size: 0.8em;
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 100%;
+        -webkit-text-fill-color: var(--main-color-lighter) !important;
+      }
+
+      #contact-input-message {
+        resize: none;
+      }
+
+      #contact-submit {
+        background-color: var(--main-color-darklighter);
+        border-radius: 15px;
+        font-size: 1em;
+        letter-spacing: 1px;
+        padding: 5px;
+        width: 100%;
+        height: 35px;
+        transition: 0.15s;
+      }
+
+      #contact-submit:hover {
+        background-color: rgb(74, 88, 94);
+      }
+
+      @media (min-width: 768px) {
+        #contact-input-name,
+        #contact-input-email,
+        #contact-input-message,
+        #contact-submit {
+          width: 65%;
+        }
+      }
+
+      #contact-input-name:focus,
+      #contact-input-email:focus,
+      #contact-input-message:focus {
+        box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
+        outline: none;
+      }
+    </style>
 
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="../../images/favicon.ico" />
@@ -52,42 +121,142 @@
 
       <article id="main-article-content">
         <section id="about_us" class="article-content-section">
-          <h3
-            style="
-              background-color: var(--main-color-green);
-              padding: 15px;
-              margin-bottom: 5px;
-            "
-          >
-            O nas
-          </h3>
-          <p style="padding: 5px 10px">
-            Strona została wykonana została samodzielnie na potrzeby projektu do
-            profilu na
-            <a
-              href="https://github.com/Shino-bee"
-              target="_blank"
-              style="text-decoration: underline"
-              >GitHub</a
-            >, ale przede wszystkim po to, żeby użytkownikowi w łatwy, czytelny
-            i darmowy sposób umożliwić wykonywanie codziennych lub sporadycznych
-            obliczeń, konwersji jednostek itp. W związku z tym użytkownicy mogą
-            korzystać ze strony z dowolnego urządzenia z dostępem do internetu.
-          </p>
-          <p style="padding: 5px 10px">
-            Celem strony jest zapewnienie użytkownikom narzędzi do przeliczania
-            różnych jednostek miar w różnych kategoriach i konwersji pomiędzy
-            nimi oraz innych, przydatnch narzędzi. Strona oferuje prosty i
-            intuicyjny interfejs, który umożliwia wprowadzanie wartości w
-            jednostkach, wybieranie jednostek docelowych i otrzymywanie wyników
-            konwersji. Ponadto, strona zawiera także dodatkowe informacje na
-            temat konkretnych jednostek, takie jak definicje oraz wartość
-            poszczególnych jednostek.
-          </p>
-          <p style="padding: 5px 10px 10px 10px">
-            Jeżeli chciałbyś się z nami skontakować przejdź do zakładki
-            <a href="#contact" style="text-decoration: underline">kontakt</a>
-          </p>
+          <h3>O nas</h3>
+          <div>
+            <p>
+              Strona została wykonana została samodzielnie na potrzeby projektu
+              do profilu na
+              <a
+                href="https://github.com/Shino-bee"
+                target="_blank"
+                style="text-decoration: underline"
+                >GitHub</a
+              >, ale przede wszystkim po to, żeby użytkownikowi w łatwy,
+              czytelny i darmowy sposób umożliwić wykonywanie codziennych lub
+              sporadycznych obliczeń, konwersji jednostek itp. W związku z tym
+              użytkownicy mogą korzystać ze strony z dowolnego urządzenia z
+              dostępem do internetu.
+            </p>
+            <p style="padding-top: 10px">
+              Celem strony jest zapewnienie użytkownikom narzędzi do
+              przeliczania różnych jednostek miar w różnych kategoriach i
+              konwersji pomiędzy nimi oraz innych, przydatnch narzędzi. Strona
+              oferuje prosty i intuicyjny interfejs z ciemnym motywem (szanujmy
+              wzrok), który umożliwia wprowadzanie wartości w jednostkach,
+              wybieranie jednostek docelowych i otrzymywanie wyników konwersji.
+              Ponadto, strona zawiera także dodatkowe informacje na temat
+              konkretnych jednostek, takie jak definicje oraz wartość
+              poszczególnych jednostek.
+            </p>
+          </div>
+        </section>
+        <section id="regulations" class="article-content-section">
+          <h3>Regulamin</h3>
+          <div>
+            <p>
+              Korzystając w jakikolwiek sposób ze strony internetowej
+              "narzędziaonline.net", wyrażasz zgodę na przestrzeganie
+              regulaminu. Jeśli sprzeciwiasz się jakimkolwiek warunkom
+              regulaminu lub jakiejkolwiek wytycznej, jedynym rozwiązaniem jest
+              natychmiastowe zaprzestanie korzystania z tej witryny.
+            </p>
+            <ol>
+              <li>
+                Właścicielstwo strony:<br />
+                Strona "narzedziaonline.net" jest własnością i zarządzana przez
+                Michała Podowskiego (Shino-bee). Wszelkie prawa do treści,
+                materiałów i informacji znajdujących się na stronie są
+                zastrzeżone i chronione prawem autorskim.
+              </li>
+              <li>
+                Korzystanie ze strony:<br />
+                Korzystanie ze strony jest dozwolone tylko dla celów osobistych
+                i niekomercyjnych. Nie wolno używać tej strony w sposób
+                niezgodny z prawem lub w sposób naruszający prawa innych osób.
+                Nie wolno również przeprowadzać na stronie żadnych działań,
+                które mogą prowadzić do uszkodzenia, wyłączenia lub przeciążenia
+                jej działania.
+              </li>
+              <li>
+                Odpowiedzialność:<br />
+                Strona i jej właściciel nie ponoszą odpowiedzialności za
+                jakiekolwiek straty, szkody lub problemy wynikające z
+                korzystania z tej strony. Użytkownik korzysta z tej strony na
+                własne ryzyko.
+              </li>
+              <li>
+                Polityka prywatności:<br />
+                Strona w żaden sposób nie zbiera, nie przechowuje i nie
+                wykorzystuje danych dotyczących użytkowników. Szanujemy
+                prywatność naszych użytkowników.
+              </li>
+              <li>
+                Dokładność informacji:<br />
+                Strona stara się zapewnić jak najdokładniejsze i aktualne
+                informacje. Jednak nie możemy zagwarantować, że wszystkie
+                informacje zawarte na stronie są bezbłędne. Użytkownik ponosi
+                pełną odpowiedzialność za korzystanie z informacji dostępnych na
+                stronie.
+              </li>
+              <li>
+                Zmiany w regulaminie:<br />
+                Zastrzegamy sobie prawo do zmiany regulaminu w dowolnym momencie
+                bez wcześniejszego powiadomienia. Zmiany będą obowiązywać od
+                chwili opublikowania nowej wersji regulaminu na stronie.
+              </li>
+              <li>
+                Postanowienia końcowe:<br />
+                Niniejszy regulamin podlega prawu obowiązującemu w Polsce. W
+                przypadku jakichkolwiek sporów wynikających z korzystania z tej
+                strony, strony powinny podjąć próbę rozwiązania sporu drogą
+                negocjacji.
+              </li>
+            </ol>
+          </div>
+        </section>
+        <section id="contact" class="article-content-section">
+          <h3>Kontakt</h3>
+          <div>
+            <p style="margin-bottom: 10px">
+              Jeśli chcesz się z nami skontaktować możesz to zrobić przy użyciu
+              <a
+                href="https://www.facebook.com/narzedziaonline.net/"
+                style="text-decoration: underline"
+                >Facebooka</a
+              >
+              oraz
+              <a
+                href="https://github.com/Shino-bee"
+                style="text-decoration: underline"
+                >GitHuba</a
+              >
+              lub za pomocą poniższego formularza.
+            </p>
+            <form action="#">
+              <label for="contact-input-name">Twoja nazwa:</label>
+              <input
+                type="text"
+                id="contact-input-name"
+                name="contact-input-name"
+                required
+              />
+              <label for="contact-input-email">Twoja email:</label>
+              <input
+                type="email"
+                id="contact-input-email"
+                name="contact-input-email"
+                required
+              />
+              <label for="contact-input-message">Wiadomość:</label>
+              <textarea
+                id="contact-input-message"
+                name="contact-input-message"
+                rows="8"
+                required
+              ></textarea>
+              <input type="submit" id="contact-submit" value="Wyślij" />
+            </form>
+          </div>
         </section>
       </article>
     </main>

@@ -50,6 +50,11 @@
   height: 35px;
 }
 
+#program-form-btn-calculate:hover,
+#program-form-btn-reset:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 576px) {
   #program-form-btn-calculate,
   #program-form-btn-reset {
