@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Darmowe Narzędzia Online" />
+    <meta name="author" content="Michał Podowski (Shino-bee)" />
+
+    <title>Kalkulator wieku - Darmowe Narzędzia Online</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/_main.css" />
+    <!-- <link rel="stylesheet" href="../../css/unit_converters.css" /> -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="../../images/favicon.ico" />
+
+    <!-- Icon - magnifier in search bar -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JS -->
+    <script src="../../js/jquery-3.7.0.min.js"></script>
+    <script defer type="text/javascript" src="../../js/_main.js"></script>
+    <!-- <script
+      async
+      type="module"
+      src="../../js/unit_converters/main_unit_converters.js"
+    ></script> -->
+  </head>
+
+  <body>
+    <div id="menu-dropdown-background"></div>
+    <header id="header"></header>
+    <main id="main">
+      <section id="main-image">
+        <img
+          id="main-image-img"
+          src="../../images/main-image-tools.jpg"
+          alt=""
+        />
+        <div id="main-image-text">
+          <h1>Kalkulator wieku</h1>
+          <p>Narzędzie do obliczania różnicy czasu między dwiema datami</p>
+        </div>
+      </section>
+
+      <article id="main-article-content">
+        <section id="content-section-program" class="article-content-section">
+          <iframe
+            name="hiddenFrame"
+            style="
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              width: 1px;
+              height: 1px;
+              display: none;
+            "
+          ></iframe>
+          <form id="program-form" method="post" target="hiddenFrame">
+            <label for="value">Wartość</label>
+            <input
+              type="number"
+              id="program-form-value"
+              name="value"
+              step="1"
+              min="1"
+              autocomplete="off"
+              required
+            />
+            <label for="unit"
+              >Przekonwertuj <span class="unit-to-convert">Metry</span> na
+              inne</label
+            >
+            <select id="program-form-unit" name="unit">
+              <option value="meter" selected="selected">Metry</option>
+              <option value="kilometer">Kilometry</option>
+              <option value="decimeter">Decymetry</option>
+              <option value="centimeter">Centymetry</option>
+              <option value="millimeter">Milimetry</option>
+              <option value="micrometer">Mikrometry</option>
+              <option value="nanometer">Nanometry</option>
+              <option value="mile">Mile</option>
+              <option value="foot">Stopy</option>
+              <option value="inch">Cale</option>
+              <option value="light year">Lata świetlne</option>
+            </select>
+            <div id="program-form-btns">
+              <button type="submit" id="program-form-btn-calculate">
+                Oblicz
+              </button>
+              <button type="reset" id="program-form-btn-reset">Reset</button>
+            </div>
+          </form>
+          <table id="program-table">
+            <tbody>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na metry</td>
+                <td><span class="unit-value-converted">0</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na kilometry</td>
+                <td><span class="unit-value-converted">0</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na decymetry</td>
+                <td><span class="unit-value-converted">0</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="unit-to-convert">Metry</span> na centymetry
+                </td>
+                <td><span class="unit-value-converted">0</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na milimetry</td>
+                <td><span class="unit-value-converted">0</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="unit-to-convert">Metry</span> na mikrometry
+                </td>
+                <td><span class="unit-value-converted">0</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na nanometry</td>
+                <td><span class="unit-value-converted">0</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na mile</td>
+                <td><span class="unit-value-converted">0</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na stopy</td>
+                <td><span class="unit-value-converted">0</span></td>
+              </tr>
+              <tr>
+                <td><span class="unit-to-convert">Metry</span> na cale</td>
+                <td><span class="unit-value-converted">0</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="unit-to-convert">Metry</span> na lata świetlne
+                </td>
+                <td><span class="unit-value-converted">0</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section
+          id="content-section-description"
+          class="article-content-section"
+        >
+          <h3>Czym jest długość?</h3>
+          <p>
+            Długość to jedna z podstawowych właściwości fizycznych i geometrii,
+            która opisuje rozciągłość lub odległość między dwoma punktami.
+          </p>
+          <p>
+            Długość może odnosić się zarówno do linii prostej między dwoma
+            punktami, jak i do innych kształtów, takich jak krzywa, odcinek
+            czasu, obwód lub inne wymiary geometryczne. Może być także stosowana
+            w odniesieniu do przedmiotów, aby opisać ich rozmiar, rozciągłość
+            lub rozległość.
+          </p>
+          <p>
+            Długość jest nieodłącznym elementem wielu działań pomiarowych,
+            konstrukcji, obliczeń i analizy w naukach przyrodniczych i
+            technicznych.
+          </p>
+          <p>
+            Zakładając, że chcesz przeliczyć 1 metr, otrzymasz następujące
+            wyniki:
+          </p>
+          <ul>
+            <li>Metr na metry (m):&emsp;1</li>
+            <li>Metr na kilometry (km):&emsp;0.001</li>
+            <li>Metr na decymetry (dm):&emsp;10</li>
+            <li>Metr na centymetry (cm):&emsp;100</li>
+            <li>Metr na milimetry (mm):&emsp;1000</li>
+            <li>Metr na mikrometry (µm):&emsp;1000000</li>
+            <li>Metr na nanometry (nm):&emsp;1000000000</li>
+            <li>Metr na mile (mi):&emsp;0.00062136887563302</li>
+            <li>Metr na stopy (ft):&emsp;3.2808398950131</li>
+            <li>Metr na cale (in):&emsp;39.370078740157</li>
+            <li>Metr na lata świetlne (ly):&emsp;1.0570087076377e-16</li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    <footer id="footer"></footer>
+  </body>
+</html>
