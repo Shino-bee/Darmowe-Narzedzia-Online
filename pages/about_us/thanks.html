@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Darmowe Narzędzia Online" />
-    <meta name="author" content="Michał Podowski (Shino Bee)" />
+    <meta name="author" content="Michał Podowski (Shino-bee)" />
 
     <title>O nas - Darmowe Narzędzia Online</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/_main.css" />
     <style>
       .article-content-section > h3 {
         background-color: var(--main-color-green);
@@ -45,6 +45,13 @@
         -webkit-text-fill-color: var(--main-color-lighter) !important;
       }
 
+      #contact-input-name:focus,
+      #contact-input-email:focus,
+      #contact-input-message:focus {
+        box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
+        outline: none;
+      }
+
       #contact-input-message {
         resize: none;
       }
@@ -72,13 +79,6 @@
           width: 65%;
         }
       }
-
-      #contact-input-name:focus,
-      #contact-input-email:focus,
-      #contact-input-message:focus {
-        box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
-        outline: none;
-      }
     </style>
 
     <!-- Favicon -->
@@ -100,7 +100,17 @@
 
     <!-- JS -->
     <script src="../../js/jquery-3.7.0.min.js"></script>
-    <script defer type="text/javascript" src="../../js/main.js"></script>
+    <script defer type="text/javascript" src="../../js/_main.js"></script>
+    <script defer type="text/javascript">
+      document.onreadystatechange = function () {
+        //window.addEventListener('readystatechange',function(){...}); (for Netscape) and window.attachEvent('onreadystatechange',function(){...}); (for IE and Opera) also work
+        if (
+          document.readyState == "loaded" ||
+          document.readyState == "complete"
+        )
+          alert("Dziękujemy! Twoja wiadomość została dostarczona.");
+      };
+    </script>
   </head>
 
   <body>
@@ -114,8 +124,11 @@
           alt=""
         />
         <div id="main-image-text">
-          <h1>Darmowe Narzędzia Online</h1>
-          <p>Narzędzie do konwersji jednostek długości</p>
+          <h1>Dziękujemy za kontakt!</h1>
+          <p>
+            Twoja wiadomość została dostarczona. Postaramy się odpowiedzieć tak
+            szybko jak to tylko możliwe.
+          </p>
         </div>
       </section>
 
@@ -217,45 +230,14 @@
         <section id="contact" class="article-content-section">
           <h3>Kontakt</h3>
           <div>
-            <p style="margin-bottom: 10px">
-              Jeśli chcesz się z nami skontaktować możesz to zrobić przy użyciu
-              <a
-                href="https://www.facebook.com/narzedziaonline.net/"
-                style="text-decoration: underline"
-                >Facebooka</a
-              >
-              oraz
-              <a
-                href="https://github.com/Shino-bee"
-                style="text-decoration: underline"
-                >GitHuba</a
-              >
-              lub za pomocą poniższego formularza.
+            <p>
+              Dziękujemy! Twoja wiadomość została dostarczona. Postaramy się
+              odpowiedzieć tak szybko jak to tylko możliwe. Możesz teraz przejść
+              do
+              <a href="../../index.html" style="text-decoration: underline"
+                >strony głównej</a
+              >.
             </p>
-            <form action="#">
-              <label for="contact-input-name">Twoja nazwa:</label>
-              <input
-                type="text"
-                id="contact-input-name"
-                name="contact-input-name"
-                required
-              />
-              <label for="contact-input-email">Twoja email:</label>
-              <input
-                type="email"
-                id="contact-input-email"
-                name="contact-input-email"
-                required
-              />
-              <label for="contact-input-message">Wiadomość:</label>
-              <textarea
-                id="contact-input-message"
-                name="contact-input-message"
-                rows="8"
-                required
-              ></textarea>
-              <input type="submit" id="contact-submit" value="Wyślij" />
-            </form>
           </div>
         </section>
       </article>
