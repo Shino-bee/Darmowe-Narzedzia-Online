@@ -217,7 +217,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@media only screen and (min-width: 992px) {
   #main-image-img {
     bottom: 45%;
   }
@@ -379,5 +379,24 @@
 }
 
 #footer-copyrights {
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px 10px 10px 10px;
+}
+
+@media only screen and (min-width: 992px) {
+  #footer-copyrights {
+    flex-direction: row-reverse;
+  }
+}
+
+#footer-copyrights > a::before {
+  content: "";
+  background-image: url("../../images/favicon.ico");
+  background-size: 16px 16px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
 }
