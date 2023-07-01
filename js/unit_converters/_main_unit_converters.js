@@ -8,7 +8,7 @@ import { time_converter } from "./time_converter.js";
 // Currently loaded page
 const path = window.location.pathname;
 const page = path.split("/").pop();
-var unitCoverterFunction = () => {};
+let unitCoverterFunction = () => {};
 
 if (page === "length_converter.html") {
   unitCoverterFunction = length_converter;
@@ -39,24 +39,25 @@ const unitConverterBtnCalculate = document.getElementById(
   "program-form-btn-calculate"
 );
 unitConverterBtnCalculate.addEventListener("click", () => {
-  const tableOfUnits = document.getElementById("program-table");
-  const unitToConvertTableNames =
-    document.getElementsByClassName("unit-to-convert");
-  const unitToConvertTableValues = document.getElementsByClassName(
-    "unit-value-converted"
-  );
-  const unitToConvertValue =
-    document.getElementById("program-form-value").value;
   const programFormValidity = document
     .getElementById("program-form")
     .checkValidity();
-  const unitToConvertValueName =
-    unitToConvertOptions.options[unitToConvertOptions.selectedIndex].value;
-  const unitToConvertText =
-    unitToConvertOptions.options[unitToConvertOptions.selectedIndex].text;
 
   // Change content (text and values) in table if form is validity
   if (programFormValidity === true) {
+    const tableOfUnits = document.getElementById("program-table");
+    const unitToConvertTableNames =
+      document.getElementsByClassName("unit-to-convert");
+    const unitToConvertTableValues = document.getElementsByClassName(
+      "unit-value-converted"
+    );
+    const unitToConvertText =
+      unitToConvertOptions.options[unitToConvertOptions.selectedIndex].text;
+    const unitToConvertValueName =
+      unitToConvertOptions.options[unitToConvertOptions.selectedIndex].value;
+    const unitToConvertValue =
+      document.getElementById("program-form-value").value;
+
     for (let i = 1; i < unitToConvertTableNames.length; i++) {
       unitToConvertTableNames[i].innerText = unitToConvertText;
     }
@@ -76,7 +77,7 @@ unitConverterBtnCalculate.addEventListener("click", () => {
   }
 });
 
-// Reset button - hide table, reset label default value
+// Reset button - hide table, reset label and sets default values
 const defaultUnitToConvertLabel =
   document.getElementsByClassName("unit-to-convert")[0].textContent;
 const unitConverterBtnReset = document.getElementById("program-form-btn-reset");
