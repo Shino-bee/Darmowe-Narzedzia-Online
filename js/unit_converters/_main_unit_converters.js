@@ -35,10 +35,10 @@ unitToConvertOptions.addEventListener("change", () => {
 });
 
 // Calculate button - calculates the results and changes content (text and results) in the table and shows table if is not displayed
-const unitConverBtnCalculate = document.getElementById(
+const unitConverterBtnCalculate = document.getElementById(
   "program-form-btn-calculate"
 );
-unitConverBtnCalculate.addEventListener("click", () => {
+unitConverterBtnCalculate.addEventListener("click", () => {
   const tableOfUnits = document.getElementById("program-table");
   const unitToConvertTableNames =
     document.getElementsByClassName("unit-to-convert");
@@ -79,8 +79,8 @@ unitConverBtnCalculate.addEventListener("click", () => {
 // Reset button - hide table, reset label default value
 const defaultUnitToConvertLabel =
   document.getElementsByClassName("unit-to-convert")[0].textContent;
-const unitConverBtnReset = document.getElementById("program-form-btn-reset");
-unitConverBtnReset.addEventListener("click", () => {
+const unitConverterBtnReset = document.getElementById("program-form-btn-reset");
+unitConverterBtnReset.addEventListener("click", () => {
   const unitToConvertLabel =
     document.getElementsByClassName("unit-to-convert")[0];
   const tableOfUnits = document.getElementById("program-table");

@@ -11,7 +11,19 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../css/_main.css" />
-    <!-- <link rel="stylesheet" href="../../css/unit_converters.css" /> -->
+    <link rel="stylesheet" href="../../css/online_calculators.css" />
+    <style>
+      #birth-date,
+      #end-date {
+        background: var(--main-color-darklight);
+        color: var(--main-color-lighter);
+        color-scheme: dark;
+        font-size: 0.8em;
+        padding: 4px 8px;
+        margin-bottom: 15px;
+        height: 30px;
+      }
+    </style>
 
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="../../images/favicon.ico" />
@@ -33,11 +45,11 @@
     <!-- JS -->
     <script src="../../js/jquery-3.7.0.min.js"></script>
     <script defer type="text/javascript" src="../../js/_main.js"></script>
-    <!-- <script
+    <script
       async
       type="module"
-      src="../../js/unit_converters/main_unit_converters.js"
-    ></script> -->
+      src="../../js/online_calculators/age_calculator.js"
+    ></script>
   </head>
 
   <body>
@@ -70,33 +82,24 @@
             "
           ></iframe>
           <form id="program-form" method="post" target="hiddenFrame">
-            <label for="value">Wartość</label>
+            <label for="value">Podaj datę urodzin:</label>
             <input
-              type="number"
-              id="program-form-value"
-              name="value"
-              step="1"
-              min="1"
-              autocomplete="off"
+              type="date"
+              name="birth-date"
+              id="birth-date"
+              onclick="this.showPicker()"
               required
             />
-            <label for="unit"
-              >Przekonwertuj <span class="unit-to-convert">Metry</span> na
-              inne</label
-            >
-            <select id="program-form-unit" name="unit">
-              <option value="meter" selected="selected">Metry</option>
-              <option value="kilometer">Kilometry</option>
-              <option value="decimeter">Decymetry</option>
-              <option value="centimeter">Centymetry</option>
-              <option value="millimeter">Milimetry</option>
-              <option value="micrometer">Mikrometry</option>
-              <option value="nanometer">Nanometry</option>
-              <option value="mile">Mile</option>
-              <option value="foot">Stopy</option>
-              <option value="inch">Cale</option>
-              <option value="light year">Lata świetlne</option>
-            </select>
+
+            <label for="value">Podaj datę końcową:</label>
+            <input
+              type="date"
+              name="end-date"
+              id="end-date"
+              onclick="this.showPicker()"
+              required
+            />
+
             <div id="program-form-btns">
               <button type="submit" id="program-form-btn-calculate">
                 Oblicz
@@ -163,39 +166,38 @@
           id="content-section-description"
           class="article-content-section"
         >
-          <h3>Czym jest długość?</h3>
+          <h3>Czym jest wiek?</h3>
           <p>
-            Długość to jedna z podstawowych właściwości fizycznych i geometrii,
-            która opisuje rozciągłość lub odległość między dwoma punktami.
+            Wiek to określenie, które odnosi się do czasu, jaki upłynął od
+            narodzin osoby lub od jakiegoś określonego punktu w czasie. Jest to
+            powszechnie używane między innymi do klasyfikacji ludzi na różne
+            grupy wiekowe oraz do określania dojrzałości fizycznej,
+            intelektualnej i społecznej jednostki.
           </p>
           <p>
-            Długość może odnosić się zarówno do linii prostej między dwoma
-            punktami, jak i do innych kształtów, takich jak krzywa, odcinek
-            czasu, obwód lub inne wymiary geometryczne. Może być także stosowana
-            w odniesieniu do przedmiotów, aby opisać ich rozmiar, rozciągłość
-            lub rozległość.
+            Wiek może być mierzony w różnych jednostkach czasu, takich jak lata,
+            miesiące, dni itp. Na przykład, kiedy mówimy, że ktoś ma 25 lat,
+            oznacza to, że minęło 25 lat od daty jego urodzenia. Wiek jest
+            również używany do określania odpowiednich etapów rozwoju człowieka,
+            takich jak dzieciństwo, adolescencja, dorosłość i starość.
           </p>
           <p>
-            Długość jest nieodłącznym elementem wielu działań pomiarowych,
-            konstrukcji, obliczeń i analizy w naukach przyrodniczych i
-            technicznych.
+            Wiek może mieć różne znaczenia w zależności od kontekstu. Może być
+            używany do określenia upływu czasu lub jako wskaźnik doświadczenia
+            życiowego. Może również mieć znaczenie prawne, na przykład w
+            kontekście pełnoletniości lub określania minimalnego wieku do
+            uprawiania określonych czynności, takich jak prowadzenie samochodu,
+            głosowanie czy zawieranie umów.
           </p>
           <p>
-            Zakładając, że chcesz przeliczyć 1 metr, otrzymasz następujące
+            Zakładając, że chcesz przeliczyć 1 rok, otrzymasz następujące
             wyniki:
           </p>
           <ul>
-            <li>Metr na metry (m):&emsp;1</li>
-            <li>Metr na kilometry (km):&emsp;0.001</li>
-            <li>Metr na decymetry (dm):&emsp;10</li>
-            <li>Metr na centymetry (cm):&emsp;100</li>
-            <li>Metr na milimetry (mm):&emsp;1000</li>
-            <li>Metr na mikrometry (µm):&emsp;1000000</li>
-            <li>Metr na nanometry (nm):&emsp;1000000000</li>
-            <li>Metr na mile (mi):&emsp;0.00062136887563302</li>
-            <li>Metr na stopy (ft):&emsp;3.2808398950131</li>
-            <li>Metr na cale (in):&emsp;39.370078740157</li>
-            <li>Metr na lata świetlne (ly):&emsp;1.0570087076377e-16</li>
+            <li>Rok na lata:&emsp;1</li>
+            <li>Rok na miesiące:&emsp;12</li>
+            <li>Rok na tygodnie:&emsp;52</li>
+            <li>Rok na dni:&emsp;365</li>
           </ul>
         </section>
       </article>
