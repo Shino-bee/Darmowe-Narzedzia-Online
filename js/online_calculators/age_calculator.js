@@ -5,6 +5,7 @@ const resetBtn = document.getElementById("program-form-btn-reset");
 
 function reset() {
   endDateId.valueAsDate = new Date();
+  birthDateId.valueAsDate = new Date("2023-07-01");
 }
 reset();
 
@@ -35,10 +36,48 @@ calculateBtn.addEventListener("click", () => {
       .getElementsByTagName("tr")[3]
       .getElementsByTagName("td")[1];
 
-    tableCurrentYearResult.innerText =
-      (endDate.getFullYear() - birthDate.getFullYear()) + " lat, " + (endDate.getMonth() - birthDate.getMonth()) + " miesięcy, " + (endDate.getDate() - birthDate.getDate()) + " dni";
+    // console.log((endDate.getMonth()+12*endDate.getFullYear())-(birthDate.getMonth()+12*birthDate.getFullYear()));
+    // console.log(endDate.getFullYear());
+    // console.log(endDate.getMonth());
+    // console.log(birthDate.getFullYear());
+    // console.log(birthDate.getMonth());
+    const numOfDays = (endDate - birthDate) / (1000 * 60 * 60 * 24);
 
-    // console.log(endDate.valueAsDate - birthDate.valueAsDate);
+
+    const years = Math.abs(Math.floor(numOfDays / 365));
+    const months = Math.abs(Math.floor(((numOfDays / 365) * 12))-(years*12));
+    const days = Math.abs(Math.ceil(numOfDays - (years*365.242199) - (months * 30.4368499)));
+    console.log(years);
+    console.log(months);
+    console.log(days);
+    console.log("-------------------");
+
+    // console.log((endDate - birthDate) / (1000 * 60 * 60 * 24 * 30.4368499) / 12);
+    // console.log(((endDate - birthDate) / (1000 * 60 * 60 * 24 * 30.4368499)) % 12);
+
+    tableCurrentYearResult.innerText =
+      Math.abs(
+        Math.floor(
+          (endDate - birthDate) / (1000 * 60 * 60 * 24 * 30.4368499) / 12
+        )
+      ) +
+      " lata, " +
+      Math.floor(
+        ((endDate - birthDate) / (1000 * 60 * 60 * 24 * 30.4368499)) % 12
+      ) +
+      " miesiące, ";
+    // tableCurrentYearResult.innerText = Math.abs(Math.floor(numOfDays / 365)) + " lat, " + Math.abs(Math.floor((numOfDays % 365) / 30.4368499)) + " miesięcy, " + Math.abs(Math.floor((numOfDays % 365) % 30.4368499)) + " dni";
+    // tableMonthResult.innerText =
+    //   Math.abs(Math.floor(numOfDays / 30.4368499)) +
+    //   " miesięcy i " +
+    //   Math.abs(Math.floor(numOfDays % 30.4368499)) +
+    //   " dni";
+    tableWeekResult.innerText =
+      Math.abs(Math.floor(numOfDays / 7)) +
+      " tygodni i " +
+      Math.abs(Math.floor(numOfDays % 7)) +
+      " dni";
+    tableDayResult.innerText = numOfDays + " dni";
 
     if (tableOfResults.style.opacity == 0) {
       tableOfResults.style.transition = "0.8s ease-out";
@@ -47,11 +86,6 @@ calculateBtn.addEventListener("click", () => {
       tableOfResults.style.opacity = 1;
     }
   }
-
-  // const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-  // console.log(new Date(birthDate).getMonth());
-
-  // console.log((endDate.valueAsDate - birthDate.valueAsDate) / oneDay);
 });
 
 // Reset button - hide table, reset to default values
