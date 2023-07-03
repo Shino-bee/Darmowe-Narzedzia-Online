@@ -4,9 +4,7 @@ export function temperature_converter(indexValueInTable, whichValue, value) {
     Fahrenheit: 32,
     kelvin: 273.15,
   };
-  // const baseUnitValue = temperatureUnitValues[whichValue];
   value = parseInt(value);
-  console.log(indexValueInTable, whichValue, value);
 
   switch (indexValueInTable) {
     // Celsius

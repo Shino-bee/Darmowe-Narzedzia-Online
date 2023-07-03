@@ -9,7 +9,6 @@ import { time_converter } from "./time_converter.js";
 const path = window.location.pathname;
 const page = path.split("/").pop();
 let unitCoverterFunction = () => {};
-
 if (page === "length_converter.html") {
   unitCoverterFunction = length_converter;
 } else if (page === "weight_converter.html") {
@@ -24,7 +23,7 @@ if (page === "length_converter.html") {
   unitCoverterFunction = time_converter;
 }
 
-// Changes the text in label of select tag to the selected value
+// Changes the text in label of <select> tag to the selected value
 const unitToConvertOptions = document.getElementById("program-form-unit");
 unitToConvertOptions.addEventListener("change", () => {
   const unitToConvertLabel =
@@ -42,8 +41,6 @@ unitConverterBtnCalculate.addEventListener("click", () => {
   const programFormValidity = document
     .getElementById("program-form")
     .checkValidity();
-
-  // Change content (text and values) in table if form is validity
   if (programFormValidity === true) {
     const tableOfUnits = document.getElementById("program-table");
     const unitToConvertTableNames =
@@ -57,7 +54,6 @@ unitConverterBtnCalculate.addEventListener("click", () => {
       unitToConvertOptions.options[unitToConvertOptions.selectedIndex].value;
     const unitToConvertValue =
       document.getElementById("program-form-value").value;
-
     for (let i = 1; i < unitToConvertTableNames.length; i++) {
       unitToConvertTableNames[i].innerText = unitToConvertText;
     }

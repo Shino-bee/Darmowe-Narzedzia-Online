@@ -2,10 +2,15 @@ const birthDateId = document.getElementById("birth-date");
 const endDateId = document.getElementById("end-date");
 const calculateBtn = document.getElementById("program-form-btn-calculate");
 const resetBtn = document.getElementById("program-form-btn-reset");
+const tableOfResults = document.getElementById("program-table");
 
+// Hide the table, reset to default values
 function reset() {
   endDateId.valueAsDate = new Date();
-  birthDateId.valueAsDate = new Date("2023-07-01");
+  tableOfResults.style.transition = "0s";
+  tableOfResults.style.marginTop = "0px";
+  tableOfResults.style.height = "0";
+  tableOfResults.style.opacity = 0;
 }
 reset();
 
@@ -16,9 +21,8 @@ calculateBtn.addEventListener("click", () => {
     .checkValidity();
 
   if (programFormValidity === true) {
-    const birthDate = new Date(birthDateId.valueAsDate);
-    const endDate = new Date(endDateId.valueAsDate);
-    const tableOfResults = document.getElementById("program-table");
+    let birthDate = new Date(birthDateId.valueAsDate);
+    let endDate = new Date(endDateId.valueAsDate);
     const tableCurrentYearResult = tableOfResults
       .getElementsByTagName("tbody")[0]
       .getElementsByTagName("tr")[0]
@@ -35,49 +39,67 @@ calculateBtn.addEventListener("click", () => {
       .getElementsByTagName("tbody")[0]
       .getElementsByTagName("tr")[3]
       .getElementsByTagName("td")[1];
+    const tableHoursResult = tableOfResults
+      .getElementsByTagName("tbody")[0]
+      .getElementsByTagName("tr")[4]
+      .getElementsByTagName("td")[1];
+    const tableMinutesResult = tableOfResults
+      .getElementsByTagName("tbody")[0]
+      .getElementsByTagName("tr")[5]
+      .getElementsByTagName("td")[1];
+    const tableSecondsResult = tableOfResults
+      .getElementsByTagName("tbody")[0]
+      .getElementsByTagName("tr")[6]
+      .getElementsByTagName("td")[1];
 
-    // console.log((endDate.getMonth()+12*endDate.getFullYear())-(birthDate.getMonth()+12*birthDate.getFullYear()));
-    // console.log(endDate.getFullYear());
-    // console.log(endDate.getMonth());
-    // console.log(birthDate.getFullYear());
-    // console.log(birthDate.getMonth());
-    const numOfDays = (endDate - birthDate) / (1000 * 60 * 60 * 24);
+    if (birthDate > endDate) {
+      const swap = birthDate;
+      birthDate = endDate;
+      endDate = swap;
+    }
+    const birthYear = birthDate.getFullYear();
+    const february =
+      (birthYear % 4 === 0 && birthYear % 100 !== 0) || birthYear % 400 === 0
+        ? 29
+        : 28;
+    const daysInMonth = [31, february, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let yearDiff = endDate.getFullYear() - birthYear;
+    let monthDiff = endDate.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0) {
+      yearDiff--;
+      monthDiff += 12;
+    }
+    let dayDiff = endDate.getDate() - birthDate.getDate();
+    if (dayDiff < 0) {
+      if (monthDiff > 0) {
+        monthDiff--;
+      } else {
+        yearDiff--;
+        monthDiff = 11;
+      }
+      dayDiff += daysInMonth[birthDate.getMonth()];
+    }
 
-
-    const years = Math.abs(Math.floor(numOfDays / 365));
-    const months = Math.abs(Math.floor(((numOfDays / 365) * 12))-(years*12));
-    const days = Math.abs(Math.ceil(numOfDays - (years*365.242199) - (months * 30.4368499)));
-    console.log(years);
-    console.log(months);
-    console.log(days);
-    console.log("-------------------");
-
-    // console.log((endDate - birthDate) / (1000 * 60 * 60 * 24 * 30.4368499) / 12);
-    // console.log(((endDate - birthDate) / (1000 * 60 * 60 * 24 * 30.4368499)) % 12);
-
+    const onlyDaysDiff = (endDate - birthDate) / (1000 * 60 * 60 * 24);
+    const hoursDiff = onlyDaysDiff * 24;
+    const minutesDiff = onlyDaysDiff * 24 * 60;
+    const secondsDiff = onlyDaysDiff * 24 * 60 * 60;
     tableCurrentYearResult.innerText =
-      Math.abs(
-        Math.floor(
-          (endDate - birthDate) / (1000 * 60 * 60 * 24 * 30.4368499) / 12
-        )
-      ) +
-      " lata, " +
-      Math.floor(
-        ((endDate - birthDate) / (1000 * 60 * 60 * 24 * 30.4368499)) % 12
-      ) +
-      " miesiące, ";
-    // tableCurrentYearResult.innerText = Math.abs(Math.floor(numOfDays / 365)) + " lat, " + Math.abs(Math.floor((numOfDays % 365) / 30.4368499)) + " miesięcy, " + Math.abs(Math.floor((numOfDays % 365) % 30.4368499)) + " dni";
-    // tableMonthResult.innerText =
-    //   Math.abs(Math.floor(numOfDays / 30.4368499)) +
-    //   " miesięcy i " +
-    //   Math.abs(Math.floor(numOfDays % 30.4368499)) +
-    //   " dni";
-    tableWeekResult.innerText =
-      Math.abs(Math.floor(numOfDays / 7)) +
-      " tygodni i " +
-      Math.abs(Math.floor(numOfDays % 7)) +
+      yearDiff + " lat, " + monthDiff + " miesięcy, " + dayDiff + " dni";
+    tableMonthResult.innerText =
+      Math.abs(Math.floor(onlyDaysDiff / 30.4368499)) +
+      " miesięcy i " +
+      dayDiff +
       " dni";
-    tableDayResult.innerText = numOfDays + " dni";
+    tableWeekResult.innerText =
+      Math.abs(Math.floor(onlyDaysDiff / 7)) +
+      " tygodni i " +
+      Math.abs(Math.floor(onlyDaysDiff % 7)) +
+      " dni";
+    tableDayResult.innerText = onlyDaysDiff + " dni";
+    tableHoursResult.innerText = hoursDiff + " h";
+    tableMinutesResult.innerText = minutesDiff + " min";
+    tableSecondsResult.innerText = secondsDiff + " s";
 
     if (tableOfResults.style.opacity == 0) {
       tableOfResults.style.transition = "0.8s ease-out";
@@ -88,7 +110,7 @@ calculateBtn.addEventListener("click", () => {
   }
 });
 
-// Reset button - hide table, reset to default values
+// Reset button - calls reset() func
 resetBtn.addEventListener("click", () => {
   setTimeout(() => {
     reset();

@@ -23,6 +23,12 @@
         margin-bottom: 15px;
         height: 30px;
       }
+
+      #birth-date:focus,
+      #end-date:focus {
+        box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
+        outline: none;
+      }
     </style>
 
     <!-- Favicon -->
@@ -82,7 +88,7 @@
             "
           ></iframe>
           <form id="program-form" method="post" target="hiddenFrame">
-            <label for="value">Podaj datę urodzin:</label>
+            <label for="birth-date">Podaj datę urodzin:</label>
             <input
               type="date"
               name="birth-date"
@@ -91,7 +97,7 @@
               required
             />
 
-            <label for="value">Podaj datę końcową:</label>
+            <label for="end-date">Podaj datę końcową:</label>
             <input
               type="date"
               name="end-date"
@@ -115,15 +121,27 @@
               </tr>
               <tr>
                 <td>Wiek w miesiącach</td>
-                <td>0month</td>
+                <td>0</td>
               </tr>
               <tr>
                 <td>Wiek w tygodniach</td>
-                <td>0weeks</td>
+                <td>0</td>
               </tr>
               <tr>
                 <td>Wiek w dniach</td>
-                <td>0days</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Wiek w godzinach</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Wiek w minutach</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Wiek w sekundach</td>
+                <td>0</td>
               </tr>
             </tbody>
           </table>
@@ -160,10 +178,13 @@
             wyniki:
           </p>
           <ul>
-            <li>Rok na lata:&emsp;1</li>
+            <li>Rok na rok:&emsp;1</li>
             <li>Rok na miesiące:&emsp;12</li>
             <li>Rok na tygodnie:&emsp;52</li>
             <li>Rok na dni:&emsp;365</li>
+            <li>Rok na godziny:&emsp;8760</li>
+            <li>Rok na minuty:&emsp;525600</li>
+            <li>Rok na sekundy:&emsp;31536000</li>
           </ul>
         </section>
       </article>
