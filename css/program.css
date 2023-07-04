@@ -1,5 +1,5 @@
 /* ------------------------------------- */
-/* --Default styles for online calculators- */
+/* Default styles for program i.e. unit converters, online calculators etc. */
 #content-section-program {
   padding: 15px 10px;
 }
@@ -11,10 +11,6 @@
 
 #program-form > label {
   margin-bottom: 5px;
-}
-
-#program-form-value {
-  padding: 0px 5px;
 }
 
 #program-form-btns {

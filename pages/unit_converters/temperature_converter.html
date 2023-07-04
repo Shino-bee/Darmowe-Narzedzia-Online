@@ -11,7 +11,28 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../css/_main.css" />
-    <link rel="stylesheet" href="../../css/unit_converters.css" />
+    <link rel="stylesheet" href="../../css/program.css" />
+    <style>
+      #program-form-value,
+      #program-form-unit {
+        color: var(--main-color-light);
+        background-color: var(--main-color-darklight);
+        border: 1px solid var(--main-color-darklighter);
+        font-size: 14px;
+        margin-bottom: 15px;
+        height: 30px;
+      }
+
+      #program-form-value {
+        padding: 0px 5px;
+      }
+
+      #program-form-value:focus,
+      #program-form-unit:focus {
+        box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
+        outline: none;
+      }
+    </style>
 
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="../../images/favicon.ico" />
@@ -76,7 +97,6 @@
               id="program-form-value"
               name="value"
               step="1"
-              min="1"
               autocomplete="off"
               required
             />
