@@ -194,7 +194,6 @@
             </div>
             <input
               type="text"
-              name="form1-result"
               id="form1-result"
               class="program-input"
               readonly
@@ -237,10 +236,136 @@
             </div>
             <input
               type="text"
-              name="form2-result"
               id="form2-result"
               class="program-input"
               value="%"
+              readonly
+            />
+          </form>
+          <form
+            id="form3"
+            class="program-form"
+            method="post"
+            target="hiddenFrame"
+          >
+            <label for="form3-by-how-much-pct">O ile % liczba</label>
+            <input
+              type="number"
+              name="form3-by-how-much-pct"
+              id="form3-by-how-much-pct"
+              class="program-input"
+              step="0.01"
+              autocomplete="off"
+              required
+            />
+            <label for="form3-is-different-from">różni się od liczby</label>
+            <input
+              type="number"
+              name="form3-is-different-from"
+              id="form3-is-different-from"
+              class="program-input"
+              step="0.01"
+              autocomplete="off"
+              required
+            />
+            <div class="program-form-btns">
+              <button
+                type="submit"
+                id="form3-btn"
+                class="program-form-btn-calculate"
+              >
+                Oblicz
+              </button>
+            </div>
+            <input
+              type="text"
+              id="form3-result"
+              class="program-input"
+              value="%"
+              readonly
+            />
+          </form>
+          <form
+            id="form4"
+            class="program-form"
+            method="post"
+            target="hiddenFrame"
+          >
+            <label for="form4-num">Liczbę</label>
+            <input
+              type="number"
+              name="form4-num"
+              id="form4-num"
+              class="program-input"
+              step="0.01"
+              autocomplete="off"
+              required
+            />
+            <label for="form4-increase-by-pct">powiększ o podany %</label>
+            <input
+              type="number"
+              name="form4-increase-by-pct"
+              id="form4-increase-by-pct"
+              class="program-input"
+              step="0.01"
+              autocomplete="off"
+              required
+            />
+            <div class="program-form-btns">
+              <button
+                type="submit"
+                id="form4-btn"
+                class="program-form-btn-calculate"
+              >
+                Oblicz
+              </button>
+            </div>
+            <input
+              type="text"
+              id="form4-result"
+              class="program-input"
+              readonly
+            />
+          </form>
+          <form
+            id="form5"
+            class="program-form"
+            method="post"
+            target="hiddenFrame"
+          >
+            <label for="form5-num">Liczbę</label>
+            <input
+              type="number"
+              name="form5-num"
+              id="form5-num"
+              class="program-input"
+              step="0.01"
+              autocomplete="off"
+              required
+            />
+            <label for="form5-reduce-by-pct">pomniejsz o podany %</label>
+            <input
+              type="number"
+              name="form5-reduce-by-pct"
+              id="form5-reduce-by-pct"
+              class="program-input"
+              step="0.01"
+              autocomplete="off"
+              required
+            />
+            <div class="program-form-btns">
+              <button
+                type="submit"
+                id="form5-btn"
+                class="program-form-btn-calculate"
+              >
+                Oblicz
+              </button>
+            </div>
+            <input
+              type="text"
+              id="form5-result"
+              class="program-input"
               readonly
             />
           </form>
@@ -268,7 +393,7 @@
             podczas zakupów, planowania budżetu, inwestycji czy analizy danych
             statystycznych.
           </p>
-          <p>Jak obliczyć procent z liczby na kalkulatorze:</p>
+          <p>Jak obliczyć procenty na kalkulatorze:</p>
           <ul>
             <li>
               Obliczanie procentu z liczby (np. 15% z liczby 200):&emsp;(15 /
