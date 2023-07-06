@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Darmowe Narzędzia Online" />
+    <meta name="author" content="Michał Podowski (Shino-bee)" />
+
+    <title>Kalkulator średniej - Darmowe Narzędzia Online</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/_main.css" />
+    <link rel="stylesheet" href="../../css/program.css" />
+    <style>
+      #select-average {
+        background: var(--main-color-darklight);
+        color: var(--main-color-lighter);
+        border: 1px solid var(--main-color-darklighter);
+        color-scheme: dark;
+        font-size: 0.8em;
+        padding: 4px 8px;
+        margin: 5px 0px 15px 0px;
+        height: 30px;
+        width: 100%;
+      }
+
+      #select-average:focus {
+        box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
+        outline: none;
+      }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="../../images/favicon.ico" />
+
+    <!-- Icon - magnifier in search bar -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JS -->
+    <script defer type="text/javascript" src="../../js/_main.js"></script>
+    <script
+      async
+      type="module"
+      src="../../js/online_calculators/average_calculator.js"
+    ></script>
+  </head>
+
+  <body>
+    <div id="menu-dropdown-background"></div>
+    <header id="header"></header>
+    <main id="main">
+      <section id="main-image">
+        <img
+          id="main-image-img"
+          src="../../images/main-image-tools.jpg"
+          alt=""
+        />
+        <div id="main-image-text">
+          <h1>Kalkulator średniej</h1>
+          <p>
+            Narzędzie do obliczania średniej arytmetycznej, ważonej i
+            geometrycznej
+          </p>
+        </div>
+      </section>
+
+      <article id="main-article-content">
+        <section id="content-section-program" class="article-content-section">
+          <iframe
+            name="hiddenFrame"
+            style="
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              width: 1px;
+              height: 1px;
+              display: none;
+            "
+          ></iframe>
+          <label for="select-average"
+            >Wybierz średnią, którą chcesz obliczyć:</label
+          >
+          <select name="select-average" id="select-average">
+            <option value="arithmetic-average">Średnia arytmetyczna</option>
+            <option value="weighted-average">Średnia ważona</option>
+            <option value="geometric-average">Średnia geometryczna</option>
+          </select>
+          <form
+            id="arithmetic-average"
+            class="program-form"
+            method="post"
+            target="hiddenFrame"
+          ></form>
+        </section>
+        <section
+          id="content-section-description"
+          class="article-content-section"
+        >
+          <h3>Czym jest średnia?</h3>
+          <p>
+            Średnia jest jednym z podstawowych pojęć w statystyce, które służy
+            do opisania wartości centralnej zbioru danych. Wyraża ona typową
+            wartość w zbiorze, która jest reprezentatywna dla pozostałych
+            wartości.
+          </p>
+          <p>
+            Średnia jest przydatna do określania ogólnego położenia danych w
+            zbiorze. Na przykład, jeśli mamy zbiór ocen uczniów, obliczenie
+            średniej oceny pozwoli nam uzyskać ogólny obraz średniej wydajności
+            całej grupy.
+          </p>
+          <p>
+            Średnia jest jednym z podstawowych statystycznych miar tendencji
+            centralnej i jest szeroko stosowana w analizie danych i statystyce
+            do opisu danych liczbowych.
+          </p>
+          <p>Wyróżniamy kilka rodzajów średniej:</p>
+          <ul>
+            <li>
+              Średnia arytmetyczna: jest to suma wszystkich wartości w zbiorze
+              podzielona przez liczbę tych wartości. Wzór na średnią
+              arytmetyczną to:&emsp;Średnia = (suma wartości) / (liczba
+              wartości)
+            </li>
+            <li>
+              Średnia ważona: to średnia, w której poszczególne wartości mają
+              przypisane wagi. Wagi są używane do nadania większego znaczenia
+              niektórym wartościom w porównaniu do innych. Wzór na średnią
+              ważoną to:&emsp;Średnia ważona = (suma (wartość * waga)) / (suma
+              wag)
+            </li>
+            <li>
+              Średnia geometryczna: wykorzystywana jest przede wszystkim do
+              obliczeń na danych, które mają charakter względny, takie jak
+              wskaźniki procentowe, ceny wzrostu, stopy zwrotu itp. Średnia
+              geometryczna jest równa pierwiastkowi n-tego stopnia z iloczynu n
+              wartości
+            </li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    <footer id="footer"></footer>
+  </body>
+</html>
