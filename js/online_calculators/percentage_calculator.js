@@ -1,6 +1,6 @@
-const form1 = document.getElementById("form1");
 const form1Btn = document.getElementById("form1-btn");
 form1Btn.addEventListener("click", () => {
+  const form1 = document.getElementById("form1");
   if (form1.checkValidity() == true) {
     const form1WhatIsPct = parseFloat(
       document.getElementById("form1-what-is-pct").value
@@ -13,9 +13,9 @@ form1Btn.addEventListener("click", () => {
   }
 });
 
-const form2 = document.getElementById("form2");
 const form2Btn = document.getElementById("form2-btn");
 form2Btn.addEventListener("click", () => {
+  const form2 = document.getElementById("form2");
   if (form2.checkValidity() == true) {
     const form2WhatPctOfNum = parseFloat(
       document.getElementById("form2-what-pct-of-num").value
@@ -28,9 +28,9 @@ form2Btn.addEventListener("click", () => {
   }
 });
 
-const form3 = document.getElementById("form3");
 const form3Btn = document.getElementById("form3-btn");
 form3Btn.addEventListener("click", () => {
+  const form3 = document.getElementById("form3");
   if (form3.checkValidity() == true) {
     const form3ByHowMuchPct = parseFloat(
       document.getElementById("form3-by-how-much-pct").value
@@ -45,9 +45,9 @@ form3Btn.addEventListener("click", () => {
   }
 });
 
-const form4 = document.getElementById("form4");
 const form4Btn = document.getElementById("form4-btn");
 form4Btn.addEventListener("click", () => {
+  const form4 = document.getElementById("form4");
   if (form4.checkValidity() == true) {
     const form4Num = parseFloat(document.getElementById("form4-num").value);
     const form4IncreaseByPct = parseFloat(
@@ -58,9 +58,9 @@ form4Btn.addEventListener("click", () => {
   }
 });
 
-const form5 = document.getElementById("form5");
 const form5Btn = document.getElementById("form5-btn");
 form5Btn.addEventListener("click", () => {
+  const form5 = document.getElementById("form5");
   if (form5.checkValidity() == true) {
     const form5Num = parseFloat(document.getElementById("form5-num").value);
     const form5ReduceByPct = parseFloat(

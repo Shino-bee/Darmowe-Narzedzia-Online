@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="../../css/_main.css" />
     <link rel="stylesheet" href="../../css/program.css" />
     <style>
-      #select-average {
+      #select-average,
+      #arithmetic-average-input {
         background: var(--main-color-darklight);
         color: var(--main-color-lighter);
         border: 1px solid var(--main-color-darklighter);
@@ -21,13 +22,67 @@
         font-size: 0.8em;
         padding: 4px 8px;
         margin: 5px 0px 15px 0px;
+      }
+
+      #select-average:focus,
+      #arithmetic-average-input:focus {
+        box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
+        outline: none;
+      }
+
+      #select-average {
         height: 30px;
         width: 100%;
       }
 
-      #select-average:focus {
-        box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
-        outline: none;
+      #arithmetic-average-input {
+        resize: vertical;
+      }
+
+      #program-average {
+        border-top: 2px solid var(--main-color-darklighter);
+        padding-top: 10px;
+      }
+
+      #arithmetic-average-input {
+        width: 100%;
+      }
+
+      .program-form-btns {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .program-form-btn-calculate,
+      .program-form-btn-reset {
+        color: var(--main-color-light);
+        border-color: rgb(160, 158, 158);
+        border-radius: 20px;
+        border-width: 1px;
+        font-size: 15px;
+        margin: 5px 0px;
+        width: 125px;
+        height: 35px;
+      }
+
+      .program-form-btn-calculate:hover,
+      .program-form-btn-reset:hover {
+        cursor: pointer;
+      }
+
+      @media (min-width: 576px) {
+        .program-form-btn-calculate,
+        .program-form-btn-reset {
+          width: 25%;
+        }
+      }
+
+      .program-form-btn-calculate {
+        background-color: var(--main-color-green);
+      }
+
+      .program-form-btn-reset {
+        background-color: var(--main-color-orange);
       }
     </style>
 
@@ -97,12 +152,36 @@
             <option value="weighted-average">Średnia ważona</option>
             <option value="geometric-average">Średnia geometryczna</option>
           </select>
-          <form
-            id="arithmetic-average"
-            class="program-form"
-            method="post"
-            target="hiddenFrame"
-          ></form>
+          <div id="program-average">
+            <form
+              id="arithmetic-average-form"
+              class="program-form"
+              method="post"
+              target="hiddenFrame"
+            >
+              <label for="arithmetic-average-input"
+                >Wprowadź wartości oddzielone przecinkami:</label
+              >
+              <textarea
+                name="arithmetic-average-input"
+                id="arithmetic-average-input"
+                rows="8"
+                required
+              ></textarea>
+              <div class="program-form-btns">
+                <button type="submit"
+                id="arithmetic-average-btn-calculate" 
+                class="program-form-btn-calculate">
+                  Oblicz
+                </button>
+                <button type="reset" 
+                id="arithmetic-average-btn-reset"
+                class="program-form-btn-reset">
+                  Reset
+                </button>
+              </div>
+            </form>
+          </div>
         </section>
         <section
           id="content-section-description"
