@@ -71,6 +71,11 @@
         background-color: rgb(74, 88, 94);
       }
 
+      #thanks-msg {
+        display: none;
+        padding: 10px;
+      }
+
       @media (min-width: 768px) {
         #contact-input-name,
         #contact-input-email,
@@ -115,27 +120,41 @@
         />
         <div id="main-image-text">
           <h1>Darmowe Narzędzia Online</h1>
-          <p>Użyteczne bezpłatne narzędzia internetowe, jakich możesz potrzebować</p>
+          <p>
+            Użyteczne bezpłatne narzędzia internetowe, jakich możesz potrzebować
+          </p>
         </div>
       </section>
 
       <article id="main-article-content">
         <section id="about_us" class="article-content-section">
+          <iframe
+            name="hiddenFrame"
+            style="
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              width: 1px;
+              height: 1px;
+              display: none;
+            "
+          ></iframe>
           <h3>O nas</h3>
           <div>
             <p>
-              Strona została wykonana została samodzielnie na potrzeby projektu
-              do profilu na
+              Strona została wykonana została przede wszystkim po to, żeby
+              użytkownikowi w łatwy, czytelny i darmowy sposób umożliwić
+              wykonywanie codziennych lub sporadycznych obliczeń, konwersji
+              jednostek i innych narzędzi. W związku z tym użytkownicy mogą
+              korzystać ze strony z dowolnego urządzenia z dostępem do
+              internetu. Strona także została wykonana samodzielnie na potrzeby
+              projektu do profilu na
               <a
                 href="https://github.com/Shino-bee"
                 target="_blank"
                 style="text-decoration: underline"
                 >GitHub</a
-              >, ale przede wszystkim po to, żeby użytkownikowi w łatwy,
-              czytelny i darmowy sposób umożliwić wykonywanie codziennych lub
-              sporadycznych obliczeń, konwersji jednostek itp. W związku z tym
-              użytkownicy mogą korzystać ze strony z dowolnego urządzenia z
-              dostępem do internetu.
+              >.
             </p>
             <p style="padding-top: 10px">
               Celem strony jest zapewnienie użytkownikom narzędzi do
@@ -220,7 +239,15 @@
         </section>
         <section id="contact" class="article-content-section">
           <h3>Kontakt</h3>
-          <div>
+          <p id="thanks-msg">
+            Dziękujemy! Twoja wiadomość została dostarczona. Postaramy się
+            odpowiedzieć tak szybko jak to tylko możliwe. Możesz teraz przejść
+            do
+            <a href="../../index.html" style="text-decoration: underline"
+              >strony głównej</a
+            >.
+          </p>
+          <div id="contact-div">
             <p style="margin-bottom: 10px">
               Jeśli chcesz się z nami skontaktować możesz to zrobić przy użyciu
               <a
@@ -240,7 +267,9 @@
             </p>
             <form
               action="https://formsubmit.co/michal.podowski@gmail.com"
+              id="contact-form"
               method="POST"
+              target="hiddenFrame"
             >
               <label for="contact-input-name">Twoja nazwa:</label>
               <input
@@ -278,5 +307,17 @@
       </article>
     </main>
     <footer id="footer"></footer>
+    <script>
+      const contactForm = document.getElementById("contact-form");
+      const contactSubmit = document.getElementById("contact-submit");
+      contactSubmit.addEventListener("click", () => {
+        if (contactForm.checkValidity() == true) {
+          const contactSectionDiv = document.getElementById("contact-div");
+          const contactThanksMsg = document.getElementById("thanks-msg");
+          contactSectionDiv.style.display = "none";
+          contactThanksMsg.style.display = "block";
+        }
+      });
+    </script>
   </body>
 </html>
