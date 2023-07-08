@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="../../css/program.css" />
     <style>
       #select-average,
-      #arithmetic-average-input {
+      #arithmetic-average-input,
+      #arithmetic-average-result {
         background: var(--main-color-darklight);
         color: var(--main-color-lighter);
         border: 1px solid var(--main-color-darklighter);
@@ -25,7 +26,8 @@
       }
 
       #select-average:focus,
-      #arithmetic-average-input:focus {
+      #arithmetic-average-input:focus,
+      #arithmetic-average-result:focus {
         box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
         outline: none;
       }
@@ -35,17 +37,24 @@
         width: 100%;
       }
 
-      #arithmetic-average-input {
-        resize: vertical;
-      }
-
       #program-average {
         border-top: 2px solid var(--main-color-darklighter);
         padding-top: 10px;
       }
 
-      #arithmetic-average-input {
+      #arithmetic-average-input,
+      #arithmetic-average-result {
         width: 100%;
+        height: 28px;
+      }
+
+      #arithmetic-average-added-nums {
+        display: none;
+        padding-bottom: 15px;
+      }
+
+      #arithmetic-average-result {
+        font-size: 1em;
       }
 
       .program-form-btns {
@@ -105,11 +114,7 @@
 
     <!-- JS -->
     <script defer type="text/javascript" src="../../js/_main.js"></script>
-    <script
-      async
-      type="module"
-      src="../../js/online_calculators/average_calculator.js"
-    ></script>
+    <script async type="module" src="../../js/online_calculators/average_calculator.js"></script>
   </head>
 
   <body>
@@ -117,17 +122,10 @@
     <header id="header"></header>
     <main id="main">
       <section id="main-image">
-        <img
-          id="main-image-img"
-          src="../../images/main-image-tools.jpg"
-          alt=""
-        />
+        <img id="main-image-img" src="../../images/main-image-tools.jpg" alt="" />
         <div id="main-image-text">
           <h1>Kalkulator średniej</h1>
-          <p>
-            Narzędzie do obliczania średniej arytmetycznej, ważonej i
-            geometrycznej
-          </p>
+          <p>Narzędzie do obliczania średniej arytmetycznej, ważonej i geometrycznej</p>
         </div>
       </section>
 
@@ -144,9 +142,7 @@
               display: none;
             "
           ></iframe>
-          <label for="select-average"
-            >Wybierz średnią, którą chcesz obliczyć:</label
-          >
+          <label for="select-average">Wybierz średnią, którą chcesz obliczyć:</label>
           <select name="select-average" id="select-average">
             <option value="arithmetic-average">Średnia arytmetyczna</option>
             <option value="weighted-average">Średnia ważona</option>
@@ -159,22 +155,29 @@
               method="post"
               target="hiddenFrame"
             >
-              <label for="arithmetic-average-input"
-                >Wprowadź wartości oddzielone przecinkami:</label
-              >
-              <textarea
+              <label for="arithmetic-average-input">Podaj pojedynczo liczby:</label>
+              <input
+                type="number"
                 name="arithmetic-average-input"
                 id="arithmetic-average-input"
-                rows="8"
-                required
-              ></textarea>
+                step="0.01"
+                autocomplete="off"
+              />
+              <p id="arithmetic-average-added-nums"></p>
+              <label for="arithmetic-average-result">Średnia:</label>
+              <input
+                type="text"
+                name="arithmetic-average-result"
+                id="arithmetic-average-result"
+                readonly
+              />
               <div class="program-form-btns">
                 <button
                   type="submit"
                   id="arithmetic-average-btn-calculate"
                   class="program-form-btn-calculate"
                 >
-                  Oblicz
+                  Dodaj
                 </button>
                 <button
                   type="reset"
@@ -187,48 +190,38 @@
             </form>
           </div>
         </section>
-        <section
-          id="content-section-description"
-          class="content-section-styles"
-        >
+        <section id="content-section-description" class="content-section-styles">
           <h3>Czym jest średnia?</h3>
           <p>
-            Średnia jest jednym z podstawowych pojęć w statystyce, które służy
-            do opisania wartości centralnej zbioru danych. Wyraża ona typową
-            wartość w zbiorze, która jest reprezentatywna dla pozostałych
-            wartości.
+            Średnia jest jednym z podstawowych pojęć w statystyce, które służy do opisania wartości
+            centralnej zbioru danych. Wyraża ona typową wartość w zbiorze, która jest
+            reprezentatywna dla pozostałych wartości.
           </p>
           <p>
-            Średnia jest przydatna do określania ogólnego położenia danych w
-            zbiorze. Na przykład, jeśli mamy zbiór ocen uczniów, obliczenie
-            średniej oceny pozwoli nam uzyskać ogólny obraz średniej wydajności
-            całej grupy.
+            Średnia jest przydatna do określania ogólnego położenia danych w zbiorze. Na przykład,
+            jeśli mamy zbiór ocen uczniów, obliczenie średniej oceny pozwoli nam uzyskać ogólny
+            obraz średniej wydajności całej grupy.
           </p>
           <p>
-            Średnia jest jednym z podstawowych statystycznych miar tendencji
-            centralnej i jest szeroko stosowana w analizie danych i statystyce
-            do opisu danych liczbowych.
+            Średnia jest jednym z podstawowych statystycznych miar tendencji centralnej i jest
+            szeroko stosowana w analizie danych i statystyce do opisu danych liczbowych.
           </p>
           <p>Wyróżniamy kilka rodzajów średniej:</p>
           <ul>
             <li>
-              Średnia arytmetyczna: jest to suma wszystkich wartości w zbiorze
-              podzielona przez liczbę tych wartości. Wzór na średnią
-              arytmetyczną to:&emsp;Średnia = (suma wartości) / (liczba
-              wartości)
+              Średnia arytmetyczna: jest to suma wszystkich wartości w zbiorze podzielona przez
+              liczbę tych wartości. Wzór na średnią arytmetyczną to:&emsp;Średnia = (suma wartości)
+              / (liczba wartości)
             </li>
             <li>
-              Średnia ważona: to średnia, w której poszczególne wartości mają
-              przypisane wagi. Wagi są używane do nadania większego znaczenia
-              niektórym wartościom w porównaniu do innych. Wzór na średnią
-              ważoną to:&emsp;Średnia ważona = (suma (wartość * waga)) / (suma
-              wag)
+              Średnia ważona: to średnia, w której poszczególne wartości mają przypisane wagi. Wagi
+              są używane do nadania większego znaczenia niektórym wartościom w porównaniu do innych.
+              Wzór na średnią ważoną to:&emsp;Średnia ważona = (suma (wartość * waga)) / (suma wag)
             </li>
             <li>
-              Średnia geometryczna: wykorzystywana jest przede wszystkim do
-              obliczeń na danych, które mają charakter względny, takie jak
-              wskaźniki procentowe, ceny wzrostu, stopy zwrotu itp. Średnia
-              geometryczna jest równa pierwiastkowi n-tego stopnia z iloczynu n
+              Średnia geometryczna: wykorzystywana jest przede wszystkim do obliczeń na danych,
+              które mają charakter względny, takie jak wskaźniki procentowe, ceny wzrostu, stopy
+              zwrotu itp. Średnia geometryczna jest równa pierwiastkowi n-tego stopnia z iloczynu n
               wartości
             </li>
           </ul>
