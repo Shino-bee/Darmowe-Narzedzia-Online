@@ -26,50 +26,13 @@ arithmeticAverageBtnAdd.addEventListener("click", () => {
     arithmeticAverageOutput.value = arithmeticAverageResult;
     arithmeticAverageInput.value = "";
   }
-
-  // Reset button
-  const arithmeticAverageBtnReset = document.getElementById("arithmetic-average-btn-reset");
-  arithmeticAverageBtnReset.addEventListener("click", () => {
-    const arithmeticAverageAddedNums = document.getElementById("arithmetic-average-added-nums");
-    arithmeticAverageAddedNums.innerText = "";
-    arithmeticAverageAddedNums.style.display = "none";
-  });
 });
 
-/* const invalidChars = /[^0-9,]/gi;
-const arithmeticAverageInput = document.getElementById(
-  "arithmetic-average-input"
-);
-arithmeticAverageInput.addEventListener("keyup", () => {
-  if (invalidChars.test(arithmeticAverageInput.value)) {
-    arithmeticAverageInput.value = arithmeticAverageInput.value.replace(
-      invalidChars,
-      ""
-    );
-  }
+// Reset button
+const arithmeticAverageBtnReset = document.getElementById("arithmetic-average-btn-reset");
+arithmeticAverageBtnReset.addEventListener("click", () => {
+  const arithmeticAverageAddedNums = document.getElementById("arithmetic-average-added-nums");
+  arithmeticAverageAddedNums.innerText = "";
+  arithmeticAverageAddedNums.style.display = "none";
+  arrOfNums = [];
 });
-
-const arithmeticAverageBtnCalculate = document.getElementById(
-  "arithmetic-average-btn-calculate"
-);
-arithmeticAverageBtnCalculate.addEventListener("click", () => {
-  const arithmeticAverageForm = document.getElementById(
-    "arithmetic-average-form"
-  );
-  if (arithmeticAverageForm.checkValidity() == true) {
-    let arrOfNums = arithmeticAverageInput.value
-      .split(",")
-      .filter((num) => num.length > 0);
-    for (let i = 0; i < arrOfNums.length; i++) {
-      if (invalidChars.test(arrOfNums[i])) {
-        arrOfNums[i] = arrOfNums[i].replace(invalidChars, "");
-        if (arrOfNums[i].length <= 0) {
-          arrOfNums.splice(i, 1);
-        }
-      }
-    }
-
-    console.log(arrOfNums);
-    console.log(typeof(arrOfNums[0]));
-  }
-}); */
