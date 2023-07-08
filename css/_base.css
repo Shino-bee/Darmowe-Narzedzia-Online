@@ -259,7 +259,7 @@
   }
 }
 
-.article-content-section {
+.content-section-styles {
   border: 5px ridge var(--main-color-darklighter);
   border-radius: 10px;
   margin-bottom: 30px;
