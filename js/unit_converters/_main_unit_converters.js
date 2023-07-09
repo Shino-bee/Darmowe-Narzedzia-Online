@@ -26,34 +26,23 @@ if (page === "length_converter.html") {
 // Changes the text in label of <select> tag to the selected value
 const unitToConvertOptions = document.getElementById("program-form-unit");
 unitToConvertOptions.addEventListener("change", () => {
-  const unitToConvertLabel =
-    document.getElementsByClassName("unit-to-convert")[0];
-  const unitToConvertText =
-    unitToConvertOptions.options[unitToConvertOptions.selectedIndex].text;
+  const unitToConvertLabel = document.getElementsByClassName("unit-to-convert")[0];
+  const unitToConvertText = unitToConvertOptions.options[unitToConvertOptions.selectedIndex].text;
   unitToConvertLabel.innerText = unitToConvertText;
 });
 
 // Calculate button - calculates the results and changes content (text and results) in the table and shows table if is not displayed
-const unitConverterBtnCalculate = document.getElementById(
-  "program-form-btn-calculate"
-);
+const unitConverterBtnCalculate = document.getElementById("program-form-btn-calculate");
 unitConverterBtnCalculate.addEventListener("click", () => {
-  const programFormValidity = document
-    .getElementById("program-form")
-    .checkValidity();
+  const programFormValidity = document.getElementById("program-form").checkValidity();
   if (programFormValidity === true) {
     const tableOfUnits = document.getElementById("program-table");
-    const unitToConvertTableNames =
-      document.getElementsByClassName("unit-to-convert");
-    const unitToConvertTableValues = document.getElementsByClassName(
-      "unit-value-converted"
-    );
-    const unitToConvertText =
-      unitToConvertOptions.options[unitToConvertOptions.selectedIndex].text;
+    const unitToConvertTableNames = document.getElementsByClassName("unit-to-convert");
+    const unitToConvertTableValues = document.getElementsByClassName("unit-value-converted");
+    const unitToConvertText = unitToConvertOptions.options[unitToConvertOptions.selectedIndex].text;
     const unitToConvertValueName =
       unitToConvertOptions.options[unitToConvertOptions.selectedIndex].value;
-    const unitToConvertValue =
-      document.getElementById("program-form-value").value;
+    const unitToConvertValue = document.getElementById("program-form-value").value;
     for (let i = 1; i < unitToConvertTableNames.length; i++) {
       unitToConvertTableNames[i].innerText = unitToConvertText;
     }
@@ -74,12 +63,10 @@ unitConverterBtnCalculate.addEventListener("click", () => {
 });
 
 // Reset button - hide table, reset label and sets default values
-const defaultUnitToConvertLabel =
-  document.getElementsByClassName("unit-to-convert")[0].textContent;
+const defaultUnitToConvertLabel = document.getElementsByClassName("unit-to-convert")[0].textContent;
 const unitConverterBtnReset = document.getElementById("program-form-btn-reset");
 unitConverterBtnReset.addEventListener("click", () => {
-  const unitToConvertLabel =
-    document.getElementsByClassName("unit-to-convert")[0];
+  const unitToConvertLabel = document.getElementsByClassName("unit-to-convert")[0];
   const tableOfUnits = document.getElementById("program-table");
   unitToConvertLabel.innerText = defaultUnitToConvertLabel;
   tableOfUnits.style.transition = "0s";

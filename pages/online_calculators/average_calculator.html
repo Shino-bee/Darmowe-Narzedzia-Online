@@ -13,9 +13,25 @@
     <link rel="stylesheet" href="../../css/_main.css" />
     <link rel="stylesheet" href="../../css/program.css" />
     <style>
+      #program-average {
+        border-top: 2px solid var(--main-color-darklighter);
+        padding-top: 10px;
+      }
+
+      #select-average {
+        height: 30px;
+        width: 100%;
+      }
+
+      #geometric-average-form {
+        display: none;
+      }
+
       #select-average,
       #arithmetic-average-input,
-      #arithmetic-average-result {
+      #arithmetic-average-result,
+      #geometric-average-input,
+      #geometric-average-result {
         background: var(--main-color-darklight);
         color: var(--main-color-lighter);
         border: 1px solid var(--main-color-darklighter);
@@ -27,23 +43,17 @@
 
       #select-average:focus,
       #arithmetic-average-input:focus,
-      #arithmetic-average-result:focus {
+      #arithmetic-average-result:focus,
+      #geometric-average-input:focus,
+      #geometric-average-result:focus {
         box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
         outline: none;
       }
 
-      #select-average {
-        height: 30px;
-        width: 100%;
-      }
-
-      #program-average {
-        border-top: 2px solid var(--main-color-darklighter);
-        padding-top: 10px;
-      }
-
       #arithmetic-average-input,
-      #arithmetic-average-result {
+      #arithmetic-average-result,
+      #geometric-average-input,
+      #geometric-average-result {
         width: 100%;
         height: 28px;
       }
@@ -53,7 +63,8 @@
         padding-bottom: 15px;
       }
 
-      #arithmetic-average-result {
+      #arithmetic-average-result,
+      #geometric-average-result {
         font-size: 1em;
       }
 
@@ -144,9 +155,9 @@
           ></iframe>
           <label for="select-average">Wybierz średnią, którą chcesz obliczyć:</label>
           <select name="select-average" id="select-average">
-            <option value="arithmetic-average">Średnia arytmetyczna</option>
-            <option value="weighted-average">Średnia ważona</option>
-            <option value="geometric-average">Średnia geometryczna</option>
+            <option value="arithmetic" selected>Średnia arytmetyczna</option>
+            <option value="weighted">Średnia ważona</option>
+            <option value="geometric">Średnia geometryczna</option>
           </select>
           <div id="program-average">
             <form
@@ -164,7 +175,7 @@
                 autocomplete="off"
               />
               <p id="arithmetic-average-added-nums"></p>
-              <label for="arithmetic-average-result">Średnia:</label>
+              <label for="arithmetic-average-result">Wynik średniej arytmetycznej:</label>
               <input
                 type="text"
                 name="arithmetic-average-result"
@@ -182,6 +193,44 @@
                 <button
                   type="reset"
                   id="arithmetic-average-btn-reset"
+                  class="program-form-btn-reset"
+                >
+                  Reset
+                </button>
+              </div>
+            </form>
+
+            <form
+              id="geometric-average-form"
+              class="program-form"
+              method="post"
+              target="hiddenFrame"
+            >
+              <label for="geometric-average-input">Podaj liczby odzielając je przecinkami:</label>
+              <input
+                type="text"
+                name="geometric-average-input"
+                id="geometric-average-input"
+                autocomplete="off"
+              />
+              <label for="geometric-average-result">Wynik średniej geometrycznej:</label>
+              <input
+                type="text"
+                name="geometric-average-result"
+                id="geometric-average-result"
+                readonly
+              />
+              <div class="program-form-btns">
+                <button
+                  type="submit"
+                  id="geometric-average-btn-calculate"
+                  class="program-form-btn-calculate"
+                >
+                  Oblicz
+                </button>
+                <button
+                  type="reset"
+                  id="geometric-average-btn-reset"
                   class="program-form-btn-reset"
                 >
                   Reset
