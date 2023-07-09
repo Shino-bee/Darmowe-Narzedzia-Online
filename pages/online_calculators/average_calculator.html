@@ -18,11 +18,7 @@
         padding-top: 10px;
       }
 
-      #select-average {
-        height: 30px;
-        width: 100%;
-      }
-
+      #weighted-average-form,
       #geometric-average-form {
         display: none;
       }
@@ -30,6 +26,10 @@
       #select-average,
       #arithmetic-average-input,
       #arithmetic-average-result,
+      .weighted-average-input-value,
+      .weighted-average-input-weight,
+      .weighted-average-btn-remove,
+      #weighted-average-result,
       #geometric-average-input,
       #geometric-average-result {
         background: var(--main-color-darklight);
@@ -39,33 +39,51 @@
         font-size: 0.8em;
         padding: 4px 8px;
         margin: 5px 0px 15px 0px;
+        width: 100%;
+        height: 28px;
       }
 
       #select-average:focus,
       #arithmetic-average-input:focus,
       #arithmetic-average-result:focus,
+      .weighted-average-input-value:focus,
+      .weighted-average-input-weight:focus,
+      #weighted-average-result:focus,
       #geometric-average-input:focus,
       #geometric-average-result:focus {
         box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
         outline: none;
       }
 
-      #arithmetic-average-input,
-      #arithmetic-average-result,
-      #geometric-average-input,
-      #geometric-average-result {
-        width: 100%;
-        height: 28px;
-      }
-
-      #arithmetic-average-added-nums {
+      #arithmetic-average-added-nums,
+      #geometric-average-added-nums {
         display: none;
         padding-bottom: 15px;
       }
 
       #arithmetic-average-result,
+      #weighted-average-result,
       #geometric-average-result {
         font-size: 1em;
+      }
+
+      #weighted-average-fieldset {
+        border: 0;
+      }
+
+      .weighted-average-fieldset-inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .weighted-average-input-value,
+      .weighted-average-input-weight {
+        background-color: gray;
+        display: inline;
+      }
+
+      .weighted-average-btn-remove {
+        background: darkcyan;
       }
 
       .program-form-btns {
@@ -159,7 +177,9 @@
             <option value="weighted">Średnia ważona</option>
             <option value="geometric">Średnia geometryczna</option>
           </select>
+
           <div id="program-average">
+            <!-- Arithmetic average form -->
             <form
               id="arithmetic-average-form"
               class="program-form"
@@ -199,20 +219,71 @@
                 </button>
               </div>
             </form>
-
+            <!-- Weighted average form -->
+            <form
+              id="weighted-average-form"
+              class="program-form"
+              method="post"
+              target="hiddenFrame"
+            >
+              <fieldset id="weighted-average-fieldset">
+                <legend>Wprowadź wartości (np. oceny szkolne) i ich wagi:</legend>
+                <div class="weighted-average-fieldset-inputs">
+                  <input
+                    type="number"
+                    class="weighted-average-input-value"
+                    step="0.0000000001"
+                    autocomplete="off"
+                  />
+                  <input
+                    type="number"
+                    class="weighted-average-input-weight"
+                    step="0.0000000001"
+                    autocomplete="off"
+                  />
+                  <button type="button" class="weighted-average-btn-remove">X</button>
+                </div>
+              </fieldset>
+              <p id="weighted-average-added-nums"></p>
+              <label for="weighted-average-result">Wynik średniej ważonej:</label>
+              <input
+                type="text"
+                name="weighted-average-result"
+                id="weighted-average-result"
+                readonly
+              />
+              <div class="program-form-btns">
+                <button
+                  type="submit"
+                  id="weighted-average-btn-calculate"
+                  class="program-form-btn-calculate"
+                >
+                  Oblicz
+                </button>
+                <button
+                  type="button"
+                  id="weighted-average-btn-add-row"
+                  class="program-form-btn-reset"
+                >
+                  + Dodaj wiersz
+                </button>
+              </div>
+            </form>
+            <!-- Geometric average form -->
             <form
               id="geometric-average-form"
               class="program-form"
               method="post"
               target="hiddenFrame"
             >
-              <label for="geometric-average-input">Podaj liczby odzielając je przecinkami:</label>
+              <label for="geometric-average-input">Podaj pojedynczo liczby:</label>
               <input
-                type="text"
+                type="number"
                 name="geometric-average-input"
                 id="geometric-average-input"
                 autocomplete="off"
               />
+              <p id="geometric-average-added-nums"></p>
               <label for="geometric-average-result">Wynik średniej geometrycznej:</label>
               <input
                 type="text"
@@ -226,7 +297,7 @@
                   id="geometric-average-btn-calculate"
                   class="program-form-btn-calculate"
                 >
-                  Oblicz
+                  Dodaj
                 </button>
                 <button
                   type="reset"
@@ -239,6 +310,7 @@
             </form>
           </div>
         </section>
+
         <section id="content-section-description" class="content-section-styles">
           <h3>Czym jest średnia?</h3>
           <p>
