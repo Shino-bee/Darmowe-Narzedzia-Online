@@ -77,19 +77,42 @@ weightedAverageBtnAdd.addEventListener("click", () => {
     weightedAverageInput.value = "";
   }
 });
+// Remove row button
+const weightedAverageBtnRemove = document.getElementsByClassName("weighted-average-btn-remove");
+for (let i = 0; i < weightedAverageBtnRemove.length; i++) {
+  weightedAverageBtnRemove[i].addEventListener("click", (event) => {
+    event.target.parentNode.remove();
+  });
+}
+
 // Add new row button
 const weightedAverageBtnAddRow = document.getElementById("weighted-average-btn-add-row");
 weightedAverageBtnAddRow.addEventListener("click", () => {
-  console.log("teost");
+  const weightedAverageFieldset = document.getElementById("weighted-average-fieldset");
+  const fieldsetContainer = document.createElement("div");
+  fieldsetContainer.classList.add("weighted-average-fieldset-inputs");
+  const fieldsetInputValue = document.createElement("input");
+  fieldsetInputValue.setAttribute("type", "number");
+  fieldsetInputValue.classList.add("weighted-average-input-value");
+  fieldsetInputValue.setAttribute("step", "0.0000000001");
+  fieldsetInputValue.setAttribute("autocomplete", "off");
+  fieldsetInputValue.setAttribute("placeholder", "Wartość");
+  const fieldsetInputWeight = document.createElement("input");
+  fieldsetInputWeight.setAttribute("type", "number");
+  fieldsetInputWeight.classList.add("weighted-average-input-weight");
+  fieldsetInputWeight.setAttribute("step", "0.0000000001");
+  fieldsetInputWeight.setAttribute("autocomplete", "off");
+  fieldsetInputWeight.setAttribute("placeholder", "Waga");
+  const fieldsetBtnRemove = document.createElement("button");
+  fieldsetBtnRemove.setAttribute("type", "button");
+  fieldsetBtnRemove.classList.add("weighted-average-btn-remove");
+  fieldsetBtnRemove.innerHTML = "&#10006;";
+
+  fieldsetContainer.appendChild(fieldsetInputValue);
+  fieldsetContainer.appendChild(fieldsetInputWeight);
+  fieldsetContainer.appendChild(fieldsetBtnRemove);
+  weightedAverageFieldset.appendChild(fieldsetContainer);
 });
-// // Reset button
-// const weightedAverageBtnReset = document.getElementById("weighted-average-btn-reset");
-// weightedAverageBtnReset.addEventListener("click", () => {
-//   const weightedAverageAddedNums = document.getElementById("weighted-average-added-nums");
-//   weightedAverageAddedNums.innerText = "";
-//   weightedAverageAddedNums.style.display = "none";
-//   weightedAverageArrOfNums = [];
-// });
 
 /* ----- Geometric average calculator ----- */
 let geometricAverageArrOfNums = [];

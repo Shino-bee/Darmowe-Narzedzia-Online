@@ -18,7 +18,7 @@
         padding-top: 10px;
       }
 
-      #weighted-average-form,
+      /* #weighted-average-form, */
       #geometric-average-form {
         display: none;
       }
@@ -28,7 +28,6 @@
       #arithmetic-average-result,
       .weighted-average-input-value,
       .weighted-average-input-weight,
-      .weighted-average-btn-remove,
       #weighted-average-result,
       #geometric-average-input,
       #geometric-average-result {
@@ -55,6 +54,11 @@
         outline: none;
       }
 
+      .weighted-average-input-value,
+      .weighted-average-input-weight {
+        margin: 5px 0px;
+      }
+
       #arithmetic-average-added-nums,
       #geometric-average-added-nums {
         display: none;
@@ -73,17 +77,19 @@
 
       .weighted-average-fieldset-inputs {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 2.5fr 2.5fr 1fr;
+        gap: 5px;
+      }
+
+      @media (min-width: 576px) {
+        .weighted-average-fieldset-inputs {
+          gap: 10px;
+        }
       }
 
       .weighted-average-input-value,
       .weighted-average-input-weight {
-        background-color: gray;
-        display: inline;
-      }
-
-      .weighted-average-btn-remove {
-        background: darkcyan;
+        width: 100%;
       }
 
       .program-form-btns {
@@ -103,8 +109,21 @@
         height: 35px;
       }
 
+      .weighted-average-btn-remove {
+        background-color: var(--bgcolor-menu-dropdown);
+        color: var(--main-color-light);
+        border-color: rgb(160, 158, 158);
+        border-radius: 20px;
+        border-width: 1px;
+        font-size: 15px;
+        margin: 5px 0px;
+        width: 100%;
+        height: 28px;
+      }
+
       .program-form-btn-calculate:hover,
-      .program-form-btn-reset:hover {
+      .program-form-btn-reset:hover,
+      .weighted-average-btn-remove:hover {
         cursor: pointer;
       }
 
@@ -234,17 +253,35 @@
                     class="weighted-average-input-value"
                     step="0.0000000001"
                     autocomplete="off"
+                    placeholder="Wartość"
                   />
                   <input
                     type="number"
                     class="weighted-average-input-weight"
                     step="0.0000000001"
                     autocomplete="off"
+                    placeholder="Waga"
                   />
-                  <button type="button" class="weighted-average-btn-remove">X</button>
+                  <button type="button" class="weighted-average-btn-remove">&#10006;</button>
+                </div>
+                <div class="weighted-average-fieldset-inputs">
+                  <input
+                    type="number"
+                    class="weighted-average-input-value"
+                    step="0.0000000001"
+                    autocomplete="off"
+                    placeholder="Wartość"
+                  />
+                  <input
+                    type="number"
+                    class="weighted-average-input-weight"
+                    step="0.0000000001"
+                    autocomplete="off"
+                    placeholder="Waga"
+                  />
+                  <button type="button" class="weighted-average-btn-remove">&#10006;</button>
                 </div>
               </fieldset>
-              <p id="weighted-average-added-nums"></p>
               <label for="weighted-average-result">Wynik średniej ważonej:</label>
               <input
                 type="text"
