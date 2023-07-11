@@ -21,7 +21,7 @@ selectAverage.addEventListener("change", () => {
 
 /* ----- Arithmetic average calculator ----- */
 let arithmeticAverageArrOfNums = [];
-// Add button - calculates and shows added nums and results
+// Add button (arithmetic) - calculates and shows added nums and results
 const arithmeticAverageBtnAdd = document.getElementById("arithmetic-average-btn-calculate");
 arithmeticAverageBtnAdd.addEventListener("click", () => {
   const arithmeticAverageForm = document.getElementById("arithmetic-average-form");
@@ -43,7 +43,7 @@ arithmeticAverageBtnAdd.addEventListener("click", () => {
     arithmeticAverageInput.value = "";
   }
 });
-// Reset button
+// Reset button (arithmetic)
 const arithmeticAverageBtnReset = document.getElementById("arithmetic-average-btn-reset");
 arithmeticAverageBtnReset.addEventListener("click", () => {
   const arithmeticAverageAddedNums = document.getElementById("arithmetic-average-added-nums");
@@ -53,39 +53,20 @@ arithmeticAverageBtnReset.addEventListener("click", () => {
 });
 
 /* ----- Weighted average calculator ----- */
-let weightedAverageArrOfNums = [];
-// Add button - calculates and shows added nums and results
-const weightedAverageBtnAdd = document.getElementById("weighted-average-btn-calculate");
-weightedAverageBtnAdd.addEventListener("click", () => {
-  const weightedAverageForm = document.getElementById("weighted-average-form");
-  const weightedAverageInput = document.getElementById("weighted-average-input");
-  if (weightedAverageForm.checkValidity() && weightedAverageInput.value != "") {
-    const weightedAverageAddedNums = document.getElementById("weighted-average-added-nums");
-    if (weightedAverageAddedNums.style.display != "block") {
-      weightedAverageAddedNums.style.display = "block";
-      weightedAverageAddedNums.innerText += weightedAverageInput.value;
-    } else {
-      weightedAverageAddedNums.innerText += ", " + weightedAverageInput.value;
-    }
-    weightedAverageArrOfNums.push(parseFloat(weightedAverageInput.value));
-    const weightedAverageOutput = document.getElementById("weighted-average-result");
-    const weightedAverageResult = Math.pow(
-      weightedAverageArrOfNums.reduce((sum, num) => sum * num),
-      1 / weightedAverageArrOfNums.length
-    );
-    weightedAverageOutput.value = weightedAverageResult;
-    weightedAverageInput.value = "";
+let weightedAverageArrOfArrsOfNums = [];
+// Remove row button (weighted)
+const weightedAverageBtnRemoveRow = document.getElementsByClassName(
+  "weighted-average-btn-remove-row"
+);
+function weightedAverageUpdateRowsCount() {
+  for (let i = 0; i < weightedAverageBtnRemoveRow.length; i++) {
+    weightedAverageBtnRemoveRow[i].addEventListener("click", (event) => {
+      event.target.parentNode.remove();
+    });
   }
-});
-// Remove row button
-const weightedAverageBtnRemove = document.getElementsByClassName("weighted-average-btn-remove");
-for (let i = 0; i < weightedAverageBtnRemove.length; i++) {
-  weightedAverageBtnRemove[i].addEventListener("click", (event) => {
-    event.target.parentNode.remove();
-  });
 }
-
-// Add new row button
+weightedAverageUpdateRowsCount();
+// Add row button (weighted)
 const weightedAverageBtnAddRow = document.getElementById("weighted-average-btn-add-row");
 weightedAverageBtnAddRow.addEventListener("click", () => {
   const weightedAverageFieldset = document.getElementById("weighted-average-fieldset");
@@ -105,18 +86,57 @@ weightedAverageBtnAddRow.addEventListener("click", () => {
   fieldsetInputWeight.setAttribute("placeholder", "Waga");
   const fieldsetBtnRemove = document.createElement("button");
   fieldsetBtnRemove.setAttribute("type", "button");
-  fieldsetBtnRemove.classList.add("weighted-average-btn-remove");
+  fieldsetBtnRemove.classList.add("weighted-average-btn-remove-row");
   fieldsetBtnRemove.innerHTML = "&#10006;";
-
   fieldsetContainer.appendChild(fieldsetInputValue);
   fieldsetContainer.appendChild(fieldsetInputWeight);
   fieldsetContainer.appendChild(fieldsetBtnRemove);
   weightedAverageFieldset.appendChild(fieldsetContainer);
+  weightedAverageUpdateRowsCount();
+});
+// Calculate button (weighted) - calculates and shows result
+const weightedAverageBtnAdd = document.getElementById("weighted-average-btn-calculate");
+weightedAverageBtnAdd.addEventListener("click", () => {
+  const weightedAverageForm = document.getElementById("weighted-average-form");
+  if (weightedAverageForm.checkValidity()) {
+    const weightedAverageFieldsetInputs = document.getElementsByClassName(
+      "weighted-average-fieldset-inputs"
+    );
+    for (let i = 0; i < weightedAverageFieldsetInputs.length; i++) {
+      const fieldsetInputValue = parseFloat(
+        weightedAverageFieldsetInputs[i].getElementsByTagName("input")[0].value
+      );
+      const fieldsetInputWeight = parseFloat(
+        weightedAverageFieldsetInputs[i].getElementsByTagName("input")[1].value
+      );
+      if (!isNaN(fieldsetInputValue) && !isNaN(fieldsetInputWeight)) {
+        weightedAverageArrOfArrsOfNums[weightedAverageArrOfArrsOfNums.length] = [
+          fieldsetInputValue,
+          fieldsetInputWeight,
+        ];
+      }
+    }
+    if (weightedAverageArrOfArrsOfNums.length > 0) {
+      let resultLeftSide = []; // = sum of values multiplied by weights
+      let resultRightSide = 0; // = sum of weights
+      for (let i = 0; i < weightedAverageArrOfArrsOfNums.length; i++) {
+        resultLeftSide.push(
+          weightedAverageArrOfArrsOfNums[i][0] * weightedAverageArrOfArrsOfNums[i][1]
+        );
+        resultRightSide += weightedAverageArrOfArrsOfNums[i][1];
+      }
+      resultLeftSide = resultLeftSide.reduce((sum, num) => sum + num);
+      const result = resultLeftSide / resultRightSide;
+      const weightedAverageResult = document.getElementById("weighted-average-result");
+      weightedAverageResult.value = result;
+    }
+    weightedAverageArrOfArrsOfNums = [];
+  }
 });
 
 /* ----- Geometric average calculator ----- */
 let geometricAverageArrOfNums = [];
-// Add button - calculates and shows added nums and results
+// Add button (geometric) - calculates and shows added nums and results
 const geometricAverageBtnAdd = document.getElementById("geometric-average-btn-calculate");
 geometricAverageBtnAdd.addEventListener("click", () => {
   const geometricAverageForm = document.getElementById("geometric-average-form");
@@ -140,7 +160,7 @@ geometricAverageBtnAdd.addEventListener("click", () => {
     geometricAverageInput.value = "";
   }
 });
-// Reset button
+// Reset button (geometric)
 const geometricAverageBtnReset = document.getElementById("geometric-average-btn-reset");
 geometricAverageBtnReset.addEventListener("click", () => {
   const geometricAverageAddedNums = document.getElementById("geometric-average-added-nums");

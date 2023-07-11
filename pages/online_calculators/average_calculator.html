@@ -18,7 +18,7 @@
         padding-top: 10px;
       }
 
-      /* #weighted-average-form, */
+      #weighted-average-form,
       #geometric-average-form {
         display: none;
       }
@@ -73,6 +73,7 @@
 
       #weighted-average-fieldset {
         border: 0;
+        margin-bottom: 10px;
       }
 
       .weighted-average-fieldset-inputs {
@@ -109,7 +110,7 @@
         height: 35px;
       }
 
-      .weighted-average-btn-remove {
+      .weighted-average-btn-remove-row {
         background-color: var(--bgcolor-menu-dropdown);
         color: var(--main-color-light);
         border-color: rgb(160, 158, 158);
@@ -123,7 +124,7 @@
 
       .program-form-btn-calculate:hover,
       .program-form-btn-reset:hover,
-      .weighted-average-btn-remove:hover {
+      .weighted-average-btn-remove-row:hover {
         cursor: pointer;
       }
 
@@ -262,7 +263,7 @@
                     autocomplete="off"
                     placeholder="Waga"
                   />
-                  <button type="button" class="weighted-average-btn-remove">&#10006;</button>
+                  <button type="button" class="weighted-average-btn-remove-row">&#10006;</button>
                 </div>
                 <div class="weighted-average-fieldset-inputs">
                   <input
@@ -279,7 +280,24 @@
                     autocomplete="off"
                     placeholder="Waga"
                   />
-                  <button type="button" class="weighted-average-btn-remove">&#10006;</button>
+                  <button type="button" class="weighted-average-btn-remove-row">&#10006;</button>
+                </div>
+                <div class="weighted-average-fieldset-inputs">
+                  <input
+                    type="number"
+                    class="weighted-average-input-value"
+                    step="0.0000000001"
+                    autocomplete="off"
+                    placeholder="Wartość"
+                  />
+                  <input
+                    type="number"
+                    class="weighted-average-input-weight"
+                    step="0.0000000001"
+                    autocomplete="off"
+                    placeholder="Waga"
+                  />
+                  <button type="button" class="weighted-average-btn-remove-row">&#10006;</button>
                 </div>
               </fieldset>
               <label for="weighted-average-result">Wynik średniej ważonej:</label>
@@ -374,7 +392,7 @@
             <li>
               Średnia ważona: to średnia, w której poszczególne wartości mają przypisane wagi. Wagi
               są używane do nadania większego znaczenia niektórym wartościom w porównaniu do innych.
-              Wzór na średnią ważoną to:&emsp;Średnia ważona = (suma (wartość * waga)) / (suma wag)
+              Wzór na średnią ważoną to:&emsp;Średnia = (suma (wartość * waga)) / (suma wag)
             </li>
             <li>
               Średnia geometryczna: wykorzystywana jest przede wszystkim do obliczeń na danych,
