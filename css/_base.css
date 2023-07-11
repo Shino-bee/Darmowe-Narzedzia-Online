@@ -158,7 +158,7 @@
   border: var(--navbar-border);
   border-radius: 15px;
   padding: 10px;
-  margin-left: 20px;
+  margin: 0px 0px 0px 20px;
   width: 65%;
   height: 65%;
 }
