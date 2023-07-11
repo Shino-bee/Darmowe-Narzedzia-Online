@@ -13,21 +13,22 @@
     <link rel="stylesheet" href="../../css/_main.css" />
     <link rel="stylesheet" href="../../css/program.css" />
     <style>
+      #content-section-program:nth-child(1) {
+        padding-top: 0px;
+      }
+
       .program-form {
         border-bottom: 1px solid var(--main-color-darklighter);
-        display: flex;
-        flex-direction: column;
         align-items: center;
         padding-top: 15px;
       }
 
       .program-form > label {
-        margin-bottom: 5px;
         padding: 0px 5px;
       }
 
-      #content-section-program:nth-child(1) {
-        padding-top: 0px;
+      .program-form > input:last-child {
+        margin: 15px 0px 20px 0px;
       }
 
       .program-input {
@@ -42,35 +43,17 @@
         width: 100%;
       }
 
-      .program-form > input:last-child {
-        margin: 15px 0px 20px 0px;
-      }
-
       .program-input:focus {
         box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
         outline: none;
       }
 
       .program-form-btns {
-        display: flex;
-        justify-content: space-evenly;
         width: 100%;
       }
 
       .program-form-btn-calculate {
-        background-color: var(--main-color-green);
-        color: var(--main-color-light);
-        border-color: rgb(160, 158, 158);
-        border-radius: 20px;
-        border-width: 1px;
-        font-size: 15px;
-        margin: 5px 0px;
         width: 50%;
-        height: 35px;
-      }
-
-      .program-form-btn-calculate:hover {
-        cursor: pointer;
       }
 
       @media only screen and (min-width: 992px) {
@@ -120,11 +103,7 @@
 
     <!-- JS -->
     <script defer type="text/javascript" src="../../js/_main.js"></script>
-    <script
-      async
-      type="module"
-      src="../../js/online_calculators/percentage_calculator.js"
-    ></script>
+    <script async type="module" src="../../js/online_calculators/percentage_calculator.js"></script>
   </head>
 
   <body>
@@ -132,11 +111,7 @@
     <header id="header"></header>
     <main id="main">
       <section id="main-image">
-        <img
-          id="main-image-img"
-          src="../../images/main-image-tools.jpg"
-          alt=""
-        />
+        <img id="main-image-img" src="../../images/main-image-tools.jpg" alt="" />
         <div id="main-image-text">
           <h1>Kalkulator procentów</h1>
           <p>Narzędzie do obliczania zadań związanych z procentami</p>
@@ -156,12 +131,7 @@
               display: none;
             "
           ></iframe>
-          <form
-            id="form1"
-            class="program-form"
-            method="post"
-            target="hiddenFrame"
-          >
+          <form id="form1" class="program-form" method="post" target="hiddenFrame">
             <label for="form1-what-is-pct">Ile wynosi</label>
             <input
               type="number"
@@ -183,27 +153,13 @@
               required
             />
             <div class="program-form-btns">
-              <button
-                type="submit"
-                id="form1-btn"
-                class="program-form-btn-calculate"
-              >
+              <button type="submit" id="form1-btn" class="program-form-btn-calculate">
                 Oblicz
               </button>
             </div>
-            <input
-              type="text"
-              id="form1-result"
-              class="program-input"
-              readonly
-            />
+            <input type="text" id="form1-result" class="program-input" readonly />
           </form>
-          <form
-            id="form2"
-            class="program-form"
-            method="post"
-            target="hiddenFrame"
-          >
+          <form id="form2" class="program-form" method="post" target="hiddenFrame">
             <label for="form2-what-pct-of-num">Jakim % liczby</label>
             <input
               type="number"
@@ -225,28 +181,13 @@
               required
             />
             <div class="program-form-btns">
-              <button
-                type="submit"
-                id="form2-btn"
-                class="program-form-btn-calculate"
-              >
+              <button type="submit" id="form2-btn" class="program-form-btn-calculate">
                 Oblicz
               </button>
             </div>
-            <input
-              type="text"
-              id="form2-result"
-              class="program-input"
-              value="%"
-              readonly
-            />
+            <input type="text" id="form2-result" class="program-input" value="%" readonly />
           </form>
-          <form
-            id="form3"
-            class="program-form"
-            method="post"
-            target="hiddenFrame"
-          >
+          <form id="form3" class="program-form" method="post" target="hiddenFrame">
             <label for="form3-by-how-much-pct">O ile % liczba</label>
             <input
               type="number"
@@ -268,28 +209,13 @@
               required
             />
             <div class="program-form-btns">
-              <button
-                type="submit"
-                id="form3-btn"
-                class="program-form-btn-calculate"
-              >
+              <button type="submit" id="form3-btn" class="program-form-btn-calculate">
                 Oblicz
               </button>
             </div>
-            <input
-              type="text"
-              id="form3-result"
-              class="program-input"
-              value="%"
-              readonly
-            />
+            <input type="text" id="form3-result" class="program-input" value="%" readonly />
           </form>
-          <form
-            id="form4"
-            class="program-form"
-            method="post"
-            target="hiddenFrame"
-          >
+          <form id="form4" class="program-form" method="post" target="hiddenFrame">
             <label for="form4-num">Liczbę</label>
             <input
               type="number"
@@ -311,27 +237,13 @@
               required
             />
             <div class="program-form-btns">
-              <button
-                type="submit"
-                id="form4-btn"
-                class="program-form-btn-calculate"
-              >
+              <button type="submit" id="form4-btn" class="program-form-btn-calculate">
                 Oblicz
               </button>
             </div>
-            <input
-              type="text"
-              id="form4-result"
-              class="program-input"
-              readonly
-            />
+            <input type="text" id="form4-result" class="program-input" readonly />
           </form>
-          <form
-            id="form5"
-            class="program-form"
-            method="post"
-            target="hiddenFrame"
-          >
+          <form id="form5" class="program-form" method="post" target="hiddenFrame">
             <label for="form5-num">Liczbę</label>
             <input
               type="number"
@@ -353,68 +265,48 @@
               required
             />
             <div class="program-form-btns">
-              <button
-                type="submit"
-                id="form5-btn"
-                class="program-form-btn-calculate"
-              >
+              <button type="submit" id="form5-btn" class="program-form-btn-calculate">
                 Oblicz
               </button>
             </div>
-            <input
-              type="text"
-              id="form5-result"
-              class="program-input"
-              readonly
-            />
+            <input type="text" id="form5-result" class="program-input" readonly />
           </form>
         </section>
-        <section
-          id="content-section-description"
-          class="content-section-styles"
-        >
+        <section id="content-section-description" class="content-section-styles">
           <h3>Czym jest kalkulator procentów?</h3>
           <p>
-            Kalkulator procentów to narzędzie, które służy do wykonywania
-            różnych obliczeń związanych z procentami. Pozwala on na łatwe i
-            szybkie wyliczanie wartości procentowych, obliczanie zniżek,
-            podatków, odsetek, wzrostów i spadków procentowych oraz innych
+            Kalkulator procentów to narzędzie, które służy do wykonywania różnych obliczeń
+            związanych z procentami. Pozwala on na łatwe i szybkie wyliczanie wartości procentowych,
+            obliczanie zniżek, podatków, odsetek, wzrostów i spadków procentowych oraz innych
             operacji matematycznych związanych z procentami.
           </p>
           <p>
-            Kalkulator procentów to przydatne narzędzie w wielu dziedzinach,
-            takich jak finanse osobiste, handel, inwestowanie, bankowość,
-            matematyka, ekonomia i wiele innych, gdzie procenty odgrywają ważną
-            rolę.
+            Kalkulator procentów to przydatne narzędzie w wielu dziedzinach, takich jak finanse
+            osobiste, handel, inwestowanie, bankowość, matematyka, ekonomia i wiele innych, gdzie
+            procenty odgrywają ważną rolę.
           </p>
           <p>
-            Kalkulator procentów to także bardzo przydatne w codziennym życiu,
-            podczas zakupów, planowania budżetu, inwestycji czy analizy danych
-            statystycznych.
+            Kalkulator procentów to także bardzo przydatne w codziennym życiu, podczas zakupów,
+            planowania budżetu, inwestycji czy analizy danych statystycznych.
           </p>
           <p>Jak obliczyć procenty na kalkulatorze:</p>
           <ul>
+            <li>Obliczanie procentu z liczby (np. 15% z liczby 200):&emsp;(15 / 100) * 200 = 30</li>
             <li>
-              Obliczanie procentu z liczby (np. 15% z liczby 200):&emsp;(15 /
-              100) * 200 = 30
+              Obliczanie jakim procentem jednej liczby jest inna liczba (np. jakim procentem liczby
+              10 jest liczba 5):&emsp;(5 / 10) * 100 = 50%
             </li>
             <li>
-              Obliczanie jakim procentem jednej liczby jest inna liczba (np.
-              jakim procentem liczby 10 jest liczba 5):&emsp;(5 / 10) * 100 =
-              50%
+              Obliczanie o ile procent liczba różni się od drugiej liczby (np. o ile procent liczba
+              10 różni się od liczby 15):&emsp;((15 – 10) / 10 ) * 100 = 50%
             </li>
             <li>
-              Obliczanie o ile procent liczba różni się od drugiej liczby (np. o
-              ile procent liczba 10 różni się od liczby 15):&emsp;((15 – 10) /
-              10 ) * 100 = 50%
+              Jak powiększyć daną liczbę o podany procent (np. liczbę 75 powiększyć o 10
+              procent):&emsp;75 * (1 + 10 / 100) = 82.5
             </li>
             <li>
-              Jak powiększyć daną liczbę o podany procent (np. liczbę 75
-              powiększyć o 10 procent):&emsp;75 * (1 + 10 / 100) = 82.5
-            </li>
-            <li>
-              Jak pomniejszyć daną liczbę o podany procent (np. liczbę 75
-              pomniejszyć o 10 procent):&emsp;75 * (1 – 10 / 100) = 67.5
+              Jak pomniejszyć daną liczbę o podany procent (np. liczbę 75 pomniejszyć o 10
+              procent):&emsp;75 * (1 – 10 / 100) = 67.5
             </li>
           </ul>
         </section>

@@ -19,8 +19,10 @@ selectAverage.addEventListener("change", () => {
   }
 });
 
+/* ----------------------------------------- */
 /* ----- Arithmetic average calculator ----- */
 let arithmeticAverageArrOfNums = [];
+
 // Add button (arithmetic) - calculates and shows added nums and results
 const arithmeticAverageBtnAdd = document.getElementById("arithmetic-average-btn-calculate");
 arithmeticAverageBtnAdd.addEventListener("click", () => {
@@ -43,6 +45,7 @@ arithmeticAverageBtnAdd.addEventListener("click", () => {
     arithmeticAverageInput.value = "";
   }
 });
+
 // Reset button (arithmetic)
 const arithmeticAverageBtnReset = document.getElementById("arithmetic-average-btn-reset");
 arithmeticAverageBtnReset.addEventListener("click", () => {
@@ -52,8 +55,10 @@ arithmeticAverageBtnReset.addEventListener("click", () => {
   arithmeticAverageArrOfNums = [];
 });
 
+/* --------------------------------------- */
 /* ----- Weighted average calculator ----- */
 let weightedAverageArrOfArrsOfNums = [];
+
 // Remove row button (weighted)
 const weightedAverageBtnRemoveRow = document.getElementsByClassName(
   "weighted-average-btn-remove-row"
@@ -66,6 +71,7 @@ function weightedAverageUpdateRowsCount() {
   }
 }
 weightedAverageUpdateRowsCount();
+
 // Add row button (weighted)
 const weightedAverageBtnAddRow = document.getElementById("weighted-average-btn-add-row");
 weightedAverageBtnAddRow.addEventListener("click", () => {
@@ -87,6 +93,7 @@ weightedAverageBtnAddRow.addEventListener("click", () => {
   const fieldsetBtnRemove = document.createElement("button");
   fieldsetBtnRemove.setAttribute("type", "button");
   fieldsetBtnRemove.classList.add("weighted-average-btn-remove-row");
+  fieldsetBtnRemove.setAttribute("tabindex", "-1");
   fieldsetBtnRemove.innerHTML = "&#10006;";
   fieldsetContainer.appendChild(fieldsetInputValue);
   fieldsetContainer.appendChild(fieldsetInputWeight);
@@ -94,6 +101,7 @@ weightedAverageBtnAddRow.addEventListener("click", () => {
   weightedAverageFieldset.appendChild(fieldsetContainer);
   weightedAverageUpdateRowsCount();
 });
+
 // Calculate button (weighted) - calculates and shows result
 const weightedAverageBtnAdd = document.getElementById("weighted-average-btn-calculate");
 weightedAverageBtnAdd.addEventListener("click", () => {
@@ -134,8 +142,10 @@ weightedAverageBtnAdd.addEventListener("click", () => {
   }
 });
 
+/* ---------------------------------------- */
 /* ----- Geometric average calculator ----- */
 let geometricAverageArrOfNums = [];
+
 // Add button (geometric) - calculates and shows added nums and results
 const geometricAverageBtnAdd = document.getElementById("geometric-average-btn-calculate");
 geometricAverageBtnAdd.addEventListener("click", () => {
@@ -160,6 +170,7 @@ geometricAverageBtnAdd.addEventListener("click", () => {
     geometricAverageInput.value = "";
   }
 });
+
 // Reset button (geometric)
 const geometricAverageBtnReset = document.getElementById("geometric-average-btn-reset");
 geometricAverageBtnReset.addEventListener("click", () => {

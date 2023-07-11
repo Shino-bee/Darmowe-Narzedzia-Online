@@ -1,7 +1,7 @@
 const birthDateId = document.getElementById("birth-date");
 const endDateId = document.getElementById("end-date");
-const calculateBtn = document.getElementById("program-form-btn-calculate");
-const resetBtn = document.getElementById("program-form-btn-reset");
+const calculateBtn = document.getElementsByClassName("program-form-btn-calculate")[0];
+const resetBtn = document.getElementsByClassName("program-form-btn-reset")[0];
 const tableOfResults = document.getElementById("program-table");
 
 // Hide the table, reset to default values
@@ -17,7 +17,7 @@ reset();
 // Calculate button - calculates the results and displays them in the table and shows table if is not displayed
 calculateBtn.addEventListener("click", () => {
   const programFormValidity = document
-    .getElementById("program-form")
+    .getElementsByClassName("program-form")[0]
     .checkValidity();
 
   if (programFormValidity === true) {
@@ -79,7 +79,7 @@ calculateBtn.addEventListener("click", () => {
       }
       dayDiff += daysInMonth[birthDate.getMonth()];
     }
-
+    
     const onlyDaysDiff = (endDate - birthDate) / (1000 * 60 * 60 * 24);
     const hoursDiff = onlyDaysDiff * 24;
     const minutesDiff = onlyDaysDiff * 24 * 60;

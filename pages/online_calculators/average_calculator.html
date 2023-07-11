@@ -23,14 +23,8 @@
         display: none;
       }
 
-      #select-average,
-      #arithmetic-average-input,
-      #arithmetic-average-result,
-      .weighted-average-input-value,
-      .weighted-average-input-weight,
-      #weighted-average-result,
-      #geometric-average-input,
-      #geometric-average-result {
+      input,
+      select {
         background: var(--main-color-darklight);
         color: var(--main-color-lighter);
         border: 1px solid var(--main-color-darklighter);
@@ -42,16 +36,14 @@
         height: 28px;
       }
 
-      #select-average:focus,
-      #arithmetic-average-input:focus,
-      #arithmetic-average-result:focus,
-      .weighted-average-input-value:focus,
-      .weighted-average-input-weight:focus,
-      #weighted-average-result:focus,
-      #geometric-average-input:focus,
-      #geometric-average-result:focus {
+      input:focus,
+      select:focus {
         box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
         outline: none;
+      }
+
+      input[readonly] {
+        font-size: 1em;
       }
 
       .weighted-average-input-value,
@@ -63,12 +55,6 @@
       #geometric-average-added-nums {
         display: none;
         padding-bottom: 15px;
-      }
-
-      #arithmetic-average-result,
-      #weighted-average-result,
-      #geometric-average-result {
-        font-size: 1em;
       }
 
       #weighted-average-fieldset {
@@ -93,23 +79,6 @@
         width: 100%;
       }
 
-      .program-form-btns {
-        display: flex;
-        justify-content: space-evenly;
-      }
-
-      .program-form-btn-calculate,
-      .program-form-btn-reset {
-        color: var(--main-color-light);
-        border-color: rgb(160, 158, 158);
-        border-radius: 20px;
-        border-width: 1px;
-        font-size: 15px;
-        margin: 5px 0px;
-        width: 125px;
-        height: 35px;
-      }
-
       .weighted-average-btn-remove-row {
         background-color: var(--bgcolor-menu-dropdown);
         color: var(--main-color-light);
@@ -122,25 +91,8 @@
         height: 28px;
       }
 
-      .program-form-btn-calculate:hover,
-      .program-form-btn-reset:hover,
       .weighted-average-btn-remove-row:hover {
         cursor: pointer;
-      }
-
-      @media (min-width: 576px) {
-        .program-form-btn-calculate,
-        .program-form-btn-reset {
-          width: 25%;
-        }
-      }
-
-      .program-form-btn-calculate {
-        background-color: var(--main-color-green);
-      }
-
-      .program-form-btn-reset {
-        background-color: var(--main-color-orange);
       }
     </style>
 
@@ -239,6 +191,7 @@
                 </button>
               </div>
             </form>
+
             <!-- Weighted average form -->
             <form
               id="weighted-average-form"
@@ -263,7 +216,9 @@
                     autocomplete="off"
                     placeholder="Waga"
                   />
-                  <button type="button" class="weighted-average-btn-remove-row">&#10006;</button>
+                  <button type="button" class="weighted-average-btn-remove-row" tabindex="-1">
+                    &#10006;
+                  </button>
                 </div>
                 <div class="weighted-average-fieldset-inputs">
                   <input
@@ -280,7 +235,9 @@
                     autocomplete="off"
                     placeholder="Waga"
                   />
-                  <button type="button" class="weighted-average-btn-remove-row">&#10006;</button>
+                  <button type="button" class="weighted-average-btn-remove-row" tabindex="-1">
+                    &#10006;
+                  </button>
                 </div>
                 <div class="weighted-average-fieldset-inputs">
                   <input
@@ -297,7 +254,9 @@
                     autocomplete="off"
                     placeholder="Waga"
                   />
-                  <button type="button" class="weighted-average-btn-remove-row">&#10006;</button>
+                  <button type="button" class="weighted-average-btn-remove-row" tabindex="-1">
+                    &#10006;
+                  </button>
                 </div>
               </fieldset>
               <label for="weighted-average-result">Wynik średniej ważonej:</label>
@@ -324,6 +283,7 @@
                 </button>
               </div>
             </form>
+
             <!-- Geometric average form -->
             <form
               id="geometric-average-form"
