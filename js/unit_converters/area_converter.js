@@ -16,37 +16,26 @@ export function area_converter(indexValueInTable, whichValue, value) {
   value = parseInt(value);
 
   switch (indexValueInTable) {
-    // square meter
     case 0:
       return (value / baseUnitValue) * areaUnitValues["square meter"];
-    // square kilometer
     case 1:
       return (value / baseUnitValue) * areaUnitValues["square kilometer"];
-    // square decimeter
     case 2:
       return (value / baseUnitValue) * areaUnitValues["square decimeter"];
-    // square centimeter
     case 3:
       return (value / baseUnitValue) * areaUnitValues["square centimeter"];
-    // square millimeter
     case 4:
       return (value / baseUnitValue) * areaUnitValues["square millimeter"];
-    // are
     case 5:
       return (value / baseUnitValue) * areaUnitValues["are"];
-    // hectare
     case 6:
       return (value / baseUnitValue) * areaUnitValues["hectare"];
-    // square inch
     case 7:
       return (value / baseUnitValue) * areaUnitValues["square inch"];
-    // square foot
     case 8:
       return (value / baseUnitValue) * areaUnitValues["square foot"];
-    // square yard
     case 9:
       return (value / baseUnitValue) * areaUnitValues["square yard"];
-    // acre
     case 10:
       return (value / baseUnitValue) * areaUnitValues["acre"];
   }

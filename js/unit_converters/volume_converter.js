@@ -18,43 +18,30 @@ export function volume_converter(indexValueInTable, whichValue, value) {
   value = parseInt(value);
 
   switch (indexValueInTable) {
-    // cubic meter
     case 0:
       return (value / baseUnitValue) * volumeUnitValues["cubic meter"];
-    // cubic kilometer
     case 1:
       return (value / baseUnitValue) * volumeUnitValues["cubic kilometer"];
-    // cubic decimeter
     case 2:
       return (value / baseUnitValue) * volumeUnitValues["cubic decimeter"];
-    // cubic centimeter
     case 3:
       return (value / baseUnitValue) * volumeUnitValues["cubic centimeter"];
-    // cubic millimeter
     case 4:
       return (value / baseUnitValue) * volumeUnitValues["cubic millimeter"];
-    // liter
     case 5:
       return (value / baseUnitValue) * volumeUnitValues["liter"];
-    // milliliter
     case 6:
       return (value / baseUnitValue) * volumeUnitValues["milliliter"];
-    // gallon USA
     case 7:
       return (value / baseUnitValue) * volumeUnitValues["gallon USA"];
-    // gallon UK
     case 8:
       return (value / baseUnitValue) * volumeUnitValues["gallon UK"];
-    // cubic inch
     case 9:
       return (value / baseUnitValue) * volumeUnitValues["cubic inch"];
-    // cubic foot
     case 10:
       return (value / baseUnitValue) * volumeUnitValues["cubic foot"];
-    // cubic yard
     case 11:
       return (value / baseUnitValue) * volumeUnitValues["cubic yard"];
-    // cubic mile
     case 12:
       return (value / baseUnitValue) * volumeUnitValues["cubic mile"];
   }

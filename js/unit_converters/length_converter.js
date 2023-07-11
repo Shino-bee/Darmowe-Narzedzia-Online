@@ -16,37 +16,26 @@ export function length_converter(indexValueInTable, whichValue, value) {
   value = parseInt(value);
 
   switch (indexValueInTable) {
-    // meter
     case 0:
       return (value / baseUnitValue) * lengthUnitValues["meter"];
-    // kilometer
     case 1:
       return (value / baseUnitValue) * lengthUnitValues["kilometer"];
-    // decimeter
     case 2:
       return (value / baseUnitValue) * lengthUnitValues["decimeter"];
-    // centimeter
     case 3:
       return (value / baseUnitValue) * lengthUnitValues["centimeter"];
-    // millimeter
     case 4:
       return (value / baseUnitValue) * lengthUnitValues["millimeter"];
-    // micrometer
     case 5:
       return (value / baseUnitValue) * lengthUnitValues["micrometer"];
-    // nanometer
     case 6:
       return (value / baseUnitValue) * lengthUnitValues["nanometer"];
-    // mile
     case 7:
       return (value / baseUnitValue) * lengthUnitValues["mile"];
-    // foot
     case 8:
       return (value / baseUnitValue) * lengthUnitValues["foot"];
-    // inch
     case 9:
       return (value / baseUnitValue) * lengthUnitValues["inch"];
-    // light year
     case 10:
       return (value / baseUnitValue) * lengthUnitValues["light year"];
   }
