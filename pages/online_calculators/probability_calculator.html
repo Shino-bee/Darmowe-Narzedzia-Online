@@ -7,7 +7,7 @@
     <meta name="description" content="Darmowe Narzędzia Online" />
     <meta name="author" content="Michał Podowski (Shino-bee)" />
 
-    <title>Kalkulator średniej - Darmowe Narzędzia Online</title>
+    <title>Kalkulator prawdopodobieństwa - Darmowe Narzędzia Online</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../css/_main.css" />
@@ -110,7 +110,11 @@
 
     <!-- JS -->
     <script defer type="text/javascript" src="../../js/_main.js"></script>
-    <script async type="module" src="../../js/online_calculators/average_calculator.js"></script>
+    <script
+      async
+      type="module"
+      src="../../js/online_calculators/probability_calculator.js"
+    ></script>
   </head>
 
   <body>
@@ -120,8 +124,10 @@
       <section id="main-image">
         <img id="main-image-img" src="../../images/main-image-tools.jpg" alt="" />
         <div id="main-image-text">
-          <h1>Kalkulator średniej</h1>
-          <p>Narzędzie do obliczania średniej arytmetycznej, ważonej i geometrycznej</p>
+          <h1>Kalkulator prawdopodobieństwa</h1>
+          <p>
+            Narzędzie do obliczania prawdopodobieństwa pojedynczego, dwóch, wielu i serii zdarzeń
+          </p>
         </div>
       </section>
 
@@ -138,57 +144,49 @@
               display: none;
             "
           ></iframe>
-          <label for="select-average">Wybierz średnią, którą chcesz obliczyć:</label>
-          <select name="select-average" id="select-average">
-            <option value="arithmetic" selected>Średnia arytmetyczna</option>
-            <option value="weighted">Średnia ważona</option>
-            <option value="geometric">Średnia geometryczna</option>
+          <label for="select-prob">Wybierz prawdopodobieństwo, które chcesz obliczyć:</label>
+          <select name="select-prob" id="select-prob">
+            <option value="single">Pojedyncze prawdopodobieństwo</option>
+            <option value="two events">Prawdopodobieństwo dwóch zdarzeń</option>
+            <option value="multiple events">Prawdopodobieństwo wielu zdarzeń</option>
+            <option value="series of events">Prawdopodobieństwo serii zdarzeń</option>
           </select>
 
           <div id="program-average">
-            <!-- Arithmetic average form -->
-            <form
-              id="arithmetic-average-form"
-              class="program-form"
-              method="post"
-              target="hiddenFrame"
-            >
-              <label for="arithmetic-average-input">Dodaj pojedynczo liczby:</label>
+            <!-- Single probability -->
+            <form id="single-prob-form" class="program-form" method="post" target="hiddenFrame">
+              <label for="single-prob-input-A">Liczba możliwych wyników:</label>
               <input
                 type="number"
-                name="arithmetic-average-input"
-                id="arithmetic-average-input"
-                step="0.0000000001"
+                name="single-prob-input-A"
+                id="single-prob-input-A"
+                step="1"
                 autocomplete="off"
               />
-              <p id="arithmetic-average-added-nums"></p>
-              <label for="arithmetic-average-result">Wynik średniej arytmetycznej:</label>
+              <label for="single-prob-input-B">Liczba zaistniałych zdarzeń:</label>
               <input
-                type="text"
-                name="arithmetic-average-result"
-                id="arithmetic-average-result"
-                readonly
+                type="number"
+                name="single-prob-input-B"
+                id="single-prob-input-B"
+                step="1"
+                autocomplete="off"
               />
               <div class="program-form-btns">
                 <button
                   type="submit"
-                  id="arithmetic-average-btn-calculate"
+                  id="single-prob-btn-calculate"
                   class="program-form-btn-calculate"
                 >
-                  Dodaj
+                  Oblicz
                 </button>
-                <button
-                  type="reset"
-                  id="arithmetic-average-btn-reset"
-                  class="program-form-btn-reset"
-                >
+                <button type="reset" id="single-prob-btn-reset" class="program-form-btn-reset">
                   Reset
                 </button>
               </div>
             </form>
 
             <!-- Weighted average form -->
-            <form
+            <!-- <form
               id="weighted-average-form"
               class="program-form"
               method="post"
@@ -271,10 +269,10 @@
                   + Dodaj wiersz
                 </button>
               </div>
-            </form>
+            </form> -->
 
             <!-- Geometric average form -->
-            <form
+            <!-- <form
               id="geometric-average-form"
               class="program-form"
               method="post"
@@ -312,43 +310,49 @@
                   Reset
                 </button>
               </div>
-            </form>
+            </form> -->
           </div>
         </section>
 
         <section id="content-section-description" class="content-section-styles">
-          <h3>Czym jest średnia?</h3>
+          <h3>Czym jest prawdopodobieństwo?</h3>
           <p>
-            Średnia jest jednym z podstawowych pojęć w statystyce, które służy do opisania wartości
-            centralnej zbioru danych. Wyraża ona typową wartość w zbiorze, która jest
-            reprezentatywna dla pozostałych wartości.
+            Prawdopodobieństwo jest pojęciem używanym w statystyce i teorii prawdopodobieństwa do
+            opisania stopnia, w jakim dana zdarzenie może wystąpić. Oznacza to, że
+            prawdopodobieństwo jest miarą tego, jak bardzo oczekujemy, że dane zdarzenie lub wynik
+            wystąpi w kontekście losowych lub niepewnych sytuacji.
           </p>
           <p>
-            Średnia jest przydatna do określania ogólnego położenia danych w zbiorze. Na przykład,
-            jeśli mamy zbiór ocen uczniów, obliczenie średniej oceny pozwoli nam uzyskać ogólny
-            obraz średniej wydajności całej grupy.
+            Prawdopodobieństwo jest zwykle wyrażane jako liczba z przedziału od 0 do 1, gdzie 0
+            oznacza całkowite brak prawdopodobieństwa, a 1 oznacza pewność, że zdarzenie wystąpi.
+            Jeśli prawdopodobieństwo wynosi 0,5, to oznacza, że istnieje 50% szansy na wystąpienie
+            zdarzenia, co sugeruje równie możliwe wyniki.
           </p>
           <p>
-            Średnia jest jednym z podstawowych statystycznych miar tendencji centralnej i jest
-            szeroko stosowana w analizie danych i statystyce do opisu danych liczbowych.
+            Istnieje wiele różnych interpretacji i podejść do prawdopodobieństwa, takich jak
+            interpretacja częstościowa, interpretacja bayesowska czy podejście aksjomatyczne.
+            Prawdopodobieństwo jest kluczowym pojęciem w wielu dziedzinach nauki i ma szerokie
+            zastosowanie w analizie danych, wnioskowaniu statystycznym, teorii gier, szacowaniu
+            ryzyka i wielu innych obszarach.
           </p>
-          <p>Wyróżniamy kilka rodzajów średniej:</p>
+          <p>Wyróżniamy kilka rodzajów prawdopodobieństw:</p>
           <ul>
             <li>
-              Średnia arytmetyczna: jest to suma wszystkich wartości w zbiorze podzielona przez
-              liczbę tych wartości. Wzór na średnią arytmetyczną to:&emsp;Średnia = (suma wartości)
-              / (liczba wartości)
+              Pojedyncze prawdopodobieństwo: jest to prawdopodobieństwo obliczane dla pojedynczego
+              zdarzenia, na przykład rzutu monetą, wypadnięcia konkretnej liczby na kostce do gry
+              itp. Wzór dla prawdopodobieństwa jednostkowego zdarzenia A wynosi:&emsp;P(A) = Liczba
+              korzystnych wyników dla A / Liczba możliwych wyników
             </li>
             <li>
-              Średnia ważona: to średnia, w której poszczególne wartości mają przypisane wagi. Wagi
-              są używane do nadania większego znaczenia niektórym wartościom w porównaniu do innych.
-              Wzór na średnią ważoną to:&emsp;Średnia = (suma (wartość * waga)) / (suma wag)
+              Prawdopodobieństwo dwóch zdarzeń: odnosi się do prawdopodobieństwa, że oba zdarzenia
+              wystąpią jednocześnie. Oznacza to, że interesuje nas szansa na to, że zarówno
+              zdarzenie A, jak i zdarzenie B będą miały miejsce.
             </li>
             <li>
-              Średnia geometryczna: wykorzystywana jest przede wszystkim do obliczeń na danych,
-              które mają charakter względny, takie jak wskaźniki procentowe, ceny wzrostu, stopy
-              zwrotu itp. Średnia geometryczna jest równa pierwiastkowi n-tego stopnia z iloczynu n
-              wartości
+              Prawdopodobieństwo serii zdarzeń: znane również jako prawdopodobieństwo sekwencji zdarzeń, odnosi się do obliczania szansy na wystąpienie określonej sekwencji zdarzeń w pewnym porządku. Prawdopodobieństwo serii zdarzeń można obliczyć, uwzględniając prawdopodobieństwa poszczególnych zdarzeń i uwzględniając ich zależności.
+            </li>
+            <li>
+              Prawdopodobieństwo serii zdarzeń: znane również jako prawdopodobieństwo sekwencji zdarzeń, odnosi się do obliczania szansy na wystąpienie określonej sekwencji zdarzeń w pewnym porządku. Prawdopodobieństwo serii zdarzeń można obliczyć, uwzględniając prawdopodobieństwa poszczególnych zdarzeń i uwzględniając ich zależności.
             </li>
           </ul>
         </section>

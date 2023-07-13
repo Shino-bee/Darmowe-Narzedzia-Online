@@ -93,7 +93,6 @@ weightedAverageBtnAddRow.addEventListener("click", () => {
   const fieldsetBtnRemove = document.createElement("button");
   fieldsetBtnRemove.setAttribute("type", "button");
   fieldsetBtnRemove.classList.add("weighted-average-btn-remove-row");
-  fieldsetBtnRemove.setAttribute("tabindex", "-1");
   fieldsetBtnRemove.innerHTML = "&#10006;";
   fieldsetContainer.appendChild(fieldsetInputValue);
   fieldsetContainer.appendChild(fieldsetInputWeight);
