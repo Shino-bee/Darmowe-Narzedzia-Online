@@ -62,7 +62,7 @@ unitConverterBtnCalculate.addEventListener("click", () => {
   }
 });
 
-// Reset button - hide table, reset label and sets default values
+// Reset button - hide the table, reset label and sets default values
 const defaultUnitToConvertLabel = document.getElementsByClassName("unit-to-convert")[0].textContent;
 const unitConverterBtnReset = document.getElementsByClassName("program-form-btn-reset")[0];
 unitConverterBtnReset.addEventListener("click", () => {
