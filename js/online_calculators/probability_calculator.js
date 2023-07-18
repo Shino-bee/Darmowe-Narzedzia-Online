@@ -47,21 +47,26 @@ singleProbBtnCalculate.addEventListener("click", () => {
     const singleProbInput2 = parseFloat(document.getElementById("single-prob-input2").value);
     const singleProbOutputDecimal = document.getElementsByClassName("single-prob-output-decimal");
     const singleProbOutputPercent = document.getElementsByClassName("single-prob-output-percent");
-    const singleProbResultDecimal1 = String(
-      Number((singleProbInput2 / singleProbInput1).toFixed(3))
-    );
-    const singleProbResultPercent1 =
-      String(Number(((singleProbInput2 / singleProbInput1) * 100).toFixed(1))) + "%";
-    const singleProbResultDecimal2 = String(
-      Number((1 - singleProbInput2 / singleProbInput1).toFixed(3))
-    );
-    const singleProbResultPercent2 =
-      String(Number(((1 - singleProbInput2 / singleProbInput1) * 100).toFixed(1))) + "%";
 
-    singleProbOutputDecimal[0].innerText = singleProbResultDecimal1;
-    singleProbOutputPercent[0].innerText = singleProbResultPercent1;
-    singleProbOutputDecimal[1].innerText = singleProbResultDecimal2;
-    singleProbOutputPercent[1].innerText = singleProbResultPercent2;
+    let singleProbArrOfResultsDecimal = [];
+    let singleProbArrOfResultsPercent = [];
+    singleProbArrOfResultsDecimal.push(
+      String(Number((singleProbInput2 / singleProbInput1).toFixed(3)))
+    );
+    singleProbArrOfResultsPercent.push(
+      String(Number(((singleProbInput2 / singleProbInput1) * 100).toFixed(1))) + "%"
+    );
+    singleProbArrOfResultsDecimal.push(
+      String(Number((1 - singleProbInput2 / singleProbInput1).toFixed(3)))
+    );
+    singleProbArrOfResultsPercent.push(
+      String(Number(((1 - singleProbInput2 / singleProbInput1) * 100).toFixed(1))) + "%"
+    );
+
+    for (let i = 0; i < 2; i++) {
+      singleProbOutputDecimal[i].innerHTML = singleProbArrOfResultsDecimal[i];
+      singleProbOutputPercent[i].innerHTML = singleProbArrOfResultsPercent[i];
+    }
     showTable(singleProbTable);
   }
 });
@@ -71,3 +76,84 @@ singleProbBtnReset.addEventListener("click", () => {
   const singleProbTable = document.getElementById("single-prob-table");
   hideTable(singleProbTable);
 });
+
+/* Probability of Two Events */
+// Calculate button - calculates the results and shows in the table
+const twoEventsProbBtnCalculate = document.getElementById("two-events-prob-btn-calculate");
+twoEventsProbBtnCalculate.addEventListener("click", () => {
+  const twoEventsProbForm = document.getElementById("two-events-prob-form");
+  if (twoEventsProbForm.checkValidity()) {
+    const twoEventsProbTable = document.getElementById("two-events-prob-table");
+    const twoEventsProbInput1 = parseFloat(document.getElementById("two-events-prob-input1").value);
+    const twoEventsProbInput2 = parseFloat(document.getElementById("two-events-prob-input2").value);
+    const twoEventsProbOutputDecimal = document.getElementsByClassName(
+      "two-events-prob-output-decimal"
+    );
+    const twoEventsProbOutputPercent = document.getElementsByClassName(
+      "two-events-prob-output-percent"
+    );
+
+    // console.log(twoEventsProbTable);
+    // console.log(twoEventsProbInput1);
+    // console.log(twoEventsProbInput2);
+    // console.log(twoEventsProbOutputDecimal);
+
+    let twoEventsProbArrOfResultsDecimal = [];
+    let twoEventsProbArrOfResultsPercent = [];
+    twoEventsProbArrOfResultsDecimal.push(String(Number((1 - twoEventsProbInput1).toFixed(4))));
+    twoEventsProbArrOfResultsPercent.push(
+      String(Number(((1 - twoEventsProbInput1) * 100).toFixed(2))) + "%"
+    );
+    twoEventsProbArrOfResultsDecimal.push(String(Number((1 - twoEventsProbInput2).toFixed(4))));
+    twoEventsProbArrOfResultsPercent.push(
+      String(Number(((1 - twoEventsProbInput2) * 100).toFixed(2))) + "%"
+    );
+
+    console.log(twoEventsProbArrOfResultsDecimal);
+    console.log(twoEventsProbArrOfResultsPercent);
+
+    for (let i = 0; i < 8; i++) {
+      twoEventsProbOutputDecimal[i].innerHTML = twoEventsProbArrOfResultsDecimal[i];
+      twoEventsProbOutputPercent[i].innerHTML = twoEventsProbArrOfResultsPercent[i];
+    }
+    showTable(twoEventsProbTable);
+  }
+});
+// Reset button
+const twoEventsProbBtnReset = document.getElementById("two-events-prob-btn-reset");
+twoEventsProbBtnReset.addEventListener("click", () => {
+  const twoEventsProbTable = document.getElementById("two-events-prob-table");
+  hideTable(twoEventsProbTable);
+});
+
+/*   const twoEventsProbForm = document.getElementById("twoEvents-prob-form");
+  if (twoEventsProbForm.checkValidity()) {
+    const twoEventsProbTable = document.getElementById("twoEvents-prob-table");
+    const twoEventsProbInput1 = parseFloat(document.getElementById("twoEvents-prob-input1").value);
+    const twoEventsProbInput2 = parseFloat(document.getElementById("twoEvents-prob-input2").value);
+    const twoEventsProbOutputDecimal = document.getElementsByClassName("twoEvents-prob-output-decimal");
+    const twoEventsProbOutputPercent = document.getElementsByClassName("twoEvents-prob-output-percent");
+    const twoEventsProbResultDecimal1 = String(
+      Number((twoEventsProbInput2 / twoEventsProbInput1).toFixed(3))
+    );
+    const twoEventsProbResultPercent1 =
+      String(Number(((twoEventsProbInput2 / twoEventsProbInput1) * 100).toFixed(1))) + "%";
+    const twoEventsProbResultDecimal2 = String(
+      Number((1 - twoEventsProbInput2 / twoEventsProbInput1).toFixed(3))
+    );
+    const twoEventsProbResultPercent2 =
+      String(Number(((1 - twoEventsProbInput2 / twoEventsProbInput1) * 100).toFixed(1))) + "%";
+
+    twoEventsProbOutputDecimal[0].innerText = twoEventsProbResultDecimal1;
+    twoEventsProbOutputPercent[0].innerText = twoEventsProbResultPercent1;
+    twoEventsProbOutputDecimal[1].innerText = twoEventsProbResultDecimal2;
+    twoEventsProbOutputPercent[1].innerText = twoEventsProbResultPercent2;
+    showTable(twoEventsProbTable);
+  } */
+
+// Reset button
+// const twoEventsProbBtnReset = document.getElementById("twoEvents-prob-btn-reset");
+// twoEventsProbBtnReset.addEventListener("click", () => {
+//   const twoEventsProbTable = document.getElementById("twoEvents-prob-table");
+//   hideTable(twoEventsProbTable);
+// });
