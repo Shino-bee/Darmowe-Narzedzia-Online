@@ -66,6 +66,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        text-align: center;
         margin-top: 2px;
         padding: 5px 10px;
       }
@@ -222,7 +223,7 @@
                 autocomplete="off"
                 placeholder="wartość pomiędzy 0 a 1"
                 required
-                value="0.5"
+                value="0.123"
               />
               <label for="two-events-prob-input2">Prawdopodobieństwo P(B):</label>
               <input
@@ -235,7 +236,7 @@
                 autocomplete="off"
                 placeholder="wartość pomiędzy 0 a 1"
                 required
-                value="0.6"
+                value="0.456"
               />
               <div class="program-form-btns">
                 <button
@@ -300,7 +301,26 @@
                         alt="Prawdopodobieństwo zdarzenia, które nastąpi"
                     /></span>
                   </td>
-                  <td><span>Prawdopodobieństwo, że zdarzenie B nie wystąpi P(B')</span></td>
+                  <td>
+                    <span>Prawdopodobieństwo wystąpienia któregokolwiek ze zdarzeń P(A∪B)</span>
+                  </td>
+                  <td><span class="two-events-prob-output-decimal">0</span></td>
+                  <td><span class="two-events-prob-output-percent">0</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span
+                      ><img
+                        src="/images/online_calculators/probability_calculator_img/probability3.webp"
+                        class="two-events-prob-img"
+                        alt="Prawdopodobieństwo zdarzenia, które nastąpi"
+                    /></span>
+                  </td>
+                  <td>
+                    <span
+                      >Prawdopodobieństwo, że wystąpi zdarzenie A lub B, ale nie oba P(AΔB)</span
+                    >
+                  </td>
                   <td><span class="two-events-prob-output-decimal">0</span></td>
                   <td><span class="two-events-prob-output-percent">0</span></td>
                 </tr>
@@ -313,7 +333,7 @@
                         alt="Prawdopodobieństwo zdarzenia, które nastąpi"
                     /></span>
                   </td>
-                  <td><span>Prawdopodobieństwo, że zdarzenie B nie wystąpi P(B')</span></td>
+                  <td><span>Prawdopodobieństwo, że ani A, ani B nie wystąpi P((A∪B)')</span></td>
                   <td><span class="two-events-prob-output-decimal">0</span></td>
                   <td><span class="two-events-prob-output-percent">0</span></td>
                 </tr>
@@ -321,12 +341,12 @@
                   <td>
                     <span
                       ><img
-                        src="/images/online_calculators/probability_calculator_img/probability6.webp"
+                        src="/images/online_calculators/probability_calculator_img/probability2.webp"
                         class="two-events-prob-img"
                         alt="Prawdopodobieństwo zdarzenia, które nastąpi"
                     /></span>
                   </td>
-                  <td><span>Prawdopodobieństwo, że zdarzenie B nie wystąpi P(B')</span></td>
+                  <td><span>Prawdopodobieństwo wystąpienia A, ale nie wystąpienia B</span></td>
                   <td><span class="two-events-prob-output-decimal">0</span></td>
                   <td><span class="two-events-prob-output-percent">0</span></td>
                 </tr>
@@ -334,157 +354,17 @@
                   <td>
                     <span
                       ><img
-                        src="/images/online_calculators/probability_calculator_img/probability7.webp"
+                        src="/images/online_calculators/probability_calculator_img/probability1.webp"
                         class="two-events-prob-img"
                         alt="Prawdopodobieństwo zdarzenia, które nastąpi"
                     /></span>
                   </td>
-                  <td><span>Prawdopodobieństwo, że zdarzenie B nie wystąpi P(B')</span></td>
-                  <td><span class="two-events-prob-output-decimal">0</span></td>
-                  <td><span class="two-events-prob-output-percent">0</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <span
-                      ><img
-                        src="/images/online_calculators/probability_calculator_img/probability8.webp"
-                        class="two-events-prob-img"
-                        alt="Prawdopodobieństwo zdarzenia, które nastąpi"
-                    /></span>
-                  </td>
-                  <td><span>Prawdopodobieństwo, że zdarzenie B nie wystąpi P(B')</span></td>
+                  <td><span>Prawdopodobieństwo wystąpienia B, ale nie wystąpienia A</span></td>
                   <td><span class="two-events-prob-output-decimal">0</span></td>
                   <td><span class="two-events-prob-output-percent">0</span></td>
                 </tr>
               </tbody>
             </table>
-
-            <!-- Weighted average form -->
-            <!-- <form
-              id="weighted-average-form"
-              class="program-form"
-              method="post"
-              target="hiddenFrame"
-            >
-              <fieldset id="weighted-average-fieldset">
-                <legend>Wprowadź wartości (np. oceny szkolne) i ich wagi:</legend>
-                <div class="weighted-average-fieldset-inputs">
-                  <input
-                    type="number"
-                    class="weighted-average-input-value"
-                    step="0.0000000001"
-                    autocomplete="off"
-                    placeholder="Wartość"
-                  />
-                  <input
-                    type="number"
-                    class="weighted-average-input-weight"
-                    step="0.0000000001"
-                    autocomplete="off"
-                    placeholder="Waga"
-                  />
-                  <button type="button" class="weighted-average-btn-remove-row">&#10006;</button>
-                </div>
-                <div class="weighted-average-fieldset-inputs">
-                  <input
-                    type="number"
-                    class="weighted-average-input-value"
-                    step="0.0000000001"
-                    autocomplete="off"
-                    placeholder="Wartość"
-                  />
-                  <input
-                    type="number"
-                    class="weighted-average-input-weight"
-                    step="0.0000000001"
-                    autocomplete="off"
-                    placeholder="Waga"
-                  />
-                  <button type="button" class="weighted-average-btn-remove-row">&#10006;</button>
-                </div>
-                <div class="weighted-average-fieldset-inputs">
-                  <input
-                    type="number"
-                    class="weighted-average-input-value"
-                    step="0.0000000001"
-                    autocomplete="off"
-                    placeholder="Wartość"
-                  />
-                  <input
-                    type="number"
-                    class="weighted-average-input-weight"
-                    step="0.0000000001"
-                    autocomplete="off"
-                    placeholder="Waga"
-                  />
-                  <button type="button" class="weighted-average-btn-remove-row">&#10006;</button>
-                </div>
-              </fieldset>
-              <label for="weighted-average-result">Wynik średniej ważonej:</label>
-              <input
-                type="text"
-                name="weighted-average-result"
-                id="weighted-average-result"
-                readonly
-              />
-              <div class="program-form-btns">
-                <button
-                  type="submit"
-                  id="weighted-average-btn-calculate"
-                  class="program-form-btn-calculate"
-                >
-                  Oblicz
-                </button>
-                <button
-                  type="button"
-                  id="weighted-average-btn-add-row"
-                  class="program-form-btn-reset"
-                >
-                  + Dodaj wiersz
-                </button>
-              </div>
-            </form> -->
-
-            <!-- Geometric average form -->
-            <!-- <form
-              id="geometric-average-form"
-              class="program-form"
-              method="post"
-              target="hiddenFrame"
-            >
-              <label for="geometric-average-input">Dodaj pojedynczo liczby:</label>
-              <input
-                type="number"
-                name="geometric-average-input"
-                id="geometric-average-input"
-                step="0.0000000001"
-                autocomplete="off"
-              />
-              <p id="geometric-average-added-nums"></p>
-              <label for="geometric-average-result">Wynik średniej geometrycznej:</label>
-              <input
-                type="text"
-                name="geometric-average-result"
-                id="geometric-average-result"
-                readonly
-              />
-              <div class="program-form-btns">
-                <button
-                  type="submit"
-                  id="geometric-average-btn-calculate"
-                  class="program-form-btn-calculate"
-                >
-                  Dodaj
-                </button>
-                <button
-                  type="reset"
-                  id="geometric-average-btn-reset"
-                  class="program-form-btn-reset"
-                >
-                  Reset
-                </button>
-              </div>
-            </form> -->
           </div>
         </section>
 

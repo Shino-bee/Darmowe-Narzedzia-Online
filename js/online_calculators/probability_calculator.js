@@ -48,8 +48,8 @@ singleProbBtnCalculate.addEventListener("click", () => {
     const singleProbOutputDecimal = document.getElementsByClassName("single-prob-output-decimal");
     const singleProbOutputPercent = document.getElementsByClassName("single-prob-output-percent");
 
-    let singleProbArrOfResultsDecimal = [];
-    let singleProbArrOfResultsPercent = [];
+    const singleProbArrOfResultsDecimal = [];
+    const singleProbArrOfResultsPercent = [];
     singleProbArrOfResultsDecimal.push(
       String(Number((singleProbInput2 / singleProbInput1).toFixed(3)))
     );
@@ -92,25 +92,95 @@ twoEventsProbBtnCalculate.addEventListener("click", () => {
     const twoEventsProbOutputPercent = document.getElementsByClassName(
       "two-events-prob-output-percent"
     );
+    const twoEventsProbArrOfResultsDecimal = [];
+    const twoEventsProbArrOfResultsPercent = [];
 
-    // console.log(twoEventsProbTable);
-    // console.log(twoEventsProbInput1);
-    // console.log(twoEventsProbInput2);
-    // console.log(twoEventsProbOutputDecimal);
-
-    let twoEventsProbArrOfResultsDecimal = [];
-    let twoEventsProbArrOfResultsPercent = [];
+    // P(A') = 1 - P(A)
     twoEventsProbArrOfResultsDecimal.push(String(Number((1 - twoEventsProbInput1).toFixed(4))));
     twoEventsProbArrOfResultsPercent.push(
       String(Number(((1 - twoEventsProbInput1) * 100).toFixed(2))) + "%"
     );
+
+    // P(B') = 1 - P(B)
     twoEventsProbArrOfResultsDecimal.push(String(Number((1 - twoEventsProbInput2).toFixed(4))));
     twoEventsProbArrOfResultsPercent.push(
       String(Number(((1 - twoEventsProbInput2) * 100).toFixed(2))) + "%"
     );
 
-    console.log(twoEventsProbArrOfResultsDecimal);
-    console.log(twoEventsProbArrOfResultsPercent);
+    // P(A∩B) = P(A) * P(B)
+    twoEventsProbArrOfResultsDecimal.push(
+      String(Number((twoEventsProbInput1 * twoEventsProbInput2).toFixed(4)))
+    );
+    twoEventsProbArrOfResultsPercent.push(
+      String(Number((twoEventsProbInput1 * twoEventsProbInput2 * 100).toFixed(2))) + "%"
+    );
+
+    // P(A∪B) = P(A) + P(B) - P(A∩B)
+    twoEventsProbArrOfResultsDecimal.push(
+      String(
+        Number(
+          twoEventsProbInput1 + twoEventsProbInput2 - twoEventsProbArrOfResultsDecimal[2]
+        ).toFixed(4)
+      )
+    );
+    twoEventsProbArrOfResultsPercent.push(
+      String(
+        Number(
+          (
+            (twoEventsProbInput1 + twoEventsProbInput2 - twoEventsProbArrOfResultsDecimal[2]) *
+            100
+          ).toFixed(2)
+        )
+      ) + "%"
+    );
+
+    // P(AΔB) = P(A) + P(B) - 2P(A∩B)
+    twoEventsProbArrOfResultsDecimal.push(
+      String(
+        Number(
+          (
+            twoEventsProbInput1 +
+            twoEventsProbInput2 -
+            2 * twoEventsProbArrOfResultsDecimal[2]
+          ).toFixed(4)
+        )
+      )
+    );
+    twoEventsProbArrOfResultsPercent.push(
+      String(
+        Number(
+          (
+            (twoEventsProbInput1 + twoEventsProbInput2 - 2 * twoEventsProbArrOfResultsDecimal[2]) *
+            100
+          ).toFixed(2)
+        )
+      ) + "%"
+    );
+
+    // P((A∪B)') = 1 - P(A∪B)
+    twoEventsProbArrOfResultsDecimal.push(
+      String(Number((1 - twoEventsProbArrOfResultsDecimal[3]).toFixed(4)))
+    );
+    twoEventsProbArrOfResultsPercent.push(
+      String(Number(((1 - twoEventsProbArrOfResultsDecimal[3]) * 100).toFixed(2))) + "%"
+    );
+
+    // P(A occuring but not B) = P(A) * (1- P(B))
+    twoEventsProbArrOfResultsDecimal.push(
+      String(Number((twoEventsProbInput1 * twoEventsProbArrOfResultsDecimal[1]).toFixed(4)))
+    );
+    twoEventsProbArrOfResultsPercent.push(
+      String(Number((twoEventsProbInput1 * twoEventsProbArrOfResultsDecimal[1] * 100).toFixed(2))) +
+        "%"
+    );
+
+    // P(B occuring but not A) = (1 - P(A)) * P(B)
+    twoEventsProbArrOfResultsDecimal.push(
+      String(Number(((1 - twoEventsProbInput1) * twoEventsProbInput2).toFixed(4)))
+    );
+    twoEventsProbArrOfResultsPercent.push(
+      String(Number((((1 - twoEventsProbInput1) * twoEventsProbInput2) * 100).toFixed(2))) + "%"
+    );
 
     for (let i = 0; i < 8; i++) {
       twoEventsProbOutputDecimal[i].innerHTML = twoEventsProbArrOfResultsDecimal[i];
