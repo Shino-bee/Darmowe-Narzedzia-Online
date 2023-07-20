@@ -27,12 +27,19 @@ selectProb.addEventListener("change", () => {
   hideTable(twoEventsProbTable);
   const singleProbForm = document.getElementById("single-prob-form");
   const twoEventsProbForm = document.getElementById("two-events-prob-form");
+  const multipleEventsProbForm = document.getElementById("multiple-events-prob-form");
   if (selectProb[selectProb.selectedIndex].value == "single") {
     singleProbForm.style.display = "block";
     twoEventsProbForm.style.display = "none";
+    multipleEventsProbForm.style.display = "none";
   } else if (selectProb[selectProb.selectedIndex].value == "two events") {
     singleProbForm.style.display = "none";
     twoEventsProbForm.style.display = "block";
+    multipleEventsProbForm.style.display = "none";
+  } else if (selectProb[selectProb.selectedIndex].value == "multiple events") {
+    singleProbForm.style.display = "none";
+    twoEventsProbForm.style.display = "none";
+    multipleEventsProbForm.style.display = "block";
   }
 });
 
@@ -179,7 +186,7 @@ twoEventsProbBtnCalculate.addEventListener("click", () => {
       String(Number(((1 - twoEventsProbInput1) * twoEventsProbInput2).toFixed(4)))
     );
     twoEventsProbArrOfResultsPercent.push(
-      String(Number((((1 - twoEventsProbInput1) * twoEventsProbInput2) * 100).toFixed(2))) + "%"
+      String(Number(((1 - twoEventsProbInput1) * twoEventsProbInput2 * 100).toFixed(2))) + "%"
     );
 
     for (let i = 0; i < 8; i++) {
@@ -196,34 +203,11 @@ twoEventsProbBtnReset.addEventListener("click", () => {
   hideTable(twoEventsProbTable);
 });
 
-/*   const twoEventsProbForm = document.getElementById("twoEvents-prob-form");
-  if (twoEventsProbForm.checkValidity()) {
-    const twoEventsProbTable = document.getElementById("twoEvents-prob-table");
-    const twoEventsProbInput1 = parseFloat(document.getElementById("twoEvents-prob-input1").value);
-    const twoEventsProbInput2 = parseFloat(document.getElementById("twoEvents-prob-input2").value);
-    const twoEventsProbOutputDecimal = document.getElementsByClassName("twoEvents-prob-output-decimal");
-    const twoEventsProbOutputPercent = document.getElementsByClassName("twoEvents-prob-output-percent");
-    const twoEventsProbResultDecimal1 = String(
-      Number((twoEventsProbInput2 / twoEventsProbInput1).toFixed(3))
-    );
-    const twoEventsProbResultPercent1 =
-      String(Number(((twoEventsProbInput2 / twoEventsProbInput1) * 100).toFixed(1))) + "%";
-    const twoEventsProbResultDecimal2 = String(
-      Number((1 - twoEventsProbInput2 / twoEventsProbInput1).toFixed(3))
-    );
-    const twoEventsProbResultPercent2 =
-      String(Number(((1 - twoEventsProbInput2 / twoEventsProbInput1) * 100).toFixed(1))) + "%";
-
-    twoEventsProbOutputDecimal[0].innerText = twoEventsProbResultDecimal1;
-    twoEventsProbOutputPercent[0].innerText = twoEventsProbResultPercent1;
-    twoEventsProbOutputDecimal[1].innerText = twoEventsProbResultDecimal2;
-    twoEventsProbOutputPercent[1].innerText = twoEventsProbResultPercent2;
-    showTable(twoEventsProbTable);
-  } */
-
-// Reset button
-// const twoEventsProbBtnReset = document.getElementById("twoEvents-prob-btn-reset");
-// twoEventsProbBtnReset.addEventListener("click", () => {
-//   const twoEventsProbTable = document.getElementById("twoEvents-prob-table");
-//   hideTable(twoEventsProbTable);
-// });
+/* Probability of Two Events */
+// Calculate button - calculates the results and shows in the table
+const multipleEventsProbBtnCalculate = document.getElementById(
+  "multiple-events-prob-btn-calculate"
+);
+multipleEventsProbBtnCalculate.addEventListener("click", () => {
+  console.log("click");
+});
