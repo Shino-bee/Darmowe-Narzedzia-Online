@@ -23,8 +23,11 @@ const selectProb = document.getElementById("select-prob");
 selectProb.addEventListener("change", () => {
   const singleProbTable = document.getElementById("single-prob-table");
   const twoEventsProbTable = document.getElementById("two-events-prob-table");
+  const multipleEventsProbTable = document.getElementById("multiple-events-prob-table");
   hideTable(singleProbTable);
   hideTable(twoEventsProbTable);
+  hideTable(multipleEventsProbTable);
+
   const singleProbForm = document.getElementById("single-prob-form");
   const twoEventsProbForm = document.getElementById("two-events-prob-form");
   const multipleEventsProbForm = document.getElementById("multiple-events-prob-form");
@@ -54,15 +57,16 @@ singleProbBtnCalculate.addEventListener("click", () => {
     const singleProbInput2 = parseFloat(document.getElementById("single-prob-input2").value);
     const singleProbOutputDecimal = document.getElementsByClassName("single-prob-output-decimal");
     const singleProbOutputPercent = document.getElementsByClassName("single-prob-output-percent");
-
     const singleProbArrOfResultsDecimal = [];
     const singleProbArrOfResultsPercent = [];
+
     singleProbArrOfResultsDecimal.push(
       String(Number((singleProbInput2 / singleProbInput1).toFixed(3)))
     );
     singleProbArrOfResultsPercent.push(
       String(Number(((singleProbInput2 / singleProbInput1) * 100).toFixed(1))) + "%"
     );
+
     singleProbArrOfResultsDecimal.push(
       String(Number((1 - singleProbInput2 / singleProbInput1).toFixed(3)))
     );
@@ -102,19 +106,16 @@ twoEventsProbBtnCalculate.addEventListener("click", () => {
     const twoEventsProbArrOfResultsDecimal = [];
     const twoEventsProbArrOfResultsPercent = [];
 
-    // P(A') = 1 - P(A)
     twoEventsProbArrOfResultsDecimal.push(String(Number((1 - twoEventsProbInput1).toFixed(4))));
     twoEventsProbArrOfResultsPercent.push(
       String(Number(((1 - twoEventsProbInput1) * 100).toFixed(2))) + "%"
     );
 
-    // P(B') = 1 - P(B)
     twoEventsProbArrOfResultsDecimal.push(String(Number((1 - twoEventsProbInput2).toFixed(4))));
     twoEventsProbArrOfResultsPercent.push(
       String(Number(((1 - twoEventsProbInput2) * 100).toFixed(2))) + "%"
     );
 
-    // P(A∩B) = P(A) * P(B)
     twoEventsProbArrOfResultsDecimal.push(
       String(Number((twoEventsProbInput1 * twoEventsProbInput2).toFixed(4)))
     );
@@ -122,7 +123,6 @@ twoEventsProbBtnCalculate.addEventListener("click", () => {
       String(Number((twoEventsProbInput1 * twoEventsProbInput2 * 100).toFixed(2))) + "%"
     );
 
-    // P(A∪B) = P(A) + P(B) - P(A∩B)
     twoEventsProbArrOfResultsDecimal.push(
       String(
         Number(
@@ -141,7 +141,6 @@ twoEventsProbBtnCalculate.addEventListener("click", () => {
       ) + "%"
     );
 
-    // P(AΔB) = P(A) + P(B) - 2P(A∩B)
     twoEventsProbArrOfResultsDecimal.push(
       String(
         Number(
@@ -164,7 +163,6 @@ twoEventsProbBtnCalculate.addEventListener("click", () => {
       ) + "%"
     );
 
-    // P((A∪B)') = 1 - P(A∪B)
     twoEventsProbArrOfResultsDecimal.push(
       String(Number((1 - twoEventsProbArrOfResultsDecimal[3]).toFixed(4)))
     );
@@ -172,7 +170,6 @@ twoEventsProbBtnCalculate.addEventListener("click", () => {
       String(Number(((1 - twoEventsProbArrOfResultsDecimal[3]) * 100).toFixed(2))) + "%"
     );
 
-    // P(A occuring but not B) = P(A) * (1- P(B))
     twoEventsProbArrOfResultsDecimal.push(
       String(Number((twoEventsProbInput1 * twoEventsProbArrOfResultsDecimal[1]).toFixed(4)))
     );
@@ -181,7 +178,6 @@ twoEventsProbBtnCalculate.addEventListener("click", () => {
         "%"
     );
 
-    // P(B occuring but not A) = (1 - P(A)) * P(B)
     twoEventsProbArrOfResultsDecimal.push(
       String(Number(((1 - twoEventsProbInput1) * twoEventsProbInput2).toFixed(4)))
     );
@@ -209,5 +205,119 @@ const multipleEventsProbBtnCalculate = document.getElementById(
   "multiple-events-prob-btn-calculate"
 );
 multipleEventsProbBtnCalculate.addEventListener("click", () => {
-  console.log("click");
+  const multipleEventsProbForm = document.getElementById("multiple-events-prob-form");
+  if (multipleEventsProbForm.checkValidity()) {
+    const multipleEventsProbTable = document.getElementById("multiple-events-prob-table");
+    const multipleEventsProbInput1 = parseFloat(
+      document.getElementById("multiple-events-prob-input1").value
+    );
+    const multipleEventsProbInput2 = parseFloat(
+      document.getElementById("multiple-events-prob-input2").value
+    );
+    const multipleEventsProbInput3 = parseFloat(
+      document.getElementById("multiple-events-prob-input3").value
+    );
+    const multipleEventsProbOutputDecimal = document.getElementsByClassName(
+      "multiple-events-prob-output-decimal"
+    );
+    const multipleEventsProbOutputPercent = document.getElementsByClassName(
+      "multiple-events-prob-output-percent"
+    );
+    const multipleEventsProbArrOfResultsDecimal = [];
+    const multipleEventsProbArrOfResultsPercent = [];
+
+    multipleEventsProbArrOfResultsDecimal.push(
+      String(Number((multipleEventsProbInput2 / multipleEventsProbInput1).toFixed(4)))
+    );
+    multipleEventsProbArrOfResultsPercent.push(
+      String(Number(((multipleEventsProbInput2 / multipleEventsProbInput1) * 100).toFixed(2))) + "%"
+    );
+
+    multipleEventsProbArrOfResultsDecimal.push(
+      String(Number((1 - multipleEventsProbInput2 / multipleEventsProbInput1).toFixed(4)))
+    );
+    multipleEventsProbArrOfResultsPercent.push(
+      String(Number(((1 - multipleEventsProbInput2 / multipleEventsProbInput1) * 100).toFixed(2))) +
+        "%"
+    );
+
+    multipleEventsProbArrOfResultsDecimal.push(
+      String(Number((multipleEventsProbInput3 / multipleEventsProbInput1).toFixed(4)))
+    );
+    multipleEventsProbArrOfResultsPercent.push(
+      String(Number(((multipleEventsProbInput3 / multipleEventsProbInput1) * 100).toFixed(2))) + "%"
+    );
+
+    multipleEventsProbArrOfResultsDecimal.push(
+      String(Number((1 - multipleEventsProbInput3 / multipleEventsProbInput1).toFixed(4)))
+    );
+    multipleEventsProbArrOfResultsPercent.push(
+      String(Number(((1 - multipleEventsProbInput3 / multipleEventsProbInput1) * 100).toFixed(2))) +
+        "%"
+    );
+
+    multipleEventsProbArrOfResultsDecimal.push(
+      String(
+        Number(
+          (
+            multipleEventsProbArrOfResultsDecimal[0] * multipleEventsProbArrOfResultsDecimal[2]
+          ).toFixed(4)
+        )
+      )
+    );
+    multipleEventsProbArrOfResultsPercent.push(
+      String(
+        Number(
+          (
+            multipleEventsProbArrOfResultsDecimal[0] *
+            multipleEventsProbArrOfResultsDecimal[2] *
+            100
+          ).toFixed(2)
+        )
+      ) + "%"
+    );
+
+    multipleEventsProbArrOfResultsDecimal.push(
+      String(
+        Number(
+          (
+            Number(multipleEventsProbArrOfResultsDecimal[0]) +
+            Number(multipleEventsProbArrOfResultsDecimal[2]) -
+            Number(multipleEventsProbArrOfResultsDecimal[4])
+          ).toFixed(4)
+        )
+      )
+    );
+    multipleEventsProbArrOfResultsPercent.push(
+      String(
+        Number(
+          (
+            (Number(multipleEventsProbArrOfResultsDecimal[0]) +
+              Number(multipleEventsProbArrOfResultsDecimal[2]) -
+              Number(multipleEventsProbArrOfResultsDecimal[4])) *
+            100
+          ).toFixed(2)
+        )
+      ) + "%"
+    );
+
+    multipleEventsProbArrOfResultsDecimal.push(
+      String(Number((multipleEventsProbInput2 / multipleEventsProbInput1).toFixed(4)))
+    );
+    multipleEventsProbArrOfResultsPercent.push(
+      String(Number(((multipleEventsProbInput2 / multipleEventsProbInput1) * 100).toFixed(2))) + "%"
+    );
+
+    for (let i = 0; i < 7; i++) {
+      multipleEventsProbOutputDecimal[i].innerHTML = multipleEventsProbArrOfResultsDecimal[i];
+      multipleEventsProbOutputPercent[i].innerHTML = multipleEventsProbArrOfResultsPercent[i];
+    }
+    showTable(multipleEventsProbTable);
+  }
+});
+// Reset button
+const multipleEventsProbBtnReset = document.getElementById("multiple-events-prob-btn-reset");
+multipleEventsProbBtnReset.addEventListener("click", () => {
+  const multipleEventsProbTable = document.getElementById("multiple-events-prob-table");
+  hideTable(multipleEventsProbTable);
 });

@@ -41,7 +41,8 @@
         padding-top: 10px;
       }
 
-      #two-events-prob-form {
+      #two-events-prob-form,
+      #multiple-events-prob-form {
         display: none;
       }
 
@@ -76,7 +77,8 @@
       }
 
       .single-prob-img,
-      .two-events-prob-img {
+      .two-events-prob-img,
+      .multiple-events-prob-img {
         width: 50px;
         height: 50px;
       }
@@ -381,7 +383,6 @@
                 autocomplete="off"
                 placeholder="00"
                 required
-                value="10"
               />
               <label for="multiple-events-prob-input2">Liczba zachodzących zdarzeń (n) A:</label>
               <input
@@ -393,7 +394,6 @@
                 autocomplete="off"
                 placeholder="00"
                 required
-                value="2"
               />
               <label for="multiple-events-prob-input3">Liczba zachodzących zdarzeń (n) B:</label>
               <input
@@ -405,7 +405,6 @@
                 autocomplete="off"
                 placeholder="00"
                 required
-                value="7"
               />
               <div class="program-form-btns">
                 <button
@@ -424,8 +423,21 @@
                 </button>
               </div>
             </form>
-            <!-- <table id="multiple-events-prob-table" class="program-table">
+            <table id="multiple-events-prob-table" class="program-table">
               <tbody>
+                <tr>
+                  <td>
+                    <span
+                      ><img
+                        src="/images/online_calculators/probability_calculator_img/probability2.webp"
+                        class="multiple-events-prob-img"
+                        alt="Prawdopodobieństwo zdarzenia, które nastąpi"
+                    /></span>
+                  </td>
+                  <td><span>Prawdopodobieństwo wystąpienia zdarzenia A P(A)</span></td>
+                  <td><span class="multiple-events-prob-output-decimal">0</span></td>
+                  <td><span class="multiple-events-prob-output-percent">0</span></td>
+                </tr>
                 <tr>
                   <td>
                     <span
@@ -435,7 +447,20 @@
                         alt="Prawdopodobieństwo zdarzenia, które nastąpi"
                     /></span>
                   </td>
-                  <td><span>Prawdopodobieństwo zdarzenia, które nie wystąpi P(A')</span></td>
+                  <td><span>Prawdopodobieństwo niewystąpienia zdarzenia A P(A')</span></td>
+                  <td><span class="multiple-events-prob-output-decimal">0</span></td>
+                  <td><span class="multiple-events-prob-output-percent">0</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span
+                      ><img
+                        src="/images/online_calculators/probability_calculator_img/probability1.webp"
+                        class="multiple-events-prob-img"
+                        alt="Prawdopodobieństwo zdarzenia, które nastąpi"
+                    /></span>
+                  </td>
+                  <td><span>Prawdopodobieństwo wystąpienia zdarzenia B P(B)</span></td>
                   <td><span class="multiple-events-prob-output-decimal">0</span></td>
                   <td><span class="multiple-events-prob-output-percent">0</span></td>
                 </tr>
@@ -448,7 +473,9 @@
                         alt="Prawdopodobieństwo zdarzenia, które nastąpi"
                     /></span>
                   </td>
-                  <td><span>Prawdopodobieństwo, że zdarzenie B nie wystąpi P(B')</span></td>
+                  <td>
+                    <span>Prawdopodobieństwo niewystąpienia zdarzenia B P(B')</span>
+                  </td>
                   <td><span class="multiple-events-prob-output-decimal">0</span></td>
                   <td><span class="multiple-events-prob-output-percent">0</span></td>
                 </tr>
@@ -461,7 +488,9 @@
                         alt="Prawdopodobieństwo zdarzenia, które nastąpi"
                     /></span>
                   </td>
-                  <td><span>Prawdopodobieństwo wystąpienia obu zdarzeń P(A∩B)</span></td>
+                  <td>
+                    <span>Prawdopodobieństwo wystąpienia obu zdarzeń P(A∩B)</span>
+                  </td>
                   <td><span class="multiple-events-prob-output-decimal">0</span></td>
                   <td><span class="multiple-events-prob-output-percent">0</span></td>
                 </tr>
@@ -484,60 +513,17 @@
                   <td>
                     <span
                       ><img
-                        src="/images/online_calculators/probability_calculator_img/probability3.webp"
-                        class="multiple-events-prob-img"
-                        alt="Prawdopodobieństwo zdarzenia, które nastąpi"
-                    /></span>
-                  </td>
-                  <td>
-                    <span
-                      >Prawdopodobieństwo, że wystąpi zdarzenie A lub B, ale nie oba P(AΔB)</span
-                    >
-                  </td>
-                  <td><span class="multiple-events-prob-output-decimal">0</span></td>
-                  <td><span class="multiple-events-prob-output-percent">0</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <span
-                      ><img
                         src="/images/online_calculators/probability_calculator_img/probability5.webp"
                         class="multiple-events-prob-img"
                         alt="Prawdopodobieństwo zdarzenia, które nastąpi"
                     /></span>
                   </td>
-                  <td><span>Prawdopodobieństwo, że ani A, ani B nie wystąpi P((A∪B)')</span></td>
-                  <td><span class="multiple-events-prob-output-decimal">0</span></td>
-                  <td><span class="multiple-events-prob-output-percent">0</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <span
-                      ><img
-                        src="/images/online_calculators/probability_calculator_img/probability2.webp"
-                        class="multiple-events-prob-img"
-                        alt="Prawdopodobieństwo zdarzenia, które nastąpi"
-                    /></span>
-                  </td>
-                  <td><span>Prawdopodobieństwo wystąpienia A, ale nie wystąpienia B</span></td>
-                  <td><span class="multiple-events-prob-output-decimal">0</span></td>
-                  <td><span class="multiple-events-prob-output-percent">0</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <span
-                      ><img
-                        src="/images/online_calculators/probability_calculator_img/probability1.webp"
-                        class="multiple-events-prob-img"
-                        alt="Prawdopodobieństwo zdarzenia, które nastąpi"
-                    /></span>
-                  </td>
-                  <td><span>Prawdopodobieństwo wystąpienia B, ale nie wystąpienia A</span></td>
+                  <td><span>Prawdopodobieństwo warunkowe P(A|B)</span></td>
                   <td><span class="multiple-events-prob-output-decimal">0</span></td>
                   <td><span class="multiple-events-prob-output-percent">0</span></td>
                 </tr>
               </tbody>
-            </table> -->
+            </table>
           </div>
         </section>
 
