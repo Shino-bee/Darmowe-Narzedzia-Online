@@ -24,25 +24,36 @@ selectProb.addEventListener("change", () => {
   const singleProbTable = document.getElementById("single-prob-table");
   const twoEventsProbTable = document.getElementById("two-events-prob-table");
   const multipleEventsProbTable = document.getElementById("multiple-events-prob-table");
+  const seriesEventsProbTable = document.getElementById("series-events-prob-table");
   hideTable(singleProbTable);
   hideTable(twoEventsProbTable);
   hideTable(multipleEventsProbTable);
+  hideTable(seriesEventsProbTable);
 
   const singleProbForm = document.getElementById("single-prob-form");
   const twoEventsProbForm = document.getElementById("two-events-prob-form");
   const multipleEventsProbForm = document.getElementById("multiple-events-prob-form");
+  const seriesEventsProbForm = document.getElementById("series-events-prob-form");
   if (selectProb[selectProb.selectedIndex].value == "single") {
     singleProbForm.style.display = "block";
     twoEventsProbForm.style.display = "none";
     multipleEventsProbForm.style.display = "none";
+    seriesEventsProbForm.style.display = "none";
   } else if (selectProb[selectProb.selectedIndex].value == "two events") {
     singleProbForm.style.display = "none";
     twoEventsProbForm.style.display = "block";
     multipleEventsProbForm.style.display = "none";
+    seriesEventsProbForm.style.display = "none";
   } else if (selectProb[selectProb.selectedIndex].value == "multiple events") {
     singleProbForm.style.display = "none";
     twoEventsProbForm.style.display = "none";
     multipleEventsProbForm.style.display = "block";
+    seriesEventsProbForm.style.display = "none";
+  } else if (selectProb[selectProb.selectedIndex].value == "series of events") {
+    singleProbForm.style.display = "none";
+    twoEventsProbForm.style.display = "none";
+    multipleEventsProbForm.style.display = "none";
+    seriesEventsProbForm.style.display = "block";
   }
 });
 
@@ -320,4 +331,56 @@ const multipleEventsProbBtnReset = document.getElementById("multiple-events-prob
 multipleEventsProbBtnReset.addEventListener("click", () => {
   const multipleEventsProbTable = document.getElementById("multiple-events-prob-table");
   hideTable(multipleEventsProbTable);
+});
+
+/* Probability of Series of Events */
+// Calculate button - calculates the results and shows in the table
+const seriesEventsProbBtnCalculate = document.getElementById("series-events-prob-btn-calculate");
+seriesEventsProbBtnCalculate.addEventListener("click", () => {
+  const seriesEventsProbForm = document.getElementById("series-events-prob-form");
+  console.log(seriesEventsProbForm.checkValidity());
+  if (seriesEventsProbForm.checkValidity()) {
+    const seriesEventsProbTable = document.getElementById("series-events-prob-table");
+    const seriesEventsProbInputA1 = parseFloat(
+      document.getElementById("series-events-prob-input-A1").value
+    );
+    const seriesEventsProbInputA2 = parseFloat(
+      document.getElementById("series-events-prob-input-A2").value
+    );
+    const seriesEventsProbInputB1 = parseFloat(
+      document.getElementById("series-events-prob-input-B1").value
+    );
+    const seriesEventsProbInputB2 = parseFloat(
+      document.getElementById("series-events-prob-input-B2").value
+    );
+    const seriesEventsProbOutputNum1 = document.getElementsByClassName(
+      "series-events-prob-output-num1"
+    );
+    const seriesEventsProbOutputNum2 = document.getElementsByClassName(
+      "series-events-prob-output-num2"
+    );
+    const seriesEventsProbOutputResults = document.getElementsByClassName(
+      "series-events-prob-output-results"
+    );
+    const seriesEventsProbArrOfResults = [];
+
+    seriesEventsProbArrOfResults.push(
+      String(Number(Math.pow(seriesEventsProbInputA1, seriesEventsProbInputA2).toFixed(5)))
+    );
+
+    for (let i = 0; i < 3; i++) {
+      seriesEventsProbOutputNum1[i].innerHTML = seriesEventsProbInputA2;
+      seriesEventsProbOutputNum2[i].innerHTML = seriesEventsProbInputB2;
+    }
+    for (let i = 0; i < 13; i++) {
+      seriesEventsProbOutputResults[i].innerHTML = seriesEventsProbArrOfResults[i];
+    }
+    showTable(seriesEventsProbTable);
+  }
+});
+// Reset button
+const seriesEventsProbBtnReset = document.getElementById("series-events-prob-btn-reset");
+seriesEventsProbBtnReset.addEventListener("click", () => {
+  const seriesEventsProbTable = document.getElementById("series-events-prob-table");
+  hideTable(seriesEventsProbTable);
 });
