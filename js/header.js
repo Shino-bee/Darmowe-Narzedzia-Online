@@ -1,7 +1,5 @@
 const menuDropdown = document.getElementById("header-nav-menu-dropdown");
-const menuDropdownBackground = document.getElementById(
-  "menu-dropdown-background"
-);
+const menuDropdownBackground = document.getElementById("menu-dropdown-background");
 const menuDropdownTopDefaultValue = getComputedStyle(menuDropdown).top;
 
 // Hide the menu navbar function
@@ -13,7 +11,8 @@ function menuDropdownHide() {
 }
 
 // Click on the menu navbar button (open or close)
-document.getElementById("header-nav-menu-btn").addEventListener("click", () => {
+const menuDropdownButton = document.getElementById("header-nav-menu-btn");
+menuDropdownButton.addEventListener("click", () => {
   if (getComputedStyle(menuDropdown).visibility === "hidden") {
     menuDropdown.style.visibility = "visible";
     menuDropdown.style.opacity = 1;
@@ -32,6 +31,4 @@ for (let i = 0; i < menuDropdownItems.length; i++) {
 }
 
 // Click anywhere (background, except menu navbar button and menu navbar links) to hide menu navbar (if menu navbar is open)
-document
-  .getElementById("menu-dropdown-background")
-  .addEventListener("click", menuDropdownHide);
+document.getElementById("menu-dropdown-background").addEventListener("click", menuDropdownHide);

@@ -53,11 +53,8 @@
 
     <!-- JS -->
     <script defer type="text/javascript" src="../../js/_main.js"></script>
-    <script
-      async
-      type="module"
-      src="../../js/unit_converters/_main_unit_converters.js"
-    ></script>
+    <script defer type="text/javascript" src="../../js/header.js"></script>
+    <script async type="module" src="../../js/unit_converters/_main_unit_converters.js"></script>
   </head>
 
   <body>
@@ -65,11 +62,7 @@
     <header id="header"></header>
     <main id="main">
       <section id="main-image">
-        <img
-          id="main-image-img"
-          src="../../images/main-image-tools.jpg"
-          alt=""
-        />
+        <img id="main-image-img" src="../../images/main-image-tools.jpg" alt="" />
         <div id="main-image-text">
           <h1>Konwerter miar powierzchni</h1>
           <p>Narzędzie do konwersji jednostek miar powierzchni</p>
@@ -101,14 +94,10 @@
               required
             />
             <label for="unit"
-              >Przekonwertuj
-              <span class="unit-to-convert">Metry kwadratowe</span> na
-              inne</label
+              >Przekonwertuj <span class="unit-to-convert">Metry kwadratowe</span> na inne</label
             >
             <select id="program-form-unit" name="unit">
-              <option value="square meter" selected="selected">
-                Metry kwadratowe
-              </option>
+              <option value="square meter" selected="selected">Metry kwadratowe</option>
               <option value="square kilometer">Kilometry kwadratowe</option>
               <option value="square decimeter">Decymetry kwadratowe</option>
               <option value="square centimeter">Centymetry kwadratowe</option>
@@ -121,146 +110,99 @@
               <option value="acre">Akry</option>
             </select>
             <div class="program-form-btns">
-              <button type="submit" class="program-form-btn-calculate">
-                Oblicz
-              </button>
+              <button type="submit" class="program-form-btn-calculate">Oblicz</button>
               <button type="reset" class="program-form-btn-reset">Reset</button>
             </div>
           </form>
           <table id="program-table">
             <tbody>
               <tr>
+                <td><span class="unit-to-convert">Metry kwadratowe</span> na metry kwadratowe</td>
+                <td><span class="unit-value-converted">0</span></td>
+              </tr>
+              <tr>
                 <td>
-                  <span class="unit-to-convert">Metry kwadratowe</span> na metry
-                  kwadratowe
+                  <span class="unit-to-convert">Metry kwadratowe</span> na kilometry kwadratowe
                 </td>
                 <td><span class="unit-value-converted">0</span></td>
               </tr>
               <tr>
                 <td>
-                  <span class="unit-to-convert">Metry kwadratowe</span> na
-                  kilometry kwadratowe
+                  <span class="unit-to-convert">Metry kwadratowe</span> na decymetry kwadratowe
                 </td>
                 <td><span class="unit-value-converted">0</span></td>
               </tr>
               <tr>
                 <td>
-                  <span class="unit-to-convert">Metry kwadratowe</span> na
-                  decymetry kwadratowe
+                  <span class="unit-to-convert">Metry kwadratowe</span> na centymetry kwadratowe
                 </td>
                 <td><span class="unit-value-converted">0</span></td>
               </tr>
               <tr>
                 <td>
-                  <span class="unit-to-convert">Metry kwadratowe</span> na
-                  centymetry kwadratowe
+                  <span class="unit-to-convert">Metry kwadratowe</span> na milimetry kwadratowe
                 </td>
                 <td><span class="unit-value-converted">0</span></td>
               </tr>
               <tr>
-                <td>
-                  <span class="unit-to-convert">Metry kwadratowe</span> na
-                  milimetry kwadratowe
-                </td>
+                <td><span class="unit-to-convert">Metry kwadratowe</span> na ary</td>
                 <td><span class="unit-value-converted">0</span></td>
               </tr>
               <tr>
-                <td>
-                  <span class="unit-to-convert">Metry kwadratowe</span> na ary
-                </td>
+                <td><span class="unit-to-convert">Metry kwadratowe</span> na hektary</td>
                 <td><span class="unit-value-converted">0</span></td>
               </tr>
               <tr>
-                <td>
-                  <span class="unit-to-convert">Metry kwadratowe</span> na
-                  hektary
-                </td>
+                <td><span class="unit-to-convert">Metry kwadratowe</span> na cale kwadratowe</td>
                 <td><span class="unit-value-converted">0</span></td>
               </tr>
               <tr>
-                <td>
-                  <span class="unit-to-convert">Metry kwadratowe</span> na cale
-                  kwadratowe
-                </td>
+                <td><span class="unit-to-convert">Metry kwadratowe</span> na stopy kwadratowe</td>
                 <td><span class="unit-value-converted">0</span></td>
               </tr>
               <tr>
-                <td>
-                  <span class="unit-to-convert">Metry kwadratowe</span> na stopy
-                  kwadratowe
-                </td>
+                <td><span class="unit-to-convert">Metry kwadratowe</span> na jardy kwadratowe</td>
                 <td><span class="unit-value-converted">0</span></td>
               </tr>
               <tr>
-                <td>
-                  <span class="unit-to-convert">Metry kwadratowe</span> na jardy
-                  kwadratowe
-                </td>
-                <td><span class="unit-value-converted">0</span></td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="unit-to-convert">Metry kwadratowe</span> na akry
-                </td>
+                <td><span class="unit-to-convert">Metry kwadratowe</span> na akry</td>
                 <td><span class="unit-value-converted">0</span></td>
               </tr>
             </tbody>
           </table>
         </section>
-        <section
-          id="content-section-description"
-          class="content-section-styles"
-        >
+        <section id="content-section-description" class="content-section-styles">
           <h3>Czym jest miara powierzchni?</h3>
           <p>
-            Miara powierzchni jest to liczba wyrażająca rozmiar lub obszar
-            danego obszaru płaskiego. Jest to jedna z podstawowych wielkości
-            geometrycznych, która określa, jak wiele jednostek powierzchni
-            zawiera dany obszar.
+            Miara powierzchni jest to liczba wyrażająca rozmiar lub obszar danego obszaru płaskiego.
+            Jest to jedna z podstawowych wielkości geometrycznych, która określa, jak wiele
+            jednostek powierzchni zawiera dany obszar.
           </p>
           <p>
-            W zależności od kontekstu i jednostek, które używamy, miary
-            powierzchni mogą różnić się jednostkami. Najbardziej powszechną
-            jednostką miary powierzchni w układzie metrycznym jest metr
-            kwadratowy (m&sup2), który reprezentuje powierzchnię kwadratu o boku
-            równym jednemu metrowi. Inne jednostki miary powierzchni to na
-            przykład centymetry kwadratowe (cm&sup2), kilometry kwadratowe
-            (km&sup2) czy hektary (ha).
+            W zależności od kontekstu i jednostek, które używamy, miary powierzchni mogą różnić się
+            jednostkami. Najbardziej powszechną jednostką miary powierzchni w układzie metrycznym
+            jest metr kwadratowy (m&sup2), który reprezentuje powierzchnię kwadratu o boku równym
+            jednemu metrowi. Inne jednostki miary powierzchni to na przykład centymetry kwadratowe
+            (cm&sup2), kilometry kwadratowe (km&sup2) czy hektary (ha).
           </p>
           <p>
-            Miary powierzchni stosowane są w różnych dziedzinach życia, takich
-            jak geodezja, architektura, inżynieria, budownictwo, rolnictwo,
-            nauki ścisłe, geografia czy handel nieruchomościami. Pozwalają one
-            dokonywać pomiarów, obliczać powierzchnie, porównywać obszary,
-            projektować przestrzenie i wiele więcej.
+            Miary powierzchni stosowane są w różnych dziedzinach życia, takich jak geodezja,
+            architektura, inżynieria, budownictwo, rolnictwo, nauki ścisłe, geografia czy handel
+            nieruchomościami. Pozwalają one dokonywać pomiarów, obliczać powierzchnie, porównywać
+            obszary, projektować przestrzenie i wiele więcej.
           </p>
-          <p>
-            Zakładając, że chcesz przeliczyć 1 metr kwadratowy, otrzymasz
-            następujące wyniki:
-          </p>
+          <p>Zakładając, że chcesz przeliczyć 1 metr kwadratowy, otrzymasz następujące wyniki:</p>
           <ul>
             <li>Metr kwadratowy na metry kwadratowe (m&sup2):&emsp;1</li>
-            <li>
-              Metr kwadratowy na kilometry kwadratowe (km&sup2):&emsp;0.000001
-            </li>
+            <li>Metr kwadratowy na kilometry kwadratowe (km&sup2):&emsp;0.000001</li>
             <li>Metr kwadratowy na decymetry kwadratowe (dm&sup2):&emsp;100</li>
-            <li>
-              Metr kwadratowy na centymetry kwadratowe (cm&sup2):&emsp;10000
-            </li>
-            <li>
-              Metr kwadratowy na milimetry kwadratowe (mm&sup2):&emsp;1000000
-            </li>
+            <li>Metr kwadratowy na centymetry kwadratowe (cm&sup2):&emsp;10000</li>
+            <li>Metr kwadratowy na milimetry kwadratowe (mm&sup2):&emsp;1000000</li>
             <li>Metr kwadratowy na ary (a):&emsp;0.01</li>
             <li>Metr kwadratowy na hektary (ha):&emsp;0.0001</li>
-            <li>
-              Metr kwadratowy na cale kwadratowe (in&sup2):&emsp;1550.0031
-            </li>
-            <li>
-              Metr kwadratowy na stopy kwadratowe (ft&sup2):&emsp;10.763910417
-            </li>
-            <li>
-              Metr kwadratowy na jardy kwadratowe (yd&sup2):&emsp;1.1959900463
-            </li>
+            <li>Metr kwadratowy na cale kwadratowe (in&sup2):&emsp;1550.0031</li>
+            <li>Metr kwadratowy na stopy kwadratowe (ft&sup2):&emsp;10.763910417</li>
+            <li>Metr kwadratowy na jardy kwadratowe (yd&sup2):&emsp;1.1959900463</li>
             <li>Metr kwadratowy na akry (ac):&emsp;0.0002471054</li>
           </ul>
         </section>
