@@ -68,26 +68,17 @@ singleProbBtnCalculate.addEventListener("click", () => {
     const singleProbInput2 = parseFloat(document.getElementById("single-prob-input2").value);
     const singleProbOutputDecimal = document.getElementsByClassName("single-prob-output-decimal");
     const singleProbOutputPercent = document.getElementsByClassName("single-prob-output-percent");
-    const singleProbArrOfResultsDecimal = [];
-    const singleProbArrOfResultsPercent = [];
+    const singleProbArrOfResults = [];
 
-    singleProbArrOfResultsDecimal.push(
-      String(Number((singleProbInput2 / singleProbInput1).toFixed(3)))
-    );
-    singleProbArrOfResultsPercent.push(
-      String(Number(((singleProbInput2 / singleProbInput1) * 100).toFixed(1))) + "%"
-    );
-
-    singleProbArrOfResultsDecimal.push(
+    singleProbArrOfResults.push(String(Number((singleProbInput2 / singleProbInput1).toFixed(3))));
+    singleProbArrOfResults.push(
       String(Number((1 - singleProbInput2 / singleProbInput1).toFixed(3)))
-    );
-    singleProbArrOfResultsPercent.push(
-      String(Number(((1 - singleProbInput2 / singleProbInput1) * 100).toFixed(1))) + "%"
     );
 
     for (let i = 0; i < 2; i++) {
-      singleProbOutputDecimal[i].innerHTML = singleProbArrOfResultsDecimal[i];
-      singleProbOutputPercent[i].innerHTML = singleProbArrOfResultsPercent[i];
+      singleProbOutputDecimal[i].innerHTML = singleProbArrOfResults[i];
+      singleProbOutputPercent[i].innerHTML =
+        String(Number((singleProbArrOfResults[i] * 100).toFixed(1))) + "%";
     }
     showTable(singleProbTable);
   }
@@ -114,91 +105,37 @@ twoEventsProbBtnCalculate.addEventListener("click", () => {
     const twoEventsProbOutputPercent = document.getElementsByClassName(
       "two-events-prob-output-percent"
     );
-    const twoEventsProbArrOfResultsDecimal = [];
-    const twoEventsProbArrOfResultsPercent = [];
+    const twoEventsProbArrOfResults = [];
 
-    twoEventsProbArrOfResultsDecimal.push(String(Number((1 - twoEventsProbInput1).toFixed(4))));
-    twoEventsProbArrOfResultsPercent.push(
-      String(Number(((1 - twoEventsProbInput1) * 100).toFixed(2))) + "%"
-    );
-
-    twoEventsProbArrOfResultsDecimal.push(String(Number((1 - twoEventsProbInput2).toFixed(4))));
-    twoEventsProbArrOfResultsPercent.push(
-      String(Number(((1 - twoEventsProbInput2) * 100).toFixed(2))) + "%"
-    );
-
-    twoEventsProbArrOfResultsDecimal.push(
+    twoEventsProbArrOfResults.push(String(Number((1 - twoEventsProbInput1).toFixed(4))));
+    twoEventsProbArrOfResults.push(String(Number((1 - twoEventsProbInput2).toFixed(4))));
+    twoEventsProbArrOfResults.push(
       String(Number((twoEventsProbInput1 * twoEventsProbInput2).toFixed(4)))
     );
-    twoEventsProbArrOfResultsPercent.push(
-      String(Number((twoEventsProbInput1 * twoEventsProbInput2 * 100).toFixed(2))) + "%"
-    );
-
-    twoEventsProbArrOfResultsDecimal.push(
+    twoEventsProbArrOfResults.push(
       String(
-        Number(
-          twoEventsProbInput1 + twoEventsProbInput2 - twoEventsProbArrOfResultsDecimal[2]
-        ).toFixed(4)
+        Number(twoEventsProbInput1 + twoEventsProbInput2 - twoEventsProbArrOfResults[2]).toFixed(4)
       )
     );
-    twoEventsProbArrOfResultsPercent.push(
+    twoEventsProbArrOfResults.push(
       String(
         Number(
-          (
-            (twoEventsProbInput1 + twoEventsProbInput2 - twoEventsProbArrOfResultsDecimal[2]) *
-            100
-          ).toFixed(2)
-        )
-      ) + "%"
-    );
-
-    twoEventsProbArrOfResultsDecimal.push(
-      String(
-        Number(
-          (
-            twoEventsProbInput1 +
-            twoEventsProbInput2 -
-            2 * twoEventsProbArrOfResultsDecimal[2]
-          ).toFixed(4)
+          (twoEventsProbInput1 + twoEventsProbInput2 - 2 * twoEventsProbArrOfResults[2]).toFixed(4)
         )
       )
     );
-    twoEventsProbArrOfResultsPercent.push(
-      String(
-        Number(
-          (
-            (twoEventsProbInput1 + twoEventsProbInput2 - 2 * twoEventsProbArrOfResultsDecimal[2]) *
-            100
-          ).toFixed(2)
-        )
-      ) + "%"
+    twoEventsProbArrOfResults.push(String(Number((1 - twoEventsProbArrOfResults[3]).toFixed(4))));
+    twoEventsProbArrOfResults.push(
+      String(Number((twoEventsProbInput1 * twoEventsProbArrOfResults[1]).toFixed(4)))
     );
-
-    twoEventsProbArrOfResultsDecimal.push(
-      String(Number((1 - twoEventsProbArrOfResultsDecimal[3]).toFixed(4)))
-    );
-    twoEventsProbArrOfResultsPercent.push(
-      String(Number(((1 - twoEventsProbArrOfResultsDecimal[3]) * 100).toFixed(2))) + "%"
-    );
-
-    twoEventsProbArrOfResultsDecimal.push(
-      String(Number((twoEventsProbInput1 * twoEventsProbArrOfResultsDecimal[1]).toFixed(4)))
-    );
-    twoEventsProbArrOfResultsPercent.push(
-      String(Number((twoEventsProbInput1 * twoEventsProbArrOfResultsDecimal[1] * 100).toFixed(2))) +
-        "%"
-    );
-
-    twoEventsProbArrOfResultsDecimal.push(
+    twoEventsProbArrOfResults.push(
       String(Number(((1 - twoEventsProbInput1) * twoEventsProbInput2).toFixed(4)))
-    );
-    twoEventsProbArrOfResultsPercent.push(
-      String(Number(((1 - twoEventsProbInput1) * twoEventsProbInput2 * 100).toFixed(2))) + "%"
     );
 
     for (let i = 0; i < 8; i++) {
-      twoEventsProbOutputDecimal[i].innerHTML = twoEventsProbArrOfResultsDecimal[i];
-      twoEventsProbOutputPercent[i].innerHTML = twoEventsProbArrOfResultsPercent[i];
+      twoEventsProbOutputDecimal[i].innerHTML = twoEventsProbArrOfResults[i];
+      twoEventsProbOutputPercent[i].innerHTML =
+        String(Number((twoEventsProbArrOfResults[i] * 100).toFixed(1))) + "%";
     }
     showTable(twoEventsProbTable);
   }
@@ -210,7 +147,7 @@ twoEventsProbBtnReset.addEventListener("click", () => {
   hideTable(twoEventsProbTable);
 });
 
-/* Probability of Two Events */
+/* Probability of Multiple Events */
 // Calculate button - calculates the results and shows in the table
 const multipleEventsProbBtnCalculate = document.getElementById(
   "multiple-events-prob-btn-calculate"
@@ -234,94 +171,44 @@ multipleEventsProbBtnCalculate.addEventListener("click", () => {
     const multipleEventsProbOutputPercent = document.getElementsByClassName(
       "multiple-events-prob-output-percent"
     );
-    const multipleEventsProbArrOfResultsDecimal = [];
-    const multipleEventsProbArrOfResultsPercent = [];
+    const multipleEventsProbArrOfResults = [];
 
-    multipleEventsProbArrOfResultsDecimal.push(
+    multipleEventsProbArrOfResults.push(
       String(Number((multipleEventsProbInput2 / multipleEventsProbInput1).toFixed(4)))
     );
-    multipleEventsProbArrOfResultsPercent.push(
-      String(Number(((multipleEventsProbInput2 / multipleEventsProbInput1) * 100).toFixed(2))) + "%"
-    );
-
-    multipleEventsProbArrOfResultsDecimal.push(
+    multipleEventsProbArrOfResults.push(
       String(Number((1 - multipleEventsProbInput2 / multipleEventsProbInput1).toFixed(4)))
     );
-    multipleEventsProbArrOfResultsPercent.push(
-      String(Number(((1 - multipleEventsProbInput2 / multipleEventsProbInput1) * 100).toFixed(2))) +
-        "%"
-    );
-
-    multipleEventsProbArrOfResultsDecimal.push(
+    multipleEventsProbArrOfResults.push(
       String(Number((multipleEventsProbInput3 / multipleEventsProbInput1).toFixed(4)))
     );
-    multipleEventsProbArrOfResultsPercent.push(
-      String(Number(((multipleEventsProbInput3 / multipleEventsProbInput1) * 100).toFixed(2))) + "%"
-    );
-
-    multipleEventsProbArrOfResultsDecimal.push(
+    multipleEventsProbArrOfResults.push(
       String(Number((1 - multipleEventsProbInput3 / multipleEventsProbInput1).toFixed(4)))
     );
-    multipleEventsProbArrOfResultsPercent.push(
-      String(Number(((1 - multipleEventsProbInput3 / multipleEventsProbInput1) * 100).toFixed(2))) +
-        "%"
+    multipleEventsProbArrOfResults.push(
+      String(
+        Number((multipleEventsProbArrOfResults[0] * multipleEventsProbArrOfResults[2]).toFixed(4))
+      )
     );
-
-    multipleEventsProbArrOfResultsDecimal.push(
+    multipleEventsProbArrOfResults.push(
       String(
         Number(
           (
-            multipleEventsProbArrOfResultsDecimal[0] * multipleEventsProbArrOfResultsDecimal[2]
+            Number(multipleEventsProbArrOfResults[0]) +
+            Number(multipleEventsProbArrOfResults[2]) -
+            Number(multipleEventsProbArrOfResults[4])
           ).toFixed(4)
         )
       )
     );
-    multipleEventsProbArrOfResultsPercent.push(
-      String(
-        Number(
-          (
-            multipleEventsProbArrOfResultsDecimal[0] *
-            multipleEventsProbArrOfResultsDecimal[2] *
-            100
-          ).toFixed(2)
-        )
-      ) + "%"
-    );
-
-    multipleEventsProbArrOfResultsDecimal.push(
-      String(
-        Number(
-          (
-            Number(multipleEventsProbArrOfResultsDecimal[0]) +
-            Number(multipleEventsProbArrOfResultsDecimal[2]) -
-            Number(multipleEventsProbArrOfResultsDecimal[4])
-          ).toFixed(4)
-        )
-      )
-    );
-    multipleEventsProbArrOfResultsPercent.push(
-      String(
-        Number(
-          (
-            (Number(multipleEventsProbArrOfResultsDecimal[0]) +
-              Number(multipleEventsProbArrOfResultsDecimal[2]) -
-              Number(multipleEventsProbArrOfResultsDecimal[4])) *
-            100
-          ).toFixed(2)
-        )
-      ) + "%"
-    );
-
-    multipleEventsProbArrOfResultsDecimal.push(
+    multipleEventsProbArrOfResults.push(
       String(Number((multipleEventsProbInput2 / multipleEventsProbInput1).toFixed(4)))
-    );
-    multipleEventsProbArrOfResultsPercent.push(
-      String(Number(((multipleEventsProbInput2 / multipleEventsProbInput1) * 100).toFixed(2))) + "%"
     );
 
     for (let i = 0; i < 7; i++) {
-      multipleEventsProbOutputDecimal[i].innerHTML = multipleEventsProbArrOfResultsDecimal[i];
-      multipleEventsProbOutputPercent[i].innerHTML = multipleEventsProbArrOfResultsPercent[i];
+      multipleEventsProbOutputDecimal[i].innerHTML = multipleEventsProbArrOfResults[i];
+      multipleEventsProbOutputPercent[i].innerHTML =
+        String(Number((multipleEventsProbArrOfResults[i] * 100).toFixed(1))) + "%";
     }
     showTable(multipleEventsProbTable);
   }
@@ -359,13 +246,41 @@ seriesEventsProbBtnCalculate.addEventListener("click", () => {
     const seriesEventsProbOutputNum2 = document.getElementsByClassName(
       "series-events-prob-output-num2"
     );
-    const seriesEventsProbOutputResults = document.getElementsByClassName(
-      "series-events-prob-output-results"
+    const seriesEventsProbOutputResultsDecimal = document.getElementsByClassName(
+      "series-events-prob-output-results-decimal"
+    );
+    const seriesEventsProbOutputResultsPercent = document.getElementsByClassName(
+      "series-events-prob-output-results-percent"
     );
     const seriesEventsProbArrOfResults = [];
 
     seriesEventsProbArrOfResults.push(
       String(Number(Math.pow(seriesEventsProbInputA1, seriesEventsProbInputA2).toFixed(5)))
+    );
+    seriesEventsProbArrOfResults.push(
+      String(Number(Math.pow(1 - seriesEventsProbInputA1, seriesEventsProbInputA2).toFixed(5)))
+    );
+    seriesEventsProbArrOfResults.push(
+      String(Number((1 - seriesEventsProbArrOfResults[1]).toFixed(5)))
+    );
+    seriesEventsProbArrOfResults.push(
+      String(Number(Math.pow(seriesEventsProbInputB1, seriesEventsProbInputB2).toFixed(5)))
+    );
+    seriesEventsProbArrOfResults.push(
+      String(Number(Math.pow(1 - seriesEventsProbInputB1, seriesEventsProbInputB2).toFixed(5)))
+    );
+    seriesEventsProbArrOfResults.push(
+      String(Number((1 - seriesEventsProbArrOfResults[4]).toFixed(5)))
+    );
+    seriesEventsProbArrOfResults.push(
+      String(
+        Number(
+          (
+            Math.pow(seriesEventsProbInputA1, seriesEventsProbInputA2) *
+            Math.pow(seriesEventsProbInputB1, seriesEventsProbInputB2)
+          ).toFixed(5)
+        )
+      )
     );
 
     for (let i = 0; i < 3; i++) {
@@ -373,7 +288,9 @@ seriesEventsProbBtnCalculate.addEventListener("click", () => {
       seriesEventsProbOutputNum2[i].innerHTML = seriesEventsProbInputB2;
     }
     for (let i = 0; i < 13; i++) {
-      seriesEventsProbOutputResults[i].innerHTML = seriesEventsProbArrOfResults[i];
+      seriesEventsProbOutputResultsDecimal[i].innerHTML = seriesEventsProbArrOfResults[i];
+      seriesEventsProbOutputResultsPercent[i].innerHTML =
+        String(Number((seriesEventsProbArrOfResults[i] * 100).toFixed(1))) + "%";
     }
     showTable(seriesEventsProbTable);
   }
@@ -384,3 +301,5 @@ seriesEventsProbBtnReset.addEventListener("click", () => {
   const seriesEventsProbTable = document.getElementById("series-events-prob-table");
   hideTable(seriesEventsProbTable);
 });
+
+console.log(0.4 * Math.pow(0.6, 3) * Math.pow(0.4, 3) * 0.6);

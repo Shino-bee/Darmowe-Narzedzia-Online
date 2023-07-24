@@ -85,11 +85,17 @@
       }
 
       #series-events-prob-table tr {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+
+      @media only screen and (min-width: 768px) {
+        #series-events-prob-table tr {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
       }
 
       #series-events-prob-table td {
-        padding: 5px 10px;
+        padding: 10px;
       }
     </style>
 
@@ -553,7 +559,7 @@
                 autocomplete="off"
                 placeholder="00"
                 required
-                value="0.0632"
+                value="0.4"
               />
               <label for="series-events-prob-input-A2">Ilość powtórzeń A:</label>
               <input
@@ -565,7 +571,7 @@
                 autocomplete="off"
                 placeholder="00"
                 required
-                value="6"
+                value="1"
               />
               <label for="series-events-prob-input-B1">Prawdopodobieństwo B:</label>
               <input
@@ -578,7 +584,7 @@
                 autocomplete="off"
                 placeholder="00"
                 required
-                value="0.0341"
+                value="0.4"
               />
               <label for="series-events-prob-input-B2">Ilość powtórzeń B:</label>
               <input
@@ -590,7 +596,7 @@
                 autocomplete="off"
                 placeholder="00"
                 required
-                value="4"
+                value="3"
               />
               <div class="program-form-btns" id="multiple-events-btns">
                 <button
@@ -618,19 +624,22 @@
                       <span class="series-events-prob-output-num1">0</span> razy</span
                     >
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
                 <tr>
                   <td>
                     <span>Prawdopodobieństwo, że A nie wystąpi</span>
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
                 <tr>
                   <td>
                     <span>Prawdopodobieństwo wystąpienia A</span>
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
                 <tr>
                   <td>
@@ -639,19 +648,22 @@
                       <span class="series-events-prob-output-num2">0</span> razy</span
                     >
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
                 <tr>
                   <td>
                     <span>Prawdopodobieństwo, że B nie wystąpi</span>
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
                 <tr>
                   <td>
                     <span>Prawdopodobieństwo wystąpienia B</span>
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
                 <tr>
                   <td>
@@ -661,19 +673,22 @@
                       <span class="series-events-prob-output-num2">0</span> razy</span
                     >
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
                 <tr>
                   <td>
                     <span>Prawdopodobieństwo, że ani A, ani B nie wystąpi</span>
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
                 <tr>
                   <td>
                     <span>Prawdopodobieństwo wystąpienia zarówno A, jak i B</span>
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
                 <tr>
                   <td>
@@ -682,7 +697,8 @@
                       <span class="series-events-prob-output-num1">0</span> razy, ale nie B</span
                     >
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
                 <tr>
                   <td>
@@ -691,22 +707,23 @@
                       <span class="series-events-prob-output-num2">0</span> razy, ale nie A</span
                     >
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
                 <tr>
                   <td>
                     <span>Prawdopodobieństwo wystąpienia A, ale nie B</span>
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
-                <tr></tr>
                 <tr>
                   <td>
                     <span>Prawdopodobieństwo wystąpienia B, ale nie A</span>
                   </td>
-                  <td><span class="series-events-prob-output-results">0</span></td>
+                  <td><span class="series-events-prob-output-results-decimal">0</span></td>
+                  <td><span class="series-events-prob-output-results-percent">0%</span></td>
                 </tr>
-                <tr></tr>
               </tbody>
             </table>
           </div>
