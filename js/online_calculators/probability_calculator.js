@@ -225,7 +225,6 @@ multipleEventsProbBtnReset.addEventListener("click", () => {
 const seriesEventsProbBtnCalculate = document.getElementById("series-events-prob-btn-calculate");
 seriesEventsProbBtnCalculate.addEventListener("click", () => {
   const seriesEventsProbForm = document.getElementById("series-events-prob-form");
-  console.log(seriesEventsProbForm.checkValidity());
   if (seriesEventsProbForm.checkValidity()) {
     const seriesEventsProbTable = document.getElementById("series-events-prob-table");
     const seriesEventsProbInputA1 = parseFloat(
@@ -282,8 +281,40 @@ seriesEventsProbBtnCalculate.addEventListener("click", () => {
         )
       )
     );
+    seriesEventsProbArrOfResults.push(
+      String(Number((1 - seriesEventsProbArrOfResults[6]).toFixed(5)))
+    );
+    seriesEventsProbArrOfResults.push(
+      String(Number((seriesEventsProbInputA1 * seriesEventsProbArrOfResults[5]).toFixed(5)))
+    );
+    seriesEventsProbArrOfResults.push(
+      String(Number((seriesEventsProbArrOfResults[0] * seriesEventsProbArrOfResults[4]).toFixed(5)))
+    );
+    seriesEventsProbArrOfResults.push(
+      String(Number((seriesEventsProbArrOfResults[3] * seriesEventsProbArrOfResults[0]).toFixed(5)))
+    );
+    seriesEventsProbArrOfResults.push(
+      String(
+        Number(
+          (
+            seriesEventsProbInputA1 *
+            (1 - (seriesEventsProbInputA1 * seriesEventsProbInputB1) / seriesEventsProbInputA1)
+          ).toFixed(5)
+        )
+      )
+    );
+    seriesEventsProbArrOfResults.push(
+      String(
+        Number(
+          (
+            seriesEventsProbInputB1 *
+            (1 - (seriesEventsProbInputA1 * seriesEventsProbInputB1) / seriesEventsProbInputB1)
+          ).toFixed(5)
+        )
+      )
+    );
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
       seriesEventsProbOutputNum1[i].innerHTML = seriesEventsProbInputA2;
       seriesEventsProbOutputNum2[i].innerHTML = seriesEventsProbInputB2;
     }
@@ -301,5 +332,3 @@ seriesEventsProbBtnReset.addEventListener("click", () => {
   const seriesEventsProbTable = document.getElementById("series-events-prob-table");
   hideTable(seriesEventsProbTable);
 });
-
-console.log(0.4 * Math.pow(0.6, 3) * Math.pow(0.4, 3) * 0.6);

@@ -42,8 +42,8 @@
       }
 
       #two-events-prob-form,
-      #multiple-events-prob-form {
-        /* #series-events-prob-form { */
+      #multiple-events-prob-form,
+      #series-events-prob-form {
         display: none;
       }
 
@@ -171,8 +171,8 @@
                 id="single-prob-input1"
                 step="0.01"
                 autocomplete="off"
+                placeholder="00"
                 required
-                value="6"
               />
               <label for="single-prob-input2">Liczba zaistniałych zdarzeń:</label>
               <input
@@ -181,8 +181,8 @@
                 id="single-prob-input2"
                 step="0.01"
                 autocomplete="off"
+                placeholder="00"
                 required
-                value="10"
               />
               <div class="program-form-btns">
                 <button
@@ -557,9 +557,8 @@
                 min="0"
                 max="1"
                 autocomplete="off"
-                placeholder="00"
+                placeholder="wartość pomiędzy 0 a 1"
                 required
-                value="0.4"
               />
               <label for="series-events-prob-input-A2">Ilość powtórzeń A:</label>
               <input
@@ -571,7 +570,6 @@
                 autocomplete="off"
                 placeholder="00"
                 required
-                value="1"
               />
               <label for="series-events-prob-input-B1">Prawdopodobieństwo B:</label>
               <input
@@ -582,9 +580,8 @@
                 min="0"
                 max="1"
                 autocomplete="off"
-                placeholder="00"
+                placeholder="wartość pomiędzy 0 a 1"
                 required
-                value="0.4"
               />
               <label for="series-events-prob-input-B2">Ilość powtórzeń B:</label>
               <input
@@ -596,7 +593,6 @@
                 autocomplete="off"
                 placeholder="00"
                 required
-                value="3"
               />
               <div class="program-form-btns" id="multiple-events-btns">
                 <button
@@ -669,7 +665,7 @@
                   <td>
                     <span
                       >Prawdopodobieństwo, że A wystąpi
-                      <span class="series-events-prob-output-num1">0</span> razy, a B
+                      <span class="series-events-prob-output-num1">0</span> razy, a B wystąpi
                       <span class="series-events-prob-output-num2">0</span> razy</span
                     >
                   </td>
@@ -678,7 +674,11 @@
                 </tr>
                 <tr>
                   <td>
-                    <span>Prawdopodobieństwo, że ani A, ani B nie wystąpi</span>
+                    <span
+                      >Prawdopodobieństwo, że ani A nie wystąpi
+                      <span class="series-events-prob-output-num1">0</span> razy, ani B nie wystąpi
+                      <span class="series-events-prob-output-num2">0</span> razy</span
+                    >
                   </td>
                   <td><span class="series-events-prob-output-results-decimal">0</span></td>
                   <td><span class="series-events-prob-output-results-percent">0%</span></td>
