@@ -19,8 +19,8 @@ selectAverage.addEventListener("change", () => {
   }
 });
 
-/* ----------------------------------------- */
-/* ----- Arithmetic average calculator ----- */
+/* ----------------------------------- */
+/* -- Arithmetic average calculator -- */
 let arithmeticAverageArrOfNums = [];
 
 // Add button (arithmetic) - calculates and shows added nums and results
@@ -55,8 +55,8 @@ arithmeticAverageBtnReset.addEventListener("click", () => {
   arithmeticAverageArrOfNums = [];
 });
 
-/* --------------------------------------- */
-/* ----- Weighted average calculator ----- */
+/* ----------------------------------- */
+/* --- Weighted average calculator --- */
 let weightedAverageArrOfArrsOfNums = [];
 
 // Remove row button (weighted)
@@ -141,8 +141,8 @@ weightedAverageBtnAdd.addEventListener("click", () => {
   }
 });
 
-/* ---------------------------------------- */
-/* ----- Geometric average calculator ----- */
+/* ----------------------------------- */
+/* -- Geometric average calculator --- */
 let geometricAverageArrOfNums = [];
 
 // Add button (geometric) - calculates and shows added nums and results

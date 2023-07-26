@@ -1,7 +1,5 @@
 const birthDateId = document.getElementById("birth-date");
 const endDateId = document.getElementById("end-date");
-const calculateBtn = document.getElementsByClassName("program-form-btn-calculate")[0];
-const resetBtn = document.getElementsByClassName("program-form-btn-reset")[0];
 const tableOfResults = document.getElementById("program-table");
 
 // Hide the table, reset to default values
@@ -15,10 +13,9 @@ function reset() {
 reset();
 
 // Calculate button - calculates the results and displays them in the table and shows table if is not displayed
+const calculateBtn = document.getElementsByClassName("program-form-btn-calculate")[0];
 calculateBtn.addEventListener("click", () => {
-  const programFormValidity = document
-    .getElementsByClassName("program-form")[0]
-    .checkValidity();
+  const programFormValidity = document.getElementsByClassName("program-form")[0].checkValidity();
 
   if (programFormValidity === true) {
     let birthDate = new Date(birthDateId.valueAsDate);
@@ -59,9 +56,7 @@ calculateBtn.addEventListener("click", () => {
     }
     const birthYear = birthDate.getFullYear();
     const february =
-      (birthYear % 4 === 0 && birthYear % 100 !== 0) || birthYear % 400 === 0
-        ? 29
-        : 28;
+      (birthYear % 4 === 0 && birthYear % 100 !== 0) || birthYear % 400 === 0 ? 29 : 28;
     const daysInMonth = [31, february, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let yearDiff = endDate.getFullYear() - birthYear;
     let monthDiff = endDate.getMonth() - birthDate.getMonth();
@@ -79,7 +74,7 @@ calculateBtn.addEventListener("click", () => {
       }
       dayDiff += daysInMonth[birthDate.getMonth()];
     }
-    
+
     const onlyDaysDiff = (endDate - birthDate) / (1000 * 60 * 60 * 24);
     const hoursDiff = onlyDaysDiff * 24;
     const minutesDiff = onlyDaysDiff * 24 * 60;
@@ -87,10 +82,7 @@ calculateBtn.addEventListener("click", () => {
     tableCurrentYearResult.innerText =
       yearDiff + " lat, " + monthDiff + " miesięcy, " + dayDiff + " dni";
     tableMonthResult.innerText =
-      Math.abs(Math.floor(onlyDaysDiff / 30.4368499)) +
-      " miesięcy i " +
-      dayDiff +
-      " dni";
+      Math.abs(Math.floor(onlyDaysDiff / 30.4368499)) + " miesięcy i " + dayDiff + " dni";
     tableWeekResult.innerText =
       Math.abs(Math.floor(onlyDaysDiff / 7)) +
       " tygodni i " +
@@ -111,6 +103,7 @@ calculateBtn.addEventListener("click", () => {
 });
 
 // Reset button - calls reset() func
+const resetBtn = document.getElementsByClassName("program-form-btn-reset")[0];
 resetBtn.addEventListener("click", () => {
   setTimeout(() => {
     reset();
