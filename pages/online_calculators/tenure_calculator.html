@@ -41,6 +41,11 @@
       .program-form-btns {
         margin-bottom: 10px;
       }
+
+      #tenure-calculator-starting-label {
+        background: none;
+        width: fit-content;
+      }
     </style>
 
     <!-- Favicon -->
@@ -100,14 +105,13 @@
               method="post"
               target="hiddenFrame"
             >
-              <label for="tenure-calculator-input1">Data rozpoczęcia pracy:</label>
+              <label for="tenure-calculator-input1" id="tenure-calculator-starting-label">Data rozpoczęcia pracy:</label>
               <input
                 type="date"
                 name="tenure-calculator-input1"
                 id="tenure-calculator-input1"
                 onclick="this.showPicker()"
                 required
-                value="1992-07-18"
               />
               <label for="tenure-calculator-input2">Data zakończenia pracy:</label>
               <input
@@ -129,6 +133,7 @@
                   type="reset"
                   id="tenure-calculator-btn-reset"
                   class="program-form-btn-reset"
+                  onclick="reset()"
                 >
                   Reset
                 </button>
