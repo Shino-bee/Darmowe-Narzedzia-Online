@@ -81,13 +81,13 @@ weightedAverageBtnAddRow.addEventListener("click", () => {
   const fieldsetInputValue = document.createElement("input");
   fieldsetInputValue.setAttribute("type", "number");
   fieldsetInputValue.classList.add("weighted-average-input-value");
-  fieldsetInputValue.setAttribute("step", "0.0000000001");
+  fieldsetInputValue.setAttribute("step", "any");
   fieldsetInputValue.setAttribute("autocomplete", "off");
   fieldsetInputValue.setAttribute("placeholder", "Wartość");
   const fieldsetInputWeight = document.createElement("input");
   fieldsetInputWeight.setAttribute("type", "number");
   fieldsetInputWeight.classList.add("weighted-average-input-weight");
-  fieldsetInputWeight.setAttribute("step", "0.0000000001");
+  fieldsetInputWeight.setAttribute("step", "any");
   fieldsetInputWeight.setAttribute("autocomplete", "off");
   fieldsetInputWeight.setAttribute("placeholder", "Waga");
   const fieldsetBtnRemove = document.createElement("button");
@@ -123,6 +123,7 @@ weightedAverageBtnAdd.addEventListener("click", () => {
         ];
       }
     }
+    const weightedAverageResult = document.getElementById("weighted-average-result");
     if (weightedAverageArrOfArrsOfNums.length > 0) {
       let resultLeftSide = []; // = sum of values multiplied by weights
       let resultRightSide = 0; // = sum of weights
@@ -134,8 +135,9 @@ weightedAverageBtnAdd.addEventListener("click", () => {
       }
       resultLeftSide = resultLeftSide.reduce((sum, num) => sum + num);
       const result = resultLeftSide / resultRightSide;
-      const weightedAverageResult = document.getElementById("weighted-average-result");
       weightedAverageResult.value = result;
+    } else {
+      weightedAverageResult.value = "";
     }
     weightedAverageArrOfArrsOfNums = [];
   }
