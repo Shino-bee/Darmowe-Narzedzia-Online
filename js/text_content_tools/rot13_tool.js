@@ -20,5 +20,7 @@ programFormBtnExecute.addEventListener("click", () => {
       changedText += char;
     }
   }
+  const outputRot13 = document.getElementById("output-rot13");
+  outputRot13.innerText = changedText;
   console.log(changedText);
 });

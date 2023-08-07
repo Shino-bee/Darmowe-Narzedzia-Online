@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="../../css/_main.css" />
     <link rel="stylesheet" href="../../css/program.css" />
     <style>
-      #input-rot13 {
+      #input-rot13,
+      #output-rot13 {
         background: var(--main-color-darklight);
         color: var(--main-color-lighter);
         color-scheme: dark;
@@ -21,6 +22,12 @@
         padding: 4px 8px;
         margin: 5px 0 15px 0;
         resize: vertical;
+      }
+
+      #output-rot13 {
+        margin-top: 15px;
+        width: 100%;
+        overflow: auto;
       }
     </style>
 
@@ -44,7 +51,7 @@
     <!-- JS -->
     <script defer type="text/javascript" src="../../js/_main.js"></script>
     <script defer type="text/javascript" src="../../js/header.js"></script>
-    <script async type="module" src="../../js/text_content_tools/text_encryption_tool.js"></script>
+    <script async type="module" src="../../js/text_content_tools/rot13_tool.js"></script>
   </head>
 
   <body>
@@ -86,38 +93,9 @@
               <button type="reset" class="program-form-btn-reset">Wyczyść</button>
             </div>
           </form>
-          <!-- <table id="program-table">
-            <tbody>
-              <tr>
-                <td>Twój obecny wiek</td>
-                <td>0 lat, 0 miesięcy, 0 dni</td>
-              </tr>
-              <tr>
-                <td>Wiek w miesiącach</td>
-                <td>0</td>
-              </tr>
-              <tr>
-                <td>Wiek w tygodniach</td>
-                <td>0</td>
-              </tr>
-              <tr>
-                <td>Wiek w dniach</td>
-                <td>0</td>
-              </tr>
-              <tr>
-                <td>Wiek w godzinach</td>
-                <td>0</td>
-              </tr>
-              <tr>
-                <td>Wiek w minutach</td>
-                <td>0</td>
-              </tr>
-              <tr>
-                <td>Wiek w sekundach</td>
-                <td>0</td>
-              </tr>
-            </tbody>
-          </table> -->
+          <textarea id="output-rot13" readonly>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea
+          >
         </section>
         <section id="content-section-description" class="content-section-styles">
           <h3>Na czym polega szyfrowanie metodą ROT13?</h3>
