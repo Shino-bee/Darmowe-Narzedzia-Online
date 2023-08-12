@@ -6,6 +6,10 @@ programFormBtnExecute.addEventListener("click", () => {
   let changedText = "";
   for (let i = 0; i < inputRot13.length; i++) {
     const char = inputRot13[i];
+    if (char === "\n") {
+      changedText += char;
+      continue;
+    }
     if (alphabet.includes(char.toLowerCase())) {
       let index = alphabet.indexOf(char.toLowerCase()) + 13;
       if (index >= 26) {
@@ -21,6 +25,19 @@ programFormBtnExecute.addEventListener("click", () => {
     }
   }
   const outputRot13 = document.getElementById("output-rot13");
-  outputRot13.innerText = changedText;
-  console.log(changedText);
+  outputRot13.value = changedText;
+  outputRot13.style.height = outputRot13.scrollHeight + 2 + "px";
+});
+
+// Clear button - removes text and set default height of input and output textareas
+const programFormBtnClean = document.getElementsByClassName("program-form-btn-reset")[0];
+programFormBtnClean.addEventListener("click", () => {
+  const inputRot13 = document.getElementById("input-rot13");
+  const outputRot13 = document.getElementById("output-rot13");
+  inputRot13.value = "";
+  inputRot13.rows = "12";
+  inputRot13.style.height = "auto";
+  outputRot13.value = "";
+  outputRot13.rows = "8";
+  outputRot13.style.height = "auto";
 });

@@ -22,12 +22,12 @@
         padding: 4px 8px;
         margin: 5px 0 15px 0;
         resize: vertical;
+        height: auto;
       }
 
       #output-rot13 {
         margin-top: 15px;
         width: 100%;
-        overflow: auto;
       }
     </style>
 
@@ -86,16 +86,15 @@
             <label for="input-rot13"
               >Wprowadź tekst, który chcesz zaszyfrować lub odszyfrować:</label
             >
-            <textarea name="input-rot13" id="input-rot13" rows="12"></textarea>
-
+            <textarea name="input-rot13" id="input-rot13" rows="12">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut blandit rutrum ipsum. Pellentesque felis justo, hendrerit a venenatis nec, condimentum sed nulla. Nam id lacus et felis dictum aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</textarea
+            >
             <div class="program-form-btns">
               <button type="submit" class="program-form-btn-calculate">Wykonaj</button>
-              <button type="reset" class="program-form-btn-reset">Wyczyść</button>
+              <button type="button" class="program-form-btn-reset">Wyczyść</button>
             </div>
           </form>
-          <textarea id="output-rot13" readonly>
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea
-          >
+          <textarea id="output-rot13" rows="8" readonly></textarea>
         </section>
         <section id="content-section-description" class="content-section-styles">
           <h3>Na czym polega szyfrowanie metodą ROT13?</h3>
