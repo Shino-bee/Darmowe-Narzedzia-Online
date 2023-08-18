@@ -7,14 +7,14 @@
     <meta name="description" content="Darmowe Narzędzia Online" />
     <meta name="author" content="Michał Podowski (Shino-bee)" />
 
-    <title>Szyfrowanie tekstu ROT13 - Darmowe Narzędzia Online</title>
+    <title>Zmienianie wielkości liter - Darmowe Narzędzia Online</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../css/_main.css" />
     <link rel="stylesheet" href="../../css/program.css" />
     <style>
-      #input-rot13,
-      #output-rot13 {
+      #input-textarea,
+      #output-textarea {
         background: var(--main-color-darklight);
         color: var(--main-color-lighter);
         color-scheme: dark;
@@ -25,9 +25,15 @@
         height: auto;
       }
 
-      #output-rot13 {
+      #output-textarea {
         margin: 15px 0 0 0;
         width: 100%;
+      }
+
+      #radio-btns {
+        display: block;
+        margin-bottom: 10px;
+        /* letter-spacing: .1em; */
       }
     </style>
 
@@ -51,7 +57,7 @@
     <!-- JS -->
     <script defer type="text/javascript" src="../../js/_main.js"></script>
     <script defer type="text/javascript" src="../../js/header.js"></script>
-    <script async type="module" src="../../js/text_content_tools/rot13_tool.js"></script>
+    <script async type="module" src="../../js/text_content_tools/case_converter.js"></script>
   </head>
 
   <body>
@@ -61,10 +67,9 @@
       <section id="main-image">
         <img id="main-image-img" src="../../images/main-image-tools.jpg" alt="" />
         <div id="main-image-text">
-          <h1>Szyfrowanie tekstu ROT13</h1>
+          <h1>Zmienianie wielkości liter</h1>
           <p>
-            Narzędzie do szyfrowania i odszyfrowywania tekstu za pomocą prostego standardu
-            szyfrowania ROT13
+            Narzędzie do zmieniania wielkości liter w tekście przy użyciu wybranej opcji formatu
           </p>
         </div>
       </section>
@@ -83,18 +88,44 @@
             "
           ></iframe>
           <form class="program-form" method="post" target="hiddenFrame">
-            <label for="input-rot13"
-              >Wprowadź tekst, który chcesz zaszyfrować lub odszyfrować:</label
+            <label for="input-textarea"
+              >Wstaw swój tekst i wybierz opcję formatu, według której chcesz dokonać zmiany
+              wielkości liter:</label
             >
-            <textarea name="input-rot13" id="input-rot13" rows="12">
-Wpadła gruszka do fartuszka,&#13;&#10;A za gruszką dwa jabłuszka,&#13;&#10;A śliweczka wpaść nie chciała,&#13;&#10;Bo śliweczka niedojrzała!</textarea
-            >
+            <textarea
+              name="input-textarea"
+              id="input-textarea"
+              rows="12"
+              placeholder="Wpisz lub wklej swój tekst tutaj"
+            ></textarea>
+            <div id="radio-btns">
+              <div>
+                <input type="radio" name="caseFormat" id="choice1" value="sentence case" checked />
+                <label for="choice1">Litery jak w zdaniu</label>
+              </div>
+              <div>
+                <input type="radio" name="caseFormat" id="choice2" value="lower case" />
+                <label for="choice2">małe litery</label>
+              </div>
+              <div>
+                <input type="radio" name="caseFormat" id="choice3" value="upper case" />
+                <label for="choice3">WIELKIE LITERY</label>
+              </div>
+              <div>
+                <input type="radio" name="caseFormat" id="choice4" value="capitalized case" />
+                <label for="choice4">Pierwsza Litera Wyrazu Pisana Wielką Literą</label>
+              </div>
+              <div>
+                <input type="radio" name="caseFormat" id="choice5" value="inverse case" />
+                <label for="choice5">LiTeRy pIsAnE NaPrZeMiEnNiE</label>
+              </div>
+            </div>
             <div class="program-form-btns">
               <button type="submit" class="program-form-btn-calculate">Wykonaj</button>
               <button type="button" class="program-form-btn-reset">Wyczyść</button>
             </div>
           </form>
-          <textarea id="output-rot13" rows="8" readonly></textarea>
+          <textarea id="output-textarea" rows="8" readonly></textarea>
         </section>
         <section id="content-section-description" class="content-section-styles">
           <h3>Na czym polega szyfrowanie metodą ROT13?</h3>
