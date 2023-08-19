@@ -1,8 +1,67 @@
-console.log("TEST");
+// const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+
+// Execute button - changes the text and displays it
+const programFormBtnExecute = document.getElementsByClassName("program-form-btn-calculate")[0];
+programFormBtnExecute.addEventListener("click", () => {
+  const radioBtns = document.querySelectorAll('input[name="caseFormat"]');
+  let radioBtnChecked = "";
+
+  for (let i = 0; i < radioBtns.length; i++) {
+    if (radioBtns[i].checked) {
+      radioBtnChecked = radioBtns[i].value;
+      break;
+    }
+  }
+
+  const inputTextarea = document.getElementById("input-textarea").value;
+  let changedText = "";
+  switch (radioBtnChecked) {
+    case "sentence case":
+      let itIsDot = false;
+      let itisFirstChar = true;
+      for (let i = 0; i < inputTextarea.length; i++) {
+        const char = inputTextarea[i];
+        if (itisFirstChar && char != " ") {
+          changedText += char.toUpperCase();
+          itisFirstChar = false;
+          continue;
+        }
+        if (char === ".") {
+          itIsDot = true;
+          changedText += char;
+        } else {
+          if (itIsDot && char != " ") {
+            changedText += char.toUpperCase();
+            itIsDot = false;
+          } else {
+            changedText += char.toLowerCase();
+          }
+        }
+      }
+      break;
+    case "lower case":
+      changedText = inputTextarea.toLowerCase();
+      break;
+    case "upper case":
+      changedText = inputTextarea.toUpperCase();
+      break;
+    case "capitalized case":
+      console.log(radioBtnChecked);
+      break;
+    case "inverse case":
+      console.log(radioBtnChecked);
+      break;
+  }
+  console.log("--------");
+  console.log(changedText);
+});
+
+// Clear button - removes text and set default height of input and output textareas
+const programFormBtnClean = document.getElementsByClassName("program-form-btn-reset")[0];
 
 /* // Execute button - changes the text and displays it
 const programFormBtnExecute = document.getElementsByClassName("program-form-btn-calculate")[0];
-programFormBtnExecute.addEventListener("click", () => {
+cutprogramFormBtnExee.addEventListener("click", () => {
   const inputRot13 = document.getElementById("input-rot13").value;
   const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
   let changedText = "";
