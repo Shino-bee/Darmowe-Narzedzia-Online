@@ -26,7 +26,7 @@ programFormBtnExecute.addEventListener("click", () => {
   }
   const outputRot13 = document.getElementById("output-rot13");
   outputRot13.value = changedText;
-  outputRot13.style.height = outputRot13.scrollHeight + 2 + "px";
+  outputRot13.style.height = outputRot13.scrollHeight + "px";
 });
 
 // Clear button - removes text and set default height of input and output textareas
