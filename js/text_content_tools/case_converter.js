@@ -44,11 +44,11 @@ programFormBtnExecute.addEventListener("click", () => {
       let itIsSpace = true;
       for (let i = 0; i < inputTextarea.length; i++) {
         const char = inputTextarea[i];
-        if (char === " " || char === "\n" || char === "\r") {
+        if (char === " " || char === "\n" || char === "\r" || char === ".") {
           itIsSpace = true;
           changedText += char;
         } else {
-          if (itIsSpace && char !== " " && char !== "\n" && char !== "\r") {
+          if (itIsSpace && char !== " " && char !== "\n" && char !== "\r" && char !== ".") {
             changedText += char.toUpperCase();
             itIsSpace = false;
           } else {
@@ -62,6 +62,10 @@ programFormBtnExecute.addEventListener("click", () => {
       let upperOrLower = "upper";
       for (let i = 0; i < inputTextarea.length; i++) {
         const char = inputTextarea[i];
+        if (char.match(/^[a-zA-Z]+$/) === null) {
+          changedText += char;
+          continue;
+        }
         if (upperOrLower === "upper") {
           changedText += char.toUpperCase();
           upperOrLower = "lower";
@@ -75,7 +79,6 @@ programFormBtnExecute.addEventListener("click", () => {
   const outputTextarea = document.getElementById("output-textarea");
   outputTextarea.value = changedText;
   outputTextarea.style.height = outputTextarea.scrollHeight + "px";
-
 });
 
 // Clear button - removes text and set default height of input and output textareas
