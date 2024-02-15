@@ -30,11 +30,11 @@
         width: 100%;
       }
 
-      #radio-btns {
+      /* #radio-btns {
         display: block;
         margin-bottom: 10px;
-        letter-spacing: 0.025em;
-      }
+        letter-spacing: .025em;
+      } */
     </style>
 
     <!-- Favicon -->
@@ -57,7 +57,7 @@
     <!-- JS -->
     <script defer type="text/javascript" src="../../js/_main.js"></script>
     <script defer type="text/javascript" src="../../js/header.js"></script>
-    <script async type="module" src="../../js/text_content_tools/case_converter.js"></script>
+    <script async type="module" src="../../js/text_content_tools/word_counter.js"></script>
   </head>
 
   <body>
@@ -67,9 +67,10 @@
       <section id="main-image">
         <img id="main-image-img" src="../../images/main-image-tools.jpg" alt="" />
         <div id="main-image-text">
-          <h1>Zmienianie wielkości liter</h1>
+          <h1>Zliczanie znaków w tekście</h1>
           <p>
-            Narzędzie do zmieniania wielkości liter w tekście przy użyciu wybranej opcji formatu
+            Narzędzie do zliczania w tekście wszystkich znaków, znaków bez spacji, znaków
+            specjalnych, cyfr, słów i akapitów
           </p>
         </div>
       </section>
@@ -88,17 +89,14 @@
             "
           ></iframe>
           <form class="program-form" target="hiddenFrame">
-            <label for="input-textarea"
-              >Wstaw swój tekst i wybierz opcję formatu, według której chcesz dokonać zmiany
-              wielkości liter:</label
-            >
+            <label for="input-textarea">Wstaw swój tekst i naciśnij przycisk "Wykonaj":</label>
             <textarea
               name="input-textarea"
               id="input-textarea"
               rows="12"
               placeholder="Wpisz lub wklej swój tekst tutaj"
             ></textarea>
-            <div id="radio-btns">
+            <!-- <div id="radio-btns">
               <div>
                 <input type="radio" name="caseFormat" id="choice1" value="sentence case" checked />
                 <label for="choice1">Litery jak w zdaniu</label>
@@ -119,16 +117,43 @@
                 <input type="radio" name="caseFormat" id="choice5" value="inverse case" />
                 <label for="choice5">LiTeRy pIsAnE NaPrZeMiEnNiE</label>
               </div>
-            </div>
+            </div> -->
             <div class="program-form-btns">
               <button type="submit" class="program-form-btn-calculate">Wykonaj</button>
               <button type="reset" class="program-form-btn-reset">Wyczyść</button>
             </div>
           </form>
-          <textarea id="output-textarea" rows="8" readonly></textarea>
+          <table id="program-table">
+            <tbody>
+              <tr>
+                <td>Ilość wszystkich znaków</td>
+                <td><span class="word-counter-results">0</span></td>
+              </tr>
+              <tr>
+                <td>Ilość znaków bez spacji</td>
+                <td><span class="word-counter-results">0</span></td>
+              </tr>
+              <tr>
+                <td>Ilość znaków specjalnych</td>
+                <td><span class="word-counter-results">0</span></td>
+              </tr>
+              <tr>
+                <td>Ilość cyfr</td>
+                <td><span class="word-counter-results">0</span></td>
+              </tr>
+              <tr>
+                <td>Ilość słów</td>
+                <td><span class="word-counter-results">0</span></td>
+              </tr>
+              <tr>
+                <td>Ilość akapitów</td>
+                <td><span class="word-counter-results">0</span></td>
+              </tr>
+            </tbody>
+          </table>
         </section>
         <section id="content-section-description" class="content-section-styles">
-          <h3>Czym jest narzędzie do zmieniania wielkości liter?</h3>
+          <h3>Czym jest narzędzie do zliczania znaków w tekście?</h3>
           <p>
             To narzędzie do konwersji tekstu umożliwiające zmianę wielkości liter pozwalające na
             przekształcanie tekstu między różnymi rodzajami formatowania liter, takimi jak małe
