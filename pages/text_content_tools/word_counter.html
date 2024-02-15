@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="../../css/_main.css" />
     <link rel="stylesheet" href="../../css/program.css" />
     <style>
-      #input-textarea,
-      #output-textarea {
+      #input-textarea {
         background: var(--main-color-darklight);
         color: var(--main-color-lighter);
         color-scheme: dark;
@@ -24,17 +23,6 @@
         resize: vertical;
         height: auto;
       }
-
-      #output-textarea {
-        margin: 15px 0 0 0;
-        width: 100%;
-      }
-
-      /* #radio-btns {
-        display: block;
-        margin-bottom: 10px;
-        letter-spacing: .025em;
-      } */
     </style>
 
     <!-- Favicon -->
@@ -95,6 +83,7 @@
               id="input-textarea"
               rows="12"
               placeholder="Wpisz lub wklej swój tekst tutaj"
+              required
             ></textarea>
             <!-- <div id="radio-btns">
               <div>
@@ -130,11 +119,7 @@
                 <td><span class="word-counter-results">0</span></td>
               </tr>
               <tr>
-                <td>Ilość znaków bez spacji</td>
-                <td><span class="word-counter-results">0</span></td>
-              </tr>
-              <tr>
-                <td>Ilość znaków specjalnych</td>
+                <td>Ilość liter</td>
                 <td><span class="word-counter-results">0</span></td>
               </tr>
               <tr>
@@ -142,7 +127,19 @@
                 <td><span class="word-counter-results">0</span></td>
               </tr>
               <tr>
+                <td>Ilość spacji</td>
+                <td><span class="word-counter-results">0</span></td>
+              </tr>
+              <tr>
+                <td>Ilość znaków specjalnych</td>
+                <td><span class="word-counter-results">0</span></td>
+              </tr>
+              <tr>
                 <td>Ilość słów</td>
+                <td><span class="word-counter-results">0</span></td>
+              </tr>
+              <tr>
+                <td>Ilość zdań</td>
                 <td><span class="word-counter-results">0</span></td>
               </tr>
               <tr>

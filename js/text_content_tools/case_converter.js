@@ -62,7 +62,7 @@ programFormBtnExecute.addEventListener("click", () => {
       let upperOrLower = "upper";
       for (let i = 0; i < inputTextarea.length; i++) {
         const char = inputTextarea[i];
-        if (char.match(/^[a-zA-Z]+$/) === null) {
+        if (!char.match(/^[a-zA-Z]+$/)) {
           changedText += char;
           continue;
         }

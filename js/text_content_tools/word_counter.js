@@ -1,26 +1,62 @@
 // Calculate button - calculates the results and changes content (text and results) in the table and shows table if is not displayed
+const polishCharacters =
+  "AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpQqRrSsŚśTtUuVvWwXxYyZzŹźŻż".split("");
 const wordCounterBtnCalculate = document.getElementsByClassName("program-form-btn-calculate")[0];
 wordCounterBtnCalculate.addEventListener("click", () => {
-  console.log("click");
+  console.log("---------------------");
   const programFormValidity = document.getElementsByClassName("program-form")[0].checkValidity();
   if (programFormValidity === true) {
-    const tableOfResults = document.getElementById("program-table");
-    /*     const unitToConvertTableNames = document.getElementsByClassName("unit-to-convert");
-    const unitToConvertTableValues = document.getElementsByClassName("unit-value-converted");
-    const unitToConvertText = unitToConvertOptions.options[unitToConvertOptions.selectedIndex].text;
-    const unitToConvertValueName =
-      unitToConvertOptions.options[unitToConvertOptions.selectedIndex].value;
-    const unitToConvertValue = document.getElementById("program-form-value").value;
-    for (let i = 1; i < unitToConvertTableNames.length; i++) {
-      unitToConvertTableNames[i].innerText = unitToConvertText;
+    const inputTextarea = document.getElementById("input-textarea").value;
+    const wordCounterResults = {
+      "All chars": 0,
+      Letters: 0,
+      Numbers: 0,
+      Spaces: 0,
+      "Special chars": 0,
+      Words: 0,
+      Sentences: 0,
+      Paragraphs: 0,
+    };
+    let isNewLine = false;
+    for (let i = 0; i < inputTextarea.length; i++) {
+      wordCounterResults["All chars"] += 1;
+      const char = inputTextarea[i];
+
+      if (polishCharacters.includes(char)) {
+        // console.log("LITERA:", char);
+        wordCounterResults["Letters"]++;
+        isNewLine = true;
+        continue;
+      } else if (char.match(/[0-9]/)) {
+        // console.log("CYFRA:", char);
+        wordCounterResults["Numbers"]++;
+        isNewLine = true;
+        continue;
+      } else if (char === " ") {
+        // console.log("SPACJA", char);
+        wordCounterResults["Spaces"]++;
+        continue;
+      } else if (char === "\n") {
+        console.log("NEW LINE", char);
+        wordCounterResults["All chars"]--;
+        wordCounterResults["Paragraphs"]--;
+      } else {
+        console.log("SPECJALNY", char);
+        wordCounterResults["Special chars"]++;
+        isNewLine = true;
+      }
     }
-    for (let i = 0; i < unitToConvertTableValues.length; i++) {
-      unitToConvertTableValues[i].innerText = unitCoverterFunction(
-        i,
-        unitToConvertValueName,
-        unitToConvertValue
-      );
-    } */
+
+    const tableValues = document.getElementsByClassName("word-counter-results");
+    // console.log(Object.entries(wordCounterResults)[0][1]);
+    for (let i = 0; i < Object.keys(wordCounterResults).length; i++) {
+      const element1 = Object.entries(wordCounterResults)[i][0];
+      const element2 = Object.entries(wordCounterResults)[i][1];
+      console.log(element1);
+      console.log(element2);
+    }
+
+    const tableOfResults = document.getElementById("program-table");
     if (tableOfResults.style.opacity == 0) {
       tableOfResults.style.transition = "0.8s ease-out";
       tableOfResults.style.marginTop = "15px";
