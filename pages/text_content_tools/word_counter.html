@@ -7,7 +7,7 @@
     <meta name="description" content="Darmowe Narzędzia Online" />
     <meta name="author" content="Michał Podowski (Shino-bee)" />
 
-    <title>Zmienianie wielkości liter - Darmowe Narzędzia Online</title>
+    <title>Analizator zawartości tekstu - Darmowe Narzędzia Online</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../css/_main.css" />
@@ -55,10 +55,10 @@
       <section id="main-image">
         <img id="main-image-img" src="../../images/main-image-tools.jpg" alt="" />
         <div id="main-image-text">
-          <h1>Zliczanie znaków w tekście</h1>
+          <h1>Analizator zawartości tekstu</h1>
           <p>
-            Narzędzie do zliczania w tekście wszystkich znaków, znaków bez spacji, znaków
-            specjalnych, cyfr, słów i akapitów
+            Narzędzie analizuje i określa ile w tekście jest wszystkich znaków, znaków bez spacji,
+            znaków specjalnych, cyfr, słów i akapitów
           </p>
         </div>
       </section>
@@ -77,7 +77,9 @@
             "
           ></iframe>
           <form class="program-form" target="hiddenFrame">
-            <label for="input-textarea">Wstaw swój tekst i naciśnij przycisk "Wykonaj":</label>
+            <label for="input-textarea"
+              >Wstaw tekst, który chcesz przeanalizować pod kątem zawartości tekstu:</label
+            >
             <textarea
               name="input-textarea"
               id="input-textarea"
@@ -85,28 +87,6 @@
               placeholder="Wpisz lub wklej swój tekst tutaj"
               required
             ></textarea>
-            <!-- <div id="radio-btns">
-              <div>
-                <input type="radio" name="caseFormat" id="choice1" value="sentence case" checked />
-                <label for="choice1">Litery jak w zdaniu</label>
-              </div>
-              <div>
-                <input type="radio" name="caseFormat" id="choice2" value="lower case" />
-                <label for="choice2">małe litery</label>
-              </div>
-              <div>
-                <input type="radio" name="caseFormat" id="choice3" value="upper case" />
-                <label for="choice3">WIELKIE LITERY</label>
-              </div>
-              <div>
-                <input type="radio" name="caseFormat" id="choice4" value="capitalized case" />
-                <label for="choice4">Pierwsza Litera Wyrazu Pisana Wielką Literą</label>
-              </div>
-              <div>
-                <input type="radio" name="caseFormat" id="choice5" value="inverse case" />
-                <label for="choice5">LiTeRy pIsAnE NaPrZeMiEnNiE</label>
-              </div>
-            </div> -->
             <div class="program-form-btns">
               <button type="submit" class="program-form-btn-calculate">Wykonaj</button>
               <button type="reset" class="program-form-btn-reset">Wyczyść</button>

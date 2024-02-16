@@ -1,3 +1,7 @@
+const Alphabet = "AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpQqRrSsŚśTtUuVvWwXxYyZzŹźŻż".split("");
+const spaceChars = [" ", "\n", "\r"];
+const endPunctuationChars = [".", "!", "?"];
+
 // Execute button - changes the text and displays it
 const programFormBtnExecute = document.getElementsByClassName("program-form-btn-calculate")[0];
 programFormBtnExecute.addEventListener("click", () => {
@@ -10,6 +14,7 @@ programFormBtnExecute.addEventListener("click", () => {
       break;
     }
   }
+
   const inputTextarea = document.getElementById("input-textarea").value;
   let changedText = "";
   // Changes and displays the text depending on the selected radio option
@@ -18,13 +23,13 @@ programFormBtnExecute.addEventListener("click", () => {
       let itIsDot = true;
       for (let i = 0; i < inputTextarea.length; i++) {
         const char = inputTextarea[i];
-        if (char === "." || char === "?" || char === "!") {
+        if (endPunctuationChars.includes(char)) {
           itIsDot = true;
           changedText += char;
         } else {
-          if (itIsDot && char !== " " && char !== "\n" && char !== "\r") {
-            changedText += char.toUpperCase();
+          if (itIsDot && Alphabet.includes(char)) {
             itIsDot = false;
+            changedText += char.toUpperCase();
           } else {
             changedText += char.toLowerCase();
           }
@@ -41,16 +46,16 @@ programFormBtnExecute.addEventListener("click", () => {
       break;
 
     case "capitalized case":
-      let itIsSpace = true;
+      let itIsSpaceOrDot = true;
       for (let i = 0; i < inputTextarea.length; i++) {
         const char = inputTextarea[i];
-        if (char === " " || char === "\n" || char === "\r" || char === ".") {
-          itIsSpace = true;
+        if (spaceChars.includes(char) || endPunctuationChars.includes(char)) {
+          itIsSpaceOrDot = true;
           changedText += char;
         } else {
-          if (itIsSpace && char !== " " && char !== "\n" && char !== "\r" && char !== ".") {
+          if (itIsSpaceOrDot && !spaceChars.includes(char)) {
+            itIsSpaceOrDot = false;
             changedText += char.toUpperCase();
-            itIsSpace = false;
           } else {
             changedText += char.toLowerCase();
           }
@@ -62,7 +67,7 @@ programFormBtnExecute.addEventListener("click", () => {
       let upperOrLower = "upper";
       for (let i = 0; i < inputTextarea.length; i++) {
         const char = inputTextarea[i];
-        if (!char.match(/^[a-zA-Z]+$/)) {
+        if (!Alphabet.includes(char)) {
           changedText += char;
           continue;
         }
@@ -76,6 +81,7 @@ programFormBtnExecute.addEventListener("click", () => {
       }
       break;
   }
+  // Display changed text in the output textarea
   const outputTextarea = document.getElementById("output-textarea");
   outputTextarea.value = changedText;
   outputTextarea.style.height = outputTextarea.scrollHeight + "px";

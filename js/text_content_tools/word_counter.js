@@ -1,6 +1,5 @@
 // Calculate button - calculates the results and changes content (text and results) in the table and shows table if is not displayed
-const polishCharacters =
-  "AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpQqRrSsŚśTtUuVvWwXxYyZzŹźŻż".split("");
+const Alphabet = "AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpQqRrSsŚśTtUuVvWwXxYyZzŹźŻż".split("");
 const wordCounterBtnCalculate = document.getElementsByClassName("program-form-btn-calculate")[0];
 wordCounterBtnCalculate.addEventListener("click", () => {
   console.log("---------------------");
@@ -22,7 +21,7 @@ wordCounterBtnCalculate.addEventListener("click", () => {
       wordCounterResults["All chars"] += 1;
       const char = inputTextarea[i];
 
-      if (polishCharacters.includes(char)) {
+      if (Alphabet.includes(char)) {
         // console.log("LITERA:", char);
         wordCounterResults["Letters"]++;
         isNewLine = true;
