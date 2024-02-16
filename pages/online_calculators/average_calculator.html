@@ -40,9 +40,11 @@
         margin-bottom: 0 !important;
       }
 
-      #program-average {
+      .average-result-label {
         border-top: 2px solid var(--main-color-darklighter);
         padding-top: 10px;
+        display: block;
+        width: 100%;
       }
 
       #weighted-average-form,
@@ -162,7 +164,9 @@
                 autocomplete="off"
               />
               <p id="arithmetic-average-added-nums"></p>
-              <label for="arithmetic-average-result">Wynik średniej arytmetycznej:</label>
+              <label for="arithmetic-average-result" class="average-result-label"
+                >Wynik średniej arytmetycznej:</label
+              >
               <input
                 type="text"
                 name="arithmetic-average-result"
@@ -182,7 +186,7 @@
                   id="arithmetic-average-btn-reset"
                   class="program-form-btn-reset"
                 >
-                  Reset
+                  Wyczyść
                 </button>
               </div>
             </form>
@@ -243,7 +247,9 @@
                   <button type="button" class="weighted-average-btn-remove-row">&#10006;</button>
                 </div>
               </fieldset>
-              <label for="weighted-average-result">Wynik średniej ważonej:</label>
+              <label for="weighted-average-result" class="average-result-label"
+                >Wynik średniej ważonej:</label
+              >
               <input
                 type="text"
                 name="weighted-average-result"
@@ -279,7 +285,9 @@
                 autocomplete="off"
               />
               <p id="geometric-average-added-nums"></p>
-              <label for="geometric-average-result">Wynik średniej geometrycznej:</label>
+              <label for="geometric-average-result" class="average-result-label"
+                >Wynik średniej geometrycznej:</label
+              >
               <input
                 type="text"
                 name="geometric-average-result"
@@ -299,7 +307,7 @@
                   id="geometric-average-btn-reset"
                   class="program-form-btn-reset"
                 >
-                  Reset
+                  Wyczyść
                 </button>
               </div>
             </form>
