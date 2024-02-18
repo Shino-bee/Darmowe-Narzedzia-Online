@@ -16,7 +16,62 @@ wordCounterBtnCalculate.addEventListener("click", () => {
       Sentences: 0,
       Paragraphs: 0,
     };
-    let isNewLine = false;
+
+    let isNewLine = true;
+    let isWord = false;
+    let isSpace = true;
+    for (let i = 0; i < inputTextarea.length; i++) {
+      const char = inputTextarea[i];
+
+      if (isWord && (isSpace || isNewLine)) {
+        console.log("SŁOWO");
+        wordCounterResults["Words"]++;
+        isWord = false;
+        isSpace = false;
+      } else if (isNewLine) {
+        if (char === "\n" || char === "\r") continue;
+        else {
+          wordCounterResults["Paragraphs"]++;
+          isNewLine = false;
+        }
+      }
+
+      wordCounterResults["All chars"]++;
+      if (Alphabet.includes(char)) {
+        console.log("LITERA:", char);
+        wordCounterResults["Letters"]++;
+        isWord = true;
+      } else if (char.match(/[0-9]/)) {
+        console.log("CYFRA:", char);
+        wordCounterResults["Numbers"]++;
+        isWord = true;
+      } else if (char === " ") {
+        console.log("SPACJA:", char);
+        wordCounterResults["Spaces"]++;
+        isSpace = true;
+      } else if (char === "\n" || char === "\r") {
+        console.log("NEW LINE:", char);
+        wordCounterResults["All chars"]--;
+        isNewLine = true;
+      } else {
+        console.log("SPECJALNY", char);
+        wordCounterResults["Special chars"]++;
+        isWord = true;
+      }
+    }
+
+    console.log("wordCounterResults :>> ", Object.keys(wordCounterResults));
+    console.log("wordCounterResults :>> ", Object.values(wordCounterResults));
+
+    const tableOfValues = document.getElementsByClassName("word-counter-results");
+    for (let i = 0; i < tableOfValues.length; i++) {
+      const result = Object.values(wordCounterResults)[i];
+      const tableCellValue = tableOfValues[i];
+      console.log(result);
+      tableCellValue.innerText = result;
+    }
+
+    /*     let isNewLine = false;
     for (let i = 0; i < inputTextarea.length; i++) {
       wordCounterResults["All chars"] += 1;
       const char = inputTextarea[i];
@@ -44,16 +99,18 @@ wordCounterBtnCalculate.addEventListener("click", () => {
         wordCounterResults["Special chars"]++;
         isNewLine = true;
       }
-    }
+    } */
 
-    const tableValues = document.getElementsByClassName("word-counter-results");
+    // const tableOfValues = document.getElementsByClassName("word-counter-results");
+    // console.log(tableOfValues);
     // console.log(Object.entries(wordCounterResults)[0][1]);
-    for (let i = 0; i < Object.keys(wordCounterResults).length; i++) {
-      const element1 = Object.entries(wordCounterResults)[i][0];
-      const element2 = Object.entries(wordCounterResults)[i][1];
-      console.log(element1);
-      console.log(element2);
-    }
+    // for (let i = 0; i < tableOfValues.length; i++) {
+    //   const element1 = Object.entries(wordCounterResults)[i][0];
+    //   const element2 = Object.entries(wordCounterResults)[i][1];
+
+    //   console.log(element1);
+    //   console.log(element2);
+    // }
 
     const tableOfResults = document.getElementById("program-table");
     if (tableOfResults.style.opacity == 0) {

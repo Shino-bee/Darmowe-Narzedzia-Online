@@ -26,7 +26,6 @@ startingDateId.addEventListener("change", () => {
     Math.sign(endingDate - startingDate) > 0
   ) {
     startingDateId.style.backgroundColor = "var(--main-color-darklight)";
-    tenureCalculatorStartingLabel.style.backgroundColor = "";
     tenureCalculatorStartingLabel.innerText = "Data rozpoczęcia pracy:";
   }
 });
@@ -42,7 +41,6 @@ tenureBtnAdd.addEventListener("click", () => {
     // Show error status if startingDate is higher than endingDate
     if (Math.sign(endingDate - startingDate) <= 0) {
       startingDateId.style.backgroundColor = "var(--main-color-red)";
-      tenureCalculatorStartingLabel.style.backgroundColor = "var(--main-color-red)";
       tenureCalculatorStartingLabel.innerText =
         "Data rozpoczęcia musi być mniejsza niż data zakończenia!";
     } else {
@@ -94,7 +92,7 @@ tenureBtnAdd.addEventListener("click", () => {
         startingDate.getMonth() + 1
       }.${startingDate.getFullYear()} do ${endingDate.getDate()}.${
         endingDate.getMonth() + 1
-      }.${endingDate.getFullYear()} to ${yearDiff} lat, ${monthDiff} miesięcy, ${dayDiff} dni`;
+      }.${endingDate.getFullYear()} = ${yearDiff} lat, ${monthDiff} miesięcy, ${dayDiff} dni`;
       if (tenureAddedDates.style.display != "block") {
         tenureAddedDates.style.display = "block";
         tenureAddedDates.innerText = tenureAddedDatesContent;
