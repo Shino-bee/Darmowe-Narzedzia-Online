@@ -1,5 +1,6 @@
-// Calculate button - calculates the results and changes content (text and results) in the table and shows table if is not displayed
 const Alphabet = "AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpQqRrSsŚśTtUuVvWwXxYyZzŹźŻż".split("");
+
+// Execute button - counts the text content and displays it in a table
 const wordCounterBtnCalculate = document.getElementsByClassName("program-form-btn-calculate")[0];
 wordCounterBtnCalculate.addEventListener("click", () => {
   console.log("---------------------");
@@ -17,52 +18,81 @@ wordCounterBtnCalculate.addEventListener("click", () => {
       Paragraphs: 0,
     };
 
-    let isNewLine = true;
-    let isWord = false;
     let isSpace = true;
+    let isWord = false;
+    let isSentence = true;
+    let isNewLine = true;
+    const endPunctuationMarks = [".", "!", "?"];
     for (let i = 0; i < inputTextarea.length; i++) {
       const char = inputTextarea[i];
-
+      // Add a point if there is WORD (e.g. hello)
       if (isWord && (isSpace || isNewLine)) {
         console.log("SŁOWO");
         wordCounterResults["Words"]++;
         isWord = false;
         isSpace = false;
-      } else if (isNewLine) {
-        if (char === "\n" || char === "\r") continue;
+      } // Add a point if there is NEW LINE (e.g. \n, enter)
+      else if (isNewLine) {
+        if (char === "\n") continue;
         else {
           wordCounterResults["Paragraphs"]++;
           isNewLine = false;
         }
+      } // Add a point if there is correct SENTENCE (e.g. Hello world!)
+      if (isSentence) {
+        console.log("ZDANIE");
+        const nextChar = inputTextarea[i + 1];
+        if (nextChar === undefined || nextChar === " " || nextChar === "\n") continue;
+        if (
+          i === 0 ||
+          ((char === " " || char === "\n") &&
+            ((Alphabet.includes(nextChar) && nextChar === nextChar.toUpperCase()) ||
+              nextChar.match(/[0-9]/)))
+        ) {
+          console.log("JEST");
+          wordCounterResults["Sentences"]++;
+        }
+        isSentence = false;
       }
 
+      // Add a point to ALL CHARS
       wordCounterResults["All chars"]++;
+
+      // Add a point if char is LETTER of the Polish alphabet (AaĄąBbCcĆć...)
       if (Alphabet.includes(char)) {
         console.log("LITERA:", char);
         wordCounterResults["Letters"]++;
         isWord = true;
-      } else if (char.match(/[0-9]/)) {
+      } // Add a point if char is NUMBER (123...)
+      else if (char.match(/[0-9]/)) {
         console.log("CYFRA:", char);
         wordCounterResults["Numbers"]++;
         isWord = true;
-      } else if (char === " ") {
+      } // Add a point if char is SPACE ( )
+      else if (char === " ") {
         console.log("SPACJA:", char);
         wordCounterResults["Spaces"]++;
         isSpace = true;
-      } else if (char === "\n" || char === "\r") {
+      } // Reduce a point of ALL CHARS if char is NEW LINE (\n, enter)
+      else if (char === "\n") {
         console.log("NEW LINE:", char);
         wordCounterResults["All chars"]--;
         isNewLine = true;
-      } else {
+      } // Add a point if char is END PUNCTUATION MARK (.!?)
+      else if (endPunctuationMarks.includes(char)) {
+        console.log("INTERPUNKCJA:", char);
+        wordCounterResults["Special chars"]++;
+        isWord = true;
+        isSentence = true;
+      } // Add a point if char is SPECIAL CHARACTER (!@#$%^&...)
+      else {
         console.log("SPECJALNY", char);
         wordCounterResults["Special chars"]++;
         isWord = true;
       }
     }
 
-    console.log("wordCounterResults :>> ", Object.keys(wordCounterResults));
-    console.log("wordCounterResults :>> ", Object.values(wordCounterResults));
-
+    // Add the results to the table
     const tableOfValues = document.getElementsByClassName("word-counter-results");
     for (let i = 0; i < tableOfValues.length; i++) {
       const result = Object.values(wordCounterResults)[i];
@@ -71,47 +101,7 @@ wordCounterBtnCalculate.addEventListener("click", () => {
       tableCellValue.innerText = result;
     }
 
-    /*     let isNewLine = false;
-    for (let i = 0; i < inputTextarea.length; i++) {
-      wordCounterResults["All chars"] += 1;
-      const char = inputTextarea[i];
-
-      if (Alphabet.includes(char)) {
-        // console.log("LITERA:", char);
-        wordCounterResults["Letters"]++;
-        isNewLine = true;
-        continue;
-      } else if (char.match(/[0-9]/)) {
-        // console.log("CYFRA:", char);
-        wordCounterResults["Numbers"]++;
-        isNewLine = true;
-        continue;
-      } else if (char === " ") {
-        // console.log("SPACJA", char);
-        wordCounterResults["Spaces"]++;
-        continue;
-      } else if (char === "\n") {
-        console.log("NEW LINE", char);
-        wordCounterResults["All chars"]--;
-        wordCounterResults["Paragraphs"]--;
-      } else {
-        console.log("SPECJALNY", char);
-        wordCounterResults["Special chars"]++;
-        isNewLine = true;
-      }
-    } */
-
-    // const tableOfValues = document.getElementsByClassName("word-counter-results");
-    // console.log(tableOfValues);
-    // console.log(Object.entries(wordCounterResults)[0][1]);
-    // for (let i = 0; i < tableOfValues.length; i++) {
-    //   const element1 = Object.entries(wordCounterResults)[i][0];
-    //   const element2 = Object.entries(wordCounterResults)[i][1];
-
-    //   console.log(element1);
-    //   console.log(element2);
-    // }
-
+    // Show the table of results
     const tableOfResults = document.getElementById("program-table");
     if (tableOfResults.style.opacity == 0) {
       tableOfResults.style.transition = "0.8s ease-out";

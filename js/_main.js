@@ -1,4 +1,4 @@
-// Load header navbar template from file (template_header.html)
+// Load <header> navbar template from file (template_header.html)
 const xhrHeader = new XMLHttpRequest();
 xhrHeader.onload = function () {
   document.getElementById("header").innerHTML = this.response;
@@ -6,7 +6,7 @@ xhrHeader.onload = function () {
 xhrHeader.open("GET", "../../pages/_templates/template_header.html", false);
 xhrHeader.send();
 
-// Load footer template from file (template_footer.html)
+// Load <footer> template from file (template_footer.html)
 const xhrFooter = new XMLHttpRequest();
 xhrFooter.onload = function () {
   document.getElementById("footer").innerHTML = this.response;
