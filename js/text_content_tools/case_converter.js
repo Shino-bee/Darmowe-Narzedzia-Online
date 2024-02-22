@@ -92,10 +92,7 @@ const programFormBtnClean = document.getElementsByClassName("program-form-btn-re
 programFormBtnClean.addEventListener("click", () => {
   const inputTextarea = document.getElementById("input-textarea");
   const outputTextarea = document.getElementById("output-textarea");
-  inputTextarea.value = "";
-  inputTextarea.rows = "12";
   inputTextarea.style.height = "auto";
-  outputTextarea.value = "";
-  outputTextarea.rows = "8";
   outputTextarea.style.height = "auto";
+  outputTextarea.value = "";
 });

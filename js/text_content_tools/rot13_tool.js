@@ -34,10 +34,8 @@ const programFormBtnClean = document.getElementsByClassName("program-form-btn-re
 programFormBtnClean.addEventListener("click", () => {
   const inputRot13 = document.getElementById("input-rot13");
   const outputRot13 = document.getElementById("output-rot13");
-  inputRot13.value = "";
-  inputRot13.rows = "12";
   inputRot13.style.height = "auto";
-  outputRot13.value = "";
-  outputRot13.rows = "8";
+  inputRot13.value = "";
   outputRot13.style.height = "auto";
+  outputRot13.value = "";
 });
