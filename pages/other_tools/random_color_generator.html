@@ -7,7 +7,7 @@
     <meta name="description" content="Darmowe Narzędzia Online" />
     <meta name="author" content="Michał Podowski (Shino-bee)" />
 
-    <title>Analizator zawartości tekstu - Darmowe Narzędzia Online</title>
+    <title>Generator losowych kolorów - Darmowe Narzędzia Online</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../css/_main.css" />
@@ -28,6 +28,14 @@
         margin-top: 15px;
         height: auto;
         opacity: 1;
+      }
+
+      ol {
+        margin-left: 30px;
+      }
+
+      ul {
+        margin-left: 15px;
       }
     </style>
 
@@ -51,7 +59,7 @@
     <!-- JS -->
     <script defer type="text/javascript" src="../../js/_main.js"></script>
     <script defer type="text/javascript" src="../../js/header.js"></script>
-    <script async type="module" src="../../js/text_content_tools/word_counter.js"></script>
+    <script async type="module" src="../../js/other_tools/random_color_generator.js"></script>
   </head>
 
   <body>
@@ -61,10 +69,9 @@
       <section id="main-image">
         <img id="main-image-img" src="../../images/main-image-tools.jpg" alt="" />
         <div id="main-image-text">
-          <h1>Analizator zawartości tekstu</h1>
+          <h1>Generator losowych kolorów</h1>
           <p>
-            Narzędzie analizuje i określa ile w tekście jest zawartych wszystkich znaków, liter (w
-            tym polskich), cyfr, spacji, znaków specjalnych, słów, zdań i akapitów.
+            Narzędzie generuje zestaw 6 losowych kolorów i wyświetle je w formatach HEX, RGB i HSL.
           </p>
         </div>
       </section>
@@ -137,30 +144,77 @@
           </table>
         </section>
         <section id="content-section-description" class="content-section-styles">
-          <h3>Czym jest analizator zawartości tekstu?</h3>
+          <h3>Czym jest generator losowych kolorów?</h3>
           <p>
-            Analizator zawartości tekstu to narzędzie umożliwiające użytkownikowi analizę tekstu pod
-            kątem różnych elementów, takich jak wszystkie znaki, litery (w tym polskie), liczby,
-            spacje, znaki specjalne, słowa, zdania i akapity. Program może przydać się osobom,
-            którzy zajmują się edycją tekstu, analizą językową lub potrzebujących szybkiego
-            podsumowania charakterystyk tekstu.
+            Generator losowych kolorów to narzędzie dla każdego kto poszukuje inspiracji
+            kolorystycznej. Narzędzie generuje zestaw 6 losowych kolorów w szybki i łatwy sposób,
+            dostarczając użytkownikowi różnorodnych palet do wykorzystania wedle swoich potrzeb.
+            Dodatkowo, automatycznie generowany kod kolorów w formatach HEX, RGB i HSL pozwoli
+            użytkownikowi w łatwy sposób zaimplementować wybrane kolory w swoich projektach.
           </p>
-          <p>
-            Znajomość liczby słów w tekście może być ważna. Na przykład, jeśli autor musi napisać
-            minimalną lub maksymalną liczbę słów w artykule, eseju, raporcie, opowiadaniu, książce,
-            artykule itd. Analizator zawartości tekstu może okazać się niezwykle cennym
-            sprzymierzeńcem również dla osób pracujących w mediach społecznościowych, gdzie czasami
-            ograniczona liczba znaków może stawiać pewne wyzwanie komunikacyjne. Dzięki możliwościom
-            precyzyjnego zliczania znaków, liter, słów oraz innych elementów tekstu, program pozwala
-            na dokładne dostosowanie przekazu do wyznaczonego limitu znaków.
-          </p>
-          <p style="margin-bottom: 10px">
-            Narzędzie jest bardzo proste w obsłudze, więc aby skorzystać z analizatora zawartości
-            tekstu należy wprowadzić tekst wpisując lub wklejając go w przeznaczone na to miejsce i
-            nacisnąć przycisk "Wykonaj". Nie ważne, czy potrzebujesz szybkiego podsumowania
-            zawartości tekstu czy też dogłębnej analizy jego cech, analizator zawartości tekstu
-            pozwoli Ci osiągnąć cel w prosty, szybki i efektywny sposób.
-          </p>
+          <p>Oto podstawowe kolory wraz z ich wartościami w formatach HEX, RGB i HSL:</p>
+          <ol style="margin-bottom: 10px">
+            <li>
+              Czarny:
+              <ul>
+                <li>HEX: #000000</li>
+                <li>RGB: (0, 0, 0)</li>
+                <li>HSL: (0°, 0%, 0%)</li>
+                <li>
+                  Czarny jest pozbawiony koloru, co oznacza brak natężenia światła w modelu RGB. W
+                  modelu HSL, czarny ma 0 stopni, 0% nasycenia i 0% jasności.
+                </li>
+              </ul>
+            </li>
+            <li>
+              Biały:
+              <ul>
+                <li>HEX: #FFFFFF</li>
+                <li>RGB: (255, 255, 255)</li>
+                <li>HSL: (0°, 0%, 100%)</li>
+                <li>
+                  Biały jest pełnym natężeniem światła we wszystkich trzech składowych kolorów RGB.
+                  W modelu HSL, biały ma 0stopni, 0% nasycenia i 100% jasności.
+                </li>
+              </ul>
+            </li>
+            <li>
+              Czerwony:
+              <ul>
+                <li>HEX: #FF0000</li>
+                <li>RGB: (255, 0, 0)</li>
+                <li>HSL: (0°, 100%, 50%)</li>
+                <li>
+                  Czerwony to pierwsza składowa w skali HEX i RGB. W modelu HSL, czerwony ma 0
+                  stopni (lub 360 stopni), co oznacza pełne nasycenie, a jasność wynosi 50%.
+                </li>
+              </ul>
+            </li>
+            <li>
+              Zielony:
+              <ul>
+                <li>HEX: #00FF00</li>
+                <li>RGB: (0, 255, 0)</li>
+                <li>HSL: (120°, 100%, 50%)</li>
+                <li>
+                  Zielony to druga składowa w skali HEX i RGB. W modelu HSL, zielony ma 120 stopni,
+                  co oznacza pełne nasycenie, a jasność wynosi 50%.
+                </li>
+              </ul>
+            </li>
+            <li>
+              Niebieski:
+              <ul>
+                <li>HEX: #0000FF</li>
+                <li>RGB: (0, 0, 255)</li>
+                <li>HSL: (240°, 100%, 50%)</li>
+                <li>
+                  Niebieski to trzecia składowa w skali HEX i RGB. W modelu HSL, niebieski ma 240
+                  stopni, co oznacza pełne nasycenie, a jasność wynosi 50%.
+                </li>
+              </ul>
+            </li>
+          </ol>
         </section>
       </article>
     </main>
