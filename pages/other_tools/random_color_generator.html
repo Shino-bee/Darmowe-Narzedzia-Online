@@ -19,6 +19,18 @@
         gap: 15px 15px;
       }
 
+      @media only screen and (max-width: 991.98px) {
+        #colors_container {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media only screen and (max-width: 575.98px) {
+        #colors_container {
+          grid-template-columns: 1fr;
+        }
+      }
+
       .colors {
         border: 2px outset var(--main-color-darklighter);
         padding: 5px;
@@ -130,48 +142,48 @@
               <div class="colors">
                 <ul class="colors-formats">
                   <li class="hex-container">HEX: <span class="hex">#000000</span></li>
-                  <li class="rgb-container">RGB: <span class="rgb">(0, 0, 0)</span></li>
-                  <li class="hsl-container">HSL: <span class="hsl">(0, 0%, 0%)</span></li>
+                  <li class="rgb-container">RGB: (<span class="rgb">0, 0, 0</span>)</li>
+                  <li class="hsl-container">HSL: (<span class="hsl">0°, 0%, 0%</span>)</li>
                 </ul>
                 <div class="colors-show"></div>
               </div>
               <div class="colors">
                 <ul class="colors-formats">
                   <li class="hex-container">HEX: <span class="hex">#000000</span></li>
-                  <li class="rgb-container">RGB: <span class="rgb">(0, 0, 0)</span></li>
-                  <li class="hsl-container">HSL: <span class="hsl">(0, 0%, 0%)</span></li>
+                  <li class="rgb-container">RGB: (<span class="rgb">0, 0, 0</span>)</li>
+                  <li class="hsl-container">HSL: (<span class="hsl">0°, 0%, 0%</span>)</li>
                 </ul>
                 <div class="colors-show"></div>
               </div>
               <div class="colors">
                 <ul class="colors-formats">
                   <li class="hex-container">HEX: <span class="hex">#000000</span></li>
-                  <li class="rgb-container">RGB: <span class="rgb">(0, 0, 0)</span></li>
-                  <li class="hsl-container">HSL: <span class="hsl">(0, 0%, 0%)</span></li>
+                  <li class="rgb-container">RGB: (<span class="rgb">0, 0, 0</span>)</li>
+                  <li class="hsl-container">HSL: (<span class="hsl">0°, 0%, 0%</span>)</li>
                 </ul>
                 <div class="colors-show"></div>
               </div>
               <div class="colors">
                 <ul class="colors-formats">
                   <li class="hex-container">HEX: <span class="hex">#000000</span></li>
-                  <li class="rgb-container">RGB: <span class="rgb">(0, 0, 0)</span></li>
-                  <li class="hsl-container">HSL: <span class="hsl">(0, 0%, 0%)</span></li>
+                  <li class="rgb-container">RGB: (<span class="rgb">0, 0, 0</span>)</li>
+                  <li class="hsl-container">HSL: (<span class="hsl">0°, 0%, 0%</span>)</li>
                 </ul>
                 <div class="colors-show"></div>
               </div>
               <div class="colors">
                 <ul class="colors-formats">
                   <li class="hex-container">HEX: <span class="hex">#000000</span></li>
-                  <li class="rgb-container">RGB: <span class="rgb">(0, 0, 0)</span></li>
-                  <li class="hsl-container">HSL: <span class="hsl">(0, 0%, 0%)</span></li>
+                  <li class="rgb-container">RGB: (<span class="rgb">0, 0, 0</span>)</li>
+                  <li class="hsl-container">HSL: (<span class="hsl">0°, 0%, 0%</span>)</li>
                 </ul>
                 <div class="colors-show"></div>
               </div>
               <div class="colors">
                 <ul class="colors-formats">
                   <li class="hex-container">HEX: <span class="hex">#000000</span></li>
-                  <li class="rgb-container">RGB: <span class="rgb">(0, 0, 0)</span></li>
-                  <li class="hsl-container">HSL: <span class="hsl">(0, 0%, 0%)</span></li>
+                  <li class="rgb-container">RGB: (<span class="rgb">0, 0, 0</span>)</li>
+                  <li class="hsl-container">HSL: (<span class="hsl">0°, 0%, 0%</span>)</li>
                 </ul>
                 <div class="colors-show"></div>
               </div>
@@ -187,8 +199,9 @@
             Generator losowych kolorów to narzędzie dla każdego kto poszukuje inspiracji
             kolorystycznej. Narzędzie generuje zestaw 6 losowych kolorów w szybki i łatwy sposób,
             dostarczając użytkownikowi różnorodnych palet do wykorzystania wedle swoich potrzeb.
-            Dodatkowo, automatycznie generowany kod kolorów w formatach HEX, RGB i HSL pozwoli
-            użytkownikowi w łatwy sposób zaimplementować wybrane kolory w swoich projektach.
+            Dodatkowo, automatycznie generowany kod kolorów jest w formatach HEX, RGB i HSL co
+            pozwoli użytkownikowi w łatwy sposób zaimplementować wybrane kolory w swoich projektach.
+            Do skopiowania kodu koloru wystarczy do zaledwie klinięcie.
           </p>
           <p>Oto podstawowe kolory wraz z ich wartościami w formatach HEX, RGB i HSL:</p>
           <ol style="margin-bottom: 10px">

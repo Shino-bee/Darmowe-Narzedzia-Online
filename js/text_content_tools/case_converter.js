@@ -84,7 +84,7 @@ programFormBtnExecute.addEventListener("click", () => {
   // Display changed text in the output textarea
   const outputTextarea = document.getElementById("output-textarea");
   outputTextarea.value = changedText;
-  outputTextarea.style.height = outputTextarea.scrollHeight + "px";
+  outputTextarea.style.height = outputTextarea.scrollHeight + 2 + "px";
 });
 
 // Clear button - removes text and set default height of input and output textareas

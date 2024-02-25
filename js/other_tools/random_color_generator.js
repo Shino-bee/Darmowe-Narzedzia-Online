@@ -58,15 +58,15 @@ function generateNewColors() {
     randomHslNums.push([h.toString(), s.toString(), l.toString()]);
   }
 
-  // Displays generated random colors and their HEX/RGB/HSL code
+  // Displays generated random colors and their HEX/RGB/HSL code on page
   for (let i = 0; i < 6; i++) {
     hexClasses[i].innerText = `#${randomHexNums[i][0]}${randomHexNums[i][1]}${randomHexNums[i][2]}`;
     rgbClasses[
       i
-    ].innerText = `(${randomRgbNums[i][0]}, ${randomRgbNums[i][1]}, ${randomRgbNums[i][2]})`;
+    ].innerText = `${randomRgbNums[i][0]}, ${randomRgbNums[i][1]}, ${randomRgbNums[i][2]}`;
     hslClasses[
       i
-    ].innerText = `(${randomHslNums[i][0]}, ${randomHslNums[i][1]}%, ${randomHslNums[i][2]}%)`;
+    ].innerText = `${randomHslNums[i][0]}°, ${randomHslNums[i][1]}%, ${randomHslNums[i][2]}%`;
     colorShowClasses[
       i
     ].style.background = `rgb(${randomRgbNums[i][0]}, ${randomRgbNums[i][1]}, ${randomRgbNums[i][2]})`;
@@ -75,6 +75,8 @@ function generateNewColors() {
 
 // Calls the function when the page is loaded
 generateNewColors();
+
+// ------------------------------------------------------------
 
 // Allows to copy the text to the clipboard after click on the HEX, RGB or HSL color code value
 for (let i = 0; i < hexClasses.length; i++) {
