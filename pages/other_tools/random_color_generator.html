@@ -13,21 +13,51 @@
     <link rel="stylesheet" href="../../css/_main.css" />
     <link rel="stylesheet" href="../../css/program.css" />
     <style>
-      #input-textarea {
-        background: var(--main-color-darklight);
-        color: var(--main-color-lighter);
-        color-scheme: dark;
-        font-size: 0.9em;
-        padding: 4px 8px;
-        margin: 5px 0 15px 0;
-        resize: vertical;
-        height: auto;
+      #colors_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px 15px;
       }
 
-      #program-table {
+      .colors {
+        border: 2px outset var(--main-color-darklighter);
+        padding: 5px;
+      }
+
+      .colors-formats {
+        list-style: none;
+        text-align: center;
+        margin: 0;
+      }
+
+      .hex-container,
+      .rgb-container,
+      .hsl-container {
+        height: 30px;
+      }
+
+      .hex:hover,
+      .rgb:hover,
+      .hsl:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      .hex:active,
+      .rgb:active,
+      .hsl:active {
+        text-decoration-style: double;
+      }
+
+      .colors-show {
+        border: 2px inset var(--main-color-darklighter);
+        background: darkslategrey;
+        height: 100px;
+      }
+
+      .program-form-btn-calculate {
+        width: 50%;
         margin-top: 15px;
-        height: auto;
-        opacity: 1;
       }
 
       ol {
@@ -90,58 +120,64 @@
             "
           ></iframe>
           <form class="program-form" target="hiddenFrame">
-            <label for="input-textarea"
-              >Wstaw tekst, który chcesz przeanalizować pod kątem zawartości tekstu:</label
-            >
-            <textarea
-              name="input-textarea"
-              id="input-textarea"
-              rows="12"
-              placeholder="Wpisz lub wklej swój tekst tutaj"
-              required
-            ></textarea>
+            <p style="margin-bottom: 15px">
+              Kliknij w kod koloru, aby go skopiować lub naciśnij przycisk "Generuj", aby
+              wygenerować nowe kolory:
+            </p>
+            <div id="colors_container">
+              <div class="colors">
+                <ul class="colors-formats">
+                  <li class="hex-container">HEX: <span class="hex">#000000</span></li>
+                  <li class="rgb-container">RGB: <span class="rgb">(0, 0, 0)</span></li>
+                  <li class="hsl-container">HSL: <span class="hsl">(0, 0%, 0%)</span></li>
+                </ul>
+                <div class="colors-show"></div>
+              </div>
+              <div class="colors">
+                <ul class="colors-formats">
+                  <li class="hex-container">HEX: <span class="hex">#000000</span></li>
+                  <li class="rgb-container">RGB: <span class="rgb">(0, 0, 0)</span></li>
+                  <li class="hsl-container">HSL: <span class="hsl">(0, 0%, 0%)</span></li>
+                </ul>
+                <div class="colors-show"></div>
+              </div>
+              <div class="colors">
+                <ul class="colors-formats">
+                  <li class="hex-container">HEX: <span class="hex">#000000</span></li>
+                  <li class="rgb-container">RGB: <span class="rgb">(0, 0, 0)</span></li>
+                  <li class="hsl-container">HSL: <span class="hsl">(0, 0%, 0%)</span></li>
+                </ul>
+                <div class="colors-show"></div>
+              </div>
+              <div class="colors">
+                <ul class="colors-formats">
+                  <li class="hex-container">HEX: <span class="hex">#000000</span></li>
+                  <li class="rgb-container">RGB: <span class="rgb">(0, 0, 0)</span></li>
+                  <li class="hsl-container">HSL: <span class="hsl">(0, 0%, 0%)</span></li>
+                </ul>
+                <div class="colors-show"></div>
+              </div>
+              <div class="colors">
+                <ul class="colors-formats">
+                  <li class="hex-container">HEX: <span class="hex">#000000</span></li>
+                  <li class="rgb-container">RGB: <span class="rgb">(0, 0, 0)</span></li>
+                  <li class="hsl-container">HSL: <span class="hsl">(0, 0%, 0%)</span></li>
+                </ul>
+                <div class="colors-show"></div>
+              </div>
+              <div class="colors">
+                <ul class="colors-formats">
+                  <li class="hex-container">HEX: <span class="hex">#000000</span></li>
+                  <li class="rgb-container">RGB: <span class="rgb">(0, 0, 0)</span></li>
+                  <li class="hsl-container">HSL: <span class="hsl">(0, 0%, 0%)</span></li>
+                </ul>
+                <div class="colors-show"></div>
+              </div>
+            </div>
             <div class="program-form-btns">
-              <button type="submit" class="program-form-btn-calculate">Wykonaj</button>
-              <button type="reset" class="program-form-btn-reset">Wyczyść</button>
+              <button type="submit" class="program-form-btn-calculate">Generuj</button>
             </div>
           </form>
-          <table id="program-table">
-            <tbody>
-              <tr>
-                <td>Ilość wszystkich znaków</td>
-                <td><span class="word-counter-results">0</span></td>
-              </tr>
-              <tr>
-                <td>Ilość liter</td>
-                <td><span class="word-counter-results">0</span></td>
-              </tr>
-              <tr>
-                <td>Ilość liczby</td>
-                <td><span class="word-counter-results">0</span></td>
-              </tr>
-              <tr>
-                <td>Ilość spacji</td>
-                <td><span class="word-counter-results">0</span></td>
-              </tr>
-              <tr>
-                <td>Ilość znaków specjalnych</td>
-                <td><span class="word-counter-results">0</span></td>
-              </tr>
-              <tr style="height: 30px"></tr>
-              <tr>
-                <td>Ilość słów</td>
-                <td><span class="word-counter-results">0</span></td>
-              </tr>
-              <tr>
-                <td>Ilość zdań</td>
-                <td><span class="word-counter-results">0</span></td>
-              </tr>
-              <tr>
-                <td>Ilość akapitów</td>
-                <td><span class="word-counter-results">0</span></td>
-              </tr>
-            </tbody>
-          </table>
         </section>
         <section id="content-section-description" class="content-section-styles">
           <h3>Czym jest generator losowych kolorów?</h3>
