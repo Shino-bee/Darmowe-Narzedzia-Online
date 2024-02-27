@@ -4,15 +4,16 @@ selectAverage.addEventListener("change", () => {
   const arithmeticAverageForm = document.getElementById("arithmetic-average-form");
   const geometricAverageForm = document.getElementById("geometric-average-form");
   const weightedAverageForm = document.getElementById("weighted-average-form");
-  if (selectAverage[selectAverage.selectedIndex].value == "arithmetic") {
+  const selectedAverage = selectAverage[selectAverage.selectedIndex].value;
+  if (selectedAverage == "arithmetic") {
     arithmeticAverageForm.style.display = "block";
     weightedAverageForm.style.display = "none";
     geometricAverageForm.style.display = "none";
-  } else if (selectAverage[selectAverage.selectedIndex].value == "weighted") {
+  } else if (selectedAverage == "weighted") {
     arithmeticAverageForm.style.display = "none";
     weightedAverageForm.style.display = "block";
     geometricAverageForm.style.display = "none";
-  } else if (selectAverage[selectAverage.selectedIndex].value == "geometric") {
+  } else if (selectedAverage == "geometric") {
     arithmeticAverageForm.style.display = "none";
     weightedAverageForm.style.display = "none";
     geometricAverageForm.style.display = "block";

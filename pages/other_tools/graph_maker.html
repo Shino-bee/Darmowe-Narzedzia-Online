@@ -30,10 +30,56 @@
         outline: none;
       }
 
-      #pie-chart,
-      #column-chart {
-        height: 600px;
-        background: #ffffff0e;
+      .program-form-btns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 5px;
+        justify-items: center;
+        margin-top: 10px;
+      }
+
+      .program-form-btns > button {
+        width: 95%;
+      }
+
+      #pie-chart-container,
+      #bar-chart-container,
+      #line-chart-container {
+        background-color: var(--main-color-darklight);
+        display: flex;
+        justify-content: center;
+        max-height: 700px;
+      }
+
+      #bar-chart-container,
+      #line-chart-container {
+        display: none;
+      }
+
+      #data-inputs-container {
+        margin-top: 15px;
+      }
+
+      .data-inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .labels,
+      .data {
+        color: var(--main-color-light);
+        background-color: var(--main-color-darklight);
+        border: 1px solid var(--main-color-darklighter);
+        font-size: 14px;
+        margin: 5px;
+        height: 30px;
+        padding: 0px 5px;
+      }
+
+      .labels:focus,
+      .data:focus {
+        box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
+        outline: none;
       }
     </style>
 
@@ -86,18 +132,65 @@
               display: none;
             "
           ></iframe>
+          <!-- ########## -->
           <form class="program-form" target="hiddenFrame">
             <label for="select-chart">Wybierz typ wykresu:</label>
             <select name="select-chart" id="select-chart">
               <option value="pie chart" selected>Wykres kołowy</option>
-              <option value="column chart">Wykres kolumnowy</option>
               <option value="bar chart">Wykres słupkowy</option>
+              <option value="line chart">Wykres liniowy</option>
             </select>
-          </form>
 
-          <!-- <div id="pie-chart"><canvas id="pie-chart-canvas"></canvas></div> -->
-          <div id="column-chart"><canvas id="column-chart-canvas"></canvas></div>
+            <div id="pie-chart-container"><canvas id="pie-chart"></canvas></div>
+            <div id="bar-chart-container"><canvas id="bar-chart"></canvas></div>
+            <div id="line-chart-container"><canvas id="line-chart"></canvas></div>
+
+            <div id="inputs-container">
+              <div class="program-form-btns">
+                <button type="button" id="add-dataset-btn" class="program-form-btn-calculate">
+                  Dodaj zbiór danych
+                </button>
+                <button type="button" id="remove-dataset-btn" class="program-form-btn-reset">
+                  Usuń zbiór danych
+                </button>
+                <button type="button" id="add-data-btn" class="program-form-btn-calculate">
+                  Dodaj dane
+                </button>
+                <button type="button" id="remove-data-btn" class="program-form-btn-reset">
+                  Usuń dane
+                </button>
+              </div>
+              <div id="data-inputs-container">
+                <div class="data-inputs">
+                  <input type="text" name="labels" class="labels" />
+                  <input type="number" name="data" class="data" />
+                </div>
+                <div class="data-inputs">
+                  <input type="text" name="labels" class="labels" />
+                  <input type="number" name="data" class="data" />
+                </div>
+                <div class="data-inputs">
+                  <input type="text" name="labels" class="labels" />
+                  <input type="number" name="data" class="data" />
+                </div>
+                <div class="data-inputs">
+                  <input type="text" name="labels" class="labels" />
+                  <input type="number" name="data" class="data" />
+                </div>
+                <div class="data-inputs">
+                  <input type="text" name="labels" class="labels" />
+                  <input type="number" name="data" class="data" />
+                </div>
+                <div class="data-inputs">
+                  <input type="text" name="labels" class="labels" />
+                  <input type="number" name="data" class="data" />
+                </div>
+              </div>
+            </div>
+          </form>
+          <!-- ########## -->
         </section>
+
         <section id="content-section-description" class="content-section-styles">
           <h3>Czym jest kreator wykresów?</h3>
           <p>
