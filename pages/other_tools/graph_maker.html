@@ -35,7 +35,7 @@
         grid-template-columns: 1fr 1fr;
         gap: 10px 5px;
         justify-items: center;
-        margin-top: 10px;
+        margin-top: 15px;
       }
 
       .program-form-btns > button {
@@ -57,7 +57,7 @@
       }
 
       #data-inputs-container {
-        margin-top: 15px;
+        margin-top: 10px;
       }
 
       .data-inputs {
@@ -74,6 +74,7 @@
         margin: 5px;
         height: 30px;
         padding: 0px 5px;
+        min-width: 0;
       }
 
       .labels:focus,
@@ -132,7 +133,6 @@
               display: none;
             "
           ></iframe>
-          <!-- ########## -->
           <form class="program-form" target="hiddenFrame">
             <label for="select-chart">Wybierz typ wykresu:</label>
             <select name="select-chart" id="select-chart">
@@ -162,33 +162,32 @@
               </div>
               <div id="data-inputs-container">
                 <div class="data-inputs">
-                  <input type="text" name="labels" class="labels" />
+                  <input type="text" name="labels" class="labels" autocomplete="off" />
+                  <input type="number" name="data" class="data"/>
+                </div>
+                <div class="data-inputs">
+                  <input type="text" name="labels" class="labels" autocomplete="off" />
                   <input type="number" name="data" class="data" />
                 </div>
                 <div class="data-inputs">
-                  <input type="text" name="labels" class="labels" />
+                  <input type="text" name="labels" class="labels" autocomplete="off" />
                   <input type="number" name="data" class="data" />
                 </div>
                 <div class="data-inputs">
-                  <input type="text" name="labels" class="labels" />
+                  <input type="text" name="labels" class="labels" autocomplete="off" />
                   <input type="number" name="data" class="data" />
                 </div>
                 <div class="data-inputs">
-                  <input type="text" name="labels" class="labels" />
+                  <input type="text" name="labels" class="labels" autocomplete="off" />
                   <input type="number" name="data" class="data" />
                 </div>
                 <div class="data-inputs">
-                  <input type="text" name="labels" class="labels" />
-                  <input type="number" name="data" class="data" />
-                </div>
-                <div class="data-inputs">
-                  <input type="text" name="labels" class="labels" />
+                  <input type="text" name="labels" class="labels" autocomplete="off" />
                   <input type="number" name="data" class="data" />
                 </div>
               </div>
             </div>
           </form>
-          <!-- ########## -->
         </section>
 
         <section id="content-section-description" class="content-section-styles">

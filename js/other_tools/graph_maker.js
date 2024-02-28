@@ -1,4 +1,4 @@
-// Fnction updates selected chart depeding on selected chart or button pressed
+// Function updates selected chart depeding on selected chart or button pressed
 function updateChart(chart) {
   switch (chart) {
     case "pie chart":
@@ -13,7 +13,51 @@ function updateChart(chart) {
   }
 }
 
-// Default colors for chart elements
+// Function updates functionality for dynamic display values in chart while user entered input values (label and data)
+function updateInputs() {
+  for (let i = 0; i < inputLabels.length; i++) {
+    // Data's labels - change value in chart when user types input (dynamically)
+    inputLabels[i].addEventListener("input", () => {
+      chartLabels[i] = inputLabels[i].value;
+      updateChart(selectedChart);
+    });
+
+    // Data's values - change value in chart when user types input (dynamically)
+    inputData[i].addEventListener("input", () => {
+      console.log(inputData[i].value);
+      console.log(inputsContainer);
+      chartData[0][i] = inputData[i].value;
+      updateChart(selectedChart);
+    });
+  }
+}
+
+// -----------GLOBAL VARIABLES----------
+// USER DATA initialize
+const chartLabels = ["Czerwony", "Niebieski", "Żółty", "Pomarańczowy", "Zielony", "Fioletowy"];
+const chartData = [[65, 59, 70, 81, 60, 55]];
+
+let chartDatasetsAmount = 1;
+const chartDatasets = [
+  {
+    label: ` Zbiór danych ${chartDatasetsAmount}`,
+    data: chartData[0],
+  },
+];
+
+// Initialize INPUT LABELS AND TAGS and adds default values
+const inputsContainer = document.getElementById("data-inputs-container");
+const inputs = document.getElementsByClassName("data-inputs");
+const inputLabels = document.getElementsByClassName("labels");
+const inputData = document.getElementsByClassName("data");
+for (let i = 0; i < inputLabels.length; i++) {
+  const label = inputLabels[i];
+  const data = inputData[i];
+  label.value = chartLabels[i];
+  data.value = chartData[0][i];
+}
+
+// Default COLORS for chart elements
 const backgroundColors = [
   "rgba(255, 99, 132, 0.5)",
   "rgba(54, 162, 235, 0.5)",
@@ -49,30 +93,7 @@ const borderColors = [
   "rgb(127, 194, 142)",
 ];
 
-// User editable data variables with default values
-const chartLabels = ["Czerwony", "Niebieski", "Żółty", "Pomarańczowy", "Zielony", "Fioletowy"];
-const chartData = [[65, 59, 70, 81, 60, 55]];
-
-let chartDatasetsAmount = 1;
-const chartDatasets = [
-  {
-    label: ` Zbiór danych ${chartDatasetsAmount}`,
-    data: chartData[chartDatasetsAmount - 1],
-  },
-];
-
-// Add labels and data to input tags
-const inputLabels = document.getElementsByClassName("labels");
-const inputData = document.getElementsByClassName("data");
-console.log(inputLabels[0].value);
-for (let i = 0; i < inputLabels.length; i++) {
-  const label = inputLabels[i];
-  const data = inputData[i];
-  label.value = chartLabels[i];
-  data.value = chartData[0][i];
-}
-
-// ---------------------------------------------------
+// -------------------CHARTS---------------------------
 // Pie Chart
 const pieChartId = document.getElementById("pie-chart");
 
@@ -109,6 +130,7 @@ const barChart = new Chart(barChartId, {
   options: {
     backgroundColor: backgroundColors,
     borderColor: borderColors,
+    borderWidth: 2,
     layout: {
       padding: {
         top: 10,
@@ -120,6 +142,7 @@ const barChart = new Chart(barChartId, {
         beginAtZero: true,
       },
     },
+    // indexAxis: "y",
   },
 });
 
@@ -153,7 +176,11 @@ const lineChart = new Chart(lineChartId, {
   },
 });
 
+// Initialize functionality
+updateInputs();
+
 // -------------------------------------------------
+// ---------------BUTTONS & SELECT------------------
 // Select chart - display selected option and hide the rest
 const selectChart = document.getElementById("select-chart");
 let selectedChart = selectChart[selectChart.selectedIndex].value;
@@ -201,14 +228,28 @@ removeDatasetButton.addEventListener("click", () => {
   }
 });
 
-// "Add Data" button
+// "Add Data" button - adds to chart new data (copies last value), his label and inputs
 const addDataButton = document.getElementById("add-data-btn");
 addDataButton.addEventListener("click", () => {
-  console.log("add data");
-  for (let i = 0; i < chartData.length; i++) {
-    const data = chartData[i][chartData[i].length - 1];
-    chartLabels.push("Nowy");
-    chartData[i].push(data);
-  }
+  const data = chartData[chartData.length - 1][chartData[chartData.length - 1].length - 1];
+  const inputTag = `<div class="data-inputs">
+  <input type="text" name="labels" class="labels" autocomplete="off" value="Nowy" />
+  <input type="number" name="data" class="data" value="${data}"/>
+</div>`;
+  chartLabels.push("Nowy");
+  chartData[0].push(data);
+  inputsContainer.insertAdjacentHTML("beforeend", inputTag);
   updateChart(selectedChart);
+  updateInputs();
+});
+
+// "Remove data" button
+const removeDataButton = document.getElementById("remove-data-btn");
+removeDataButton.addEventListener("click", () => {
+  if (chartData[chartData.length - 1].length > 1) {
+    chartLabels.pop();
+    chartData[0].pop();
+    inputsContainer.removeChild(inputsContainer.lastElementChild);
+    updateChart(selectedChart);
+  }
 });
