@@ -205,30 +205,33 @@ selectChart.addEventListener("change", () => {
   updateChart(selectedChart);
 });
 
-// "Add Dataset" button
+// "Add Dataset" button - adds to chart new dataset (copies last data array), his label and inputs
 const addDatasetButton = document.getElementById("add-dataset-btn");
 addDatasetButton.addEventListener("click", () => {
+  const inputTag = `<input type="number" name="data" class="data" value="0"/>`;
   chartDatasetsAmount++;
   chartData.push(chartData[chartData.length - 1]);
   chartDatasets.push({
     label: ` Zbiór danych ${chartDatasetsAmount}`,
     data: chartData[chartDatasetsAmount - 1],
   });
+  for (let i = 0; i < inputs.length; i++) inputs[i].insertAdjacentHTML("beforeend", inputTag);
   updateChart(selectedChart);
 });
 
-// "Remove dataset" button
+// "Remove dataset" button - removes last dataset, his label and inputs
 const removeDatasetButton = document.getElementById("remove-dataset-btn");
 removeDatasetButton.addEventListener("click", () => {
   if (chartDatasetsAmount > 1) {
     chartDatasetsAmount--;
     chartData.pop();
     chartDatasets.pop();
+    for (let i = 0; i < inputs.length; i++) inputs[i].removeChild(inputs[i].lastElementChild);
     updateChart(selectedChart);
   }
 });
 
-// "Add Data" button - adds to chart new data (copies last value), his label and inputs
+// "Add Data" button - adds to chart new data (copies last data value of last array), his label and inputs
 const addDataButton = document.getElementById("add-data-btn");
 addDataButton.addEventListener("click", () => {
   const data = chartData[chartData.length - 1][chartData[chartData.length - 1].length - 1];
@@ -243,7 +246,7 @@ addDataButton.addEventListener("click", () => {
   updateInputs();
 });
 
-// "Remove data" button
+// "Remove data" button - removes last data, his label and inputs
 const removeDataButton = document.getElementById("remove-data-btn");
 removeDataButton.addEventListener("click", () => {
   if (chartData[chartData.length - 1].length > 1) {
