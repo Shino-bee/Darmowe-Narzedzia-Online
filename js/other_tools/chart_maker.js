@@ -26,7 +26,7 @@ function updateInputs() {
     inputData[i].addEventListener("input", () => {
       console.log(inputData[i].value);
       console.log(inputsContainer);
-      chartData[0][i] = inputData[i].value;
+      chartData[chartData.length - 1][i] = parseFloat(inputData[i].value);
       updateChart(selectedChart);
     });
   }
@@ -65,7 +65,7 @@ const backgroundColors = [
   "rgba(255, 159, 64, 0.5)",
   "rgba(75, 255, 192, 0.5)",
   "rgba(153, 102, 255, 0.5)",
-  "rgba(110, 72, 43, 0.5)",
+  "rgba(121, 92, 52, 0.5)",
   "rgba(219, 164, 245, 0.5)",
   "rgba(72, 82, 54, 0.5)",
   "rgba(195, 220, 136, 0.5)",
@@ -82,7 +82,7 @@ const borderColors = [
   "rgb(255, 159, 64)",
   "rgb(75, 255, 192)",
   "rgb(153, 102, 255)",
-  "rgb(110, 72, 43)",
+  "rgb(121, 92, 52)",
   "rgb(219, 164, 245)",
   "rgb(72, 82, 54)",
   "rgb(195, 220, 136)",
@@ -208,15 +208,23 @@ selectChart.addEventListener("change", () => {
 // "Add Dataset" button - adds to chart new dataset (copies last data array), his label and inputs
 const addDatasetButton = document.getElementById("add-dataset-btn");
 addDatasetButton.addEventListener("click", () => {
-  const inputTag = `<input type="number" name="data" class="data" value="0"/>`;
+  console.log(chartData);
   chartDatasetsAmount++;
   chartData.push(chartData[chartData.length - 1]);
   chartDatasets.push({
     label: ` Zbiór danych ${chartDatasetsAmount}`,
     data: chartData[chartDatasetsAmount - 1],
   });
-  for (let i = 0; i < inputs.length; i++) inputs[i].insertAdjacentHTML("beforeend", inputTag);
+
+  for (let i = 0; i < inputs.length; i++) {
+    const inputTag = `<input type="number" name="data" class="data" value="${
+      chartData[chartData.length - 1][i]
+    }"/>`;
+    inputs[i].style.gridTemplateColumns = "1fr 1fr 1fr";
+    inputs[i].insertAdjacentHTML("beforeend", inputTag);
+  }
   updateChart(selectedChart);
+  updateInputs();
 });
 
 // "Remove dataset" button - removes last dataset, his label and inputs
@@ -231,12 +239,20 @@ removeDatasetButton.addEventListener("click", () => {
   }
 });
 
-// "Add Data" button - adds to chart new data (copies last data value of last array), his label and inputs
+// "Add Data" button - adds to chart new data (copies last data value of last array), his label (with box-shadow color) and inputs
 const addDataButton = document.getElementById("add-data-btn");
 addDataButton.addEventListener("click", () => {
   const data = chartData[chartData.length - 1][chartData[chartData.length - 1].length - 1];
+  const labelBoxShadow =
+    chartLabels.length >= borderColors.length
+      ? borderColors[chartLabels.length % borderColors.length]
+      : borderColors[chartLabels.length];
+  // console.log(labelBoxShadow);
+  // console.log(chartLabels.length, );
+  // if (chartLabels.length <= borderColors.length) borderColors[borderColors.length];
+  // else false;
   const inputTag = `<div class="data-inputs">
-  <input type="text" name="labels" class="labels" autocomplete="off" value="Nowy" />
+  <input type="text" name="labels" class="labels" autocomplete="off" value="Nowy" style="box-shadow: 0px 0px 10px ${labelBoxShadow};"/>
   <input type="number" name="data" class="data" value="${data}"/>
 </div>`;
   chartLabels.push("Nowy");
