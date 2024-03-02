@@ -82,6 +82,10 @@
         box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
         outline: none;
       }
+
+      #file-managment-btns-container {
+        grid-template-columns: 1fr 1fr;
+      }
     </style>
 
     <!-- Favicon -->
@@ -167,9 +171,11 @@
                     name="labels"
                     class="labels"
                     autocomplete="off"
+                    maxlength="35"
+                    value=""
                     style="box-shadow: 0px 0px 10px rgb(255, 99, 132)"
                   />
-                  <input type="number" name="data" class="data" value="0" />
+                  <input type="number" name="data" class="data" maxlength="15" value="0" />
                 </div>
                 <div class="data-inputs">
                   <input
@@ -177,9 +183,11 @@
                     name="labels"
                     class="labels"
                     autocomplete="off"
+                    maxlength="35"
+                    value=""
                     style="box-shadow: 0px 0px 10px rgb(54, 162, 235)"
                   />
-                  <input type="number" name="data" class="data" value="0" />
+                  <input type="number" name="data" class="data" maxlength="15" value="0" />
                 </div>
                 <div class="data-inputs">
                   <input
@@ -187,9 +195,11 @@
                     name="labels"
                     class="labels"
                     autocomplete="off"
+                    maxlength="35"
+                    value=""
                     style="box-shadow: 0px 0px 10px rgb(255, 255, 86)"
                   />
-                  <input type="number" name="data" class="data" value="0" />
+                  <input type="number" name="data" class="data" maxlength="15" value="0" />
                 </div>
                 <div class="data-inputs">
                   <input
@@ -197,9 +207,11 @@
                     name="labels"
                     class="labels"
                     autocomplete="off"
+                    maxlength="35"
+                    value=""
                     style="box-shadow: 0px 0px 10px rgb(255, 159, 64)"
                   />
-                  <input type="number" name="data" class="data" value="0" />
+                  <input type="number" name="data" class="data" maxlength="15" value="0" />
                 </div>
                 <div class="data-inputs">
                   <input
@@ -207,9 +219,11 @@
                     name="labels"
                     class="labels"
                     autocomplete="off"
+                    maxlength="35"
+                    value=""
                     style="box-shadow: 0px 0px 10px rgb(75, 255, 192)"
                   />
-                  <input type="number" name="data" class="data" value="0" />
+                  <input type="number" name="data" class="data" maxlength="15" value="0" />
                 </div>
                 <div class="data-inputs">
                   <input
@@ -217,11 +231,25 @@
                     name="labels"
                     class="labels"
                     autocomplete="off"
+                    maxlength="35"
+                    value=""
                     style="box-shadow: 0px 0px 10px rgb(153, 102, 255)"
                   />
-                  <input type="number" name="data" class="data" value="0" />
+                  <input type="number" name="data" class="data" maxlength="15" value="0" />
                 </div>
               </div>
+            </div>
+            <div class="program-form-btns" id="file-managment-btns-container">
+              <button type="button" id="screenshot-btn" class="program-form-btn-calculate">
+                Pobierz zrzut ekranu wykresu
+              </button>
+              <hr style="border-color: var(--main-color-light)" />
+              <button type="button" id="save-data-file-btn" class="program-form-btn-calculate">
+                Zapisz plik z danymi
+              </button>
+              <button type="button" id="load-data-file-btn" class="program-form-btn-calculate">
+                Załaduj plik z danymi
+              </button>
             </div>
           </form>
         </section>

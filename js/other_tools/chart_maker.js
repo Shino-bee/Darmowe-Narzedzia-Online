@@ -24,13 +24,19 @@ function updateInputs() {
       updateChart(selectedChart);
     });
   }
-  // Data's values - change value in chart when user types number in input (dynamically)
+  // Data's values - change value in chart when user types number in input (dynamically) and does not allow the user to enter number larger than maxlength
   for (let i = 0; i < chartDatasetsAmount; i++) {
     for (let j = 0; j < inputs.length; j++) {
       inputs[j].getElementsByTagName("input")[i + 1].addEventListener("input", () => {
-        const inputValue = parseFloat(inputs[j].getElementsByTagName("input")[i + 1].value);
-        chartData[i][j] = inputValue;
+        const input = inputs[j].getElementsByTagName("input")[i + 1];
+        if (input.value.length > input.maxLength)
+          input.value = input.value.slice(0, input.maxLength);
+        chartData[i][j] = parseFloat(input.value);
         updateChart(selectedChart);
+      });
+      // Prevents ["+", "-", "e"] characters from being entered in input
+      inputs[j].getElementsByTagName("input")[i + 1].addEventListener("keydown", (event) => {
+        if (["+", "-", "e"].includes(event.key)) event.preventDefault();
       });
     }
   }
@@ -186,7 +192,7 @@ updateInputs();
 
 // ------------------------------------------------
 // ---------------- BUTTONS & SELECT --------------
-/* Select chart - display selected option, hide the rest and updates chart */
+/* Select chart - displays selected option, hides the rest and updates chart */
 const selectChart = document.getElementById("select-chart");
 let selectedChart = selectChart[selectChart.selectedIndex].value;
 selectChart.addEventListener("change", () => {
@@ -210,91 +216,132 @@ selectChart.addEventListener("change", () => {
   updateChart(selectedChart);
 });
 
+/* --- DATASET ADD/REMOVE BUTTONS ---*/
 /* "Add Dataset" button */
 const addDatasetButton = document.getElementById("add-dataset-btn");
 addDatasetButton.addEventListener("click", () => {
   chartDatasetsAmount++;
   chartData.push([]);
   for (let i = 0; i < inputs.length; i++) {
-    // Copies values from last dataset array to new pushed empty array
+    // Copies values from last dataset array to new pushed empty data array
     const valueToCopy = parseFloat(inputs[i].lastElementChild.value);
     chartData[chartData.length - 1].push(valueToCopy);
     // Creates new input tag with copied value
-    const inputTag = `<input type="number" name="data" class="data" value="${valueToCopy}"/>`;
+    const inputTag = `<input type="number" name="data" class="data" maxlength="15" value="${valueToCopy}"/>`;
     inputs[i].insertAdjacentHTML("beforeend", inputTag);
     // Change inputs container grid-template-column value from "0.5fr 1fr" to "1fr 1fr 1fr"
-    const inputsGridTemplateColumns = inputs[i].style.gridTemplateColumns;
-    if (inputsGridTemplateColumns !== "1fr 1fr 1fr") {
-      inputs[i].style.gridTemplateColumns = "1fr 1fr 1fr";
-    }
+    inputs[i].style.gridTemplateColumns = "1fr 1fr 1fr";
   }
   // Pushes to chart new dataset with label and copied values
   chartDatasets.push({
     label: ` Zbiór danych ${chartDatasetsAmount}`,
     data: chartData[chartDatasetsAmount - 1],
   });
-  // Update chart and inputs
+  // Updates selected chart and inputs
   updateChart(selectedChart);
   updateInputs();
 });
 
-/* "Remove dataset" button - removes last dataset, his label and inputs */
+/* "Remove dataset" button */
 const removeDatasetButton = document.getElementById("remove-dataset-btn");
 removeDatasetButton.addEventListener("click", () => {
-  // Remove
+  // Remove last data array and dataset
   if (chartDatasetsAmount > 1) {
     chartDatasetsAmount--;
     chartData.pop();
     chartDatasets.pop();
-
+    // Removes last inputs in every input container
     for (let i = 0; i < inputs.length; i++) {
-      if (chartDatasetsAmount <= 1) {
-        inputs[i].style.gridTemplateColumns = "0.5fr 1fr";
-      }
       const lastDatasetInputs = inputs[i].lastElementChild;
       inputs[i].removeChild(lastDatasetInputs);
     }
+    // Change inputs container grid-template-column value from "1fr 1fr 1fr" to "0.5fr 1fr" if datasets amount is less than 2
+    if (chartDatasetsAmount < 2) {
+      for (let i = 0; i < inputs.length; i++) inputs[i].style.gridTemplateColumns = "0.5fr 1fr";
+    }
+    // Update selected chart
     updateChart(selectedChart);
   }
 });
 
-/* "Add Data" button - adds to chart new data (copies last data value of last array), his label (with box-shadow color) and inputs */
+/* --- DATA ADD/REMOVE BUTTONS ---*/
+/* "Add Data" button */
 const addDataButton = document.getElementById("add-data-btn");
 addDataButton.addEventListener("click", () => {
-  const data = chartData[chartData.length - 1][chartData[chartData.length - 1].length - 1];
+  // Copies to new array data from last dataset
+  const data = [];
+  const lastInputContainer = inputs[inputs.length - 1].children;
+  for (let i = 1; i < lastInputContainer.length; i++)
+    data.push(parseFloat(lastInputContainer[i].value));
+  // Adds box-shadow to label (start from the beginning if the colors have run out in array of colors)
   const labelBoxShadow =
     chartLabels.length >= borderColors.length
       ? borderColors[chartLabels.length % borderColors.length]
       : borderColors[chartLabels.length];
-  // $$$$$$$$$$ CREATE INPUTS NUMBER DEPENDING ON chartDatasetsAmount
-  const inputTag = `<div class="data-inputs">
-  <input type="text" name="labels" class="labels" autocomplete="off" value="Nowy" style="box-shadow: 0px 0px 10px ${labelBoxShadow};"/>
-  <input type="number" name="data" class="data" value="${data}"/>
-</div>`;
-  chartLabels.push("Nowy");
-  // $$$$$$$$$$$
-  console.log(data);
+  // Adds new input tags container with label input
+  const inputTag = `<div class="data-inputs"><input type="text" name="labels" class="labels" autocomplete="off" maxlength="35" value="Nowy" style="box-shadow: 0px 0px 10px ${labelBoxShadow};"/></div>`;
   inputsContainer.insertAdjacentHTML("beforeend", inputTag);
-  // $$$$$$$$$$$
-  for (let i = 0; i < chartDatasetsAmount - 1; i++) {
-    console.log(inputs[inputs.length - 2]);
+  // Change input container grid-template-column value from "1fr 1fr 1fr" to "0.5fr 1fr" if datasets amount is less than 2
+  if (chartDatasetsAmount < 2) inputs[inputs.length - 1].style.gridTemplateColumns = "0.5fr 1fr";
+  // Pushes last copied values of datasets to chart data & adds new data inputs (depending on amount of datasets)
+  for (let i = 0; i < chartDatasetsAmount; i++) {
+    chartData[i].push(data[i]);
     inputs[inputs.length - 1].insertAdjacentHTML(
       "beforeend",
-      `<input type="number" name="data" class="data" value="${data}"/>`
+      `<input type="number" name="data" class="data" maxlength="15" value="${data[i]}"/>`
     );
   }
-
+  // Adds new label (legend) to the chart
+  chartLabels.push("Nowy");
+  // Updates selected chart and inputs
   updateChart(selectedChart);
   updateInputs();
 });
 
-/* "Remove data" button - removes last data, his label and inputs */
+/* "Remove data" button */
 const removeDataButton = document.getElementById("remove-data-btn");
 removeDataButton.addEventListener("click", () => {
   if (chartData[chartData.length - 1].length > 1) {
+    // Removes last label in chart
     chartLabels.pop();
-    chartData[0].pop();
+    // Removes last input container
     inputsContainer.removeChild(inputsContainer.lastElementChild);
+    // Removes last value in data array
+    for (let i = 0; i < chartData.length; i++) chartData[i].pop();
+    // Update selected chart
     updateChart(selectedChart);
   }
+});
+
+/* "Take a screenshot" button */
+const screenshotButton = document.getElementById("screenshot-btn");
+screenshotButton.addEventListener("click", () => {
+  // Select chart image depending on the selected chart
+  let chartImage = document.getElementsByTagName("canvas");
+  switch (selectedChart) {
+    case "pie chart":
+      chartImage = chartImage[0];
+      break;
+    case "bar chart":
+      chartImage = chartImage[1];
+      break;
+    case "line chart":
+      chartImage = chartImage[2];
+      break;
+  }
+  // Create canvas object
+  const canvas = document.createElement("canvas");
+  canvas.width = chartImage.width;
+  canvas.height = chartImage.height;
+  // Get drawing context
+  var ctx = canvas.getContext("2d");
+  // Draw a picture on canvas
+  ctx.drawImage(chartImage, 0, 0);
+  // Get data in the form of a URL (PNG)
+  var dataUrl = canvas.toDataURL("image/png");
+  // Create a download link item
+  var link = document.createElement("a");
+  link.download = "wykres.png";
+  link.href = dataUrl;
+  link.click();
 });
