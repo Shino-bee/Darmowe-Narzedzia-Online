@@ -24,11 +24,12 @@ function updateInputs() {
       updateChart(selectedChart);
     });
   }
-  // Data's values - change value in chart when user types number in input (dynamically) and does not allow the user to enter number larger than maxlength
+  // Data's values - change value in chart when user types number in input (dynamically)
   for (let i = 0; i < chartDatasetsAmount; i++) {
     for (let j = 0; j < inputs.length; j++) {
       inputs[j].getElementsByTagName("input")[i + 1].addEventListener("input", () => {
         const input = inputs[j].getElementsByTagName("input")[i + 1];
+        // Does not allow the user to enter number larger than maxlength
         if (input.value.length > input.maxLength)
           input.value = input.value.slice(0, input.maxLength);
         chartData[i][j] = parseFloat(input.value);
@@ -42,11 +43,38 @@ function updateInputs() {
   }
 }
 
+/* Checks whether the data file is valid and if so, returns correctly formatted labels and data arrays */
+function checkUploadDataFile(fileLabels, fileData) {
+  // Convert string to array
+  fileLabels = JSON.parse(fileLabels);
+  fileData = JSON.parse(fileData);
+  // toString() every label in labels array
+  fileLabels = fileLabels.map((label) => {
+    return label.toString();
+  });
+  // parseFloat() every data in data arrays
+  fileData = fileData.map((dataArray) => {
+    dataArray = dataArray.map((data) => {
+      return isNaN(parseFloat(data)) ? 0 : parseFloat(data);
+    });
+    return dataArray;
+  });
+  // Checks if all data arrays have the same length as the label array
+  let isDataCorrect = true;
+  for (let i = 0; i < fileData.length; i++) {
+    if (fileData[i].length !== fileLabels.length) {
+      isDataCorrect = false;
+      break;
+    }
+  }
+  // isDataCorrect is true return labels and data from file else return false
+  return isDataCorrect ? [fileLabels, fileData] : isDataCorrect;
+}
 // ------------------------------------------------
 // --------------- GLOBAL VARIABLES ---------------
 /* USER DATA initialize */
-const chartLabels = ["Czerwony", "Niebieski", "Żółty", "Pomarańczowy", "Zielony", "Fioletowy"];
-const chartData = [[65, 59, 70, 81, 60, 55]];
+let chartLabels = ["Czerwony", "Niebieski", "Żółty", "Pomarańczowy", "Zielony", "Fioletowy"];
+let chartData = [[65, 59, 70, 81, 60, 55]];
 
 let chartDatasetsAmount = 1;
 const chartDatasets = [
@@ -363,7 +391,7 @@ uploadDataFileButton.addEventListener("click", () => {
   // When the button is clicked, it simulates a click on a hidden input element
   fileInput.click();
   // Event handling when the user selects a file
-  fileInput.addEventListener("change", function () {
+  fileInput.onchange = () => {
     // Downloads the first selected file
     const file = fileInput.files[0];
     // Checks if the file has been selected
@@ -379,24 +407,45 @@ uploadDataFileButton.addEventListener("click", () => {
           // Cleans data and labels arrays
           chartData.splice(0, chartData.length);
           chartLabels.splice(0, chartLabels.length);
-          // Tutaj możesz wykonać operacje na zawartości pliku
-          const labelsAndData = fileContent.split("\n");
+          // Split into 2 arrays (labels and data)
+          let labelsAndData = fileContent.split("\n");
+          const labelsFromFile = labelsAndData[0];
+          const dataFromFile = labelsAndData[1];
           if (labelsAndData.length === 2) {
+            // Check uploaded data file error handler
             try {
-              const labelsFromFile = JSON.parse(labelsAndData[0]);
-              const dataFromFile = JSON.parse(labelsAndData[1]);
+              labelsAndData = checkUploadDataFile(labelsFromFile, dataFromFile);
             } catch (error) {
-              console.log(error);
+              // If an error occurs change throws error alert msg and change the labelsAndData variable to false
+              if (error instanceof SyntaxError) {
+                console.log("Błąd składniowy pliku tekstowego!");
+              } else {
+                console.log("Plik tekstowy jest nieprawidłowy!");
+              }
+              labelsAndData = false;
             }
+            // If uploaded data file is not correct throw alert, else update chart labels and data from uploaded data file
+            if (labelsAndData === false) {
+              alert("Coś nie tak!");
+            } else {
+              // $$$$$$$$$$$$$$$$
 
-            const dataFromFile = labelsAndData[1].split;
-            console.log(labelsFromFile);
-            console.log(dataFromFile);
-            for (let i = 0; i < labelsFromFile.length; i++) {
-              console.log(labelsFromFile[i]);
-              chartLabels.push(labelsFromFile[i]);
+              // Update chart labels and data from uploaded data file
+              chartLabels = labelsAndData[0];
+              chartData = labelsAndData[1];
+              console.log(chartLabels);
+              console.log(chartData);
+              // Remove all inputs
+              let inputsLength = inputs.length;
+              for (let i = 0; i < inputsLength; i++) {
+                inputsContainer.lastElementChild.remove();
+              }
+
+              // updateChart(selectedChart);
+              // updateInputs();
+
+              // $$$$$$$$$$$$$$$$
             }
-            console.log(chartLabels);
           } else {
             alert("Plik tekstowy jest nieprawidłowy!");
           }
@@ -407,5 +456,5 @@ uploadDataFileButton.addEventListener("click", () => {
         alert("Wybierz plik o rozszerzeniu .txt!");
       }
     }
-  });
+  };
 });
