@@ -119,10 +119,13 @@ const pieChart = new Chart(pieChartId, {
     backgroundColor: backgroundColors,
     borderWidth: 1,
     hoverOffset: 5,
+    maintainAspectRatio: false,
     layout: {
       padding: {
         top: 10,
+        right: 5,
         bottom: 20,
+        left: 5,
       },
     },
   },
@@ -141,7 +144,7 @@ const barChart = new Chart(barChartId, {
   options: {
     backgroundColor: backgroundColors,
     borderColor: borderColors,
-    borderWidth: 2,
+    maintainAspectRatio: false,
     layout: {
       padding: {
         top: 10,
@@ -153,7 +156,6 @@ const barChart = new Chart(barChartId, {
         beginAtZero: true,
       },
     },
-    // indexAxis: "y",
   },
 });
 
@@ -171,6 +173,7 @@ const lineChart = new Chart(lineChartId, {
     backgroundColor: backgroundColors,
     borderColor: borderColors,
     borderWidth: 1,
+    maintainAspectRatio: false,
     layout: {
       padding: {
         top: 10,
@@ -182,7 +185,7 @@ const lineChart = new Chart(lineChartId, {
         beginAtZero: true,
       },
     },
-    tension: 0.1,
+    tension: 0.15,
     pointRadius: 4,
   },
 });
@@ -313,6 +316,7 @@ removeDataButton.addEventListener("click", () => {
   }
 });
 
+/* --- FILE MANAGMENT BUTTONS ---*/
 /* "Take a screenshot" button */
 const screenshotButton = document.getElementById("screenshot-btn");
 screenshotButton.addEventListener("click", () => {
@@ -334,14 +338,74 @@ screenshotButton.addEventListener("click", () => {
   canvas.width = chartImage.width;
   canvas.height = chartImage.height;
   // Get drawing context
-  var ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d");
   // Draw a picture on canvas
   ctx.drawImage(chartImage, 0, 0);
   // Get data in the form of a URL (PNG)
-  var dataUrl = canvas.toDataURL("image/png");
+  const dataUrl = canvas.toDataURL("image/png");
   // Create a download link item
-  var link = document.createElement("a");
+  const link = document.createElement("a");
   link.download = "wykres.png";
   link.href = dataUrl;
   link.click();
+});
+
+/* "Save data file" button */
+const saveDataFileButton = document.getElementById("save-data-file-btn");
+saveDataFileButton.addEventListener("click", () => {
+  console.log("SAVE");
+});
+
+/* "Upload data file" button */
+const uploadDataFileButton = document.getElementById("upload-data-file-btn");
+uploadDataFileButton.addEventListener("click", () => {
+  const fileInput = document.getElementById("fileInput");
+  // When the button is clicked, it simulates a click on a hidden input element
+  fileInput.click();
+  // Event handling when the user selects a file
+  fileInput.addEventListener("change", function () {
+    // Downloads the first selected file
+    const file = fileInput.files[0];
+    // Checks if the file has been selected
+    if (file) {
+      const fileExtension = file.name.split(".").pop().toLowerCase();
+      if (fileExtension === "txt") {
+        // Creates FileReader object
+        const reader = new FileReader();
+        // Event handling after file loading is finished
+        reader.onload = function (event) {
+          // Download the contents of the file
+          const fileContent = event.target.result;
+          // Cleans data and labels arrays
+          chartData.splice(0, chartData.length);
+          chartLabels.splice(0, chartLabels.length);
+          // Tutaj możesz wykonać operacje na zawartości pliku
+          const labelsAndData = fileContent.split("\n");
+          if (labelsAndData.length === 2) {
+            try {
+              const labelsFromFile = JSON.parse(labelsAndData[0]);
+              const dataFromFile = JSON.parse(labelsAndData[1]);
+            } catch (error) {
+              console.log(error);
+            }
+
+            const dataFromFile = labelsAndData[1].split;
+            console.log(labelsFromFile);
+            console.log(dataFromFile);
+            for (let i = 0; i < labelsFromFile.length; i++) {
+              console.log(labelsFromFile[i]);
+              chartLabels.push(labelsFromFile[i]);
+            }
+            console.log(chartLabels);
+          } else {
+            alert("Plik tekstowy jest nieprawidłowy!");
+          }
+        };
+        // Wczytujemy zawartość pliku jako tekst
+        reader.readAsText(file);
+      } else {
+        alert("Wybierz plik o rozszerzeniu .txt!");
+      }
+    }
+  });
 });
