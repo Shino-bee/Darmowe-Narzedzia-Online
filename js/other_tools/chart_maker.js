@@ -389,6 +389,7 @@ const uploadDataFileButton = document.getElementById("upload-data-file-btn");
 uploadDataFileButton.addEventListener("click", () => {
   const fileInput = document.getElementById("fileInput");
   // When the button is clicked, it simulates a click on a hidden input element
+  fileInput.value = null;
   fileInput.click();
   // Event handling when the user selects a file
   fileInput.onchange = () => {
@@ -404,9 +405,6 @@ uploadDataFileButton.addEventListener("click", () => {
         reader.onload = function (event) {
           // Download the contents of the file
           const fileContent = event.target.result;
-          // Cleans data and labels arrays
-          chartData.splice(0, chartData.length);
-          chartLabels.splice(0, chartLabels.length);
           // Split into 2 arrays (labels and data)
           let labelsAndData = fileContent.split("\n");
           const labelsFromFile = labelsAndData[0];
@@ -417,38 +415,69 @@ uploadDataFileButton.addEventListener("click", () => {
               labelsAndData = checkUploadDataFile(labelsFromFile, dataFromFile);
             } catch (error) {
               // If an error occurs change throws error alert msg and change the labelsAndData variable to false
-              if (error instanceof SyntaxError) {
-                console.log("Błąd składniowy pliku tekstowego!");
-              } else {
-                console.log("Plik tekstowy jest nieprawidłowy!");
-              }
+              if (error instanceof SyntaxError) alert("Błąd składniowy pliku tekstowego!");
+              else alert("Plik tekstowy jest nieprawidłowy!");
               labelsAndData = false;
             }
             // If uploaded data file is not correct throw alert, else update chart labels and data from uploaded data file
             if (labelsAndData === false) {
-              alert("Coś nie tak!");
+              alert("Spróbuj ponownie!");
             } else {
-              // $$$$$$$$$$$$$$$$
-
-              // Update chart labels and data from uploaded data file
+              // Cleans chart labels, data and datasets
+              chartLabels.splice(0, chartLabels.length);
+              chartData.splice(0, chartData.length);
+              chartDatasets.splice(0, chartDatasets.length);
+              // Updates chart labels, data and datasets by uploaded data file
               chartLabels = labelsAndData[0];
               chartData = labelsAndData[1];
-              console.log(chartLabels);
-              console.log(chartData);
-              // Remove all inputs
-              let inputsLength = inputs.length;
-              for (let i = 0; i < inputsLength; i++) {
-                inputsContainer.lastElementChild.remove();
+              chartDatasetsAmount = chartData.length;
+              for (let i = 0; i < chartDatasetsAmount; i++) {
+                chartDatasets.push({
+                  label: ` Zbiór danych ${i + 1}`,
+                  data: chartData[i],
+                });
               }
-
-              // updateChart(selectedChart);
-              // updateInputs();
-
-              // $$$$$$$$$$$$$$$$
+              pieChart.data.labels = chartLabels;
+              barChart.data.labels = chartLabels;
+              lineChart.data.labels = chartLabels;
+              // Removes all inputs
+              let inputsLength = inputs.length;
+              for (let i = 0; i < inputsLength; i++) inputsContainer.lastElementChild.remove();
+              // Adds inputs containers, labels inputs and data inputs and fills them with values
+              for (let i = 0; i < chartLabels.length; i++) {
+                // Adds box-shadow to label (start from the beginning if the colors have run out in array of colors)
+                const labelBoxShadow =
+                  i >= borderColors.length
+                    ? borderColors[i % borderColors.length]
+                    : borderColors[i];
+                // Adds input tag container with label input tag filled with name value and box shadow
+                const labelInputsTag = `<div class="data-inputs">
+                <input
+                  type="text"
+                  name="labels"
+                  class="labels"
+                  autocomplete="off"
+                  maxlength="35"
+                  value="${chartLabels[i]}"
+                  style="box-shadow: 0px 0px 10px ${labelBoxShadow}"
+                />
+              </div>`;
+                inputsContainer.insertAdjacentHTML("beforeend", labelInputsTag);
+                // Adds data inputs tag depending on amount of datasets filled with data value
+                for (let j = 0; j < chartDatasetsAmount; j++) {
+                  inputs[i].insertAdjacentHTML(
+                    "beforeend",
+                    `<input type="number" name="data" class="data" maxlength="15" value="${chartData[j][i]}"/>`
+                  );
+                  // Change input container grid-template-column value from "1fr 1fr 1fr" to "0.5fr 1fr" if datasets amount is less than 2
+                  if (chartDatasetsAmount < 2) inputs[i].style.gridTemplateColumns = "0.5fr 1fr";
+                }
+              }
+              // Updates selected chart and inputs
+              updateChart(selectedChart);
+              updateInputs();
             }
-          } else {
-            alert("Plik tekstowy jest nieprawidłowy!");
-          }
+          } else alert("Plik tekstowy jest nieprawidłowy!");
         };
         // Wczytujemy zawartość pliku jako tekst
         reader.readAsText(file);
