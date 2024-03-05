@@ -346,7 +346,7 @@ removeDataButton.addEventListener("click", () => {
 
 // ------------------------------------------------
 // -- SCREENSHOT, SAVE & UPLOAD DATA FILE BUTTONS -
-/* "Take a screenshot" button */
+/* "Download screenshot" button */
 const screenshotButton = document.getElementById("screenshot-btn");
 screenshotButton.addEventListener("click", () => {
   // Select chart image depending on the selected chart
@@ -382,7 +382,31 @@ screenshotButton.addEventListener("click", () => {
 /* "Save data file" button */
 const saveDataFileButton = document.getElementById("save-data-file-btn");
 saveDataFileButton.addEventListener("click", () => {
-  console.log("SAVE");
+  // Creates the contents of a text file from labels and data arrays and concatenate them
+  const textLabels = `[${chartLabels.map((label, i) => {
+    return i === 0 ? `"${label}"` : ` "${label}"`;
+  })}]`;
+  const textData = `[${chartData.map((dataArray, i) => {
+    return i === 0
+      ? `[${dataArray.map((data, i) => {
+          return i === 0 ? `${data}` : ` ${data}`;
+        })}]`
+      : ` [${dataArray.map((data, i) => {
+          return i === 0 ? `${data}` : ` ${data}`;
+        })}]`;
+  })}]`;
+  const text = `${textLabels}\n${textData}`;
+  // Creates a URL object with text
+  const blob = new Blob([text], { type: "text/plain" });
+  // Creates a link to download a file
+  const link = document.createElement("a");
+  link.download = "wykres.txt";
+  link.href = window.URL.createObjectURL(blob);
+  // Adds a link to your HTML document and auto-clicks
+  document.body.appendChild(link);
+  link.click();
+  // Removing a link from HTML document
+  document.body.removeChild(link);
 });
 
 /* "Upload data file" button */
@@ -412,17 +436,16 @@ uploadDataFileButton.addEventListener("click", () => {
           const dataFromFile = labelsAndData[1];
           if (labelsAndData.length === 2) {
             // Check uploaded data file error handler
-            let errorMessage = "";
+            let errorMessage = "Plik tekstowy jest nieprawidłowy!";
             try {
               labelsAndData = checkUploadDataFile(labelsFromFile, dataFromFile);
             } catch (error) {
               // If an error occurs change throws error alert msg and change the labelsAndData variable to false
               if (error instanceof SyntaxError) errorMessage = "Błąd składniowy pliku tekstowego!";
-              else errorMessage = "Plik tekstowy jest nieprawidłowy!";
               labelsAndData = false;
             }
             // If uploaded data file is not correct throw alert, else update chart labels and data from uploaded data file
-            if (labelsAndData === false) {
+            if (!labelsAndData) {
               alert(errorMessage);
             } else {
               // Cleans chart labels, data and datasets
