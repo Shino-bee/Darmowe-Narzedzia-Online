@@ -1,6 +1,7 @@
 // Calculate button - calculates and shows result
 const fuelCostBtnCalculate = document.getElementById("fuel-cost-calculator-btn-calculate");
-fuelCostBtnCalculate.addEventListener("click", () => {
+fuelCostBtnCalculate.addEventListener("click", (event) => {
+  event.preventDefault();
   const fuelCostForm = document.getElementById("fuel-cost-calculator-form");
   if (fuelCostForm.checkValidity()) {
     const fuelCostInput1 = document.getElementById("fuel-cost-calculator-input1").value;

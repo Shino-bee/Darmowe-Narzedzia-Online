@@ -14,7 +14,8 @@ reset();
 
 // Calculate button - calculates the results and displays them in the table and shows table if is not displayed
 const calculateBtn = document.getElementsByClassName("program-form-btn-calculate")[0];
-calculateBtn.addEventListener("click", () => {
+calculateBtn.addEventListener("click", (event) => {
+  event.preventDefault();
   const programFormValidity = document.getElementsByClassName("program-form")[0].checkValidity();
 
   if (programFormValidity === true) {

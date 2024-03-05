@@ -1,6 +1,7 @@
 // Execute button - changes the text and displays it
 const programFormBtnExecute = document.getElementsByClassName("program-form-btn-calculate")[0];
-programFormBtnExecute.addEventListener("click", () => {
+programFormBtnExecute.addEventListener("click", (event) => {
+  event.preventDefault();
   const inputRot13 = document.getElementById("input-rot13").value;
   const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
   let changedText = "";

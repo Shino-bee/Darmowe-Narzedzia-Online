@@ -3,7 +3,8 @@ const tableOfResults = document.getElementById("program-table");
 
 // Execute button - counts the text content and displays results it in a table
 const programFormBtnExecute = document.getElementsByClassName("program-form-btn-calculate")[0];
-programFormBtnExecute.addEventListener("click", () => {
+programFormBtnExecute.addEventListener("click", (event) => {
+  event.preventDefault();
   const programFormValidity = document.getElementsByClassName("program-form")[0].checkValidity();
   if (programFormValidity === true) {
     const inputTextarea = document.getElementById("input-textarea").value;

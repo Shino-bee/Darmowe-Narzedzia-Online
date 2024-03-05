@@ -26,7 +26,8 @@ let arithmeticAverageArrOfNums = [];
 
 // Add button (arithmetic) - calculates and shows added nums and results
 const arithmeticAverageBtnAdd = document.getElementById("arithmetic-average-btn-calculate");
-arithmeticAverageBtnAdd.addEventListener("click", () => {
+arithmeticAverageBtnAdd.addEventListener("click", (event) => {
+  event.preventDefault();
   const arithmeticAverageForm = document.getElementById("arithmetic-average-form");
   const arithmeticAverageInput = document.getElementById("arithmetic-average-input");
   if (arithmeticAverageForm.checkValidity() && arithmeticAverageInput.value != "") {
@@ -104,7 +105,8 @@ weightedAverageBtnAddRow.addEventListener("click", () => {
 
 // Calculate button (weighted) - calculates and shows result
 const weightedAverageBtnAdd = document.getElementById("weighted-average-btn-calculate");
-weightedAverageBtnAdd.addEventListener("click", () => {
+weightedAverageBtnAdd.addEventListener("click", (event) => {
+  event.preventDefault();
   const weightedAverageForm = document.getElementById("weighted-average-form");
   if (weightedAverageForm.checkValidity()) {
     const weightedAverageFieldsetInputs = document.getElementsByClassName(
@@ -150,7 +152,8 @@ let geometricAverageArrOfNums = [];
 
 // Add button (geometric) - calculates and shows added nums and results
 const geometricAverageBtnAdd = document.getElementById("geometric-average-btn-calculate");
-geometricAverageBtnAdd.addEventListener("click", () => {
+geometricAverageBtnAdd.addEventListener("click", (event) => {
+  event.preventDefault();
   const geometricAverageForm = document.getElementById("geometric-average-form");
   const geometricAverageInput = document.getElementById("geometric-average-input");
   if (geometricAverageForm.checkValidity() && geometricAverageInput.value != "") {

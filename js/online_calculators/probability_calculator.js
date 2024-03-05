@@ -60,7 +60,8 @@ selectProb.addEventListener("change", () => {
 /* Single probability */
 // Calculate button - calculates the results and shows in the table
 const singleProbBtnCalculate = document.getElementById("single-prob-btn-calculate");
-singleProbBtnCalculate.addEventListener("click", () => {
+singleProbBtnCalculate.addEventListener("click", (event) => {
+  event.preventDefault();
   const singleProbForm = document.getElementById("single-prob-form");
   if (singleProbForm.checkValidity()) {
     const singleProbTable = document.getElementById("single-prob-table");
@@ -93,7 +94,8 @@ singleProbBtnReset.addEventListener("click", () => {
 /* Probability of Two Events */
 // Calculate button - calculates the results and shows in the table
 const twoEventsProbBtnCalculate = document.getElementById("two-events-prob-btn-calculate");
-twoEventsProbBtnCalculate.addEventListener("click", () => {
+twoEventsProbBtnCalculate.addEventListener("click", (event) => {
+  event.preventDefault();
   const twoEventsProbForm = document.getElementById("two-events-prob-form");
   if (twoEventsProbForm.checkValidity()) {
     const twoEventsProbTable = document.getElementById("two-events-prob-table");
@@ -152,7 +154,8 @@ twoEventsProbBtnReset.addEventListener("click", () => {
 const multipleEventsProbBtnCalculate = document.getElementById(
   "multiple-events-prob-btn-calculate"
 );
-multipleEventsProbBtnCalculate.addEventListener("click", () => {
+multipleEventsProbBtnCalculate.addEventListener("click", (event) => {
+  event.preventDefault();
   const multipleEventsProbForm = document.getElementById("multiple-events-prob-form");
   if (multipleEventsProbForm.checkValidity()) {
     const multipleEventsProbTable = document.getElementById("multiple-events-prob-table");
@@ -223,7 +226,8 @@ multipleEventsProbBtnReset.addEventListener("click", () => {
 /* Probability of Series of Events */
 // Calculate button - calculates the results and shows in the table
 const seriesEventsProbBtnCalculate = document.getElementById("series-events-prob-btn-calculate");
-seriesEventsProbBtnCalculate.addEventListener("click", () => {
+seriesEventsProbBtnCalculate.addEventListener("click", (event) => {
+  event.preventDefault();
   const seriesEventsProbForm = document.getElementById("series-events-prob-form");
   if (seriesEventsProbForm.checkValidity()) {
     const seriesEventsProbTable = document.getElementById("series-events-prob-table");

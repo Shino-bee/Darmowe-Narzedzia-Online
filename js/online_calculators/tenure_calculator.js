@@ -32,7 +32,8 @@ startingDateId.addEventListener("change", () => {
 
 // Add button - calculates and shows added dates and results
 const tenureBtnAdd = document.getElementById("tenure-calculator-btn-calculate");
-tenureBtnAdd.addEventListener("click", () => {
+tenureBtnAdd.addEventListener("click", (event) => {
+  event.preventDefault();
   const tenureForm = document.getElementById("tenure-calculator-form");
   if (tenureForm.checkValidity()) {
     const startingDate = new Date(startingDateId.valueAsDate);

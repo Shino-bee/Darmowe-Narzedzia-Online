@@ -1,6 +1,7 @@
 // 1st form button - what is (x)% of num (y)
 const form1Btn = document.getElementById("form1-btn");
-form1Btn.addEventListener("click", () => {
+form1Btn.addEventListener("click", (event) => {
+  event.preventDefault();
   const form1 = document.getElementById("form1");
   if (form1.checkValidity() == true) {
     const form1WhatIsPct = parseFloat(document.getElementById("form1-what-is-pct").value);
@@ -12,7 +13,8 @@ form1Btn.addEventListener("click", () => {
 
 // 2nd form button - what % of num (x) is num (y)
 const form2Btn = document.getElementById("form2-btn");
-form2Btn.addEventListener("click", () => {
+form2Btn.addEventListener("click", (event) => {
+  event.preventDefault();
   const form2 = document.getElementById("form2");
   if (form2.checkValidity() == true) {
     const form2WhatPctOfNum = parseFloat(document.getElementById("form2-what-pct-of-num").value);
@@ -24,7 +26,8 @@ form2Btn.addEventListener("click", () => {
 
 // 3rd form button - by how much % num (x) is different from num (y)
 const form3Btn = document.getElementById("form3-btn");
-form3Btn.addEventListener("click", () => {
+form3Btn.addEventListener("click", (event) => {
+  event.preventDefault();
   const form3 = document.getElementById("form3");
   if (form3.checkValidity() == true) {
     const form3ByHowMuchPct = parseFloat(document.getElementById("form3-by-how-much-pct").value);
@@ -39,7 +42,8 @@ form3Btn.addEventListener("click", () => {
 
 // 4th form button - num (x) increase by (y)%
 const form4Btn = document.getElementById("form4-btn");
-form4Btn.addEventListener("click", () => {
+form4Btn.addEventListener("click", (event) => {
+  event.preventDefault();
   const form4 = document.getElementById("form4");
   if (form4.checkValidity() == true) {
     const form4Num = parseFloat(document.getElementById("form4-num").value);
@@ -51,7 +55,8 @@ form4Btn.addEventListener("click", () => {
 
 // 5th form button - num (x) reduce by (y)%
 const form5Btn = document.getElementById("form5-btn");
-form5Btn.addEventListener("click", () => {
+form5Btn.addEventListener("click", (event) => {
+  event.preventDefault();
   const form5 = document.getElementById("form5");
   if (form5.checkValidity() == true) {
     const form5Num = parseFloat(document.getElementById("form5-num").value);

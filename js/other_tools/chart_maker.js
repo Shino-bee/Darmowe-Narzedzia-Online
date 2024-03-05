@@ -222,7 +222,7 @@ const lineChart = new Chart(lineChartId, {
 updateInputs();
 
 // ------------------------------------------------
-// ---------------- BUTTONS & SELECT --------------
+// --- ADD/REMOVE DATASET/DATA BUTTONS & SELECT ---
 /* Select chart - displays selected option, hides the rest and updates chart */
 const selectChart = document.getElementById("select-chart");
 let selectedChart = selectChart[selectChart.selectedIndex].value;
@@ -344,7 +344,8 @@ removeDataButton.addEventListener("click", () => {
   }
 });
 
-/* --- FILE MANAGMENT BUTTONS ---*/
+// ------------------------------------------------
+// -- SCREENSHOT, SAVE & UPLOAD DATA FILE BUTTONS -
 /* "Take a screenshot" button */
 const screenshotButton = document.getElementById("screenshot-btn");
 screenshotButton.addEventListener("click", () => {
@@ -405,23 +406,24 @@ uploadDataFileButton.addEventListener("click", () => {
         reader.onload = function (event) {
           // Download the contents of the file
           const fileContent = event.target.result;
-          // Split into 2 arrays (labels and data)
+          // Split file content into 2 arrays (labels and data)
           let labelsAndData = fileContent.split("\n");
           const labelsFromFile = labelsAndData[0];
           const dataFromFile = labelsAndData[1];
           if (labelsAndData.length === 2) {
             // Check uploaded data file error handler
+            let errorMessage = "";
             try {
               labelsAndData = checkUploadDataFile(labelsFromFile, dataFromFile);
             } catch (error) {
               // If an error occurs change throws error alert msg and change the labelsAndData variable to false
-              if (error instanceof SyntaxError) alert("Błąd składniowy pliku tekstowego!");
-              else alert("Plik tekstowy jest nieprawidłowy!");
+              if (error instanceof SyntaxError) errorMessage = "Błąd składniowy pliku tekstowego!";
+              else errorMessage = "Plik tekstowy jest nieprawidłowy!";
               labelsAndData = false;
             }
             // If uploaded data file is not correct throw alert, else update chart labels and data from uploaded data file
             if (labelsAndData === false) {
-              alert("Spróbuj ponownie!");
+              alert(errorMessage);
             } else {
               // Cleans chart labels, data and datasets
               chartLabels.splice(0, chartLabels.length);
@@ -441,8 +443,7 @@ uploadDataFileButton.addEventListener("click", () => {
               barChart.data.labels = chartLabels;
               lineChart.data.labels = chartLabels;
               // Removes all inputs
-              let inputsLength = inputs.length;
-              for (let i = 0; i < inputsLength; i++) inputsContainer.lastElementChild.remove();
+              while (inputs.length > 0) inputsContainer.lastElementChild.remove();
               // Adds inputs containers, labels inputs and data inputs and fills them with values
               for (let i = 0; i < chartLabels.length; i++) {
                 // Adds box-shadow to label (start from the beginning if the colors have run out in array of colors)
@@ -450,7 +451,7 @@ uploadDataFileButton.addEventListener("click", () => {
                   i >= borderColors.length
                     ? borderColors[i % borderColors.length]
                     : borderColors[i];
-                // Adds input tag container with label input tag filled with name value and box shadow
+                // Adds input tag container with label input tag and fills him with name value and box shadow
                 const labelInputsTag = `<div class="data-inputs">
                 <input
                   type="text"
@@ -463,7 +464,7 @@ uploadDataFileButton.addEventListener("click", () => {
                 />
               </div>`;
                 inputsContainer.insertAdjacentHTML("beforeend", labelInputsTag);
-                // Adds data inputs tag depending on amount of datasets filled with data value
+                // Adds data inputs tag depending on amount of datasets and fills them with data value
                 for (let j = 0; j < chartDatasetsAmount; j++) {
                   inputs[i].insertAdjacentHTML(
                     "beforeend",
@@ -479,11 +480,9 @@ uploadDataFileButton.addEventListener("click", () => {
             }
           } else alert("Plik tekstowy jest nieprawidłowy!");
         };
-        // Wczytujemy zawartość pliku jako tekst
+        // Loads the content of file as text
         reader.readAsText(file);
-      } else {
-        alert("Wybierz plik o rozszerzeniu .txt!");
-      }
+      } else alert("Wybierz plik o rozszerzeniu .txt!");
     }
   };
 });

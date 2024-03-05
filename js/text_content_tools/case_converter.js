@@ -4,7 +4,8 @@ const endPunctuationChars = [".", "!", "?"];
 
 // Execute button - changes the text and displays it
 const programFormBtnExecute = document.getElementsByClassName("program-form-btn-calculate")[0];
-programFormBtnExecute.addEventListener("click", () => {
+programFormBtnExecute.addEventListener("click", (event) => {
+  event.preventDefault();
   const radioBtns = document.querySelectorAll('input[name="caseFormat"]');
   let radioBtnChecked = "";
   // Check which radio option is selected

@@ -93,6 +93,7 @@ for (let i = 0; i < hexClasses.length; i++) {
 
 // Generate button - generates six new colors, displays their values in hex/rgb/hsl and changes the dislpayed color
 const programFormBtnGenerate = document.getElementsByClassName("program-form-btn-calculate")[0];
-programFormBtnGenerate.addEventListener("click", () => {
+programFormBtnGenerate.addEventListener("click", (event) => {
+  event.preventDefault();
   generateNewColors();
 });
