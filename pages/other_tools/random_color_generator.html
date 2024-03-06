@@ -15,19 +15,19 @@
     <style>
       #colors_container {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 15px 15px;
       }
 
-      @media only screen and (max-width: 991.98px) {
+      @media only screen and (min-width: 576px) and (max-width: 991.98px) {
         #colors_container {
           grid-template-columns: 1fr 1fr;
         }
       }
 
-      @media only screen and (max-width: 575.98px) {
+      @media only screen and (min-width: 992px) {
         #colors_container {
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr 1fr 1fr;
         }
       }
 
@@ -70,8 +70,14 @@
       }
 
       .program-form-btn-calculate {
-        width: 50%;
-        margin-top: 15px;
+        width: 75%;
+        margin-top: 20px;
+      }
+
+      @media only screen and (min-width: 992px) {
+        .program-form-btn-calculate {
+          width: 50%;
+        }
       }
 
       ol {
@@ -200,8 +206,8 @@
             kolorystycznej. Narzędzie generuje zestaw 6 losowych kolorów w szybki i łatwy sposób,
             dostarczając użytkownikowi różnorodnych palet do wykorzystania wedle swoich potrzeb.
             Dodatkowo, automatycznie generowany kod kolorów jest w formatach HEX, RGB i HSL co
-            pozwoli użytkownikowi w łatwy sposób zaimplementować wybrane kolory w swoich projektach.
-            Do skopiowania kodu koloru wystarczy do zaledwie klinięcie.
+            pozwoli użytkownikowi w łatwy sposób zaimplementować wybrane kolory w swoich projektach
+            tym bardziej, że do skopiowania kodu koloru wystarczy zaledwie klinięcie.
           </p>
           <p>Oto podstawowe kolory wraz z ich wartościami w formatach HEX, RGB i HSL:</p>
           <ol style="margin-bottom: 10px">

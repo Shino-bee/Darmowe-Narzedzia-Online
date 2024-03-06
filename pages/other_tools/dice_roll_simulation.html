@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Darmowe Narzędzia Online" />
+    <meta name="author" content="Michał Podowski (Shino-bee)" />
+
+    <title>Symulacja rzutu kostką - Darmowe Narzędzia Online</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/_main.css" />
+    <link rel="stylesheet" href="../../css/program.css" />
+    <style>
+      /* !!!!!!!!!!!! CSS !!!!!!!!!!!!!!! */
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="../../images/favicon.ico" />
+
+    <!-- Icon - magnifier in search bar -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JS -->
+    <script defer type="text/javascript" src="../../js/_main.js"></script>
+    <script defer type="text/javascript" src="../../js/header.js"></script>
+    <script async type="module" src="../../js/other_tools/dice_roll_simulation.js"></script>
+  </head>
+
+  <body>
+    <div id="menu-dropdown-background"></div>
+    <header id="header"></header>
+    <main id="main">
+      <section id="main-image">
+        <img id="main-image-img" src="../../images/main-image-tools.jpg" alt="" />
+        <div id="main-image-text">
+          <h1>Symulacja rzutu kostką</h1>
+          <p>
+            Narzędzie służy do symulowania wyników rzutu standardową sześcianową kostką do gry,
+            która ma sześć ścian oznaczonych liczbami od 1 do 6.
+          </p>
+        </div>
+      </section>
+
+      <article id="main-article-content">
+        <section id="content-section-program" class="content-section-styles">
+          <iframe
+            name="hiddenFrame"
+            style="
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              width: 1px;
+              height: 1px;
+              display: none;
+            "
+          ></iframe>
+          <form class="program-form" target="hiddenFrame">
+            <!-- ####################### -->
+
+            <p style="margin-bottom: 15px">Naciśnij przycisk "Rzuć kostką", aby rzucic kostką:</p>
+
+            <div class="program-form-btns">
+              <button type="submit" class="program-form-btn-calculate">Rzuć kostką</button>
+            </div>
+
+            <!-- ####################### -->
+          </form>
+        </section>
+        <section id="content-section-description" class="content-section-styles">
+          <h3>Czym jest symulacja rzutu kostką?</h3>
+          <p>
+            Symulacja rzutu kostką jest prostą, ale niezwykle przydatną techniką używaną w różnych
+            dziedzinach, zarówno rozrywkowych, jak i naukowych. Kostka do gry, zazwyczaj mająca
+            sześć ścian, z każdą z nich oznaczoną liczbą od 1 do 6, jest podstawowym przykładem
+            generatora liczb losowych.
+          </p>
+          <p>
+            W grach planszowych i grach fabularnych, symulacja rzutu kostką jest często używana do
+            wprowadzenia elementu losowości, który sprawia, że rozgrywka jest bardziej ekscytująca i
+            nieprzewidywalna. Gracze rzucają kostką, aby określić wyniki swoich działań - na
+            przykład, czy uda im się uniknąć niebezpieczeństwa, czy zadać większe obrażenia
+            przeciwnikowi.
+          </p>
+          <p>
+            W edukacji, symulacja rzutu kostką może być wykorzystywana jako narzędzie do nauczania
+            podstawowych koncepcji związanych z prawdopodobieństwem i statystyką. Studenci mogą
+            używać symulacji do eksperymentowania z różnymi scenariuszami i obserwowania, jak często
+            występują różne wyniki.
+          </p>
+          <p>
+            W badaniach naukowych i analizach statystycznych, symulacje rzutu kostką mogą być
+            używane do modelowania różnych zjawisk losowych. Na przykład, badacze mogą symulować
+            rzuty kostką, aby zbadać rozkład prawdopodobieństwa różnych wyników lub symulować losowe
+            próby, aby ocenić, jakie mogą być rezultaty różnych interwencji lub zdarzeń losowych.
+          </p>
+          <p>
+            W informatyce, symulacje rzutu kostką mogą być częścią bardziej zaawansowanych symulacji
+            komputerowych. Mogą być używane jako element modelowania procesów decyzyjnych,
+            testowania algorytmów lub symulowania różnych scenariuszy w grach komputerowych.
+          </p>
+          <p style="margin-bottom: 10px">
+            W skrócie, symulacja rzutu kostką jest wszechstronnym narzędziem, które znajduje
+            zastosowanie w różnych dziedzinach życia, od gier po naukę i badania naukowe. Jest to
+            sposób na generowanie losowych wyników zgodnie z określonym rozkładem
+            prawdopodobieństwa, co czyni ją niezwykle użyteczną i wszechstronną techniką.
+          </p>
+        </section>
+      </article>
+    </main>
+    <footer id="footer"></footer>
+  </body>
+</html>
