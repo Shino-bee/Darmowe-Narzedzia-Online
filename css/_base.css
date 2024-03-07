@@ -274,9 +274,15 @@
   margin: 10px 0px;
 }
 
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  .content-section-tools {
+    grid-template-columns: 1fr 1fr;
+    margin: 10px;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .content-section-tools {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 10px;
   }

@@ -13,7 +13,94 @@
     <link rel="stylesheet" href="../../css/_main.css" />
     <link rel="stylesheet" href="../../css/program.css" />
     <style>
-      /* !!!!!!!!!!!! CSS !!!!!!!!!!!!!!! */
+      /* Dice styles */
+      #dice-container {
+        /* border: 2px solid darkgreen; */
+        align-self: center;
+        align-items: center;
+        width: 100%;
+        max-width: 700px;
+        margin: 50px 0;
+      }
+
+      #dice {
+        border: 8px outset var(--main-color-darklighter);
+        border-radius: 44px;
+        background: var(--main-color-red);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        height: 150px;
+        transform: rotate(8deg);
+      }
+
+      @media only screen and (min-width: 576px) and (max-width: 991.98px) {
+        #dice {
+          width: 175px;
+          height: 175px;
+        }
+      }
+
+      @media only screen and (min-width: 992px) {
+        #dice {
+          width: 200px;
+          height: 200px;
+        }
+      }
+
+      /* Dots on a dice styles */
+      #dice-dot-container {
+        width: 85%;
+        height: 85%;
+      }
+
+      .dot {
+        border-radius: 50%;
+        background: var(--main-color-lighter);
+        width: 25px;
+        height: 25px;
+      }
+
+      .dot1,
+      .dot2,
+      .dot3,
+      .dot4,
+      .dot5,
+      .dot6 {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      .dot1 {
+        grid-template-columns: 1fr;
+      }
+
+      .dot2,
+      .dot4,
+      .dot6 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .dot3,
+      .dot5 {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      /* Roll btn styles */
+      #rollDiceBtn {
+        width: 75%;
+        margin-top: 15px;
+      }
+
+      @media only screen and (min-width: 576px) {
+        #rollDiceBtn {
+          width: 50%;
+        }
+      }
     </style>
 
     <!-- Favicon -->
@@ -37,6 +124,7 @@
     <script defer type="text/javascript" src="../../js/_main.js"></script>
     <script defer type="text/javascript" src="../../js/header.js"></script>
     <script async type="module" src="../../js/other_tools/dice_roll_simulation.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   </head>
 
   <body>
@@ -70,10 +158,24 @@
           <form class="program-form" target="hiddenFrame">
             <!-- ####################### -->
 
-            <p style="margin-bottom: 15px">Naciśnij przycisk "Rzuć kostką", aby rzucic kostką:</p>
+            <p style="margin-bottom: 15px">
+              Naciśnij przycisk "Rzuć kostką", aby rzucic kostką i wylosować liczbę od 1 do 6:
+            </p>
+
+            <div id="dice-container">
+              <div id="dice">
+                <div id="dice-dot-container">
+                  <div class="dot1">
+                    <div class="dot"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="program-form-btns">
-              <button type="submit" class="program-form-btn-calculate">Rzuć kostką</button>
+              <button type="button" id="rollDiceBtn" class="program-form-btn-calculate">
+                Rzuć kostką
+              </button>
             </div>
 
             <!-- ####################### -->
