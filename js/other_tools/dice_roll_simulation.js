@@ -1,4 +1,4 @@
-// Adds dots to the dice depending on the random number (from 1 to 6)
+/* Adds dots to the dice depending on the random number (from 1 to 6) */
 function addDotsOnTheDice(randomNumber) {
   const diceDotContainer = document.getElementById("dice-dot-container");
   diceDotContainer.removeChild(diceDotContainer.lastElementChild);
@@ -76,45 +76,56 @@ let leftOrRight = "left";
 
 /* -------- BUTTON --------- */
 /* "Roll dice" button */
+let lastClickTime = 0;
 const rollDiceButton = document.getElementById("rollDiceBtn");
 rollDiceButton.addEventListener("click", () => {
-  // Random number between 1 and 6
-  const randomNumber = Math.floor(Math.random() * 6) + 1;
-  // Random Y direction of the thrown dice
-  const randomDirectionY = Math.floor(Math.random() * 2)
-    ? randomNumber * randomNumber
-    : -(randomNumber * randomNumber);
-  // Dice & dice container
-  const diceContainer = document.getElementById("dice-container");
-  const dice = document.getElementById("dice");
+  // Get time of the current click
+  const currentClickTime = new Date().getTime();
+  const diceAudio = document.getElementById("dice-audio");
+  // Checks if 1sec has passed since the last click
+  if (currentClickTime - lastClickTime > 1000 && diceAudio.paused) {
+    // Update the last click time
+    lastClickTime = currentClickTime;
+    // Random number between 1 and 6 & random Y direction of the thrown dice
+    const randomNumber = Math.floor(Math.random() * 6) + 1;
+    const randomDirectionY = Math.floor(Math.random() * 2)
+      ? randomNumber * randomNumber
+      : -(randomNumber * randomNumber);
+    // Dice & dice container
+    const diceContainer = document.getElementById("dice-container");
+    const dice = document.getElementById("dice");
 
-  // Roll the dice
-  switch (leftOrRight) {
-    // Animation of a dice thrown from left to right (using GSAP)
-    case "left":
-      gsap.to(dice, {
-        duration: 1,
-        rotation: 360 + randomNumber * randomNumber,
-        x: diceContainer.offsetWidth - dice.offsetWidth,
-        y: randomDirectionY,
-      });
-      leftOrRight = "right";
-      break;
+    /* Roll the dice animation */
+    switch (leftOrRight) {
+      // Animation of a dice thrown from left to right (using GSAP)
+      case "left":
+        gsap.to(dice, {
+          duration: 1,
+          rotation: 360 + randomNumber * randomNumber,
+          x: diceContainer.offsetWidth - dice.offsetWidth - 10,
+          y: randomDirectionY,
+        });
+        leftOrRight = "right";
+        break;
 
-    // Animation of a dice thrown from right to left (using GSAP)
-    case "right":
-      gsap.to(dice, {
-        duration: 1,
-        rotation: -(360 - randomNumber * randomNumber),
-        x: 0,
-        y: randomDirectionY,
-      });
-      leftOrRight = "left";
-      break;
+      // Animation of a dice thrown from right to left (using GSAP)
+      case "right":
+        gsap.to(dice, {
+          duration: 1,
+          rotation: -(360 - randomNumber * randomNumber),
+          x: 10,
+          y: randomDirectionY,
+        });
+        leftOrRight = "left";
+        break;
+    }
+
+    // Play the sound of throwing the dice
+    diceAudio.play();
+
+    // Adds dots on the dice with a delay after rolling the dice
+    setTimeout(() => {
+      addDotsOnTheDice(randomNumber);
+    }, 200);
   }
-
-  // Adds dots on the dice with a delay after rolling the dice
-  setTimeout(() => {
-    addDotsOnTheDice(randomNumber);
-  }, 200);
 });

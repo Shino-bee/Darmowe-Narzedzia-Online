@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="../../css/_main.css" />
     <link rel="stylesheet" href="../../css/program.css" />
     <style>
+      /* ----------- */
       /* Dice styles */
       #dice-container {
-        /* border: 2px solid darkgreen; */
         align-self: center;
         align-items: center;
         width: 100%;
@@ -26,13 +26,14 @@
       #dice {
         border: 8px outset var(--main-color-darklighter);
         border-radius: 44px;
+        box-shadow: 0px 0px 6px 1px var(--main-color-orange);
         background: var(--main-color-red);
         display: flex;
         align-items: center;
         justify-content: center;
         width: 150px;
         height: 150px;
-        transform: rotate(8deg);
+        transform: rotate(8deg) translateX(20px);
       }
 
       @media only screen and (min-width: 576px) and (max-width: 991.98px) {
@@ -49,6 +50,7 @@
         }
       }
 
+      /* --------------------- */
       /* Dots on a dice styles */
       #dice-dot-container {
         width: 85%;
@@ -58,8 +60,23 @@
       .dot {
         border-radius: 50%;
         background: var(--main-color-lighter);
+        box-shadow: inset 13px 13px 24px -16px var(--main-color-darklighter);
         width: 25px;
         height: 25px;
+      }
+
+      @media only screen and (min-width: 576px) and (max-width: 991.98px) {
+        .dot {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      @media only screen and (min-width: 992px) {
+        .dot {
+          width: 35px;
+          height: 35px;
+        }
       }
 
       .dot1,
@@ -90,6 +107,7 @@
         grid-template-columns: 1fr 1fr 1fr;
       }
 
+      /* --------------- */
       /* Roll btn styles */
       #rollDiceBtn {
         width: 75%;
@@ -156,12 +174,9 @@
             "
           ></iframe>
           <form class="program-form" target="hiddenFrame">
-            <!-- ####################### -->
-
             <p style="margin-bottom: 15px">
-              Naciśnij przycisk "Rzuć kostką", aby rzucic kostką i wylosować liczbę od 1 do 6:
+              Naciśnij przycisk "Rzuć kostką", aby rzucić kostką i wylosować liczbę od 1 do 6:
             </p>
-
             <div id="dice-container">
               <div id="dice">
                 <div id="dice-dot-container">
@@ -171,14 +186,15 @@
                 </div>
               </div>
             </div>
-
             <div class="program-form-btns">
               <button type="button" id="rollDiceBtn" class="program-form-btn-calculate">
                 Rzuć kostką
               </button>
             </div>
-
-            <!-- ####################### -->
+            <audio id="dice-audio">
+              <source src="dice.wav" type="audio/mpeg" />
+              Twoja przeglądarka nie obsługuje elementu audio.
+            </audio>
           </form>
         </section>
         <section id="content-section-description" class="content-section-styles">
