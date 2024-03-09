@@ -1,4 +1,4 @@
-const menuDropdown = document.getElementById("header-nav-menu-dropdown");
+const menuDropdown = document.getElementById("menu-mobile-dropdown");
 const menuDropdownBackground = document.getElementById("menu-dropdown-background");
 const menuDropdownTopDefaultValue = getComputedStyle(menuDropdown).top;
 
@@ -11,7 +11,7 @@ function menuDropdownHide() {
 }
 
 // Click on the menu navbar button (open or close)
-const menuDropdownButton = document.getElementById("header-nav-menu-btn");
+const menuDropdownButton = document.getElementById("menu-mobile-btn");
 menuDropdownButton.addEventListener("click", () => {
   if (getComputedStyle(menuDropdown).visibility === "hidden") {
     menuDropdown.style.visibility = "visible";

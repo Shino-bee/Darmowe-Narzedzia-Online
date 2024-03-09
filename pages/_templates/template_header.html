@@ -1,9 +1,9 @@
 <!-- # TEMPLATE HEADER FOR EVERY PAGE # -->
 <nav id="header-nav">
   <!-- Show button to open/close collapsed menu navbar when device width is LESS than 992px -->
-  <div id="header-nav-menu">
-    <button id="header-nav-menu-btn"></button>
-    <div id="header-nav-menu-dropdown">
+  <div id="header-nav-menu-mobile-container">
+    <button id="menu-mobile-btn"></button>
+    <div id="menu-mobile-dropdown">
       <a class="menu-dropdown-a" href="../../index.html#unit-converters">Konwertery jednostek</a>
       <a class="menu-dropdown-a" href="../../index.html#online_calculators">Kalkulatory online</a>
       <a class="menu-dropdown-a" href="../../index.html#text-content-tools"
@@ -17,18 +17,22 @@
   </h3>
 
   <!-- Show menu navbar links and hide button when device width is MORE than 992px -->
-  <ul id="header-nav-ul">
-    <li class="header-nav-ul-li">
+  <ul id="header-nav-menu-container">
+    <li class="menu-element">
       <a href="../../index.html#unit-converters">Konwerter jednostek</a>
     </li>
-    <li class="header-nav-ul-li">
+    <li class="menu-element">
       <a href="../../index.html#online_calculators">Kalkulatory online</a>
     </li>
-    <li class="header-nav-ul-li">
+    <li class="menu-element">
       <a href="../../index.html#text-content-tools">Narzędzia treści tekstowych</a>
     </li>
-    <li class="header-nav-ul-li"><a href="#">Inne</a></li>
+    <li class="menu-element">
+      <a href="../../index.html#other-tools">Inne</a>
+    </li>
   </ul>
+
+  <!-- Search bar -->
   <form id="header-nav-form" action="#">
     <input id="header-nav-form-input" type="search" />
     <button id="header-nav-form-btn">

@@ -26,7 +26,15 @@
   }
 }
 
-#header-nav-menu {
+#header-nav-h {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Mobile dropdown menu */
+#header-nav-menu-mobile-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,12 +42,12 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  #header-nav-menu {
+  #header-nav-menu-mobile-container {
     display: none;
   }
 }
 
-#header-nav-menu-btn {
+#menu-mobile-btn {
   background-image: url("../images/menu-navbar-collapsed.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -51,11 +59,11 @@
   z-index: 1;
 }
 
-#header-nav-menu-btn:active {
+#menu-mobile-btn:active {
   border-style: inset;
 }
 
-#header-nav-menu-dropdown {
+#menu-mobile-dropdown {
   background-color: rgba(64, 76, 83, 0.97);
   border-radius: 8px;
   display: flex;
@@ -71,7 +79,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  #header-nav-menu-dropdown {
+  #menu-mobile-dropdown {
     margin-left: 350px;
     width: 400px;
   }
@@ -104,14 +112,8 @@
   z-index: 1;
 }
 
-#header-nav-h {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-#header-nav-ul {
+/* Menu for devices with a width MORE than 992px */
+#header-nav-menu-container {
   display: none;
   justify-content: space-around;
   align-items: center;
@@ -119,20 +121,41 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  #header-nav-ul {
+  #header-nav-menu-container {
     display: flex;
   }
 }
 
-.header-nav-ul-li > a {
+.menu-element > a {
   color: var(--main-color-light);
   transition: 0.25s ease;
 }
 
-.header-nav-ul-li > a:hover {
+.menu-element > a:hover {
   color: var(--main-color-lighter);
 }
 
+.menu-element::after {
+  content: "";
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid var(--main-color-light);
+  position: relative;
+  top: 30px;
+  right: 50%;
+  width: 0;
+  height: 0;
+  transition: 0.15s ease-out;
+}
+
+.menu-element:hover::after {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid var(--main-color-lighter);
+  top: 33px;
+}
+
+/* Search bar */
 #header-nav-form {
   display: flex;
   align-items: center;
