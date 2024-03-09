@@ -1,52 +1,8 @@
+/* Import styles for header, main image, main content and footer */
+@import url(./header_navbar.css);
+@import url(./main_image.css);
+@import url(./main_content.css);
+@import url(./footer.css);
+
+/* Import colors and base styles for html tags */
 @import url(./_base.css);
-
-:root {
-  /* Two main colors background (dark) and text (lighter) */
-  --main-color-dark: rgb(28, 35, 48);
-  --main-color-lighter: rgb(238, 236, 233);
-
-  --main-color-darklighter: rgb(64, 76, 83);
-  --main-color-darklight: rgb(37, 47, 66);
-  --main-color-light: rgb(190, 190, 190);
-
-  --main-color-green: rgb(30, 75, 30);
-  --main-color-orange: rgb(128, 58, 12);
-  --main-color-red: rgb(100, 1, 1);
-
-  --bgcolor-tool-icon: rgb(189, 183, 107);
-  --bgcolor-menu-dropdown: rgba(64, 76, 83, 0.97);
-  --bgcolor-footer: rgb(41, 43, 46);
-
-  --navbar-border: 3px outset rgb(160, 158, 158);
-  --tools-border: 5px groove rgb(51, 105, 105);
-
-  scroll-behavior: smooth;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: var(--main-color-dark);
-  color: var(--main-color-lighter);
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 17px;
-}
-
-a {
-  color: var(--main-color-lighter);
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
-}

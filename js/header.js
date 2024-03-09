@@ -2,7 +2,7 @@ const menuDropdown = document.getElementById("menu-mobile-dropdown");
 const menuDropdownBackground = document.getElementById("menu-dropdown-background");
 const menuDropdownTopDefaultValue = getComputedStyle(menuDropdown).top;
 
-// Hide the menu navbar function
+// Function hides the mobile menu
 function menuDropdownHide() {
   menuDropdown.style.visibility = "hidden";
   menuDropdown.style.opacity = 0;
@@ -10,7 +10,7 @@ function menuDropdownHide() {
   menuDropdownBackground.style.display = "none";
 }
 
-// Click on the menu navbar button (open or close)
+// Click on the mobile menu navbar button (open or close)
 const menuDropdownButton = document.getElementById("menu-mobile-btn");
 menuDropdownButton.addEventListener("click", () => {
   if (getComputedStyle(menuDropdown).visibility === "hidden") {
@@ -23,12 +23,12 @@ menuDropdownButton.addEventListener("click", () => {
   }
 });
 
-// Click on the menu navbar links to hide menu navbar
+// Click on the mobile menu navbar links to hide menu navbar
 const menuDropdownItems = document.getElementsByClassName("menu-dropdown-a");
 for (let i = 0; i < menuDropdownItems.length; i++) {
   const dropdownItem = menuDropdownItems[i];
   dropdownItem.addEventListener("click", menuDropdownHide);
 }
 
-// Click anywhere (background, except menu navbar button and menu navbar links) to hide menu navbar (if menu navbar is open)
+// Click anywhere (background, except mobile menu navbar button and mobile menu navbar links) to hide mobile menu navbar (if mobile menu navbar is open)
 document.getElementById("menu-dropdown-background").addEventListener("click", menuDropdownHide);
