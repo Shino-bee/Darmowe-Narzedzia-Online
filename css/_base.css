@@ -116,8 +116,6 @@
 #header-nav-menu-container {
   display: none;
   justify-content: space-around;
-  align-items: center;
-  list-style-type: none;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -126,37 +124,89 @@
   }
 }
 
+.menu-element {
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+}
+
 .menu-element > a {
   color: var(--main-color-light);
   transition: 0.25s ease;
 }
 
-.menu-element > a:hover {
+.menu-element:hover > a {
   color: var(--main-color-lighter);
 }
 
-.menu-element::after {
-  content: "";
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 6px solid var(--main-color-light);
+.triangle {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid var(--main-color-light);
   position: relative;
-  top: 30px;
+  top: 33px;
   right: 50%;
   width: 0;
   height: 0;
-  transition: 0.15s ease-out;
 }
 
-.menu-element:hover::after {
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 8px solid var(--main-color-lighter);
-  top: 33px;
+/* Little triangle bounce animation */
+@keyframes bounce {
+  0% {
+    top: 33px;
+  }
+  50% {
+    top: 36px;
+  }
+  100% {
+    top: 31px;
+  }
+}
+
+.menu-element:hover .triangle {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid var(--main-color-lighter);
+  animation: bounce 0.8s infinite alternate;
+}
+
+.menu-subelements {
+  background: var(--main-color-dark);
+  border-radius: 8px;
+  list-style-type: none;
+  position: absolute;
+  top: 35px;
+  width: 25%;
+  max-width: 400px;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1;
+  transition: visibility 0s, opacity 0.3s, top 0.3s ease;
+}
+
+.subelement {
+  /* height: 50px; */
+  border-bottom: 2px double var(--main-color-darklighter);
+  border-radius: 15px;
+  padding: 15px 0px 15px 15px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.subelement:hover {
+  background-color: var(--main-color-darklighter);
+  transition: 0.1s ease-in-out;
+}
+
+.menu-element:hover .menu-subelements,
+.menu-subelements:hover + .menu-subelements {
+  visibility: visible;
+  opacity: 0.85;
+  top: 57px;
 }
 
 /* Search bar */
-#header-nav-form {
+#header-nav-search {
   display: flex;
   align-items: center;
   grid-column-start: 1;
@@ -164,29 +214,29 @@
 }
 
 @media only screen and (min-width: 992px) {
-  #header-nav-form {
+  #header-nav-search {
     grid-column-start: 3;
   }
 }
 
-#header-nav-form-input {
+#form-input {
   color: var(--main-color-dark);
   background-color: var(--main-color-lighter);
   border: var(--navbar-border);
   border-radius: 15px;
   padding: 10px;
-  margin: 0px 0px 0px 20px;
+  margin: 0 0 0 20px;
   width: 65%;
   height: 65%;
 }
 
 @media only screen and (min-width: 992px) {
-  #header-nav-form-input {
+  #form-input {
     width: 65%;
   }
 }
 
-#header-nav-form-btn {
+#form-btn {
   color: var(--main-color-lighter);
   background-color: var(--main-color-green);
   border: var(--navbar-border);
@@ -196,7 +246,7 @@
   height: 65%;
 }
 
-#header-nav-form-btn:active {
+#form-btn:active {
   border-style: inset;
 }
 
