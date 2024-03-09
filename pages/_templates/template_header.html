@@ -3,13 +3,37 @@
   <!-- Show button to open/close collapsed menu navbar when device width is LESS than 992px -->
   <div id="header-nav-menu-mobile-container">
     <button id="menu-mobile-btn"></button>
-    <div id="menu-mobile-dropdown">
-      <a class="menu-dropdown-a" href="../../index.html#unit-converters">Konwertery jednostek</a>
-      <a class="menu-dropdown-a" href="../../index.html#online_calculators">Kalkulatory online</a>
-      <a class="menu-dropdown-a" href="../../index.html#text-content-tools"
-        >Narzędzia treści tekstowych</a
-      >
-      <a class="menu-dropdown-a" href="#">Inne</a>
+    <div id="menu-mobile-dropdown-container">
+      <div class="dropdown-elements">
+        <a class="dropdown-element-a" href="../../index.html#unit-converters"
+          >Konwertery jednostek</a
+        >
+        <span class="dropdown-element-span" tabindex="0"
+          ><span class="triangle-mobile"></span
+        ></span>
+      </div>
+      <div class="dropdown-elements">
+        <a class="dropdown-element-a" href="../../index.html#online_calculators"
+          >Kalkulatory online</a
+        >
+        <span class="dropdown-element-span" tabindex="0"
+          ><span class="triangle-mobile"></span
+        ></span>
+      </div>
+      <div class="dropdown-elements">
+        <a class="dropdown-element-a" href="../../index.html#text-content-tools"
+          >Narzędzia treści tekstowych</a
+        >
+        <span class="dropdown-element-span" tabindex="0"
+          ><span class="triangle-mobile"></span
+        ></span>
+      </div>
+      <div class="dropdown-elements">
+        <a class="dropdown-element-a" href="../../index.html#other-tools">Inne</a>
+        <span class="dropdown-element-span" tabindex="0"
+          ><span class="triangle-mobile"></span
+        ></span>
+      </div>
     </div>
   </div>
   <h3 id="header-nav-h">
@@ -18,7 +42,7 @@
 
   <!-- Show menu navbar links and hide button when device width is MORE than 992px -->
   <ul id="header-nav-menu-container">
-    <li class="menu-element">
+    <li class="menu-elements">
       <a href="../../index.html#unit-converters"
         >Konwerter jednostek<span class="triangle"></span
       ></a>
@@ -44,7 +68,7 @@
         >
       </ul>
     </li>
-    <li class="menu-element">
+    <li class="menu-elements">
       <a href="../../index.html#online_calculators"
         >Kalkulatory online<span class="triangle"></span
       ></a>
@@ -69,7 +93,7 @@
         >
       </ul>
     </li>
-    <li class="menu-element">
+    <li class="menu-elements">
       <a href="../../index.html#text-content-tools"
         >Narzędzia treści tekstowych<span class="triangle"></span
       ></a>
@@ -85,7 +109,7 @@
         >
       </ul>
     </li>
-    <li class="menu-element">
+    <li class="menu-elements">
       <a href="../../index.html#other-tools">Inne<span class="triangle"></span></a>
       <ul class="menu-subelements">
         <a href="../../pages/other_tools/chart_maker.html"

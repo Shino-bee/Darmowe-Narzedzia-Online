@@ -1,5 +1,6 @@
 /* -------- HEADER NAVBAR STYLES -------- */
 
+/* --------------------------- */
 /* Basic header tags */
 #header {
   height: 100px;
@@ -34,12 +35,12 @@
   font-weight: bold;
 }
 
+/* --------------------------- */
 /* Mobile dropdown menu */
 #header-nav-menu-mobile-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -54,7 +55,7 @@
   background-position: center;
   background-color: var(--main-color-lighter);
   border: var(--navbar-border);
-  border-radius: 7.5px;
+  border-radius: 8px;
   width: 50px;
   height: 35px;
   z-index: 1;
@@ -64,15 +65,17 @@
   border-style: inset;
 }
 
-#menu-mobile-dropdown {
-  background-color: rgba(64, 76, 83, 0.97);
+#menu-mobile-dropdown-container {
+  border: 2px solid var(--main-color-darklighter);
+  border-top: none;
+  background-color: var(--main-color-dark);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 25px;
   margin-left: 240px;
-  width: 290px;
+  width: 300px;
   z-index: 1;
   visibility: hidden;
   opacity: 0;
@@ -80,29 +83,61 @@
 }
 
 @media only screen and (min-width: 768px) {
-  #menu-mobile-dropdown {
-    margin-left: 350px;
-    width: 400px;
+  #menu-mobile-dropdown-container {
+    margin-left: 325px;
+    width: 375px;
   }
 }
 
-.menu-dropdown-a {
-  border-bottom: 1.75px dotted var(--main-color-dark);
+.dropdown-elements {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+
+.dropdown-element-a {
+  border-bottom: 2px double var(--main-color-darklighter);
   border-radius: 15px;
-  padding: 12.5px 0px 12.5px 15px;
+  padding: 12.5px 5px 12.5px 15px;
   font-weight: bold;
-  z-index: 1;
+}
+
+.dropdown-element-a:active {
+  background-color: var(--main-color-darklighter);
+  transition: 0.3s ease;
+  opacity: 0.85;
+}
+
+.dropdown-element-span {
+  border-bottom: 2px double var(--main-color-darklighter);
+  border-radius: 25px;
+  margin-top: 2px;
+  background: var(--main-color-darklight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dropdown-element-span:active {
+  background: var(--main-color-orange);
 }
 
 @media only screen and (min-width: 768px) {
-  .menu-dropdown-a {
-    padding: 15px 0px 15px 15px;
+  .dropdown-elements {
+    grid-template-columns: 5fr 1fr;
+  }
+  .dropdown-element-a {
+    padding: 15px 5px 15px 15px;
+  }
+  .dropdown-element-span {
+    border-radius: 50px;
   }
 }
 
-.menu-dropdown-a:hover {
-  background-color: darkgrey;
-  transition: 0.3s ease;
+.triangle-mobile {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 12px solid var(--main-color-light);
 }
 
 #menu-dropdown-background {
@@ -113,6 +148,7 @@
   z-index: 1;
 }
 
+/* --------------------------- */
 /* Menu for devices with a width MORE than 992px */
 #header-nav-menu-container {
   display: none;
@@ -125,18 +161,18 @@
   }
 }
 
-.menu-element {
+.menu-elements {
   display: flex;
   align-items: center;
   padding-left: 6px;
 }
 
-.menu-element > a {
+.menu-elements > a {
   color: var(--main-color-light);
   transition: 0.25s ease;
 }
 
-.menu-element:hover > a {
+.menu-elements:hover > a {
   color: var(--main-color-lighter);
 }
 
@@ -163,7 +199,7 @@
   }
 }
 
-.menu-element:hover .triangle {
+.menu-elements:hover .triangle {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 7px solid var(--main-color-lighter);
@@ -187,6 +223,7 @@
 .subelement {
   border-bottom: 2px double var(--main-color-darklighter);
   border-radius: 15px;
+  height: 50px;
   padding: 15px 0px 15px 15px;
   font-weight: bold;
   z-index: 1;
@@ -197,13 +234,14 @@
   transition: 0.1s ease-in-out;
 }
 
-.menu-element:hover .menu-subelements,
+.menu-elements:hover .menu-subelements,
 .menu-subelements:hover + .menu-subelements {
   visibility: visible;
   opacity: 0.85;
   top: 57px;
 }
 
+/* --------------------------- */
 /* Search bar */
 #header-nav-search {
   display: flex;
