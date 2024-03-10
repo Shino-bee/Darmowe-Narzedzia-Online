@@ -36,7 +36,7 @@
 }
 
 /* --------------------------- */
-/* Mobile dropdown menu */
+/* Mobile dropdown menu for devices with a width LESS than 992px */
 #header-nav-menu-mobile-container {
   display: flex;
   align-items: center;
@@ -65,6 +65,7 @@
   border-style: inset;
 }
 
+/* Dropdown menu */
 #menu-mobile-dropdown-container {
   border: 2px solid var(--main-color-darklighter);
   border-top: none;
@@ -89,25 +90,26 @@
   }
 }
 
-.dropdown-elements {
+.menu-mobile-elements {
   display: grid;
   grid-template-columns: 4fr 1fr;
 }
 
-.dropdown-element-a {
+.menu-mobile-link {
   border-bottom: 2px double var(--main-color-darklighter);
   border-radius: 15px;
   padding: 12.5px 5px 12.5px 15px;
   font-weight: bold;
 }
 
-.dropdown-element-a:active {
+.menu-mobile-link:hover {
   background-color: var(--main-color-darklighter);
   transition: 0.3s ease;
   opacity: 0.85;
 }
 
-.dropdown-element-span {
+/* Submenu */
+.submenu-mobile-btn {
   border-bottom: 2px double var(--main-color-darklighter);
   border-radius: 25px;
   margin-top: 2px;
@@ -116,20 +118,21 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.dropdown-element-span:active {
+.submenu-mobile-btn:active {
   background: var(--main-color-orange);
 }
 
 @media only screen and (min-width: 768px) {
-  .dropdown-elements {
+  .menu-mobile-elements {
     grid-template-columns: 5fr 1fr;
   }
-  .dropdown-element-a {
+  .menu-mobile-link {
     padding: 15px 5px 15px 15px;
   }
-  .dropdown-element-span {
+  .submenu-mobile-btn {
     border-radius: 50px;
   }
 }
@@ -138,6 +141,31 @@
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-top: 12px solid var(--main-color-light);
+  transition: 0.25s;
+}
+
+.submenu-mobile-container {
+  height: 0;
+  visibility: hidden;
+}
+
+.submenu-mobile-elements-ul {
+  list-style-type: none;
+  padding: 15px 5px 5px 15px;
+}
+
+.submenu-mobile-elements-ul:last-child {
+  border-bottom: 2px inset var(--main-color-darklighter);
+  border-radius: 15px;
+}
+
+.submenu-mobile-element-li {
+  padding-bottom: 10px;
+  height: 42px;
+}
+
+.submenu-mobile-element-li:hover {
+  color: var(--main-color-light);
 }
 
 #menu-dropdown-background {

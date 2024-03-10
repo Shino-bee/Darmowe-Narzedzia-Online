@@ -1,38 +1,105 @@
 <!-- # TEMPLATE HEADER FOR EVERY PAGE # -->
 <nav id="header-nav">
-  <!-- Show button to open/close collapsed menu navbar when device width is LESS than 992px -->
+  <!-- Show button to open/close collapsed menu navbar when device width is LESS than 992px (mobile) -->
   <div id="header-nav-menu-mobile-container">
     <button id="menu-mobile-btn"></button>
     <div id="menu-mobile-dropdown-container">
-      <div class="dropdown-elements">
-        <a class="dropdown-element-a" href="../../index.html#unit-converters"
-          >Konwertery jednostek</a
-        >
-        <span class="dropdown-element-span" tabindex="0"
-          ><span class="triangle-mobile"></span
-        ></span>
+      <!-- Unit Converters (mobile) -->
+      <div class="menu-mobile-elements">
+        <a class="menu-mobile-link" href="../../index.html#unit-converters">Konwertery jednostek</a>
+        <span class="submenu-mobile-btn" tabindex="0"><span class="triangle-mobile"></span></span>
+        <div class="submenu-mobile-container">
+          <ul class="submenu-mobile-elements-ul">
+            <a href="../../pages/unit_converters/length_converter.html"
+              ><li class="submenu-mobile-element-li">Konwerter długości</li></a
+            >
+            <a href="../../pages/unit_converters/weight_converter.html"
+              ><li class="submenu-mobile-element-li">Konwerter masy</li></a
+            >
+            <a href="../../pages/unit_converters/temperature_converter.html"
+              ><li class="submenu-mobile-element-li">Konwerter temperatury</li></a
+            >
+            <a href="../../pages/unit_converters/area_converter.html"
+              ><li class="submenu-mobile-element-li">Konwerter miar powierzchni</li></a
+            >
+            <a href="../../pages/unit_converters/volume_converter.html"
+              ><li class="submenu-mobile-element-li">Konwerter miar objętości</li></a
+            >
+            <a href="../../pages/unit_converters/time_converter.html"
+              ><li class="submenu-mobile-element-li">Konwerter jednostek czasu</li></a
+            >
+          </ul>
+        </div>
       </div>
-      <div class="dropdown-elements">
-        <a class="dropdown-element-a" href="../../index.html#online_calculators"
+
+      <!-- Online Calculators (mobile) -->
+      <div class="menu-mobile-elements">
+        <a class="menu-mobile-link" href="../../index.html#online_calculators"
           >Kalkulatory online</a
         >
-        <span class="dropdown-element-span" tabindex="0"
-          ><span class="triangle-mobile"></span
-        ></span>
+        <span class="submenu-mobile-btn" tabindex="0"><span class="triangle-mobile"></span></span>
+        <div class="submenu-mobile-container">
+          <ul class="submenu-mobile-elements-ul">
+            <a href="../../pages/online_calculators/age_calculator.html"
+              ><li class="submenu-mobile-element-li">Kalkulator wieku</li></a
+            >
+            <a href="../../pages/online_calculators/percentage_calculator.html"
+              ><li class="submenu-mobile-element-li">Kalkulator procentów</li></a
+            >
+            <a href="../../pages/online_calculators/average_calculator.html"
+              ><li class="submenu-mobile-element-li">Kalkulator średniej</li></a
+            >
+            <a href="../../pages/online_calculators/probability_calculator.html"
+              ><li class="submenu-mobile-element-li">Kalkulator prawdopodob.</li></a
+            >
+            <a href="../../pages/online_calculators/tenure_calculator.html"
+              ><li class="submenu-mobile-element-li">Kalkulator stażu pracy</li></a
+            >
+            <a href="../../pages/online_calculators/fuel_cost_calculator.html"
+              ><li class="submenu-mobile-element-li">Kalkulator kosztów paliwa</li></a
+            >
+          </ul>
+        </div>
       </div>
-      <div class="dropdown-elements">
-        <a class="dropdown-element-a" href="../../index.html#text-content-tools"
+
+      <!-- Text Content Tools (mobile) -->
+      <div class="menu-mobile-elements">
+        <a class="menu-mobile-link" href="../../index.html#text-content-tools"
           >Narzędzia treści tekstowych</a
         >
-        <span class="dropdown-element-span" tabindex="0"
-          ><span class="triangle-mobile"></span
-        ></span>
+        <span class="submenu-mobile-btn" tabindex="0"><span class="triangle-mobile"></span></span>
+        <div class="submenu-mobile-container">
+          <ul class="submenu-mobile-elements-ul">
+            <a href="../../pages/text_content_tools/case_converter.html"
+              ><li class="submenu-mobile-element-li">Zmienianie wielkości liter</li></a
+            >
+            <a href="../../pages/text_content_tools/word_counter.html"
+              ><li class="submenu-mobile-element-li">Analizator zawartości tekstu</li></a
+            >
+            <a href="../../pages/text_content_tools/rot13_tool.html"
+              ><li class="submenu-mobile-element-li">Szyfrowanie tekstu ROT13</li></a
+            >
+          </ul>
+        </div>
       </div>
-      <div class="dropdown-elements">
-        <a class="dropdown-element-a" href="../../index.html#other-tools">Inne</a>
-        <span class="dropdown-element-span" tabindex="0"
-          ><span class="triangle-mobile"></span
-        ></span>
+
+      <!-- Other Tools (mobile) -->
+      <div class="menu-mobile-elements">
+        <a class="menu-mobile-link" href="../../index.html#other-tools">Inne</a>
+        <span class="submenu-mobile-btn" tabindex="0"><span class="triangle-mobile"></span></span>
+        <div class="submenu-mobile-container">
+          <ul class="submenu-mobile-elements-ul">
+            <a href="../../pages/other_tools/chart_maker.html"
+              ><li class="submenu-mobile-element-li">Kreator wykresów</li></a
+            >
+            <a href="../../pages/other_tools/random_color_generator.html"
+              ><li class="submenu-mobile-element-li">Generator los. kolorów</li></a
+            >
+            <a href="../../pages/other_tools/dice_roll_simulation.html"
+              ><li class="submenu-mobile-element-li">Symulacja rzutu kostką</li></a
+            >
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -43,6 +110,7 @@
   <!-- Show menu navbar links and hide button when device width is MORE than 992px -->
   <ul id="header-nav-menu-container">
     <li class="menu-elements">
+      <!-- Unit Converters -->
       <a href="../../index.html#unit-converters"
         >Konwerter jednostek<span class="triangle"></span
       ></a>
@@ -68,6 +136,8 @@
         >
       </ul>
     </li>
+
+    <!-- Online Calculators -->
     <li class="menu-elements">
       <a href="../../index.html#online_calculators"
         >Kalkulatory online<span class="triangle"></span
@@ -93,6 +163,8 @@
         >
       </ul>
     </li>
+
+    <!-- Text Content Tools -->
     <li class="menu-elements">
       <a href="../../index.html#text-content-tools"
         >Narzędzia treści tekstowych<span class="triangle"></span
@@ -109,6 +181,8 @@
         >
       </ul>
     </li>
+
+    <!-- Other Tools -->
     <li class="menu-elements">
       <a href="../../index.html#other-tools">Inne<span class="triangle"></span></a>
       <ul class="menu-subelements">
