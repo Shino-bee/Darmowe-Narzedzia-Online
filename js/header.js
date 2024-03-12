@@ -8,8 +8,12 @@ const menuMobileDropdownBackground = document.getElementById("menu-dropdown-back
 const submenuMobileContainer = document.getElementsByClassName("submenu-mobile-container");
 const triangleMobileImg = document.getElementsByClassName("triangle-mobile");
 
-// Search bar variables
+// Search bar results and all tool names on the page
 const searchBarResults = document.getElementById("search-bar-results");
+const submenuMobileToolsNames = document.getElementsByClassName("submenu-mobile-element-li");
+let allToolsNames = new Array(submenuMobileToolsNames.length);
+for (let i = 0; i < submenuMobileToolsNames.length; ++i)
+  allToolsNames[i] = submenuMobileToolsNames[i].textContent;
 
 // Index of which submenu is currently open (NaN if none is open)
 let whichSubmenuIsOpen = NaN;
@@ -70,7 +74,7 @@ function openSubmenu(selectedSubmenu) {
 /* Function that displays results matching the entered letters in search bar results */
 function search() {
   const query = searchBarInput.value.toLowerCase();
-  const matches = data.filter((item) => item.toLowerCase().includes(query));
+  const matches = allToolsNames.filter((item) => item.toLowerCase().includes(query));
   // Clear results
   searchBarResults.innerHTML = "";
   // Adding the results to the results container
@@ -79,7 +83,6 @@ function search() {
     resultElement.textContent = match;
     searchBarResults.appendChild(resultElement);
   });
-  // console.log(searchBarResults.children.length);
 }
 
 /* ------------------ BUTTONS ------------------  */
@@ -160,18 +163,6 @@ searchBarButton.addEventListener("click", () => {
 });
 
 /* ------------- SEARCH BAR INPUT --------------  */
-// Example data
-const data = [
-  "jabłko",
-  "banan",
-  "pomarańcza",
-  "gruszka",
-  "śliwka",
-  "arbuz",
-  "mandarynka",
-  "winogrono",
-];
-
 /* Responds to changes in search bar input */
 const searchBarInput = document.getElementById("search-bar-input");
 searchBarInput.addEventListener("input", () => {

@@ -19,7 +19,7 @@
 }
 
 .content-section-text {
-  background-color: var(--main-color-green);
+  background: linear-gradient(135deg, hsla(120, 43%, 21%, 1) 33%, hsla(120, 55%, 30%, 1) 100%);
   padding: 15px;
 }
 

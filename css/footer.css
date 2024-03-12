@@ -66,9 +66,17 @@
   padding: 15px 10px 10px 10px;
 }
 
+#footer-copyrights > a {
+  margin-top: 3px;
+}
+
 @media only screen and (min-width: 992px) {
   #footer-copyrights {
     flex-direction: row-reverse;
+  }
+
+  #footer-copyrights > a {
+    margin-top: 0;
   }
 }
 
