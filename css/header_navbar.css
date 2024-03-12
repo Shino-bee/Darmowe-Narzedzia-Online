@@ -100,11 +100,11 @@
   border-radius: 15px;
   padding: 12.5px 5px 12.5px 15px;
   font-weight: bold;
+  transition: 0.25s ease;
 }
 
 .menu-mobile-link:hover {
   background-color: var(--main-color-darklighter);
-  transition: 0.3s ease;
   opacity: 0.85;
 }
 
@@ -162,6 +162,7 @@
 .submenu-mobile-element-li {
   padding-bottom: 10px;
   height: 42px;
+  transition: color 0.15s;
 }
 
 .submenu-mobile-element-li:hover {
@@ -271,7 +272,7 @@
 
 /* --------------------------- */
 /* Search bar */
-#header-nav-search {
+#header-nav-search-bar {
   display: flex;
   align-items: center;
   grid-column-start: 1;
@@ -279,12 +280,12 @@
 }
 
 @media only screen and (min-width: 992px) {
-  #header-nav-search {
+  #header-nav-search-bar {
     grid-column-start: 3;
   }
 }
 
-#form-input {
+#search-bar-input {
   color: var(--main-color-dark);
   background-color: var(--main-color-lighter);
   border: var(--navbar-border);
@@ -296,12 +297,12 @@
 }
 
 @media only screen and (min-width: 992px) {
-  #form-input {
+  #search-bar-input {
     width: 65%;
   }
 }
 
-#form-btn {
+#search-bar-btn {
   color: var(--main-color-lighter);
   background-color: var(--main-color-green);
   border: var(--navbar-border);
@@ -311,6 +312,6 @@
   height: 65%;
 }
 
-#form-btn:active {
+#search-bar-btn:active {
   border-style: inset;
 }

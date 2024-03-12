@@ -4,13 +4,18 @@ const menuMobileDropdown = document.getElementById("menu-mobile-dropdown-contain
 const menuMobileDropdownTopDefaultValue = getComputedStyle(menuMobileDropdown).top;
 const menuMobileDropdownBackground = document.getElementById("menu-dropdown-background");
 
-// Submenu mobile container, triangle of submenu button and index of which submenu is currently open (NaN if none is open)
+// Submenu mobile container, triangle of submenu button and
 const submenuMobileContainer = document.getElementsByClassName("submenu-mobile-container");
 const triangleMobileImg = document.getElementsByClassName("triangle-mobile");
+
+// Search bar variables
+const searchBarResults = document.getElementById("search-bar-results");
+
+// Index of which submenu is currently open (NaN if none is open)
 let whichSubmenuIsOpen = NaN;
 
 /* ----------------- FUNCTIONS -----------------  */
-/* Hides the mobile menu dropdown */
+/* Function that hides the mobile menu dropdown */
 function menuMobileDropdownHide() {
   menuMobileDropdown.style.transition = "0.12s";
   menuMobileDropdown.style.visibility = "hidden";
@@ -22,9 +27,9 @@ function menuMobileDropdownHide() {
   menuMobileDropdownBackground.style.display = "none";
 }
 
-/* Shows the mobile menu dropdown */
+/* Function that shows the mobile menu dropdown */
 function menuMobileDropdownShow() {
-  menuMobileDropdown.style.transition = "0.3s";
+  menuMobileDropdown.style.transition = "visibility 0s, opacity 0.3s, top 0.3s ease";
   menuMobileDropdown.style.visibility = "visible";
   menuMobileDropdown.style.opacity = 0.9;
   menuMobileDropdown.style.top = "56px";
@@ -34,15 +39,17 @@ function menuMobileDropdownShow() {
   menuMobileDropdownBackground.style.display = "block";
 }
 
-/* Closes current opened mobile submenu if box with triangle was clicked */
+/* Function that closes current opened mobile submenu if box with triangle was clicked */
 function closeCurrentSubmenu(currentSubmenu) {
-  submenuMobileContainer[currentSubmenu].style.visibility = "hidden";
-  submenuMobileContainer[currentSubmenu].style.height = 0;
-  triangleMobileImg[currentSubmenu].style.transform = "rotate(0deg)";
-  whichSubmenuIsOpen = NaN;
+  if (!isNaN(currentSubmenu)) {
+    submenuMobileContainer[currentSubmenu].style.visibility = "hidden";
+    submenuMobileContainer[currentSubmenu].style.height = 0;
+    triangleMobileImg[currentSubmenu].style.transform = "rotate(0deg)";
+    whichSubmenuIsOpen = NaN;
+  }
 }
 
-/* Closes previous opened mobile submenu if new submenu is opened */
+/* Function that closes previous opened mobile submenu if new submenu is opened */
 function closePreviousSubmenu(previousSubmenu) {
   if (!isNaN(previousSubmenu)) {
     submenuMobileContainer[previousSubmenu].style.visibility = "hidden";
@@ -52,7 +59,7 @@ function closePreviousSubmenu(previousSubmenu) {
   }
 }
 
-/* Shows/opens selected mobile submenu */
+/* Function that shows/opens selected mobile submenu */
 function openSubmenu(selectedSubmenu) {
   submenuMobileContainer[selectedSubmenu].style.visibility = "visible";
   submenuMobileContainer[selectedSubmenu].style.height = "auto";
@@ -60,8 +67,23 @@ function openSubmenu(selectedSubmenu) {
   whichSubmenuIsOpen = selectedSubmenu;
 }
 
+/* Function that displays results matching the entered letters in search bar results */
+function search() {
+  const query = searchBarInput.value.toLowerCase();
+  const matches = data.filter((item) => item.toLowerCase().includes(query));
+  // Clear results
+  searchBarResults.innerHTML = "";
+  // Adding the results to the results container
+  matches.forEach((match) => {
+    const resultElement = document.createElement("div");
+    resultElement.textContent = match;
+    searchBarResults.appendChild(resultElement);
+  });
+  // console.log(searchBarResults.children.length);
+}
+
 /* ------------------ BUTTONS ------------------  */
-/* Menu mobile dropdown button - click on the mobile menu navbar button (open or close) */
+/* Menu mobile dropdown button - click on the mobile menu navbar button open or close menu (and close submenu if opened)  */
 const menuMobileDropdownButton = document.getElementById("menu-mobile-btn");
 menuMobileDropdownButton.addEventListener("click", () => {
   if (getComputedStyle(menuMobileDropdown).visibility === "hidden") menuMobileDropdownShow();
@@ -72,7 +94,10 @@ menuMobileDropdownButton.addEventListener("click", () => {
 const menuMobileLinks = document.getElementsByClassName("menu-mobile-link");
 for (let i = 0; i < menuMobileLinks.length; i++) {
   const menuMobileLink = menuMobileLinks[i];
-  menuMobileLink.addEventListener("click", menuMobileDropdownHide);
+  menuMobileLink.addEventListener("click", () => {
+    closeCurrentSubmenu(whichSubmenuIsOpen);
+    menuMobileDropdownHide();
+  });
 }
 
 /* Hide mobile menu navbar (background) - click on invisible background to hide mobile menu navbar */
@@ -126,4 +151,33 @@ triangleMobileContainer.forEach((triangle, whichSubmenuClicked) => {
         break;
     }
   });
+});
+
+/* Search bar button */
+const searchBarButton = document.getElementById("search-bar-btn");
+searchBarButton.addEventListener("click", () => {
+  console.log("click");
+});
+
+/* ------------- SEARCH BAR INPUT --------------  */
+// Example data
+const data = [
+  "jabłko",
+  "banan",
+  "pomarańcza",
+  "gruszka",
+  "śliwka",
+  "arbuz",
+  "mandarynka",
+  "winogrono",
+];
+
+/* Responds to changes in search bar input */
+const searchBarInput = document.getElementById("search-bar-input");
+searchBarInput.addEventListener("input", () => {
+  if (searchBarInput.value.length >= 2) {
+    search();
+  } else {
+    searchBarResults.innerHTML = "";
+  }
 });
