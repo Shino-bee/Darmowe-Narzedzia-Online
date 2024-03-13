@@ -8,12 +8,17 @@ const menuMobileDropdownBackground = document.getElementById("menu-dropdown-back
 const submenuMobileContainer = document.getElementsByClassName("submenu-mobile-container");
 const triangleMobileImg = document.getElementsByClassName("triangle-mobile");
 
-// Search bar results and all tool names on the page
+// Search bar results
 const searchBarResults = document.getElementById("search-bar-results");
-const submenuMobileToolsNames = document.getElementsByClassName("submenu-mobile-element-li");
-let allToolsNames = new Array(submenuMobileToolsNames.length);
-for (let i = 0; i < submenuMobileToolsNames.length; ++i)
-  allToolsNames[i] = submenuMobileToolsNames[i].textContent;
+
+// All tool names and links to them on the page
+const toolNamesAndLinksContainer = document.getElementsByClassName("subelement");
+const toolNamesAndLinks = {};
+for (let i = 0; i < toolNamesAndLinksContainer.length; i++) {
+  const toolName = toolNamesAndLinksContainer[i].textContent;
+  const toolLink = toolNamesAndLinksContainer[i].parentNode.href;
+  toolNamesAndLinks[toolName] = toolLink;
+}
 
 // Index of which submenu is currently open (NaN if none is open)
 let whichSubmenuIsOpen = NaN;
@@ -71,17 +76,18 @@ function openSubmenu(selectedSubmenu) {
   whichSubmenuIsOpen = selectedSubmenu;
 }
 
-/* Function that displays results matching the entered letters in search bar results */
-function search() {
-  const query = searchBarInput.value.toLowerCase();
-  const matches = allToolsNames.filter((item) => item.toLowerCase().includes(query));
+/* Function displays matching tool names of the entered text */
+function searchForMatchingTools() {
+  const enteredText = searchBarInput.value.toLowerCase();
+  const matchingNames = Object.keys(toolNamesAndLinks).filter((item) =>
+    item.toLowerCase().includes(enteredText)
+  );
   // Clear results
   searchBarResults.innerHTML = "";
-  // Adding the results to the results container
-  matches.forEach((match) => {
-    const resultElement = document.createElement("div");
-    resultElement.textContent = match;
-    searchBarResults.appendChild(resultElement);
+  // Adding the results to the results container (links and tool names)
+  matchingNames.forEach((match) => {
+    const resultElement = `<div><a href="${toolNamesAndLinks[match]}">${match}</a></div>`;
+    searchBarResults.insertAdjacentHTML("beforeend", resultElement);
   });
 }
 
@@ -156,19 +162,19 @@ triangleMobileContainer.forEach((triangle, whichSubmenuClicked) => {
   });
 });
 
-/* Search bar button */
+/* Search bar button - open the link to the first tool found in the search bar results window */
 const searchBarButton = document.getElementById("search-bar-btn");
 searchBarButton.addEventListener("click", () => {
-  console.log("click");
+  if (searchBarResults.children.length >= 1) {
+    const linkOfFirstToolInSearchBar = searchBarResults.children[0].children[0].href.toString();
+    window.open(linkOfFirstToolInSearchBar);
+  }
 });
 
 /* ------------- SEARCH BAR INPUT --------------  */
 /* Responds to changes in search bar input */
 const searchBarInput = document.getElementById("search-bar-input");
 searchBarInput.addEventListener("input", () => {
-  if (searchBarInput.value.length >= 2) {
-    search();
-  } else {
-    searchBarResults.innerHTML = "";
-  }
+  if (searchBarInput.value.length >= 2) searchForMatchingTools();
+  else searchBarResults.innerHTML = "";
 });

@@ -77,7 +77,7 @@
   top: 25px;
   margin-left: 240px;
   width: 300px;
-  z-index: 1;
+  z-index: 2;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.3s, top 0.3s ease;
@@ -245,7 +245,7 @@
   max-width: 400px;
   visibility: hidden;
   opacity: 0;
-  z-index: 1;
+  z-index: 2;
   transition: visibility 0s, opacity 0.3s, top 0.3s ease;
 }
 
@@ -297,6 +297,11 @@
   height: 65%;
 }
 
+#search-bar-input:focus {
+  outline: none;
+  border-style: groove;
+}
+
 @media only screen and (min-width: 992px) {
   #search-bar-input {
     width: 65%;
@@ -329,7 +334,7 @@
   z-index: 1;
 }
 
-@media (min-width: 992px) {
+@media only screen and (min-width: 992px) {
   #search-bar-results {
     top: 57px;
     width: 80%;
@@ -338,4 +343,8 @@
 
 #search-bar-results > div {
   padding: 8px 12px;
+}
+
+#search-bar-results > div > a:hover {
+  color: var(--main-color-light);
 }

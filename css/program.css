@@ -35,7 +35,7 @@
   cursor: pointer;
 }
 
-@media (min-width: 576px) {
+@media only screen and (min-width: 576px) {
   .program-form-btn-calculate,
   .program-form-btn-reset {
     width: 25%;
