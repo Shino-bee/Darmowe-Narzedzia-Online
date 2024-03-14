@@ -19,7 +19,7 @@
 }
 
 .content-section-text {
-  background: linear-gradient(135deg, hsla(120, 43%, 21%, 1) 50%, hsl(120, 57%, 35%) 100%);
+  background: var(--bgcolor-gradient-title-description);
   padding: 15px;
 }
 

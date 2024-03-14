@@ -169,7 +169,7 @@
   color: var(--main-color-light);
 }
 
-#menu-dropdown-background {
+#menu-dropdown-invisible-background {
   display: none;
   position: fixed;
   width: 100vw;
@@ -325,7 +325,7 @@
 #search-bar-results {
   font-size: 16px;
   background-color: var(--main-color-lighter);
-  background-color: rgba(64, 76, 83, 0.7);
+  background-color: rgba(64, 76, 83, 0.8);
   border-radius: 8px;
   position: absolute;
   top: 55px;

@@ -2,7 +2,7 @@
 // Menu mobile dropdown, his default "top" value and invisible background if menu is opened
 const menuMobileDropdown = document.getElementById("menu-mobile-dropdown-container");
 const menuMobileDropdownTopDefaultValue = getComputedStyle(menuMobileDropdown).top;
-const menuMobileDropdownBackground = document.getElementById("menu-dropdown-background");
+const menuMobileDropdownBackground = document.getElementById("menu-dropdown-invisible-background");
 
 // Submenu mobile container, triangle of submenu button and
 const submenuMobileContainer = document.getElementsByClassName("submenu-mobile-container");
@@ -111,7 +111,7 @@ for (let i = 0; i < menuMobileLinks.length; i++) {
 
 /* Hide mobile menu navbar (background) - click on invisible background to hide mobile menu navbar */
 document
-  .getElementById("menu-dropdown-background")
+  .getElementById("menu-dropdown-invisible-background")
   .addEventListener("click", menuMobileDropdownHide);
 
 /* Open mobile submenu - click on the box with triangle in mobile dropdown menu to expand the submenu */
