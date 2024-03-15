@@ -41,6 +41,18 @@
       .program-form-btns {
         margin-bottom: 10px;
       }
+
+      .remove-tenure-data-row {
+        background-color: var(--bgcolor-menu-dropdown);
+        color: var(--main-color-light);
+        border-color: rgb(160, 158, 158);
+        border-radius: 15px;
+        border-width: 1px;
+        font-size: 15px;
+        margin: 5px 0px;
+        width: 48px;
+        height: 28px;
+      }
     </style>
 
     <!-- Favicon -->
@@ -63,7 +75,7 @@
     <!-- JS -->
     <script defer type="text/javascript" src="../../js/_main.js"></script>
     <script defer type="text/javascript" src="../../js/header.js"></script>
-    <script async type="module" src="../../js/online_calculators/tenure_calculator.js"></script>
+    <script defer type="module" src="../../js/online_calculators/tenure_calculator.js"></script>
   </head>
 
   <body>
@@ -136,7 +148,7 @@
                 id="tenure-calculator-result"
                 readonly
               />
-              <p id="tenure-calculator-added-dates"></p>
+              <div id="tenure-calculator-added-dates"></div>
             </form>
           </div>
         </section>
