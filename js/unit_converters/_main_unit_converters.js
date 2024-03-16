@@ -36,6 +36,7 @@ const unitConverterBtnCalculate = document.getElementsByClassName("program-form-
 unitConverterBtnCalculate.addEventListener("click", (event) => {
   event.preventDefault();
   const programFormValidity = document.getElementsByClassName("program-form")[0].checkValidity();
+  console.log(programFormValidity);
   if (programFormValidity === true) {
     const tableOfUnits = document.getElementById("program-table");
     const unitToConvertTableNames = document.getElementsByClassName("unit-to-convert");

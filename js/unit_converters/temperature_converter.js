@@ -4,7 +4,7 @@ export function temperature_converter(indexValueInTable, whichValue, value) {
     Fahrenheit: 32,
     kelvin: 273.15,
   };
-  value = parseInt(value);
+  value = parseFloat(value);
 
   switch (indexValueInTable) {
     case 0:

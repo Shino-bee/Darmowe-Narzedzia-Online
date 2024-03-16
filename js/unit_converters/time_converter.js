@@ -14,7 +14,7 @@ export function time_converter(indexValueInTable, whichValue, value) {
     millennium: 31557600000,
   };
   const baseUnitValue = timeUnitValues[whichValue];
-  value = parseInt(value);
+  value = parseFloat(value);
 
   switch (indexValueInTable) {
     case 0:

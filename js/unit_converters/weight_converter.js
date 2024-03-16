@@ -10,7 +10,7 @@ export function weight_converter(indexValueInTable, whichValue, value) {
     ton: 0.001,
   };
   const baseUnitValue = weightUnitValues[whichValue];
-  value = parseInt(value);
+  value = parseFloat(value);
 
   switch (indexValueInTable) {
     case 0:

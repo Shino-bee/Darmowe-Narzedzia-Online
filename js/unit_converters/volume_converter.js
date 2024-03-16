@@ -15,7 +15,7 @@ export function volume_converter(indexValueInTable, whichValue, value) {
     "cubic mile": 2.399128636e-10,
   };
   const baseUnitValue = volumeUnitValues[whichValue];
-  value = parseInt(value);
+  value = parseFloat(value);
 
   switch (indexValueInTable) {
     case 0:

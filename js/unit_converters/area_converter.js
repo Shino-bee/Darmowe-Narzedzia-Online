@@ -13,7 +13,7 @@ export function area_converter(indexValueInTable, whichValue, value) {
     acre: 0.0002471054,
   };
   const baseUnitValue = areaUnitValues[whichValue];
-  value = parseInt(value);
+  value = parseFloat(value);
 
   switch (indexValueInTable) {
     case 0:

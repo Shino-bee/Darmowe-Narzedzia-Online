@@ -13,7 +13,7 @@ export function length_converter(indexValueInTable, whichValue, value) {
     "light year": 1.0570087076377e-16,
   };
   const baseUnitValue = lengthUnitValues[whichValue];
-  value = parseInt(value);
+  value = parseFloat(value);
 
   switch (indexValueInTable) {
     case 0:
