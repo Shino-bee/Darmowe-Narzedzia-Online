@@ -15,15 +15,16 @@
   --bgcolor-tool-icon: rgb(189, 183, 107);
   --bgcolor-menu-dropdown: rgba(64, 76, 83, 0.97);
   --bgcolor-footer: rgb(41, 43, 46);
-
   --bgcolor-gradient-title-description: linear-gradient(
     135deg,
     hsla(120, 43%, 21%, 1) 50%,
     hsl(120, 57%, 35%) 100%
   );
 
-  --navbar-border: 3px outset rgb(160, 158, 158);
-  --tools-border: 5px groove rgb(51, 105, 105);
+  --border-navbar: 3px outset rgb(160, 158, 158);
+  --border-tools: 5px groove rgb(51, 105, 105);
+
+  --box-shadow-inputs: 0px 0px 5px 2px rgba(66, 68, 90, 1);
 
   scroll-behavior: smooth;
 }

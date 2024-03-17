@@ -17,16 +17,18 @@
       #end-date {
         background: var(--main-color-darklight);
         color: var(--main-color-lighter);
+        border: 1px solid var(--main-color-darklighter);
         color-scheme: dark;
         font-size: 0.8em;
         padding: 4px 8px;
         margin-bottom: 15px;
+        width: 100%;
         height: 30px;
       }
 
       #birth-date:focus,
       #end-date:focus {
-        box-shadow: 0px 0px 5px 2px rgba(66, 68, 90, 1);
+        box-shadow: var(--box-shadow-inputs);
         outline: none;
       }
     </style>

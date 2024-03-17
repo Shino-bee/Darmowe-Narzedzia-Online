@@ -1,0 +1,38 @@
+/* Styles for error pages for ex. page 404 (Not found) */
+#main {
+  color: var(--main-color-lighter);
+  text-align: center;
+}
+
+.section {
+  padding: 4rem 2rem;
+}
+
+.section .website-name {
+  font-weight: 400;
+}
+
+.section .error {
+  font-size: 150px;
+  text-shadow: 25px 25px 8px rgba(0, 0, 0, 0.4);
+}
+
+.page {
+  margin: 2rem 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.back-home-btn {
+  background: var(--main-color-orange);
+  border-radius: 20px;
+  box-shadow: 0 15px 15px -11px rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  padding: 0.75rem 1rem 0.6rem;
+  font-weight: 600;
+  transition: all 0.15s ease-in-out;
+}
+
+.back-home-btn:hover {
+  color: var(--main-color-light);
+}

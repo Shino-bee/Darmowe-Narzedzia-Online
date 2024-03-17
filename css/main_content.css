@@ -48,7 +48,7 @@
 }
 
 .section-tool {
-  border: var(--tools-border);
+  border: var(--border-tools);
   border-radius: 15px;
   display: flex;
   align-items: center;
