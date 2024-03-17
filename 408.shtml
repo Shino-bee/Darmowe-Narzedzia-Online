@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Darmowe Narzędzia Online" />
+    <meta name="author" content="Michał Podowski (Shino-bee)" />
+
+    <title>Błąd 408 - Upłynął limit czasu żądania</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/_main.css" />
+    <style>
+      #main {
+        color: var(--main-color-lighter);
+        text-align: center;
+      }
+
+      .section {
+        padding: 4rem 2rem;
+      }
+
+      .section .website-name {
+        font-weight: 400;
+      }
+
+      .section .error {
+        font-size: 150px;
+        text-shadow: 25px 25px 8px rgba(0, 0, 0, 0.4);
+      }
+
+      .page {
+        margin: 2rem 0;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .back-home-btn {
+        background: var(--main-color-orange);
+        border-radius: 20px;
+        box-shadow: 0 15px 15px -11px rgba(0, 0, 0, 0.4);
+        display: inline-block;
+        padding: 0.75rem 1rem 0.6rem;
+        font-weight: 600;
+        transition: all 0.15s ease-in-out;
+      }
+
+      .back-home-btn:hover {
+        color: var(--main-color-light);
+      }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="images/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main id="main">
+      <div class="section">
+        <h1 class="website-name">Darmowe Narzędzia Online</h1>
+        <h1 class="error">408</h1>
+        <div class="page">
+          Upłynął limit czasu żądania, ponieważ żądanie nie zostało zrealizowane w określonym
+          limicie czasowym
+        </div>
+        <a class="back-home-btn" href="../../index.html">Wróć na stronę główną</a>
+      </div>
+    </main>
+  </body>
+</html>
