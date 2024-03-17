@@ -10,7 +10,7 @@
     <title>Błąd 401 - Nieautoryzowany dostęp</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/_main.css" />
+    <link rel="stylesheet" href="../../css/_main.css" />
     <style>
       #main {
         color: var(--main-color-lighter);

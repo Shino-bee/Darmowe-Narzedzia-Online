@@ -10,7 +10,7 @@
     <title>Błąd 408 - Upłynął limit czasu żądania</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/_main.css" />
+    <link rel="stylesheet" href="../../css/_main.css" />
     <style>
       #main {
         color: var(--main-color-lighter);
