@@ -105,7 +105,7 @@
 
 .menu-mobile-link:hover {
   background-color: var(--main-color-darklighter);
-  opacity: 0.85;
+  opacity: 0.95;
 }
 
 /* Submenu */
@@ -266,7 +266,7 @@
 .menu-elements:hover .menu-subelements,
 .menu-subelements:hover + .menu-subelements {
   visibility: visible;
-  opacity: 0.85;
+  opacity: 0.95;
   top: 57px;
 }
 
@@ -324,8 +324,7 @@
 
 #search-bar-results {
   font-size: 16px;
-  background-color: var(--main-color-lighter);
-  background-color: rgba(64, 76, 83, 0.8);
+  background-color: rgba(64, 76, 83, 0.95); /* --main-color-darklighter */
   border-radius: 8px;
   position: absolute;
   top: 55px;

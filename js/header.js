@@ -40,7 +40,7 @@ function menuMobileDropdownHide() {
 function menuMobileDropdownShow() {
   menuMobileDropdown.style.transition = "visibility 0s, opacity 0.3s, top 0.3s ease";
   menuMobileDropdown.style.visibility = "visible";
-  menuMobileDropdown.style.opacity = 0.9;
+  menuMobileDropdown.style.opacity = 0.95;
   menuMobileDropdown.style.top = "56px";
   Array.from(submenuMobileContainer).forEach((submenu) => {
     submenu.style.display = "block";
