@@ -6,3 +6,16 @@
 
 /* Import colors and base styles for html tags */
 @import url(./_base.css);
+
+/* Load fonts from files */
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  src: url("../../fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: italic;
+  src: url("../../fonts/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
+}

@@ -33,6 +33,13 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  width: 100%;
+}
+
+@media only screen and (max-width: 360px) {
+  #header-nav-h {
+    font-size: 1em;
+  }
 }
 
 /* --------------------------- */
@@ -76,7 +83,7 @@
   position: absolute;
   top: 25px;
   margin-left: 240px;
-  width: 300px;
+  width: 310px;
   z-index: 2;
   visibility: hidden;
   opacity: 0;
