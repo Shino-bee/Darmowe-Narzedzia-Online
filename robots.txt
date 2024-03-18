@@ -7,7 +7,7 @@ Disallow: /408.shtml
 Disallow: /500.shtml
 Disallow: /502.shtml
 Disallow: /503.shtml
-Disallow: /pages/_templates/template_header.shtml
-Disallow: /pages/_templates/template_footer.shtml
+Disallow: /pages/_templates/template_header.html
+Disallow: /pages/_templates/template_footer.html
 
 Sitemap: https://narzedziaonline.org/sitemap.xml
