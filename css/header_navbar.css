@@ -248,6 +248,7 @@
   list-style-type: none;
   position: absolute;
   top: 35px;
+  transform: translateX(-5px);
   width: 25%;
   max-width: 400px;
   visibility: hidden;
@@ -353,4 +354,8 @@
 
 #search-bar-results > div > a:hover {
   color: var(--main-color-light);
+}
+
+#search_bar_magnifier {
+  filter: invert(96%) sepia(9%) saturate(522%) hue-rotate(325deg) brightness(110%) contrast(86%);
 }

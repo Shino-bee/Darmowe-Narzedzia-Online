@@ -57,6 +57,10 @@
   }
 }
 
-#main-image-text > * {
+#main-image-text > h1 {
+  padding: 15px;
+}
+#main-image-text > h2 {
+  font-size: 1em;
   padding: 15px;
 }
