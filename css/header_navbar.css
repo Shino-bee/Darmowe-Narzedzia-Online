@@ -321,6 +321,10 @@
   background-color: var(--main-color-green);
   border: var(--border-navbar);
   border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-left: 5px;
   width: 15%;
   height: 65%;
@@ -328,6 +332,13 @@
 
 #search-bar-btn:active {
   border-style: inset;
+}
+
+#search_bar_magnifier {
+  filter: invert(96%) sepia(9%) saturate(522%) hue-rotate(325deg) brightness(110%) contrast(86%);
+  position: absolute;
+  width: 90%;
+  height: 90%;
 }
 
 #search-bar-results {
@@ -354,8 +365,4 @@
 
 #search-bar-results > div > a:hover {
   color: var(--main-color-light);
-}
-
-#search_bar_magnifier {
-  filter: invert(96%) sepia(9%) saturate(522%) hue-rotate(325deg) brightness(110%) contrast(86%);
 }
