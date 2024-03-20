@@ -24,7 +24,7 @@
   border-color: rgb(160, 158, 158);
   border-radius: 20px;
   border-width: 1px;
-  font-size: 15px;
+  font-size: 1rem;
   margin: 5px 0px;
   width: 125px;
   height: 35px;
@@ -51,7 +51,7 @@
 }
 
 #program-table {
-  font-size: 15px;
+  font-size: 1.1rem;
   width: 100%;
   display: block;
   height: 0;
@@ -62,7 +62,7 @@
 
 #program-table td {
   width: 100vw;
-  padding: 5px 10px;
+  padding: 9px 10px 5px 10px;
   border: 2px double var(--main-color-darklight);
 }
 

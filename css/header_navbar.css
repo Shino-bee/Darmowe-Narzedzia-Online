@@ -36,6 +36,10 @@
   width: 100%;
 }
 
+#header-nav-h > a {
+  padding-top: 5px;
+}
+
 @media only screen and (max-width: 360px) {
   #header-nav-h {
     font-size: 1em;
@@ -236,8 +240,6 @@
 }
 
 .menu-elements:hover .triangle {
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
   border-top: 7px solid var(--main-color-lighter);
   animation: bounce 0.8s infinite alternate;
 }
@@ -342,7 +344,7 @@
 }
 
 #search-bar-results {
-  font-size: 16px;
+  font-size: 1rem;
   background-color: rgba(64, 76, 83, 0.95); /* --main-color-darklighter */
   border-radius: 8px;
   position: absolute;

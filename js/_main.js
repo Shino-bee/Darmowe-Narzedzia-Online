@@ -1,15 +1,24 @@
-// Load <header> navbar template from file (template_header.html)
-const xhrHeader = new XMLHttpRequest();
-xhrHeader.onload = function () {
-  document.getElementById("header").innerHTML = this.response;
-};
-xhrHeader.open("GET", "../../pages/_templates/template_header.html", false);
-xhrHeader.send();
+/* Load async <header> navbar template from file (template_header.html) */
+async function getHeader() {
+  const headerUrl = "../../pages/_templates/template_header.html";
+  const response = await fetch(headerUrl);
+  const html = await response.text();
+  document.getElementById("header").innerHTML = html;
 
-// Load <footer> template from file (template_footer.html)
-const xhrFooter = new XMLHttpRequest();
-xhrFooter.onload = function () {
-  document.getElementById("footer").innerHTML = this.response;
-};
-xhrFooter.open("GET", "../../pages/_templates/template_footer.html", false);
-xhrFooter.send();
+  // Append <script> tag with header.js file to the <head>
+  const script = document.createElement("script");
+  script.defer = true;
+  script.type = "text/javascript";
+  script.src = "../../js/header.js";
+  document.head.appendChild(script);
+}
+getHeader();
+
+/* Load async <footer> template from file (template_footer.html) */
+async function getFooter() {
+  const footerUrl = "../../pages/_templates/template_footer.html";
+  const response = await fetch(footerUrl);
+  const html = await response.text();
+  document.getElementById("footer").innerHTML = html;
+}
+getFooter();
