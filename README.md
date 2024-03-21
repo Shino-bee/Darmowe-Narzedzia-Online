@@ -1,4 +1,4 @@
-# Darmowe Narzędzia Online (Free Tools Online)
+# Free Tools Online
 
 ## Description
 
@@ -6,14 +6,14 @@ Free Tools Online is a Polish-language website offering unit converters, online 
 
 ## Website
 
-The website is available at [narzedziaonline.org](https://narzedziaonline.org).
+The website is available at [narzedziaonline.org](https://narzedziaonline.org)
 
 ## Features
 
-- Unit converters (e.g., length, mass, time, temperature),
-- Online calculators (e.g., percentage calculator, average calculator, probability calculator, tenure calculator),
-- Text content creation tools (e.g., text content analyzer, case converter),
-- Other useful utilities (e.g., chart creator, dice rolling simulator)
+- Unit converters (e.g., length, mass, time, temperature)
+- Online calculators (e.g., percentage calculator, average calculator, probability calculator, tenure calculator)
+- Text content creation tools (e.g., text content analyzer, case converter)
+- Other useful utilities (e.g., chart maker, dice rolling simulator)
 
 ## Contributors
 
