@@ -1,13 +1,4 @@
 User-agent: *
-Disallow: /400.shtml
-Disallow: /401.shtml
-Disallow: /403.shtml
-Disallow: /404.shtml
-Disallow: /408.shtml
-Disallow: /500.shtml
-Disallow: /502.shtml
-Disallow: /503.shtml
-Disallow: /pages/_templates/template_header.html
-Disallow: /pages/_templates/template_footer.html
+Allow: /
 
-Sitemap: https://narzedziaonline.org/sitemap.xml
+sitemap: https://narzedziaonline.org/sitemap.xml
