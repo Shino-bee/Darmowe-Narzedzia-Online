@@ -3,7 +3,15 @@ const programFormBtnExecute = document.getElementsByClassName("program-form-btn-
 programFormBtnExecute.addEventListener("click", (event) => {
   event.preventDefault();
   const inputRot13 = document.getElementById("input-rot13").value;
-  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  const withOrWithoutPolishLetters = (() => {
+    if (document.getElementById("radio-with-pl-letters").checked) return true;
+    else if (document.getElementById("radio-without-pl-letters").checked) return false;
+  })();
+  const alphabetWithoutPolishLetters = "abcdefghijklmnopqrstuvwxyz".split("");
+  const alphabetWithPolishLetters = "aąbcćdeęfghijklłmnoópqrsśtuvwxyzźż".split("");
+  const alphabet = withOrWithoutPolishLetters
+    ? alphabetWithPolishLetters
+    : alphabetWithoutPolishLetters;
   let changedText = "";
   for (let i = 0; i < inputRot13.length; i++) {
     const char = inputRot13[i];
@@ -12,9 +20,9 @@ programFormBtnExecute.addEventListener("click", (event) => {
       continue;
     }
     if (alphabet.includes(char.toLowerCase())) {
-      let index = alphabet.indexOf(char.toLowerCase()) + 13;
-      if (index >= 26) {
-        index -= 26;
+      let index = alphabet.indexOf(char.toLowerCase()) + alphabet.length / 2;
+      if (index >= alphabet.length) {
+        index -= alphabet.length;
       }
       if (char === char.toUpperCase()) {
         changedText += alphabet[index].toUpperCase();
