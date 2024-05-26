@@ -96,14 +96,15 @@ Wpadła gruszka do fartuszka,&#13;&#10;A za gruszką dwa jabłuszka,&#13;&#10;A 
           <h3>Na czym polega szyfrowanie metodą ROT13?</h3>
           <p>
             Szyfrowanie ROT13 (Rotation 13) jest prostą metodą szyfrowania polegającą na
-            przesunięciu liter w alfabecie o 13 pozycji. Jest to specyficzna odmiana szyfru Cezara,
-            gdzie przesunięcie wynosi 13 liter. Dzięki temu przesunięciu litera A zostaje
-            zaszyfrowana jako N, litera B jako O itd.
+            przesunięciu liter w alfabecie o 13 pozycji (o 17 pozycji w przypadku uwzględnienia
+            polskich znaków). Jest to specyficzna odmiana szyfru Cezara, gdzie przesunięcie wynosiło
+            13 liter. Dzięki temu po przesunięciu litera A zostaje zaszyfrowana jako N, litera B
+            jako O itd.
           </p>
           <p>
             Aby odszyfrować tekst, wystarczy ponownie zastosować szyfrowanie ROT13, ponieważ
-            przesunięcie o 13 liter w alfabecie w obie strony spowoduje powrót do oryginalnego
-            tekstu (polskie znaki pozostają bez zmian).
+            przesunięcie o 13 liter (o 17 liter jeśli uwzględnia się polskie znaki) w alfabecie w
+            obie strony spowoduje powrót do oryginalnego tekstu.
           </p>
           <p>
             Szyfrowanie ROT13 jest jednym z najprostszych i najmniej bezpiecznych metod szyfrowania.
@@ -115,7 +116,8 @@ Wpadła gruszka do fartuszka,&#13;&#10;A za gruszką dwa jabłuszka,&#13;&#10;A 
           <p>Przykład szyfrowania tekstu przy pomocy metody ROT13:</p>
           <ul>
             <li>Oryginalny tekst:&emsp;"To jest szyfrowanie ROT13."</li>
-            <li>Zaszyfrowany tekst:&emsp;"Gb wrfg fmlsebjvar EBG13."</li>
+            <li>Zaszyfrowany tekst bez polskich znaków:&emsp;"Gb wrfg fmlsebjnavr EBG13."</li>
+            <li>Zaszyfrowany tekst z polskimi znakami:&emsp;"Fą xsef elktdąinaws DĄF13."</li>
           </ul>
         </section>
       </article>
