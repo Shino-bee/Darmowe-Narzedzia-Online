@@ -9,6 +9,18 @@
 
     <title>Kreator wykresów - Darmowe Narzędzia Online</title>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7V3FF45K9J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-7V3FF45K9J");
+    </script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="../../css/_main.css" />
     <link rel="stylesheet" href="../../css/program.css" />
@@ -272,7 +284,7 @@
                 Zapisz plik z danymi
               </button>
               <button type="button" id="upload-data-file-btn" class="program-form-btn-reset">
-                Załaduj plik z danymi
+                Wczytaj plik z danymi
               </button>
             </div>
             <input type="file" id="fileInput" style="display: none" />
