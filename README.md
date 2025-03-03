@@ -6,7 +6,7 @@ Free Tools Online is a Polish-language website offering unit converters, online 
 
 ## Website
 
-The website is available at [shino-bee.github.io]([https://shino-bee.github.io/))
+The website is available at [shino-bee.github.io](https://shino-bee.github.io/)
 
 ## Features
 
