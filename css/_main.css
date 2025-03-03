@@ -1,7 +1,7 @@
 /* Import styles for header, main image, main content and footer */
-@import url(./header_navbarcss);
-@import url(./main_imagecss);
-@import url(./main_contentcss);
+@import url(./header_navbar.css);
+@import url(./main_image.css);
+@import url(./main_content.css);
 @import url(./footer.css);
 
 /* Import colors and base styles for html tags */
