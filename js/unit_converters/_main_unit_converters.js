@@ -10,17 +10,17 @@ const path = window.location.pathname;
 const page = path.split("/").pop();
 console.log(page);
 let unitCoverterFunction = () => {};
-if (page === "length_converter.html") {
+if (page === "length_converter") {
   unitCoverterFunction = length_converter;
-} else if (page === "weight_converter.html") {
+} else if (page === "weight_converter") {
   unitCoverterFunction = weight_converter;
-} else if (page === "temperature_converter.html") {
+} else if (page === "temperature_converter") {
   unitCoverterFunction = temperature_converter;
-} else if (page === "area_converter.html") {
+} else if (page === "area_converter") {
   unitCoverterFunction = area_converter;
-} else if (page === "volume_converter.html") {
+} else if (page === "volume_converter") {
   unitCoverterFunction = volume_converter;
-} else if (page === "time_converter.html") {
+} else if (page === "time_converter") {
   unitCoverterFunction = time_converter;
 }
 
