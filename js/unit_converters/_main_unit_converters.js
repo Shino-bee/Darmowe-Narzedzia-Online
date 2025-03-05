@@ -34,6 +34,7 @@ unitToConvertOptions.addEventListener("change", () => {
 // Calculate button - calculates the results and changes content (text and results) in the table and shows table if is not displayed
 const unitConverterBtnCalculate = document.getElementsByClassName("program-form-btn-calculate")[0];
 unitConverterBtnCalculate.addEventListener("click", (event) => {
+  console.log("CLICK CALCULATE");
   event.preventDefault();
   const programFormValidity = document.getElementsByClassName("program-form")[0].checkValidity();
   if (programFormValidity === true) {
