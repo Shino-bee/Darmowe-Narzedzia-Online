@@ -8,6 +8,7 @@ import { time_converter } from "./time_converter.js";
 // Currently loaded page
 const path = window.location.pathname;
 const page = path.split("/").pop();
+console.log(page);
 let unitCoverterFunction = () => {};
 if (page === "length_converter.html") {
   unitCoverterFunction = length_converter;

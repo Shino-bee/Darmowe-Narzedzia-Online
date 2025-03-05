@@ -1,4 +1,6 @@
 export function length_converter(indexValueInTable, whichValue, value) {
+  console.log("METRY ELO:", value, " || ", (value / baseUnitValue) * lengthUnitValues["meter"]);
+
   const lengthUnitValues = {
     meter: 1,
     kilometer: 0.001,
@@ -17,7 +19,6 @@ export function length_converter(indexValueInTable, whichValue, value) {
 
   switch (indexValueInTable) {
     case 0:
-      console.log("METRY ELO:", value, " || ", (value / baseUnitValue) * lengthUnitValues["meter"]);
       return (value / baseUnitValue) * lengthUnitValues["meter"];
     case 1:
       return (value / baseUnitValue) * lengthUnitValues["kilometer"];
