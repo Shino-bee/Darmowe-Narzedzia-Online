@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Darmowe Narzędzia Online" />
+    <meta name="author" content="Michał Podowski (Shino-bee)" />
+
+    <title>Zmienianie wielkości liter - Darmowe Narzędzia Online</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-56EWLJ2NBM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-56EWLJ2NBM");
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/_main.css" />
+    <link rel="stylesheet" href="../../css/program.css" />
+    <style>
+      #input-textarea,
+      #output-textarea {
+        background: var(--main-color-darklight);
+        color: var(--main-color-lighter);
+        color-scheme: dark;
+        font-size: 1rem;
+        padding: 4px 8px;
+        margin: 5px 0 15px 0;
+        resize: vertical;
+        height: auto;
+      }
+
+      #output-textarea {
+        margin: 15px 0 0 0;
+        width: 100%;
+      }
+
+      #radio-btns {
+        display: block;
+        margin-bottom: 10px;
+        letter-spacing: 0.025em;
+      }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="../../images/favicon.ico" />
+
+    <!-- JS -->
+    <script async type="text/javascript" src="../../js/_main.js"></script>
+    <script
+      defer
+      type="text/javascript"
+      src="../../js/narzedzia_tresci_tekstowych/zmienianie_wielkosci_liter.js"
+    ></script>
+  </head>
+
+  <body>
+    <div id="menu-dropdown-invisible-background"></div>
+    <header id="header"></header>
+    <main id="main">
+      <section id="main-image">
+        <img id="main-image-img" src="../../images/main-image-tools.webp" alt="" />
+        <!-- Image source: pixabay.com -->
+        <div id="main-image-text">
+          <h1>Zmienianie wielkości liter</h1>
+          <h2>
+            Narzędzie do zmieniania wielkości liter w tekście przy użyciu wybranej opcji formatu
+          </h2>
+        </div>
+      </section>
+
+      <article id="main-article-content">
+        <section id="content-section-program" class="content-section-styles">
+          <iframe
+            name="hiddenFrame"
+            style="
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              width: 1px;
+              height: 1px;
+              display: none;
+            "
+          ></iframe>
+          <form class="program-form" target="hiddenFrame">
+            <label for="input-textarea"
+              >Wstaw tekst i wybierz opcję formatu, według której chcesz dokonać zmiany wielkości
+              liter:</label
+            >
+            <textarea
+              name="input-textarea"
+              id="input-textarea"
+              rows="12"
+              placeholder="Wpisz lub wklej swój tekst tutaj"
+            ></textarea>
+            <div id="radio-btns">
+              <div>
+                <input type="radio" name="caseFormat" id="choice1" value="sentence case" checked />
+                <label for="choice1">Litery jak w zdaniu</label>
+              </div>
+              <div>
+                <input type="radio" name="caseFormat" id="choice2" value="lower case" />
+                <label for="choice2">małe litery</label>
+              </div>
+              <div>
+                <input type="radio" name="caseFormat" id="choice3" value="upper case" />
+                <label for="choice3">WIELKIE LITERY</label>
+              </div>
+              <div>
+                <input type="radio" name="caseFormat" id="choice4" value="capitalized case" />
+                <label for="choice4">Pierwsza Litera Wyrazu Pisana Wielką Literą</label>
+              </div>
+              <div>
+                <input type="radio" name="caseFormat" id="choice5" value="inverse case" />
+                <label for="choice5">LiTeRy pIsAnE NaPrZeMiEnNiE</label>
+              </div>
+            </div>
+            <div class="program-form-btns">
+              <button type="submit" class="program-form-btn-calculate">Wykonaj</button>
+              <button type="reset" class="program-form-btn-reset">Wyczyść</button>
+            </div>
+          </form>
+          <textarea id="output-textarea" rows="8" readonly></textarea>
+        </section>
+        <section id="content-section-description" class="content-section-styles">
+          <h3>Czym jest narzędzie do zmieniania wielkości liter?</h3>
+          <p>
+            To narzędzie do konwersji tekstu umożliwiające zmianę wielkości liter pozwalające na
+            przekształcanie tekstu między różnymi rodzajami formatowania liter, takimi jak małe
+            litery, wielkie litery, kapitalki (pierwsza litera duża, reszta mała) oraz wariant
+            naprzemiennych liter (duża, mała, duża, mała itd.). Narzędzie to jest przydatne w wielu
+            sytuacjach, w których konieczne jest dostosowanie formatowania tekstu do określonych
+            wymagań lub preferencji.
+          </p>
+          <p>
+            Narzędzie może być przydatne podczas pisania dokumentów, artykułów czy pracy naukowej,
+            gdzie czasami trzeba zmienić sposób zapisu liter. Narzędzie to ułatwia zmianę
+            formatowania, bez konieczności ręcznej edycji każdej litery.
+          </p>
+          <p style="margin-bottom: 10px">
+            Narzędzia można także wykorzystać w projektach graficznych, na stronach internetowych
+            lub w prezentacjach, w których tekst może być prezentowany w różnych stylach, co dodaje
+            wizualnego zróżnicowania i akcentów, a także przy korekcie tekstu, w którym często
+            trzeba dostosować wielkość liter w odpowiednich miejscach, np. poprawiając błędy w
+            pisowni nazw własnych.
+          </p>
+        </section>
+      </article>
+    </main>
+    <footer id="footer"></footer>
+  </body>
+</html>

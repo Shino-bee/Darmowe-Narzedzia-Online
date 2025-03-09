@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Darmowe Narzędzia Online" />
+    <meta name="author" content="Michał Podowski (Shino-bee)" />
+
+    <title>Kalkulator stażu pracy - Darmowe Narzędzia Online</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-56EWLJ2NBM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-56EWLJ2NBM");
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/_main.css" />
+    <link rel="stylesheet" href="../../css/program.css" />
+    <style>
+      input {
+        background: var(--main-color-darklight);
+        color: var(--main-color-lighter);
+        border: 1px solid var(--main-color-darklighter);
+        color-scheme: dark;
+        font-size: 1rem;
+        padding: 4px 8px;
+        margin: 5px 0px 15px 0px;
+        width: 100%;
+        height: 28px;
+      }
+
+      input:focus {
+        box-shadow: var(--box-shadow-inputs);
+        outline: none;
+      }
+
+      input[readonly] {
+        font-size: 1rem;
+      }
+
+      form > label {
+        margin-bottom: 0 !important;
+      }
+
+      .program-form-btns {
+        margin-bottom: 10px;
+      }
+
+      #tenure-calculator-added-dates > p {
+        font-size: 1.1rem;
+      }
+
+      .remove-tenure-data-row {
+        background-color: var(--bgcolor-menu-dropdown);
+        color: var(--main-color-light);
+        border-color: rgb(160, 158, 158);
+        border-radius: 15px;
+        border-width: 1px;
+        font-size: 1rem;
+        margin: 5px 0px;
+        width: 48px;
+        height: 28px;
+      }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="../../images/favicon.ico" />
+
+    <!-- JS -->
+    <script async type="text/javascript" src="../../js/_main.js"></script>
+    <script
+      defer
+      type="text/javascript"
+      src="../../js/kalkulatory_online/kalkulator_stazu_pracy.js"
+    ></script>
+  </head>
+
+  <body>
+    <div id="menu-dropdown-invisible-background"></div>
+    <header id="header"></header>
+    <main id="main">
+      <section id="main-image">
+        <img id="main-image-img" src="../../images/main-image-tools.webp" alt="" />
+        <!-- Image source: pixabay.com -->
+        <div id="main-image-text">
+          <h1>Kalkulator stażu pracy</h1>
+          <h2>
+            Narzędzie do obliczania stażu pracy po podaniu daty rozpoczęcia i zakończenia pracy
+          </h2>
+        </div>
+      </section>
+
+      <article id="main-article-content">
+        <section id="content-section-program" class="content-section-styles">
+          <iframe
+            name="hiddenFrame"
+            style="
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              width: 1px;
+              height: 1px;
+              display: none;
+            "
+          ></iframe>
+          <div id="program-tenure-calculator">
+            <form id="tenure-calculator-form" class="program-form" target="hiddenFrame">
+              <label for="tenure-calculator-input1" id="tenure-calculator-starting-label"
+                >Data rozpoczęcia pracy:</label
+              >
+              <input
+                type="date"
+                name="tenure-calculator-input1"
+                id="tenure-calculator-input1"
+                onclick="this.showPicker()"
+                required
+              />
+              <label for="tenure-calculator-input2">Data zakończenia pracy:</label>
+              <input
+                type="date"
+                name="tenure-calculator-input2"
+                id="tenure-calculator-input2"
+                onclick="this.showPicker()"
+                required
+              />
+              <div class="program-form-btns">
+                <button
+                  type="submit"
+                  id="tenure-calculator-btn-calculate"
+                  class="program-form-btn-calculate"
+                >
+                  Dodaj
+                </button>
+                <button
+                  type="reset"
+                  id="tenure-calculator-btn-reset"
+                  class="program-form-btn-reset"
+                >
+                  Wyczyść
+                </button>
+              </div>
+              <label for="tenure-calculator-result">Wynik stażu pracy:</label>
+              <input
+                type="text"
+                name="tenure-calculator-result"
+                id="tenure-calculator-result"
+                readonly
+              />
+              <div id="tenure-calculator-added-dates"></div>
+            </form>
+          </div>
+        </section>
+
+        <section id="content-section-description" class="content-section-styles">
+          <h3>Czym jest staż pracy?</h3>
+          <p>
+            Staż pracy odnosi się do ilości lat lub okresu, jaki pracownik przepracował w danym
+            miejscu zatrudnienia lub w ogóle w swojej karierze zawodowej. Jest to miara czasu
+            spędzonego na wykonywaniu różnych zadań, obowiązków i odpowiedzialności w ramach
+            zatrudnienia.
+          </p>
+          <p>
+            Staż pracy może być istotny z różnych powodów. Pracownicy z dłuższym stażem mają
+            zazwyczaj większe doświadczenie, co może wpłynąć na ich wynagrodzenie, awans i szanse na
+            zdobycie bardziej odpowiedzialnych stanowisk. Długi staż pracy w jednym miejscu może
+            również świadczyć o lojalności i zaangażowaniu pracownika wobec pracodawcy.
+          </p>
+          <p>
+            Warto zaznaczyć, że staż pracy może być liczony w różny sposób, w zależności od polityki
+            firmy lub prawa pracy danego kraju. Może być liczony od daty rozpoczęcia pracy u danego
+            pracodawcy, od momentu rozpoczęcia pracy w danej branży lub od innej określonej daty.
+            Ponadto, czas przepracowany na części etatu również jest zazwyczaj wliczany do stażu
+            pracy proporcjonalnie do wymiaru czasu pracy.
+          </p>
+          <p>Staż pracy może być mierzony na różne sposoby, w zależności od kontekstu:</p>
+          <ul>
+            <li>
+              Staż pracy w konkretnym miejscu zatrudnienia: odnosi się do ilości lat lub miesięcy,
+              które pracownik spędził w danej firmie, organizacji lub instytucji. Pracownicy często
+              otrzymują dodatki lub premie za długi staż w tej samej firmie.
+            </li>
+            <li>
+              Całkowity staż pracy: to suma wszystkich lat, które pracownik przepracował we
+              wszystkich miejscach zatrudnienia w swojej karierze zawodowej. Może obejmować różne
+              branże i dziedziny.
+            </li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    <footer id="footer"></footer>
+  </body>
+</html>
