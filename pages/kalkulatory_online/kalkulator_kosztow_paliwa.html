@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Darmowe Narzędzia Online" />
+    <meta name="author" content="Michał Podowski (Shino-bee)" />
+
+    <title>Kalkulator kosztów paliwa - Darmowe Narzędzia Online</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-56EWLJ2NBM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-56EWLJ2NBM");
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/_main.css" />
+    <link rel="stylesheet" href="../../css/program.css" />
+    <style>
+      input {
+        background: var(--main-color-darklight);
+        color: var(--main-color-lighter);
+        border: 1px solid var(--main-color-darklighter);
+        color-scheme: dark;
+        font-size: 1rem;
+        padding: 4px 8px;
+        margin: 5px 0px 15px 0px;
+        width: 100%;
+        height: 28px;
+      }
+
+      input:focus {
+        box-shadow: var(--box-shadow-inputs);
+        outline: none;
+      }
+
+      input[readonly] {
+        font-size: 1rem;
+      }
+
+      form > label {
+        margin-bottom: 0 !important;
+      }
+
+      .program-form-btns {
+        margin-bottom: 10px;
+      }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="../../images/favicon.ico" />
+
+    <!-- JS -->
+    <script async type="text/javascript" src="../../js/_main.js"></script>
+    <script
+      defer
+      type="text/javascript"
+      src="../../js/kalkulatory_online/kalkulator_kosztow_paliwa.js"
+    ></script>
+  </head>
+
+  <body>
+    <div id="menu-dropdown-invisible-background"></div>
+    <header id="header"></header>
+    <main id="main">
+      <section id="main-image">
+        <img id="main-image-img" src="../../images/main-image-tools.webp" alt="" />
+        <!-- Image source: pixabay.com -->
+        <div id="main-image-text">
+          <h1>Kalkulator kosztów paliwa</h1>
+          <h2>Narzędzie do obliczania kosztu przejazdu oraz ilości spalonego paliwa</h2>
+        </div>
+      </section>
+
+      <article id="main-article-content">
+        <section id="content-section-program" class="content-section-styles">
+          <iframe
+            name="hiddenFrame"
+            style="
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              width: 1px;
+              height: 1px;
+              display: none;
+            "
+          ></iframe>
+          <div id="program-fuel-cost-calculator">
+            <form id="fuel-cost-calculator-form" class="program-form" target="hiddenFrame">
+              <label for="fuel-cost-calculator-input1">Dystans (km):</label>
+              <input
+                type="number"
+                name="fuel-cost-calculator-input1"
+                id="fuel-cost-calculator-input1"
+                min="1"
+                step="any"
+                autocomplete="off"
+                required
+                value="100"
+              />
+              <label for="fuel-cost-calculator-input2">Spalanie na 100 km (L):</label>
+              <input
+                type="number"
+                name="fuel-cost-calculator-input2"
+                id="fuel-cost-calculator-input2"
+                min="1"
+                step="any"
+                autocomplete="off"
+                required
+                value="6"
+              />
+              <label for="fuel-cost-calculator-input3">Cena za litr paliwa (zł):</label>
+              <input
+                type="number"
+                name="fuel-cost-calculator-input3"
+                id="fuel-cost-calculator-input3"
+                min="0.01"
+                step="any"
+                autocomplete="off"
+                required
+                value="6.84"
+              />
+              <div class="program-form-btns">
+                <button
+                  type="submit"
+                  id="fuel-cost-calculator-btn-calculate"
+                  class="program-form-btn-calculate"
+                >
+                  Oblicz
+                </button>
+                <button
+                  type="reset"
+                  id="fuel-cost-calculator-btn-reset"
+                  class="program-form-btn-reset"
+                >
+                  Wyczyść
+                </button>
+              </div>
+              <label for="fuel-cost-calculator-result1">Koszt przejazdu:</label>
+              <input
+                type="text"
+                name="fuel-cost-calculator-result1"
+                id="fuel-cost-calculator-result1"
+                readonly
+              />
+              <label for="fuel-cost-calculator-result2">Ilość spalonego paliwa:</label>
+              <input
+                type="text"
+                name="fuel-cost-calculator-result2"
+                id="fuel-cost-calculator-result2"
+                readonly
+              />
+            </form>
+          </div>
+        </section>
+
+        <section id="content-section-description" class="content-section-styles">
+          <h3>Czym jest kalkulator kosztów paliwa?</h3>
+          <p>
+            Kalkulator kosztów paliwa to narzędzie, które pomaga oszacować lub obliczyć koszty
+            związane z użytkowaniem pojazdu związane ze spalaniem paliwa.
+          </p>
+          <p>
+            Jest to przydatne narzędzie dla kierowców, którzy chcą dowiedzieć się, ile będzie
+            kosztować podróż lub użytkowanie pojazdu w zależności od jego zużycia paliwa i ceny
+            paliwa na stacji.
+          </p>
+          <p>
+            Warto zauważyć, że dane wprowadzone do kalkulatora są estymacjami, a rzeczywiste koszty
+            mogą się różnić w zależności od zmian cen paliw na stacjach oraz rzeczywistego zużycia
+            paliwa przez pojazd, które mogą być nieco inne od podanych wartości. Niemniej jednak,
+            kalkulator kosztów paliwa stanowi użyteczne narzędzie do podejmowania bardziej
+            świadomych decyzji dotyczących użytkowania pojazdu i planowania kosztów podróży.
+          </p>
+          <p>Kalkulator oblicza koszt przejazdu oraz ilość spalonego paliwa na podstawie danych:</p>
+          <ul>
+            <li>
+              Dystans w km: jest to odległość, którą planujemy pokonać pojazdem. Może to być
+              odległość jednej konkretnej podróży lub suma dystansów kilku etapów trasy. Wprowadzamy
+              tę wartość w kilometrach.
+            </li>
+            <li>
+              Średnie spalanie paliwa na 100 km: to wartość określająca, ile litrów paliwa pojazd
+              zużywa na pokonanie dystansu 100 kilometrów. Jest to średnie zużycie paliwa przez
+              pojazd, które może różnić się w zależności od marki, modelu, stanu technicznego,
+              warunków jazdy i innych czynników. Wprowadzamy tę wartość w litrach.
+            </li>
+            <li>
+              Cena paliwa za litr: To aktualna cena jednego litra paliwa na stacji benzynowej. Ceny
+              paliwa mogą się różnić w zależności od regionu i czasu, ponieważ podlegają wpływom
+              rynkowym, sezonowym i politycznym. Wprowadzamy tę wartość w walucie kraju, w którym
+              obowiązuje dana cena.
+            </li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    <footer id="footer"></footer>
+  </body>
+</html>

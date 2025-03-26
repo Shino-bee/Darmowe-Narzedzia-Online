@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-sitemap: https://narzedziaonline.org/sitemap.xml
+Sitemap: https://narzedziaonline.netlify.app/sitemap.xml

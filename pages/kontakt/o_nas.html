@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Darmowe Narzędzia Online" />
+    <meta name="author" content="Michał Podowski (Shino-bee)" />
+
+    <title>O nas - Darmowe Narzędzia Online</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-56EWLJ2NBM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-56EWLJ2NBM");
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/_main.css" />
+    <style>
+      .content-section-styles > h3 {
+        background: var(--bgcolor-gradient-title-description);
+        padding: 15px;
+      }
+
+      .content-section-styles > div {
+        padding: 10px;
+      }
+
+      #regulations > div > ol > li {
+        padding-top: 10px;
+        margin-left: 20px;
+      }
+
+      #contact > div > form > * {
+        color: var(--main-color-lighter);
+        display: block;
+        margin-top: 2px;
+        outline: none;
+      }
+
+      #contact-input-name,
+      #contact-input-email,
+      #contact-input-message {
+        background-color: var(--main-color-darklight);
+        border: 1px solid var(--main-color-darklighter);
+        font-size: 1rem;
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 100%;
+        -webkit-text-fill-color: var(--main-color-lighter) !important;
+      }
+
+      #contact-input-name:focus,
+      #contact-input-email:focus,
+      #contact-input-message:focus {
+        box-shadow: var(--box-shadow-inputs);
+        outline: none;
+      }
+
+      #contact-input-message {
+        resize: none;
+      }
+
+      #contact-submit {
+        background-color: var(--main-color-darklighter);
+        border-radius: 15px;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        padding: 5px;
+        width: 100%;
+        height: 35px;
+        transition: 0.15s;
+      }
+
+      #contact-submit:hover {
+        background-color: rgb(74, 88, 94);
+      }
+
+      #thanks-msg {
+        display: none;
+        padding: 10px;
+      }
+
+      @media only screen and (min-width: 768px) {
+        #contact-input-name,
+        #contact-input-email,
+        #contact-input-message,
+        #contact-submit {
+          width: 65%;
+        }
+      }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="../../images/favicon.ico" />
+
+    <!-- JS -->
+    <script async type="text/javascript" src="../../js/_main.js"></script>
+  </head>
+
+  <body>
+    <div id="menu-dropdown-invisible-background"></div>
+    <header id="header"></header>
+    <main id="main">
+      <section id="main-image">
+        <img id="main-image-img" src="../../images/main-image-tools.webp" alt="" />
+        <!-- Image source: pixabay.com -->
+        <div id="main-image-text">
+          <h1>Darmowe Narzędzia Online</h1>
+          <h2>Użyteczne bezpłatne narzędzia internetowe, jakich możesz potrzebować</h2>
+        </div>
+      </section>
+
+      <article id="main-article-content">
+        <!-- About us -->
+        <section id="about_us" class="content-section-styles">
+          <iframe
+            name="hiddenFrame"
+            style="
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              width: 1px;
+              height: 1px;
+              display: none;
+            "
+          ></iframe>
+          <h3>O nas</h3>
+          <div>
+            <p>
+              Strona została wykonana została przede wszystkim po to, żeby użytkownikowi w łatwy,
+              czytelny i darmowy sposób umożliwić wykonywanie codziennych lub sporadycznych
+              obliczeń, konwersji jednostek, manipulacji tekstu i innych narzędzi. Strona została
+              zaprojektowana z myślą o prostocie i intuicyjności, aby użytkownik mógł szybko znaleźć
+              to, czego potrzebuje, bez zbędnych komplikacji. Strona jest responsywna co oznacza, że
+              automatycznie dostosowuje się do rozdzielczości używanego urządzenia, dzięki czemu
+              użytkownicy mogą korzystać ze strony z dowolnego urządzenia z dostępem do internetu.
+              Strona także została wykonana samodzielnie na potrzeby projektu do
+              <a
+                href="https://github.com/Shino-bee"
+                target="_blank"
+                style="text-decoration: underline"
+                >profilu na GitHub</a
+              >
+              oraz z powodów edukacyjnych.
+            </p>
+            <p style="padding-top: 10px">
+              Celem strony jest zapewnienie użytkownikom narzędzi do przeliczania różnych jednostek
+              miar w różnych kategoriach i konwersji pomiędzy nimi, kalkulatorów, przeliczników,
+              manipulatorami tekstu oraz innych, przydatnych narzędzi. Strona oferuje prosty i
+              intuicyjny interfejs z ciemnym motywem (szanujmy wzrok). Ponadto, strona zawiera także
+              dodatkowe informacje na temat konkretnych jednostek, takie jak definicje oraz wartość
+              poszczególnych jednostek, a także opisy poszczególnych narzędzi.
+            </p>
+          </div>
+        </section>
+
+        <!-- Regulations -->
+        <section id="regulations" class="content-section-styles">
+          <h3>Regulamin</h3>
+          <div>
+            <p>
+              Korzystając w jakikolwiek sposób ze strony internetowej "narzędziaonline.net",
+              wyrażasz zgodę na przestrzeganie regulaminu. Jeśli sprzeciwiasz się jakimkolwiek
+              warunkom regulaminu lub jakiejkolwiek wytycznej, jedynym rozwiązaniem jest
+              natychmiastowe zaprzestanie korzystania z tej witryny.
+            </p>
+            <ol>
+              <li>
+                Właścicielstwo strony:<br />
+                Strona "narzedziaonline.netlify.app" jest własnością należącą i zarządzana przez
+                jego właściciela. Wszelkie prawa do treści, materiałów i informacji znajdujących się
+                na stronie są zastrzeżone i chronione prawem autorskim. Właścicielem strony jest
+                Michał Podowski (Shino-bee).
+              </li>
+              <li>
+                Korzystanie ze strony:<br />
+                Nie wolno używać tej strony w sposób niezgodny z prawem lub w sposób naruszający
+                prawa innych osób. Nie wolno również przeprowadzać na stronie żadnych działań, które
+                mogą prowadzić do uszkodzenia, wyłączenia lub przeciążenia jej działania.
+              </li>
+              <li>
+                Odpowiedzialność:<br />
+                Strona i jej właściciel nie ponoszą odpowiedzialności za jakiekolwiek straty, szkody
+                lub problemy wynikające z korzystania z tej strony. Użytkownik korzysta z tej strony
+                na własne ryzyko.
+              </li>
+              <li>
+                Polityka prywatności:<br />
+                Nie zbieramy, nie wynajmujemy, nie udostępniamy ani nie sprzedajemy Twoich danych
+                osobowych.
+              </li>
+              <li>
+                Licencja:<br />
+                Strona objęta jest licencją GNU General Public License v3.0 (GNU GPLv3). Szczegółowe
+                informacje znajdziesz pod adresem
+                <a
+                  href="https://choosealicense.com/licenses/gpl-3.0/"
+                  target="_blank"
+                  style="text-decoration: underline"
+                  >choosealicense.com/licenses/gpl-3.0/</a
+                >.
+              </li>
+              <li>
+                Dokładność informacji:<br />
+                Strona stara się zapewnić jak najdokładniejsze i aktualne informacje. Jednak nie
+                możemy zagwarantować, że wszystkie informacje zawarte na stronie są bezbłędne.
+                Użytkownik ponosi pełną odpowiedzialność za korzystanie z informacji dostępnych na
+                stronie.
+              </li>
+              <li>
+                Zmiany w regulaminie:<br />
+                Zastrzegamy sobie prawo do zmiany regulaminu w dowolnym momencie bez wcześniejszego
+                powiadomienia. Zmiany będą obowiązywać od chwili opublikowania nowej wersji
+                regulaminu na stronie.
+              </li>
+              <li>
+                Postanowienia końcowe:<br />
+                Niniejszy regulamin podlega prawu obowiązującemu w Polsce. W przypadku jakichkolwiek
+                sporów wynikających z korzystania z tej strony, strony powinny podjąć próbę
+                rozwiązania sporu drogą negocjacji.
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="content-section-styles">
+          <h3>Kontakt</h3>
+          <p id="thanks-msg">
+            Dziękujemy! Twoja wiadomość została dostarczona. Postaramy się odpowiedzieć tak szybko
+            jak to tylko możliwe. Możesz teraz przejść do
+            <a href="../../index.html" style="text-decoration: underline">strony głównej</a>.
+          </p>
+          <div id="contact-div">
+            <p style="margin-bottom: 10px">
+              Jeśli masz sugestie dotyczące działania stony, chciałbyś podzielić się swoją opinią
+              lub jeśli po prostu chcesz się skontaktować możesz to zrobić przy użyciu
+              <a
+                href="https://github.com/Shino-bee"
+                target="_blank"
+                style="text-decoration: underline"
+                >GitHuba</a
+              >
+              lub za pomocą poniższego formularza.
+            </p>
+            <form
+              action="https://formspree.io/f/xqkrdkqq"
+              id="contact-form"
+              method="POST"
+              target="hiddenFrame"
+            >
+              <label for="contact-input-name">Twoja nazwa:</label>
+              <input type="text" id="contact-input-name" name="contact-input-name" required />
+              <label for="contact-input-email">Twój email:</label>
+              <input type="email" id="contact-input-email" name="contact-input-email" required />
+              <label for="contact-input-message">Wiadomość:</label>
+              <textarea
+                id="contact-input-message"
+                name="contact-input-message"
+                rows="8"
+                required
+              ></textarea>
+              <input type="hidden" name="_captcha" value="false" />
+              <input
+                type="hidden"
+                name="_subject"
+                value="Darmowe Narzędzia Online - Nowa wiadomość!"
+              />
+              <input type="hidden" name="_template" value="table" />
+              <input type="submit" id="contact-submit" value="Wyślij" />
+            </form>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer id="footer"></footer>
+
+    <script>
+      // Changes content of contact section after sending message
+      const contactForm = document.getElementById("contact-form");
+      const contactSubmit = document.getElementById("contact-submit");
+      contactSubmit.addEventListener("click", () => {
+        if (contactForm.checkValidity() == true) {
+          const contactSectionDiv = document.getElementById("contact-div");
+          const contactThanksMsg = document.getElementById("thanks-msg");
+          contactSectionDiv.style.display = "none";
+          contactThanksMsg.style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>

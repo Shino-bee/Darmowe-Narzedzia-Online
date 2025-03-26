@@ -1,4 +1,4 @@
-# Free Tools Online
+# Darmowe Narzędzia Online (Free Tools Online)
 
 ## Description
 
@@ -6,7 +6,7 @@ Free Tools Online is a Polish-language website offering unit converters, online 
 
 ## Website
 
-The website is available at [narzedziaonline.org](https://narzedziaonline.org)
+The website is available at [narzedziaonline.netlify.app](https://narzedziaonline.netlify.app/)
 
 ## Features
 
@@ -25,4 +25,4 @@ This project is licensed under the GNU General Public License v3.0 (GNU GPLv3). 
 
 ## Contact
 
-For any inquiries or feedback, please reach out via email at shinobee001@gmail.com
+For any inquiries or feedback, please reach out via email at michal.podowski@gmail.com
