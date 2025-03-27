@@ -2,7 +2,7 @@
 
 ## Description
 
-Free Tools Online is a Polish-language website offering unit converters, online calculators, text content creation tools, and other useful utilities.
+The website provides a collection of useful online tools, including unit converters, calculators, text manipulation tools and other. The interface is clean and easy to navigate. It offers practical tools like percentage calculators, text analyzers, and random color generators. This makes it suitable for anyone needing quick, simple online utilities without installing software.
 
 ## Website
 
