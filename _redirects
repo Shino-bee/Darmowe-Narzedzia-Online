@@ -1,0 +1,2 @@
+# Przekierowanie z www na non-www
+https://www.narzedziaonline.netlify.app/*  https://narzedziaonline.netlify.app/:splat  301!
